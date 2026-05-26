@@ -217,8 +217,6 @@ El Sprint 1 está dedicado exclusivamente a establecer la presencia digital de l
 | **Location** | Reunión virtual por Discord |
 | **Prepared By** | `Philco Mota, Katty` |
 | **Attendees** | Armestar Felipa, Adrian / García Paredes, Victor / Navarro Aldoradin, Carolina / Philco Mota, Katty / Tuesta Girón, Kiara |
-| **Sprint n - 1 Review Summary** | No aplica. Este es el primer sprint del proyecto |
-| **Sprint n - 1 Retrospective Summary** | No aplica. Este es el primer sprint del proyecto  |
 | **Sprint 1 Goal** | Establecer la presencia digital de GoldCheck mediante el diseño, desarrollo y despliegue de la Landing Page. Comunicaremos claramente nuestra propuesta de valor: garantizar la trazabilidad, transparencia y confianza en la cadena de suministro de oro y joyas desde minería responsable hasta joyerías auténticas y consumidores conscientes. El éxito se confirmará cuando visitantes accedan al sitio web en vivo y comprendan el problema que resolvemos y los beneficios que ofrecemos para minería, joyería y consumidores finales. |
 | **Sprint 1 Velocity** | 20 Story Points |
 | **Sum of Story Points** | `16` |
