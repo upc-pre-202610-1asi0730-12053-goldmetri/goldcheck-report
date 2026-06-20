@@ -35,7 +35,7 @@
 <b>Competidor 2: Caterpillar MineStar / Modular (Komatsu)</b></td>
 <td>
 
-<img src="https://assets.weforum.org/organization/image/aUNcA6Ix6AURcKk26xlf-Uqf09QeNS3cdfx1TIpWMuo.jpg" alt="Logo de Circulor"><br>
+<img src="../assets/img/chapter-ii/logo-circulor.jpg" alt="Logo de Circulor"><br>
 
 <img src="https://static1.squarespace.com/static/615d3194538126232ff12aec/t/61f9e2edf81ca15cc6aaa567/1697418174626/TraceMark_vert_pos_RGB.png?format=1500w" alt="Logo de Tracemark">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAzb4D0LBSoRUPefrRH0hX0NUO6zvrLbQXg&s" alt="Logo de Minehub">
