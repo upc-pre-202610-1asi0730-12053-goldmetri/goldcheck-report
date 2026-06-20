@@ -253,8 +253,6 @@ El objetivo principal de este Sprint es contar con un sitio web estático desple
 
 #### 5.2.1.4. Development Evidence for Sprint Review
 
-#### 5.2.1.4. Development Evidence for Sprint Review
-
 Durante el Sprint 1, el equipo se enfocó en establecer la base técnica de **GoldCheck** mediante el uso de estándares web modernos: HTML5 para la estructura y CSS3 para el diseño visual. Se priorizó una arquitectura de estilos modular, donde cada componente de la Landing Page cuenta con su propia hoja de estilos, facilitando el trabajo paralelo y evitando conflictos en el código.
 
 | Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
@@ -307,22 +305,6 @@ Durante el Sprint 1 se realizó el despliegue exitoso del Landing Page utilizand
 
 Durante este sprint, la colaboración se gestionó íntegramente a través de GitHub. Se utilizaron Pull Requests (PRs) para integrar el trabajo de la rama `develop` a `main`.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-![Team Collaboration Sprint 1](../assets/img/chapter-v/collaboration.png)
-
-## Anexos
-Vídeo Exposición: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDMT9TjIRw1RLKM_7j2hos-AfLlqFAwuKrcE9YKUDOwdWI?e=055arn&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
-=======
->LANDING PAGE: 
-
-![Team Collaboration Sprint 1](../assets/img/landingpage-contributors.png)
-
->REPORT:
-
-![Team Collaboration Sprint 2](../assets/img/chapter-v/report-contributors.png)
->>>>>>> cb66ab435faa1d5e0617dc17860327cd788a8ad9
-=======
 ![Team Collaboration Sprint 1](../assets/img/chapter-v/sprint-collaboration.png)
 
 ### 5.2.2. Sprint 2
@@ -487,31 +469,340 @@ Durante este Sprint la colaboración se gestionó íntegramente a través de Git
 ![Team Collaboration Sprint 2](../assets/img/chapter-v/sprint-collaboration.png)
 
 
+### 5.2.3. Sprint 3
+
+#### 5.2.3.1. Sprint Planning 3
+
+El Sprint 3 está dedicado a la implementación de la primera versión de los Web Services (Backend) del sistema GoldCheck, cubriendo los bounded contexts de Gestión de Extracción y la capa de actualización de lotes. Adicionalmente, se inician las Validation Interviews con los tres segmentos objetivo.
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Sprint #** | Sprint 3 |
+| **Date** | _(completar — fecha real de la reunión)_ |
+| **Time** | _(completar)_ |
+| **Location** | Reunión virtual por Discord |
+| **Prepared By** | _(completar)_ |
+| **Attendees** | Armestar Felipa, Adrian / García Paredes, Victor / Navarro Aldoradin, Carolina / Philco Mota, Katty / Tuesta Girón, Kiara |
+| **Sprint 2 Review Summary** | Se completó el desarrollo y despliegue del Frontend Web Application de GoldCheck en Vue 3 con PrimeVue, integrado con MockAPI. Se implementaron las vistas para los tres segmentos objetivo: dashboard de trazabilidad y monitoreo para mineras, panel de verificación para joyerías y vista de consulta de origen ético para consumidores. Se corrigieron los diagramas de clases y base de datos según las observaciones del docente. |
+| **Sprint 2 Retrospective Summary** | El equipo identificó la necesidad de iniciar el desarrollo del backend real (ASP.NET Core/C#) para reemplazar la dependencia de MockAPI. Se acordó priorizar la configuración del entorno de desarrollo backend y la estructura del proyecto siguiendo la arquitectura DDD definida en el Capítulo IV. |
+| **Sprint 3 Goal** | Nuestro enfoque es implementar y desplegar la primera versión de los Web Services de GoldCheck (ASP.NET Core / C#). Creemos que esto entrega a los segmentos de empresas mineras y joyerías los endpoints necesarios para registrar yacimientos, volquetes, asignar responsables, tipificar minerales y actualizar el estado de los lotes de forma programática. Esto se confirmará cuando los endpoints estén documentados con Swagger/OpenAPI, desplegados en un entorno accesible y respondan correctamente a las peticiones del frontend. |
+| **Sprint 3 Velocity** | 12 Story Points |
+| **Sum of Story Points** | 12 |
+
+#### 5.2.3.2. Aspect Leaders and Collaborators
+
+Para este Sprint 3 enfocado en el desarrollo del Backend (Web Services) y la documentación de la API, la distribución de liderazgo (L) y colaboración (C) es la siguiente:
+
+| Team Member (Last Name, First Name) | GitHub Username | Backend API (ASP.NET Core) | Database Design (SQL Server) | DevOps & Deployment | Sprint Documentation |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| Armestar Felipa, Adrian Andres | Adrian5102 | C | C | C | C |
+| García Paredes, Victor Manuel | vicmacode | L | C | L | C |
+| Navarro Aldoradin, Carolina Celeste | genixmvp | C | C | C | L |
+| Philco Mota, Katty Yolanda | kattyph | L | L | C | C |
+| Tuesta Girón, Kiara Lucia | kitu05g | C | L | C | C |
+
+> **L** = Leader &nbsp;|&nbsp; **C** = Collaborator
+
+#### 5.2.3.3. Sprint Backlog 3
+
+El objetivo principal de este Sprint es contar con la primera versión de los Web Services desplegados que soporten las operaciones de gestión de extracción minera.
+
+| **Sprint 3** | **User Story** | | **Work-Item / Task** | | | | |
+| :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| | **ID** | **Título** | **ID** | **Título** | **Descripción** | **Estimación (h)** | **Asignado a** | **Status** |
+| | US11 | Registro de Yacimiento | T01 | Implementar endpoint POST /api/mining/deposits | Desarrollar el endpoint para registrar yacimientos con coordenadas GPS y validaciones de rango geográfico | _(completar)_ | _(completar)_ | _(completar)_ |
+| | US11 | Registro de Yacimiento | T02 | Crear entidad y migración Deposit | Definir la entidad de dominio, el DbContext y la migración de base de datos para yacimientos | _(completar)_ | _(completar)_ | _(completar)_ |
+| | US12 | Registro de Volquetes | T03 | Implementar endpoint POST /api/mining/trucks | Desarrollar el endpoint para registrar vehículos de carga con validación de placa duplicada | _(completar)_ | _(completar)_ | _(completar)_ |
+| | US12 | Registro de Volquetes | T04 | Crear entidad y migración HaulTruck | Definir la entidad de dominio y migración para volquetes | _(completar)_ | _(completar)_ | _(completar)_ |
+| | US15 | Asignación de Responsables | T05 | Implementar endpoint PUT /api/mining/batches/{id}/assignee | Desarrollar el endpoint para asignar conductor a un lote con validación de disponibilidad | _(completar)_ | _(completar)_ | _(completar)_ |
+| | US16 | Tipificación de Mineral | T06 | Implementar endpoint PUT /api/mining/batches/{id}/mineral-type | Desarrollar el endpoint para clasificar el tipo de mineral con bloqueo de edición post-transporte | _(completar)_ | _(completar)_ | _(completar)_ |
+| | TS05 | Endpoint de Actualización de Lotes | T07 | Implementar endpoint PUT /api/mining/batches/{id}/status | Desarrollar el endpoint para actualizar el estado del lote durante su transporte | _(completar)_ | _(completar)_ | _(completar)_ |
+| | TS05 | Endpoint de Actualización de Lotes | T08 | Configurar proyecto ASP.NET Core y estructura DDD | Inicializar el proyecto backend con la arquitectura de capas (Domain, Application, Infrastructure, Presentation) | _(completar)_ | _(completar)_ | _(completar)_ |
+
+#### 5.2.3.4. Development Evidence for Sprint Review
+
+_(Completar con los commits reales del repositorio `goldcheck-platform` una vez exista avance en el backend.)_
+
+| Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| goldcheck-platform | develop | _(completar)_ | _(completar)_ | _(completar)_ | _(completar)_ |
+
+#### 5.2.3.5. Execution Evidence for Sprint Review
+
+_(Completar con capturas de pantalla de los endpoints funcionando, vistas de Swagger/OpenAPI y evidencia de las respuestas HTTP.)_
+
+#### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+En este Sprint se implementó la primera versión de los Web Services de GoldCheck utilizando ASP.NET Core con C#. La documentación de los endpoints se generó automáticamente mediante Swagger (OpenAPI).
+
+_(Completar con la tabla de endpoints documentados y capturas de Swagger una vez desplegado el backend.)_
+
+| Endpoint | Método HTTP | Acción | Enlace Swagger |
+| :--- | :---: | :--- | :--- |
+| `/api/mining/deposits` | POST | Registrar un nuevo yacimiento | _(completar)_ |
+| `/api/mining/trucks` | POST | Registrar un nuevo volquete | _(completar)_ |
+| `/api/mining/batches/{id}/assignee` | PUT | Asignar conductor a un lote | _(completar)_ |
+| `/api/mining/batches/{id}/mineral-type` | PUT | Tipificar mineral del lote | _(completar)_ |
+| `/api/mining/batches/{id}/status` | PUT | Actualizar estado del lote | _(completar)_ |
+
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+_(Completar con evidencia del despliegue del backend. Incluir: plataforma utilizada (Azure, Railway, etc.), URL del servicio desplegado, capturas del proceso de despliegue.)_
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint
+
+_(Completar con capturas de los insights de colaboración del repositorio `goldcheck-platform`: contributors, commits por integrante, network graph, Pull Requests.)_
+
+
+## 5.3. Validation Interviews
+
+### 5.3.1. Diseño de Entrevistas de Validación
+
+Las entrevistas de validación tienen como objetivo evaluar la usabilidad y la percepción de valor del Landing Page y la Web Application de GoldCheck por parte de usuarios representativos de cada segmento objetivo. Se diseñaron guías diferenciadas para los tres segmentos, cada una con tareas guiadas (user flow) y preguntas complementarias post-tarea.
+
+#### Segmento 1: Empresas Mineras
+
+**Elementos a validar:** Landing Page + Web Application (Dashboard Minero)
+
+**Tareas guiadas:**
+1. Ingresar al Landing Page y localizar la propuesta de valor dirigida a empresas mineras.
+2. Navegar hasta la sección de planes de suscripción e identificar cuál se adapta mejor a su operación.
+3. Acceder a la Web Application e iniciar sesión con las credenciales de prueba proporcionadas.
+4. En el Dashboard Minero, localizar la sección de registro de lotes y simular la creación de un nuevo lote.
+5. Explorar la vista de monitoreo de transporte e interpretar la información de trazabilidad mostrada.
+
+**Preguntas complementarias:**
+1. ¿La propuesta de valor le resultó clara al ingresar al sitio web? ¿Entendió rápidamente qué problema resuelve GoldCheck?
+2. ¿Los planes de suscripción presentan información suficiente para tomar una decisión?
+3. ¿La navegación dentro del Dashboard Minero le resultó intuitiva? ¿Encontró fácilmente las funcionalidades principales?
+4. ¿La información de trazabilidad y monitoreo le parece útil para su operación diaria?
+5. ¿Qué funcionalidad adicional esperaría encontrar en la plataforma?
+6. Del 1 al 10, ¿qué tan probable es que recomendaría GoldCheck a otra empresa minera?
+
+#### Segmento 2: Joyerías
+
+**Elementos a validar:** Landing Page + Web Application (Dashboard Joyería)
+
+**Tareas guiadas:**
+1. Ingresar al Landing Page y localizar la sección dirigida a joyerías.
+2. Acceder a la Web Application e iniciar sesión con las credenciales de prueba proporcionadas.
+3. En el Dashboard de Joyería, buscar un lote de oro por código de proveedor y verificar su origen.
+4. Explorar la sección de generación de código QR para una joya registrada.
+5. Visualizar el certificado de autenticidad asociado a una joya.
+
+**Preguntas complementarias:**
+1. ¿La Landing Page le comunicó claramente los beneficios de GoldCheck para su negocio?
+2. ¿Le resultó sencillo verificar el origen del oro a través de la plataforma?
+3. ¿La funcionalidad de generación de QR le parece útil para ofrecer garantía a sus clientes?
+4. ¿El certificado de autenticidad contiene la información que usted consideraría necesaria?
+5. ¿Qué barrera o preocupación tendría para adoptar GoldCheck en su joyería?
+6. Del 1 al 10, ¿qué tan probable es que recomendaría GoldCheck a otra joyería?
+
+#### Segmento 3: Consumidores Finales
+
+**Elementos a validar:** Landing Page + Web Application (Vista de Consumidor)
+
+**Tareas guiadas:**
+1. Ingresar al Landing Page y comprender el mensaje dirigido al consumidor final.
+2. Simular el escaneo de un código QR (o ingresar manualmente el código proporcionado).
+3. Interpretar la información de trazabilidad mostrada: origen del mineral, recorrido, pureza y joyería certificada.
+4. Explorar la opción de compartir la trazabilidad de la joya.
+
+**Preguntas complementarias:**
+1. ¿Entendió el concepto de trazabilidad de oro al visitar el sitio web?
+2. ¿La información mostrada tras escanear el QR le genera confianza sobre la autenticidad de la joya?
+3. ¿Los datos de origen y pureza son comprensibles, o requieren explicación adicional?
+4. ¿Compartiría la trazabilidad de su joya en redes sociales? ¿Por qué?
+5. ¿Pagaría un precio mayor por una joya que garantice trazabilidad ética? ¿Cuánto más?
+6. Del 1 al 10, ¿qué tan probable es que usaría GoldCheck antes de comprar una joya?
+
+### 5.3.2. Registro de Entrevistas de Validación
+
+_(Completar una vez realizadas las entrevistas. Se requieren entre 3 y 5 entrevistas por segmento.)_
+
+#### Segmento 1: Empresas Mineras
+
+| Segmento: Empresas Mineras | Entrevista #1 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+| Segmento: Empresas Mineras | Entrevista #2 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+| Segmento: Empresas Mineras | Entrevista #3 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+<div style="page-break-after: always"></div>
+
+#### Segmento 2: Joyerías
+
+| Segmento: Joyerías | Entrevista #1 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+| Segmento: Joyerías | Entrevista #2 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+| Segmento: Joyerías | Entrevista #3 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+<div style="page-break-after: always"></div>
+
+#### Segmento 3: Consumidores Finales
+
+| Segmento: Usuario consumidor | Entrevista #1 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+| Segmento: Usuario consumidor | Entrevista #2 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+| Segmento: Usuario consumidor | Entrevista #3 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+<div style="page-break-after: always"></div>
+
+**URL del video consolidado de Validation Interviews (Microsoft Stream):**
+
+Nomenclatura: `upc-pre-202610-1asi0730-12053-GoldMetrics-validation-sprint-3`
+
+URL: _(completar)_
+
+### 5.3.3. Evaluaciones según heurísticas
+
+En esta sección se presenta la evaluación heurística cruzada realizada por el equipo del proyecto NutriSense sobre la Landing Page y Web Application de GoldCheck.
+
+_(Insertar aquí el documento de evaluación heurística entregado por el equipo NutriSense. El formato esperado incluye: evaluador(es), principios heurísticos evaluados (Nielsen), hallazgos con severidad, capturas de pantalla y recomendaciones de mejora.)_
+
+| # | Problema | Heurística violada | Severidad (1-4) | Recomendación |
+| :---: | :--- | :--- | :---: | :--- |
+| _(completar)_ | _(completar)_ | _(completar)_ | _(completar)_ | _(completar)_ |
+
+
+## 5.4. Video About-the-Product
+
+**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-product-av2`
+
+**Requisitos del video:**
+- Duración: entre 1 y 3 minutos.
+- Incluir al menos un testimonio de usuario por cada segmento objetivo (empresa minera, joyería, consumidor final).
+- Publicar en Microsoft Stream y YouTube.
+- Incrustar en el Landing Page de GoldCheck.
+
+**URL Microsoft Stream:** _(completar)_
+
+**URL YouTube:** _(completar)_
+
+
 ## Anexos Importantes
+
 URL de la Mockapi desplegado: https://goldcheck-mockapi-production.up.railway.app
 
 URL del Frontend Web Application desplegado: https://luxury-beignet-b30759.netlify.app/
 
 URL del Landing Page integrado con nuestro Frontend: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
 
-URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQB4rryG93n3TJmOjq45RPFXAXI5UyXcV4nDgKvH_Tpa_eU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=WZRYZE  
+URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQB4rryG93n3TJmOjq45RPFXAXI5UyXcV4nDgKvH_Tpa_eU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=WZRYZE
 
-URL upc-pre-202610-1asi0730-12053-GoldMetrics-needfinding-sprint-1 : https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDu6FgeSAQyTIWq7Mi2D3PWAYw61dd-gFnSQCx1kfl35Zs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=OlpPYE 
+URL upc-pre-202610-1asi0730-12053-GoldMetrics-needfinding-sprint-1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDu6FgeSAQyTIWq7Mi2D3PWAYw61dd-gFnSQCx1kfl35Zs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=OlpPYE
 
-## Conclusiones:
+## Conclusiones
+
 **AV1**
 - Validación del problema con usuarios reales: A través de las entrevistas realizadas a los tres segmentos objetivo (empresas mineras, joyerías y consumidores finales), se confirmó que la falta de trazabilidad en la cadena mineral es un problema tangible y costoso. El 100% de los entrevistados mostró interés en herramientas digitales que permitan verificar el origen y autenticidad de los minerales, lo que validó la propuesta de valor de GoldCheck como solución viable para el mercado peruano.
-
 - Definición arquitectónica basada en DDD: La aplicación del enfoque Domain-Driven Design permitió identificar once bounded contexts con responsabilidades claramente delimitadas, desde la extracción del mineral hasta la certificación de la joya. Esta decisión arquitectónica sentó una base sólida y escalable para el desarrollo del producto, evitando acoplamientos innecesarios entre módulos y facilitando el trabajo distribuido del equipo.
 - Alineación entre necesidades del usuario y funcionalidades del sistema: El proceso de Needfinding, junto con la elaboración del Impact Mapping y el Product Backlog, permitió conectar directamente las necesidades identificadas en las entrevistas con las User Stories priorizadas. Cada funcionalidad definida responde a un problema real de alguno de los segmentos, garantizando que el producto tenga orientación al valor desde sus primeras etapas.
 
 **TB1**
-
 - Implementación frontend coherente con la arquitectura DDD: El desarrollo del Single Page Application en Vue 3 respetó fielmente la estructura de bounded contexts definida en el AV1. Cada módulo del frontend sigue una arquitectura de cuatro capas (Presentation, Application, Domain e Infrastructure), lo que facilitó el trabajo paralelo entre integrantes, redujo conflictos en el código y produjo un sistema organizado y mantenible desde la primera iteración funcional.
 - Trazabilidad completa del ciclo mineral demostrada en el producto: Al finalizar el TB1, GoldCheck cuenta con flujos funcionales que cubren el recorrido completo del mineral: desde el registro del lote en la mina, el monitoreo del transporte, la recepción en planta con cálculo de merma, la validación y certificación en la joyería, hasta el escaneo QR por parte del consumidor final. Esto demuestra que el equipo logró traducir la visión del producto en funcionalidades reales y desplegadas, cerrando el ciclo de trazabilidad que motivó el proyecto desde su inicio.
-- Durante el TB1, el equipo generó una documentación arquitectónica completa bajo el modelo C4, abarcando desde el diagrama de contexto del sistema hasta el zoom-in de la capa de presentación por cada bounded context. Esta documentación no solo refleja las decisiones técnicas tomadas durante el desarrollo, sino que garantiza la mantenibilidad y escalabilidad del proyecto hacia futuras iteraciones, estableciendo un estándar de calidad arquitectónica alineado con las buenas prácticas de Domain-Driven Design.
+- Documentación arquitectónica completa bajo el modelo C4: Durante el TB1, el equipo generó una documentación arquitectónica completa bajo el modelo C4, abarcando desde el diagrama de contexto del sistema hasta el zoom-in de la capa de presentación por cada bounded context. Esta documentación no solo refleja las decisiones técnicas tomadas durante el desarrollo, sino que garantiza la mantenibilidad y escalabilidad del proyecto hacia futuras iteraciones, estableciendo un estándar de calidad arquitectónica alineado con las buenas prácticas de Domain-Driven Design.
 
-## Bibliografia:
+**AV2**
+- Transición de mock API a Web Services reales: En el Sprint 3, el equipo dio el paso de reemplazar la capa simulada (MockAPI) por una implementación real de Web Services en ASP.NET Core con C#, siguiendo la arquitectura DDD definida desde el AV1. Esto representa la maduración técnica del proyecto, pasando de prototipos funcionales a una plataforma con backend real capaz de persistir datos, validar reglas de negocio y exponer endpoints documentados mediante Swagger/OpenAPI.
+- Validación directa con usuarios reales de los tres segmentos: Las Validation Interviews permitieron confrontar el producto implementado con las expectativas reales de empresas mineras, joyerías y consumidores finales. Este ciclo de feedback directo sobre el Landing Page y la Web Application confirma que el equipo no solo construye funcionalidades, sino que valida continuamente su utilidad y usabilidad con los actores del mercado objetivo.
+- Evaluación cruzada de calidad mediante heurísticas: La evaluación heurística realizada por el equipo NutriSense sobre GoldCheck proporcionó una perspectiva externa e imparcial sobre la usabilidad de la plataforma, identificando áreas de mejora que el equipo propio podría haber pasado por alto. Este ejercicio de revisión cruzada fortalece la calidad del producto y fomenta una cultura de mejora continua basada en principios de usabilidad reconocidos (Nielsen).
+
+## Bibliografía
+
 Canchari, J. (2025). Las pérdidas económicas por minería ilegal equivalen al 2,5% del PBI peruano. Fiscalías Especializadas en Materia Ambiental.
 
 Cruz, R. (2024). Minería ilegal incorpora más de un millón de onzas de oro al mercado formal. Sociedad Nacional de Minería, Petróleo y Energía.
@@ -521,4 +812,3 @@ DesdeAdentro. (2025). Trazabilidad del oro: el desafío de separar el mercado in
 Ministerio de Energía y Minas. (2024). Anuario Minero 2024. Gobierno del Perú. https://www.minem.gob.pe
 
 Núñez, R. (2025). Análisis de producción y exportación de oro en el Perú: brecha de 100 mil toneladas. Anuario Minero 2024, Minem.
->>>>>>> develop
