@@ -478,10 +478,10 @@ El Sprint 3 está dedicado a la implementación de la primera versión de los We
 | Campo | Detalle |
 | :--- | :--- |
 | **Sprint #** | Sprint 3 |
-| **Date** | _(completar — fecha real de la reunión)_ |
-| **Time** | _(completar)_ |
+| **Date** | `2026-06-04` |
+| **Time** | `8:00 pm` |
 | **Location** | Reunión virtual por Discord |
-| **Prepared By** | _(completar)_ |
+| **Prepared By** | `Philco Mota, Katty Yolanda` |
 | **Attendees** | Armestar Felipa, Adrian / García Paredes, Victor / Navarro Aldoradin, Carolina / Philco Mota, Katty / Tuesta Girón, Kiara |
 | **Sprint 2 Review Summary** | Se completó el desarrollo y despliegue del Frontend Web Application de GoldCheck en Vue 3 con PrimeVue, integrado con MockAPI. Se implementaron las vistas para los tres segmentos objetivo: dashboard de trazabilidad y monitoreo para mineras, panel de verificación para joyerías y vista de consulta de origen ético para consumidores. Se corrigieron los diagramas de clases y base de datos según las observaciones del docente. |
 | **Sprint 2 Retrospective Summary** | El equipo identificó la necesidad de iniciar el desarrollo del backend real (ASP.NET Core/C#) para reemplazar la dependencia de MockAPI. Se acordó priorizar la configuración del entorno de desarrollo backend y la estructura del proyecto siguiendo la arquitectura DDD definida en el Capítulo IV. |
