@@ -1106,6 +1106,18 @@ Hacer que el ícono de notificaciones despliegue el listado de notificaciones (p
 **URL YouTube:** _(completar)_
 
 
+## 5.5. Video About-the-Team
+
+**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-team-av2`
+
+**Requisitos del video:**
+- Duración: máximo 3 minutos.
+- Presentación de cada integrante del equipo, su rol y contribución al proyecto.
+- Publicar en Microsoft Stream.
+
+**URL Microsoft Stream:** _(completar)_
+
+
 ## Anexos Importantes
 
 URL de la Mockapi desplegado: https://goldcheck-mockapi-production.up.railway.app
