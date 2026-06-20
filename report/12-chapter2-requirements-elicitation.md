@@ -28,17 +28,17 @@
   <b>Competidor 1: Geotab (Minería)</b>
 </td>
 <td>
-<img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlTyO3BqONQBYmuLyd2iHow_VHAiaYqmuGGw&s" alt= "Logo de MineStar" width=""><br>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlTyO3BqONQBYmuLyd2iHow_VHAiaYqmuGGw&s" alt="Logo de MineStar"><br>
 
-<img src= "https://upload.wikimedia.org/wikipedia/commons/6/62/Modular_Mining_Systems_logo.svg" alt= "Logo de Modular Mining" width=""><br>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Modular_Mining_Systems_logo.svg" alt="Logo de Modular Mining"><br>
 
 <b>Competidor 2: Caterpillar MineStar / Modular (Komatsu)</b></td>
 <td>
 
-<img src= "https://assets.weforum.org/organization/image/aUNcA6Ix6AURcKk26xlf-Uqf09QeNS3cdfx1TIpWMuo.jpg" alt= "Logo de Circulor" width=""><br>
+<img src="https://assets.weforum.org/organization/image/aUNcA6Ix6AURcKk26xlf-Uqf09QeNS3cdfx1TIpWMuo.jpg" alt="Logo de Circulor"><br>
 
-<img src= "https://static1.squarespace.com/static/615d3194538126232ff12aec/t/61f9e2edf81ca15cc6aaa567/1697418174626/TraceMark_vert_pos_RGB.png?format=1500w" alt= "Logo de Tracemark" width="">
-<img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAzb4D0LBSoRUPefrRH0hX0NUO6zvrLbQXg&s" alt= "Logo de Minehub" width="">
+<img src="https://static1.squarespace.com/static/615d3194538126232ff12aec/t/61f9e2edf81ca15cc6aaa567/1697418174626/TraceMark_vert_pos_RGB.png?format=1500w" alt="Logo de Tracemark">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAzb4D0LBSoRUPefrRH0hX0NUO6zvrLbQXg&s" alt="Logo de Minehub">
 <br>
 <b>Competidor 3: Circulor / Tracemark / MineHub</b></td>
 </tr>
