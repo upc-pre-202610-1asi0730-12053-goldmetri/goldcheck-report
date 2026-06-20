@@ -1,14 +1,12 @@
-<!-- Cover -->
 <div align="center">
  <img src="assets/img/logoUPC.png">
-</div>
 
 # UNIVERSIDAD PERUANA DE CIENCIAS APLICADAS
 
 ***Ingeniería de Software***
 
-**Curso:** 1ASI0730 | Aplicaciones Web
-**NRC:** 12053
+**Curso:** 1ASI0730 | Aplicaciones Web  
+**NRC:** 12053  
 **Ciclo:** 5  
 **Docente:** Efraín Ricardo Bautista Ubillús  
 
@@ -18,20 +16,18 @@
 
 #### *Producto:* GoldCheck
 
-
 ***Relación de integrantes:***
 
-| INTEGRANTES | CÓDIGO |
-| :---: | :---: |
-| Armestar Felipa, Adrian Andres | U202410084 |
-| García Paredes, Victor Manuel | U202012001 |
-| Navarro Aldoradin, Carolina Celeste  | U20241B962 |
-| Philco Mota, Katty Yolanda | U202416107 |
-| Tuesta Girón, Kiara Lucia | U20251i477 |
+<table style="margin: 0 auto;">
+<tr><th>INTEGRANTES</th><th>CÓDIGO</th></tr>
+<tr><td>Armestar Felipa, Adrian Andres</td><td>U202410084</td></tr>
+<tr><td>García Paredes, Victor Manuel</td><td>U202012001</td></tr>
+<tr><td>Navarro Aldoradin, Carolina Celeste</td><td>U20241B962</td></tr>
+<tr><td>Philco Mota, Katty Yolanda</td><td>U202416107</td></tr>
+<tr><td>Tuesta Girón, Kiara Lucia</td><td>U20251i477</td></tr>
+</table>
 
-<!-- Cover -->
-<div align="center">
- <strong>Abril, 2026</strong>
+<strong>Junio, 2026</strong>
 
 </div>
 
