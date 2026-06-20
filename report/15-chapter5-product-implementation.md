@@ -748,13 +748,332 @@ URL: _(completar)_
 
 ### 5.3.3. Evaluaciones según heurísticas
 
-En esta sección se presenta la evaluación heurística cruzada realizada por el equipo del proyecto NutriSense sobre la Landing Page y Web Application de GoldCheck.
+#### UX Heuristics & Principles Evaluation
+**Usability – Inclusive Design – Information Architecture**
 
-_(Insertar aquí el documento de evaluación heurística entregado por el equipo NutriSense. El formato esperado incluye: evaluador(es), principios heurísticos evaluados (Nielsen), hallazgos con severidad, capturas de pantalla y recomendaciones de mejora.)_
+| Campo | Detalle |
+|-------|---------|
+| CARRERA | Ingeniería de Software |
+| CURSO | 1ASI0730 Aplicaciones Web |
+| SECCIÓN | NRC 12053 |
+| PROFESORES | Todos |
+| AUDITOR | NutriSense Team |
+| CLIENTE(S) | Olenka Del Aguila, Angela Espinoza, Joel Mora, Rose Vergaray, Angel Villarreal |
+| SITE A EVALUAR | Landing Page: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/ / Web Application: https://goldcheck-goldmetrics.netlify.app/ |
 
-| # | Problema | Heurística violada | Severidad (1-4) | Recomendación |
-| :---: | :--- | :--- | :---: | :--- |
-| _(completar)_ | _(completar)_ | _(completar)_ | _(completar)_ | _(completar)_ |
+---
+
+#### TAREAS A EVALUAR
+
+El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+
+1. Navegación general del Landing Page y comportamiento responsive del header
+2. Inicio de sesión (login) y cambio de idioma desde la pantalla de autenticación
+3. Registro de un nuevo usuario (datos personales y teléfono)
+4. Selección de un plan de suscripción durante el alta
+5. Registro de un método de pago (tarjeta de crédito) para la suscripción
+6. Vinculación de una joya y registro de su pureza
+7. Validación de joyas contra el inventario existente
+8. Registro de operaciones de material (peso)
+9. Registro y gestión de incidentes (new incident)
+10. Uso del buscador del header
+11. Navegación del dashboard y sus controles
+12. Gestión de perfil, locación y guardado de cambios
+13. Acceso y comportamiento del centro de notificaciones
+14. Comportamiento responsive del sidebar de la Web Application
+
+---
+
+#### ESCALA DE SEVERIDAD
+
+| Nivel | Descripción |
+|-------|-------------|
+| 1 | Problema superficial: puede ser fácilmente superado por el usuario u ocurre con muy poca frecuencia. No necesita ser corregido a menos que exista disponibilidad de tiempo. |
+| 2 | Problema menor: puede ocurrir con más frecuencia o es algo más difícil de superar para el usuario. Se le debería asignar una prioridad baja resolverlo de cara al siguiente release. |
+| 3 | Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante que sea corregido y se le debe asignar una prioridad alta. |
+| 4 | Problema muy grave: un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento. |
+
+---
+
+#### TABLA RESUMEN
+
+| # | Problema | Severidad | Heurística / Principio violado | Plan afectado |
+|---|----------|-----------|-------------------------------|---------------|
+| 1 | El header del Landing Page no colapsa en un menú hamburguesa en vista responsive y se ve amontonado | 2 | Usability: Diseño estético y minimalista / Consistencia y estándares | Todos |
+| 2 | La pantalla de login no ofrece un selector de idioma | 2 | Usability: Flexibilidad y eficiencia de uso / Inclusive Design: Offer choice | Todos |
+| 3 | El campo de teléfono en el registro permite ingresar texto | 2 | Usability: Prevención de errores | Todos |
+| 4 | El registro/login no muestra la selección de planes y asigna uno automáticamente | 3 | Usability: Control y libertad del usuario | Todos |
+| 5 | El registro de tarjeta de crédito permite fechas de vencimiento pasadas | 2 | Usability: Prevención de errores | Todos |
+| 6 | No es posible guardar la tarjeta para reutilizarla en futuros pagos | 2 | Usability: Flexibilidad y eficiencia de uso | Todos |
+| 7 | El campo "Pureza" al vincular una joya permite ingresar letras aleatorias | 3 | Usability: Prevención de errores | Todos |
+| 8 | Es posible vincular una joya que no existe en el inventario | 3 | Usability: Prevención de errores | Todos |
+| 9 | El mensaje de error "weightExceedsInitial" no está en lenguaje natural | 2 | Usability: Ayuda a reconocer, diagnosticar y recuperarse de errores / Coincidencia con el mundo real | Todos |
+| 10 | Al crear y registrar un nuevo incidente, no se guarda lo procesado | 3 | Usability: Visibilidad del estado del sistema / Prevención de errores | Todos |
+| 11 | El perfil permite modificar absolutamente todos los datos sin verificación | 3 | Usability: Prevención de errores | Todos |
+| 12 | El perfil no ofrece un dropdown de locaciones (entrada libre) | 2 | Usability: Prevención de errores / Consistencia y estándares | Todos |
+| 13 | "Save Changes" en el perfil no muestra un modal de confirmación | 2 | Usability: Prevención de errores / Control y libertad del usuario | Todos |
+| 14 | El sidebar de la Web Application no colapsa en hamburguesa en vista responsive | 2 | Usability: Consistencia y estándares / Diseño estético y minimalista | Todos |
+| 15 | El textbox de búsqueda del header no comunica para qué sirve | 2 | Usability: Reconocimiento antes que recuerdo / Ayuda y documentación | Todos |
+| 16 | El botón "Today" del dashboard no comunica su función | 1 | Usability: Reconocimiento antes que recuerdo / Ayuda y documentación | Todos |
+| 17 | El botón de notificaciones redirige a las opciones de notificaciones en lugar de mostrarlas | 2 | Usability: Coincidencia entre el sistema y el mundo real / Consistencia y estándares | Todos |
+
+---
+
+#### DESCRIPCIÓN DE PROBLEMAS
+
+---
+
+##### 1. Landing Page
+
+**PROBLEMA #1:** El header del Landing Page no colapsa en un menú hamburguesa en vista responsive
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Diseño estético y minimalista / Consistencia y estándares
+- **Plan afectado:** Todos
+
+**Problema:**
+Al reducir el ancho de la ventana o acceder desde un dispositivo móvil, los elementos de navegación del header del Landing Page se mantienen en línea y se ven amontonados, sin colapsar en un menú hamburguesa. Esto rompe la convención estándar de navegación responsive que el usuario espera en móvil y deteriora la legibilidad y la jerarquía visual del encabezado.
+
+**Recomendación:**
+Implementar un menú hamburguesa que agrupe los enlaces de navegación por debajo de un breakpoint definido (por ejemplo, < 768px), liberando espacio en el header y manteniendo la coherencia con los patrones de navegación móvil habituales.
+
+---
+
+##### 2. Autenticación (Login y Registro)
+
+**PROBLEMA #2:** La pantalla de login no ofrece un selector de idioma
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Flexibilidad y eficiencia de uso / Inclusive Design — Offer choice
+- **Plan afectado:** Todos
+
+**Problema:**
+La pantalla de inicio de sesión no incluye ningún control para cambiar de idioma. El usuario que no domina el idioma por defecto no puede ajustarlo antes de autenticarse, quedando obligado a navegar el flujo de acceso sin la posibilidad de elegir el idioma que mejor comprende.
+
+**Recomendación:**
+Agregar un language switcher visible en la pantalla de login (y de registro), consistente con el que exista dentro de la aplicación, para que el usuario pueda seleccionar su idioma desde el primer punto de contacto.
+
+---
+
+**PROBLEMA #3:** El campo de teléfono en el registro permite ingresar texto
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Prevención de errores
+- **Plan afectado:** Todos
+
+**Problema:**
+En el formulario de registro, el campo "phone number" acepta cualquier carácter, incluyendo letras y símbolos, sin restringir la entrada a valores numéricos válidos. Esto permite que se almacenen números de teléfono mal formados y puede generar problemas posteriores de contacto o validación.
+
+**Recomendación:**
+Restringir el campo a entrada numérica (tipo `tel` con validación), aplicar una máscara de formato según el país y mostrar un mensaje de error claro cuando el valor ingresado no cumpla el patrón esperado.
+
+---
+
+**PROBLEMA #4:** El registro/login no muestra la selección de planes y asigna uno automáticamente
+
+- **Severidad:** 3
+- **Heurística violada:** Usability — Control y libertad del usuario
+- **Plan afectado:** Todos
+
+**Problema:**
+Al registrarse o iniciar sesión por primera vez, el sistema no presenta la pantalla de selección de planes y asigna un plan automáticamente sin intervención del usuario. El usuario pierde el control sobre una decisión clave del alta (qué plan contrata) y puede terminar con uno que no corresponde a sus necesidades, sin haber sido consciente de la elección.
+
+**Recomendación:**
+Incorporar un paso explícito de selección de plan dentro del flujo de registro/onboarding, mostrando las opciones disponibles con sus diferencias, y requerir una confirmación del usuario antes de asignar cualquier plan.
+
+---
+
+##### 3. Suscripción y Pago
+
+**PROBLEMA #5:** El registro de tarjeta de crédito permite fechas de vencimiento pasadas
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Prevención de errores
+- **Plan afectado:** Todos
+
+**Problema:**
+Al registrar una tarjeta de crédito para la suscripción, el formulario acepta fechas de vencimiento anteriores a la fecha actual sin advertir al usuario. Esto permite enviar datos inválidos que serán rechazados más adelante, generando fricción y desconfianza en el momento del cobro.
+
+**Recomendación:**
+Validar el campo de vencimiento contra la fecha actual y bloquear/avisar cuando se ingrese una fecha pasada, mostrando un mensaje claro como "La fecha de vencimiento no puede ser anterior a la fecha actual".
+
+---
+
+**PROBLEMA #6:** No es posible guardar la tarjeta para reutilizarla
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Flexibilidad y eficiencia de uso
+- **Plan afectado:** Todos
+
+**Problema:**
+El flujo de pago no ofrece la opción de guardar la tarjeta registrada, por lo que el usuario debe volver a ingresar todos sus datos en cada operación o renovación. Esto resta eficiencia a usuarios recurrentes y añade fricción innecesaria al proceso de pago.
+
+**Recomendación:**
+Permitir guardar de forma segura el método de pago (tokenizado por la pasarela) con una casilla "Guardar esta tarjeta", y mostrar las tarjetas almacenadas en futuros pagos para que el usuario solo confirme.
+
+---
+
+##### 4. App — Inventario y Joyas
+
+**PROBLEMA #7:** El campo "Pureza" al vincular una joya permite ingresar letras aleatorias
+
+- **Severidad:** 3
+- **Heurística violada:** Usability — Prevención de errores
+- **Plan afectado:** Todos
+
+**Problema:**
+Al vincular una joya, el campo "Pureza" acepta letras y caracteres arbitrarios en lugar de restringirse a un valor numérico con su unidad de medida. Dado que la pureza (por ejemplo, en quilates) es un dato central del dominio de la aplicación, permitir entradas inválidas compromete directamente la integridad de la información registrada.
+
+**Recomendación:**
+Separar el dato en dos campos: uno numérico para el valor de la pureza y otro (dropdown) para la unidad de medida (K / ...). Validar el campo numérico y limitar las unidades a un conjunto controlado, evitando entradas de texto libre.
+
+---
+
+**PROBLEMA #8:** Es posible vincular una joya que no existe en el inventario
+
+- **Severidad:** 3
+- **Heurística violada:** Usability — Prevención de errores
+- **Plan afectado:** Todos
+
+**Problema:**
+El sistema permite vincular una joya que no se encuentra registrada en el inventario, sin validar su existencia. Esto rompe la integridad referencial entre los registros y el inventario, pudiendo generar datos huérfanos o inconsistencias difíciles de rastrear más adelante.
+
+**Recomendación:**
+Validar contra el inventario antes de permitir la vinculación, restringiendo la selección a joyas existentes (por ejemplo, mediante un selector/autocomplete que consulte el inventario) y bloqueando el guardado cuando la joya no exista.
+
+---
+
+##### 5. App — Operaciones de Material
+
+**PROBLEMA #9:** El mensaje "weightExceedsInitial" no está en lenguaje natural
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Ayuda al usuario a reconocer, diagnosticar y recuperarse de errores / Coincidencia entre el sistema y el mundo real
+- **Plan afectado:** Todos
+
+**Problema:**
+Al registrar el peso de un material en una operación (material ops), si se selecciona un peso que excede el inicial, el sistema muestra el código técnico "weightExceedsInitial" en lugar de un mensaje en lenguaje natural. El usuario final no comprende qué significa la clave interna ni cómo corregir el error.
+
+**Recomendación:**
+Reemplazar el código por un mensaje descriptivo y accionable, por ejemplo: "El peso ingresado supera el peso inicial registrado. Ingresa un valor menor o igual al inicial." Asegurar que todos los mensajes de validación se muestren traducidos y orientados al usuario, no como claves de sistema.
+
+---
+
+##### 6. App — Incidentes
+
+**PROBLEMA #10:** Al crear y registrar un nuevo incidente, no se guarda lo procesado
+
+- **Severidad:** 3
+- **Heurística violada:** Usability — Visibilidad del estado del sistema / Prevención de errores
+- **Plan afectado:** Todos
+
+**Problema:**
+Al usar "New incident" y registrar la información, lo que el usuario acaba de procesar no se guarda. Además de la pérdida de datos, el sistema no comunica de forma clara que la operación falló, por lo que el usuario cree haber completado la tarea cuando en realidad no quedó registro alguno.
+
+**Recomendación:**
+Corregir la lógica de persistencia para que el incidente se guarde correctamente al confirmar. Mostrar retroalimentación explícita del resultado (éxito o error) y, en caso de fallo, conservar los datos ingresados para que el usuario no tenga que volver a capturarlos.
+
+---
+
+##### 7. App — Perfil
+
+**PROBLEMA #11:** El perfil permite modificar todos los datos sin verificación
+
+- **Severidad:** 3
+- **Heurística violada:** Usability — Prevención de errores
+- **Plan afectado:** Todos
+
+**Problema:**
+En `/app/profile` el usuario puede cambiar absolutamente todos sus datos sin ninguna verificación previa. La ausencia de validaciones o confirmaciones sobre datos sensibles (como correo o credenciales) abre la puerta a cambios accidentales o no autorizados, con impacto directo en la seguridad de la cuenta.
+
+**Recomendación:**
+Incorporar verificaciones para los cambios sensibles (por ejemplo, reconfirmación de contraseña o verificación por correo al cambiar el email) y validar cada campo antes de aplicar los cambios.
+
+---
+
+**PROBLEMA #12:** El perfil no ofrece un dropdown de locaciones
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Prevención de errores / Consistencia y estándares
+- **Plan afectado:** Todos
+
+**Problema:**
+En `/app/profile` la locación se ingresa como texto libre, sin un dropdown que limite las opciones a valores válidos. Esto favorece inconsistencias (errores de tipeo, nombres distintos para una misma locación) y dificulta cualquier agrupación o filtrado posterior por ubicación.
+
+**Recomendación:**
+Reemplazar el campo libre por un dropdown (o autocomplete) con el catálogo de locaciones disponibles, garantizando que solo se registren valores válidos y consistentes.
+
+---
+
+**PROBLEMA #13:** "Save Changes" en el perfil no muestra un modal de confirmación
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Prevención de errores / Control y libertad del usuario
+- **Plan afectado:** Todos
+
+**Problema:**
+Al pulsar "Save Changes" en el perfil, los cambios se aplican directamente sin solicitar una confirmación. El usuario no tiene una oportunidad de revisar o cancelar la acción antes de que se persista, lo que puede llevar a guardar cambios no intencionados.
+
+**Recomendación:**
+Mostrar un modal de confirmación ("¿Deseas guardar los cambios?") antes de persistir, con opciones de confirmar o cancelar, y retroalimentación de éxito una vez completado el guardado.
+
+---
+
+##### 8. App — Navegación General
+
+**PROBLEMA #14:** El sidebar de la Web Application no colapsa en hamburguesa en vista responsive
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Consistencia y estándares / Diseño estético y minimalista
+- **Plan afectado:** Todos
+
+**Problema:**
+En vista responsive, el sidebar de la Web Application se mantiene desplegado y ocupa espacio fijo en pantallas pequeñas, en lugar de colapsar en un menú hamburguesa. Esto reduce el área útil de contenido en móvil y se aparta del patrón de navegación esperado en estos tamaños de pantalla.
+
+**Recomendación:**
+Convertir el sidebar en un menú hamburguesa colapsable por debajo de un breakpoint definido, mostrando el contenido principal a ancho completo y desplegando la navegación bajo demanda. Mantener coherencia con la solución aplicada al header del Landing Page (#1).
+
+---
+
+**PROBLEMA #15:** El textbox de búsqueda del header no comunica para qué sirve
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Reconocimiento antes que recuerdo / Ayuda y documentación
+- **Plan afectado:** Todos
+
+**Problema:**
+El header de la Web Application incluye un textbox de búsqueda, pero no comunica qué se puede buscar con él (joyas, incidentes, materiales, etc.). El usuario debe adivinar su alcance, lo que reduce su utilidad y genera incertidumbre sobre el resultado esperado.
+
+**Recomendación:**
+Agregar un placeholder descriptivo que indique el ámbito de la búsqueda (por ejemplo, "Buscar joyas, incidentes o materiales...") y, de ser posible, mostrar sugerencias o categorías de resultados que aclaren su funcionamiento.
+
+---
+
+**PROBLEMA #16:** El botón "Today" del dashboard no comunica su función
+
+- **Severidad:** 1
+- **Heurística violada:** Usability — Reconocimiento antes que recuerdo / Ayuda y documentación
+- **Plan afectado:** Todos
+
+**Problema:**
+El dashboard incluye un botón "Today" cuyo propósito no es evidente. El usuario no puede anticipar qué acción ejecuta (¿filtrar por la fecha de hoy?, ¿volver a la vista actual?), lo que obliga a probarlo para descubrir su función.
+
+**Recomendación:**
+Aclarar la función del control mediante una etiqueta más descriptiva o un tooltip (por ejemplo, "Ver datos de hoy" / "Volver a la fecha actual"), de modo que su efecto sea reconocible sin necesidad de interactuar a ciegas.
+
+---
+
+**PROBLEMA #17:** El botón de notificaciones redirige a las opciones de notificaciones en lugar de mostrarlas
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Coincidencia entre el sistema y el mundo real / Consistencia y estándares
+- **Plan afectado:** Todos
+
+**Problema:**
+Al pulsar el ícono de notificaciones (campana), el sistema redirige a las opciones de configuración de notificaciones en lugar de mostrar el listado de notificaciones del usuario. Esto contradice la convención universal del ícono de campana, que el usuario asocia con ver sus avisos, no con configurarlos.
+
+**Recomendación:**
+Hacer que el ícono de notificaciones despliegue el listado de notificaciones (panel o dropdown) y mover el acceso a la configuración a un control secundario dentro de ese mismo panel (por ejemplo, un ícono de engranaje o un enlace "Configurar notificaciones").
 
 
 ## 5.4. Video About-the-Product
