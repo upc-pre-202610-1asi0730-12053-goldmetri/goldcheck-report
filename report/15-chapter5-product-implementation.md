@@ -510,14 +510,16 @@ El objetivo principal de este Sprint es contar con la primera versión de los We
 | **Sprint 3** | **User Story** | | **Work-Item / Task** | | | | |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | | **ID** | **Título** | **ID** | **Título** | **Descripción** | **Estimación (h)** | **Asignado a** | **Status** |
-| | US11 | Registro de Yacimiento | T01 | Implementar endpoint POST /api/mining/deposits | Desarrollar el endpoint para registrar yacimientos con coordenadas GPS y validaciones de rango geográfico | _(completar)_ | _(completar)_ | _(completar)_ |
-| | US11 | Registro de Yacimiento | T02 | Crear entidad y migración Deposit | Definir la entidad de dominio, el DbContext y la migración de base de datos para yacimientos | _(completar)_ | _(completar)_ | _(completar)_ |
-| | US12 | Registro de Volquetes | T03 | Implementar endpoint POST /api/mining/trucks | Desarrollar el endpoint para registrar vehículos de carga con validación de placa duplicada | _(completar)_ | _(completar)_ | _(completar)_ |
-| | US12 | Registro de Volquetes | T04 | Crear entidad y migración HaulTruck | Definir la entidad de dominio y migración para volquetes | _(completar)_ | _(completar)_ | _(completar)_ |
-| | US15 | Asignación de Responsables | T05 | Implementar endpoint PUT /api/mining/batches/{id}/assignee | Desarrollar el endpoint para asignar conductor a un lote con validación de disponibilidad | _(completar)_ | _(completar)_ | _(completar)_ |
-| | US16 | Tipificación de Mineral | T06 | Implementar endpoint PUT /api/mining/batches/{id}/mineral-type | Desarrollar el endpoint para clasificar el tipo de mineral con bloqueo de edición post-transporte | _(completar)_ | _(completar)_ | _(completar)_ |
-| | TS05 | Endpoint de Actualización de Lotes | T07 | Implementar endpoint PUT /api/mining/batches/{id}/status | Desarrollar el endpoint para actualizar el estado del lote durante su transporte | _(completar)_ | _(completar)_ | _(completar)_ |
-| | TS05 | Endpoint de Actualización de Lotes | T08 | Configurar proyecto ASP.NET Core y estructura DDD | Inicializar el proyecto backend con la arquitectura de capas (Domain, Application, Infrastructure, Presentation) | _(completar)_ | _(completar)_ | _(completar)_ |
+| | TS05 | Configuración del proyecto backend | T01 | Configurar proyecto ASP.NET Core y estructura DDD | Inicializar el proyecto backend con la arquitectura de capas (Domain, Application, Infrastructure, Presentation), shared kernel y AppDbContext | 5 | Philco, Katty | Done |
+| | TS05 | Configuración del proyecto backend | T02 | Implementar IAM (sign-up, sign-in, perfil) | Desarrollar los endpoints de autenticación JWT y gestión de usuarios | 5 | Philco, Katty | Done |
+| | US11 | Registro de Yacimiento | T03 | Implementar bounded context Fleet Operations | Desarrollar endpoints de vehículos y ciclos de acarreo: registro, carga, completar ciclo y consultas | 8 | García, Victor | Done |
+| | US12 | Registro de Volquetes | T04 | Implementar bounded context Material Operations | Desarrollar endpoints de materiales: registro, clasificación, descarga, rastreo y consultas | 6 | García, Victor | Done |
+| | US16 | Tipificación de Mineral | T05 | Implementar bounded context Jewelry Inventory | Desarrollar endpoints de certificados y materiales de joyería: generación, firma, escaneo QR y consultas | 6 | García, Victor | Done |
+| | US15 | Asignación de Responsables | T06 | Implementar bounded context Asset & Maintenance | Desarrollar endpoints de maquinaria: registro, actualización, mantenimiento preventivo y baja | 6 | Armestar, Adrian | Done |
+| | - | Analítica y reportes | T07 | Implementar bounded context Analytics | Desarrollar endpoints de rutas y producción: visualización de dashboard, progreso y datos por período | 5 | Navarro, Carolina | Done |
+| | - | Reportes y notificaciones | T08 | Implementar bounded context Reporting & Notifications | Desarrollar endpoints de reportes y notificaciones: generación, exportación, descarga y envío | 8 | Philco, Katty | Done |
+| | - | Suscripciones | T09 | Implementar bounded context Subscriptions & Billing | Desarrollar endpoints de suscripciones: selección de plan, confirmación, downgrade, facturación e historial de pagos | 8 | Tuesta, Kiara | In Progress |
+| | - | Despliegue backend | T10 | Configurar y desplegar Web Services | Configurar appsettings de producción y desplegar la API en el entorno de hosting | 3 | García, Victor | In Progress |
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
@@ -552,15 +554,113 @@ _(Completar con capturas de pantalla de los endpoints funcionando, vistas de Swa
 
 En este Sprint se implementó la primera versión de los Web Services de GoldCheck utilizando ASP.NET Core con C#. La documentación de los endpoints se generó automáticamente mediante Swagger (OpenAPI).
 
-_(Completar con la tabla de endpoints documentados y capturas de Swagger una vez desplegado el backend.)_
+A continuación se presentan los endpoints implementados por cada bounded context, organizados por controlador. _(Completar con capturas de Swagger una vez desplegado el backend.)_
 
-| Endpoint | Método HTTP | Acción | Enlace Swagger |
-| :--- | :---: | :--- | :--- |
-| `/api/mining/deposits` | POST | Registrar un nuevo yacimiento | _(completar)_ |
-| `/api/mining/trucks` | POST | Registrar un nuevo volquete | _(completar)_ |
-| `/api/mining/batches/{id}/assignee` | PUT | Asignar conductor a un lote | _(completar)_ |
-| `/api/mining/batches/{id}/mineral-type` | PUT | Tipificar mineral del lote | _(completar)_ |
-| `/api/mining/batches/{id}/status` | PUT | Actualizar estado del lote | _(completar)_ |
+**Identity & Access Management (IAM)**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/authentication/sign-up` | POST | Registrar un nuevo usuario |
+| `/api/v1/authentication/sign-in` | POST | Iniciar sesión y obtener token |
+| `/api/v1/users/{userId}` | GET | Obtener usuario por ID |
+| `/api/v1/users` | GET | Obtener todos los usuarios |
+| `/api/v1/users/{userId}/profile` | PUT | Actualizar perfil de usuario |
+
+**Fleet Operations**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/hauling-cycles` | POST | Iniciar un ciclo de acarreo |
+| `/api/v1/hauling-cycles/{cycleId}/load` | PUT | Cargar material en un ciclo |
+| `/api/v1/hauling-cycles/{cycleId}/complete` | PUT | Completar un ciclo de acarreo |
+| `/api/v1/hauling-cycles` | GET | Obtener todos los ciclos de acarreo |
+| `/api/v1/hauling-cycles/{cycleId}` | GET | Obtener ciclo por ID |
+| `/api/v1/vehicles` | POST | Registrar un nuevo vehículo |
+| `/api/v1/vehicles` | GET | Obtener todos los vehículos |
+| `/api/v1/vehicles/{vehicleId}` | GET | Obtener vehículo por ID |
+
+**Material Operations**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/materials` | POST | Registrar un nuevo material/lote |
+| `/api/v1/materials/{batchId}/classify` | PUT | Clasificar tipo de mineral |
+| `/api/v1/materials/{batchId}/download` | PUT | Descargar material |
+| `/api/v1/materials/{batchId}/track` | PUT | Rastrear movimiento de material |
+| `/api/v1/materials` | GET | Obtener todos los materiales |
+| `/api/v1/materials/{batchId}` | GET | Obtener material por ID |
+
+**Jewelry Inventory & Certification**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/certificates` | POST | Generar certificado de joya |
+| `/api/v1/certificates/{certificateId}/sign` | PUT | Firmar certificado |
+| `/api/v1/certificates/{certificateId}` | GET | Obtener certificado por ID |
+| `/api/v1/jewelry-materials` | POST | Registrar material no certificado |
+| `/api/v1/jewelry-materials/{materialId}/scan` | PUT | Escanear QR de material |
+| `/api/v1/jewelry-materials` | GET | Obtener todos los materiales de joyería |
+| `/api/v1/jewelry-materials/{materialId}` | GET | Obtener material por ID |
+
+**Asset & Maintenance**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/machinery` | POST | Registrar maquinaria |
+| `/api/v1/machinery/{machineryId}` | GET | Obtener maquinaria por ID |
+| `/api/v1/machinery` | GET | Obtener toda la maquinaria |
+| `/api/v1/machinery/{machineryId}` | PUT | Actualizar datos de maquinaria |
+| `/api/v1/machinery/{machineryId}/schedule-maintenance` | PUT | Programar mantenimiento preventivo |
+| `/api/v1/machinery/{machineryId}/discharge` | PUT | Dar de baja maquinaria |
+| `/api/v1/machinery/{machineryId}/components/{componentId}/discharge` | PUT | Dar de baja componente |
+
+**Analytics**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/analytics/routes/view` | POST | Visualizar progreso de rutas |
+| `/api/v1/analytics/routes/{routeId}` | GET | Obtener progreso de ruta por ID |
+| `/api/v1/analytics/routes` | GET | Obtener todas las rutas |
+| `/api/v1/analytics/production/dashboard` | POST | Visualizar dashboard de producción |
+| `/api/v1/analytics/production/request` | POST | Solicitar datos de producción |
+| `/api/v1/analytics/production` | GET | Obtener datos de producción |
+
+**Reporting & Notifications**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/reports` | POST | Crear reporte |
+| `/api/v1/reports/{reportId}/load-data` | PUT | Cargar datos de accidente |
+| `/api/v1/reports/{reportId}/generate` | PUT | Generar reporte |
+| `/api/v1/reports/{reportId}/request-export` | PUT | Solicitar exportación |
+| `/api/v1/reports/{reportId}/export` | PUT | Exportar reporte |
+| `/api/v1/reports/{reportId}/download` | GET | Descargar reporte |
+| `/api/v1/reports/{reportId}` | GET | Obtener reporte por ID |
+| `/api/v1/reports` | GET | Obtener todos los reportes |
+| `/api/v1/notifications` | POST | Crear notificación |
+| `/api/v1/notifications/{notificationId}/send` | PUT | Enviar notificación |
+| `/api/v1/notifications/{notificationId}` | GET | Obtener notificación por ID |
+| `/api/v1/notifications/user/{userId}` | GET | Obtener notificaciones por usuario |
+
+**Subscriptions & Billing**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/subscriptions` | POST | Seleccionar plan |
+| `/api/v1/subscriptions/{userId}` | GET | Obtener suscripción por usuario |
+| `/api/v1/subscriptions` | GET | Obtener todas las suscripciones |
+| `/api/v1/subscriptions/{userId}/confirm` | PUT | Confirmar suscripción |
+| `/api/v1/subscriptions/{userId}/downgrade` | PUT | Solicitar downgrade |
+| `/api/v1/subscriptions/{userId}/downgrade/execute` | PUT | Ejecutar downgrade |
+| `/api/v1/subscriptions/{userId}/access-check` | POST | Verificar acceso a feature |
+| `/api/v1/subscriptions/{userId}/invoices` | POST | Generar factura |
+| `/api/v1/subscriptions/{userId}/invoices/{invoiceId}/download` | GET | Descargar factura |
+| `/api/v1/subscriptions/{userId}/invoices/{invoiceId}` | GET | Obtener factura por ID |
+| `/api/v1/subscriptions/{userId}/payment-history` | GET | Historial de pagos |
+| `/api/v1/subscriptions/plans/check` | POST | Verificar plan de usuario |
+| `/api/v1/subscriptions/plans/{planType}/features` | POST | Asignar features a plan |
+| `/api/v1/subscriptions/plans/{planType}/features` | GET | Obtener features de plan |
+| `/api/v1/subscriptions/{userId}/access-request` | POST | Solicitar acceso |
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
