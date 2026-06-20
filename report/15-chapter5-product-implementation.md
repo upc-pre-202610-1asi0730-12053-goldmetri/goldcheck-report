@@ -521,11 +521,28 @@ El objetivo principal de este Sprint es contar con la primera versión de los We
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
-_(Completar con los commits reales del repositorio `goldcheck-platform` una vez exista avance en el backend.)_
+Durante el Sprint 3 el equipo se enfocó en el desarrollo del Backend (Web Services) utilizando ASP.NET Core con C#, siguiendo la arquitectura DDD definida en el Capítulo IV. Se implementaron múltiples bounded contexts: Shared Kernel, Identity & Access Management, Fleet Operations, Material Operations, Jewelry Inventory, Asset & Maintenance, Subscriptions & Billing, Analytics y Reporting & Notifications. Cada integrante trabajó en su rama correspondiente (`feature/`) y realizó Pull Requests a `develop`.
 
 | Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| goldcheck-platform | develop | _(completar)_ | _(completar)_ | _(completar)_ | _(completar)_ |
+| goldcheck-platform | develop | `3d55dab` | chore: initial commit. | Initial project structure for ASP.NET Core backend | 2026-06-12 |
+| goldcheck-platform | develop | `52fe372` | feat(shared): add domain abstractions | Add unit of work, base repository, auditable entity, IEvent, IEventHandler and Error abstractions | 2026-06-12 |
+| goldcheck-platform | develop | `e103ef3` | feat(shared): configure program.cs with shared bc wiring. | Configure dependency injection and shared bounded context wiring in Program.cs | 2026-06-12 |
+| goldcheck-platform | develop | `89b059d` | feat(fleetoperations): add start hauling cycle endpoint. | Implement POST endpoint to start a hauling cycle in the Fleet Operations bounded context | 2026-06-19 |
+| goldcheck-platform | develop | `10d76c7` | feat(fleetoperations): add load material endpoint. | Implement endpoint for loading material into a hauling cycle | 2026-06-19 |
+| goldcheck-platform | develop | `77282c7` | feat(jewelryinventory): add generate certificate endpoint. | Implement POST endpoint for generating jewelry certificates | 2026-06-15 |
+| goldcheck-platform | develop | `55f5399` | feat(materialoperations): add identify mineral type endpoint. | Implement endpoint for mineral type identification and classification | 2026-06-15 |
+| goldcheck-platform | develop | `27f7ace` | chore: add production appsettings configuration. | Configure production environment settings for deployment | 2026-06-15 |
+| goldcheck-platform | develop | `aac499e` | feat(reporting-notifications): add send notification endpoint. | Implement POST endpoint for sending notifications to users | 2026-06-15 |
+| goldcheck-platform | develop | `ef0f187` | feat(iam): add get user endpoints and wire query service. | Implement GET endpoints for user retrieval in IAM bounded context | 2026-06-13 |
+| goldcheck-platform | develop | `216474a` | feat(assetmaintenance): add get all machinery endpoint. | Implement GET endpoint to retrieve all registered machinery | 2026-06-18 |
+| goldcheck-platform | develop | `4172edd` | feat(assetmaintenance): add schedule preventive maintenance endpoint. | Implement POST endpoint for scheduling preventive maintenance | 2026-06-18 |
+| goldcheck-platform | develop | `a5176ed` | feat(assetmaintenance): add register machinery endpoint. | Implement POST endpoint for registering new machinery | 2026-06-18 |
+| goldcheck-platform | develop | `eb9b28d` | feat(analytics): add view production dashboard endpoint. | Implement GET endpoint for production dashboard analytics view | 2026-06-18 |
+| goldcheck-platform | develop | `b6568b7` | feat(analytics): add get all routes endpoint. | Implement GET endpoint for retrieving all monitored routes | 2026-06-18 |
+| goldcheck-platform | develop | `d1ef66d` | feat(subscriptionsandbilling): add get user subscription by user id endpoint. | Implement GET endpoint to retrieve user subscription details | 2026-06-19 |
+| goldcheck-platform | develop | `f617754` | feat(subscriptionsandbilling): add request access endpoint. | Implement POST endpoint for requesting access to subscription features | 2026-06-19 |
+| goldcheck-platform | develop | `2132698` | feat(subscriptionsandbilling): add confirm subscription endpoint. | Implement POST endpoint for confirming user subscriptions | 2026-06-19 |
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
