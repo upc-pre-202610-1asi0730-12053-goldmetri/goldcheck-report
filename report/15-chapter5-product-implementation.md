@@ -558,63 +558,78 @@ _(Completar con capturas de los insights de colaboración del repositorio `goldc
 
 ### 5.3.1. Diseño de Entrevistas de Validación
 
-Las entrevistas de validación tienen como objetivo evaluar la usabilidad y la percepción de valor del Landing Page y la Web Application de GoldCheck por parte de usuarios representativos de cada segmento objetivo. Se diseñaron guías diferenciadas para los tres segmentos, cada una con tareas guiadas (user flow) y preguntas complementarias post-tarea.
+Para cada segmento objetivo se establecieron los elementos a incluir en la sesión de validación, considerando la interacción con el Landing Page y la aplicación web GoldCheck. Las sesiones siguen un orden estructurado: primero se evalúa el Landing Page y luego los user flows de la aplicación.
+
+---
 
 #### Segmento 1: Empresas Mineras
 
-**Elementos a validar:** Landing Page + Web Application (Dashboard Minero)
+*User Flows a validar:*
+- Registro de un nuevo lote de mineral (Fleet Operations)
+- Monitoreo de flota y revisión de alertas de anomalía (Monitoring & Telemetry)
+- Reporte de incidentes (Incident Management)
+- Revisión de KPIs en Analytics
 
-**Tareas guiadas:**
-1. Ingresar al Landing Page y localizar la propuesta de valor dirigida a empresas mineras.
-2. Navegar hasta la sección de planes de suscripción e identificar cuál se adapta mejor a su operación.
-3. Acceder a la Web Application e iniciar sesión con las credenciales de prueba proporcionadas.
-4. En el Dashboard Minero, localizar la sección de registro de lotes y simular la creación de un nuevo lote.
-5. Explorar la vista de monitoreo de transporte e interpretar la información de trazabilidad mostrada.
+*Preguntas — Landing Page*
+1. Al ver esta página por primera vez, ¿qué entiendes que hace esta plataforma?
+2. ¿La información presentada te convence de que GoldCheck puede ayudarte en tu operación? ¿Por qué?
+3. ¿Encuentras fácilmente cómo registrarte o contactar al equipo?
 
-**Preguntas complementarias:**
-1. ¿La propuesta de valor le resultó clara al ingresar al sitio web? ¿Entendió rápidamente qué problema resuelve GoldCheck?
-2. ¿Los planes de suscripción presentan información suficiente para tomar una decisión?
-3. ¿La navegación dentro del Dashboard Minero le resultó intuitiva? ¿Encontró fácilmente las funcionalidades principales?
-4. ¿La información de trazabilidad y monitoreo le parece útil para su operación diaria?
-5. ¿Qué funcionalidad adicional esperaría encontrar en la plataforma?
-6. Del 1 al 10, ¿qué tan probable es que recomendaría GoldCheck a otra empresa minera?
+*Preguntas — Aplicación*
+4. Intenta registrar un nuevo lote de mineral desde el dashboard de Fleet Operations. ¿Qué tan intuitivo te resultó el proceso?
+5. Navega a la sección de monitoreo. ¿Las alertas de anomalía son claras y fáciles de interpretar?
+6. Simula reportar un incidente. ¿El formulario recoge toda la información que necesitarías en un escenario real?
+7. Revisa el dashboard de Analytics. ¿Los KPIs mostrados son los que usarías para tomar decisiones operativas?
+8. ¿Hay alguna funcionalidad que esperabas encontrar y no encontraste?
+
+---
 
 #### Segmento 2: Joyerías
 
-**Elementos a validar:** Landing Page + Web Application (Dashboard Joyería)
+*User Flows a validar:*
+- Registro de inventario de piezas (Jewelry Inventory & Certification)
+- Certificación de piezas y generación de QR
+- Consulta del historial de trazabilidad de un material
 
-**Tareas guiadas:**
-1. Ingresar al Landing Page y localizar la sección dirigida a joyerías.
-2. Acceder a la Web Application e iniciar sesión con las credenciales de prueba proporcionadas.
-3. En el Dashboard de Joyería, buscar un lote de oro por código de proveedor y verificar su origen.
-4. Explorar la sección de generación de código QR para una joya registrada.
-5. Visualizar el certificado de autenticidad asociado a una joya.
+*Preguntas — Landing Page*
+1. ¿Qué te transmite esta página sobre el producto? ¿Queda claro a quién va dirigido?
+2. ¿La propuesta de valor para joyerías es suficientemente clara y convincente?
+3. ¿El proceso para solicitar una demo o registrarse es sencillo de encontrar?
 
-**Preguntas complementarias:**
-1. ¿La Landing Page le comunicó claramente los beneficios de GoldCheck para su negocio?
-2. ¿Le resultó sencillo verificar el origen del oro a través de la plataforma?
-3. ¿La funcionalidad de generación de QR le parece útil para ofrecer garantía a sus clientes?
-4. ¿El certificado de autenticidad contiene la información que usted consideraría necesaria?
-5. ¿Qué barrera o preocupación tendría para adoptar GoldCheck en su joyería?
-6. Del 1 al 10, ¿qué tan probable es que recomendaría GoldCheck a otra joyería?
+*Preguntas — Aplicación*
+4. Intenta registrar una pieza en el inventario. ¿El proceso es claro y completo?
+5. Genera el certificado QR de una pieza. ¿La información incluida en el certificado te parece suficiente para compartir con tus clientes?
+6. Consulta el historial de trazabilidad de un material. ¿La información presentada es comprensible y confiable?
+7. ¿Qué información adicional sobre el origen del material te gustaría ver en la plataforma?
+8. ¿Qué le agregarías o cambiarías?
 
-#### Segmento 3: Consumidores Finales
+---
 
-**Elementos a validar:** Landing Page + Web Application (Vista de Consumidor)
+#### Segmento 3: Usuarios Consumidores
 
-**Tareas guiadas:**
-1. Ingresar al Landing Page y comprender el mensaje dirigido al consumidor final.
-2. Simular el escaneo de un código QR (o ingresar manualmente el código proporcionado).
-3. Interpretar la información de trazabilidad mostrada: origen del mineral, recorrido, pureza y joyería certificada.
-4. Explorar la opción de compartir la trazabilidad de la joya.
+*User Flows a validar:*
+- Escaneo de código QR de una joya
+- Verificación de autenticidad y trazabilidad del mineral
+- Consulta del origen ético del material (Consumer Traceability)
 
-**Preguntas complementarias:**
-1. ¿Entendió el concepto de trazabilidad de oro al visitar el sitio web?
-2. ¿La información mostrada tras escanear el QR le genera confianza sobre la autenticidad de la joya?
-3. ¿Los datos de origen y pureza son comprensibles, o requieren explicación adicional?
-4. ¿Compartiría la trazabilidad de su joya en redes sociales? ¿Por qué?
-5. ¿Pagaría un precio mayor por una joya que garantice trazabilidad ética? ¿Cuánto más?
-6. Del 1 al 10, ¿qué tan probable es que usaría GoldCheck antes de comprar una joya?
+*Preguntas — Landing Page*
+1. Al ver esta página, ¿entiendes de inmediato para qué sirve la plataforma?
+2. ¿Te genera confianza la información presentada sobre la trazabilidad del oro?
+3. ¿Encuentras fácilmente cómo verificar la autenticidad de una joya?
+
+*Preguntas — Aplicación*
+4. Escanea el código QR de una joya. ¿El proceso es sencillo e intuitivo?
+5. Revisa la información de trazabilidad mostrada. ¿Es fácil de entender de dónde proviene el mineral?
+6. ¿La información sobre la certificación libre de conflicto y los criterios ESG te genera confianza?
+7. ¿Qué información adicional te gustaría ver al verificar una joya?
+8. ¿Qué le agregarías o cambiarías?
+
+---
+
+#### Cierre (todos los segmentos)
+- En una escala del 1 al 10, ¿qué tan probable es que uses o recomiendes GoldCheck?
+- ¿Qué es lo que más te gustó de la plataforma?
+- ¿Qué cambiarías o mejorarías con mayor urgencia?
 
 ### 5.3.2. Registro de Entrevistas de Validación
 
