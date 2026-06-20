@@ -253,8 +253,6 @@ El objetivo principal de este Sprint es contar con un sitio web estático desple
 
 #### 5.2.1.4. Development Evidence for Sprint Review
 
-#### 5.2.1.4. Development Evidence for Sprint Review
-
 Durante el Sprint 1, el equipo se enfocó en establecer la base técnica de **GoldCheck** mediante el uso de estándares web modernos: HTML5 para la estructura y CSS3 para el diseño visual. Se priorizó una arquitectura de estilos modular, donde cada componente de la Landing Page cuenta con su propia hoja de estilos, facilitando el trabajo paralelo y evitando conflictos en el código.
 
 | Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
@@ -307,22 +305,6 @@ Durante el Sprint 1 se realizó el despliegue exitoso del Landing Page utilizand
 
 Durante este sprint, la colaboración se gestionó íntegramente a través de GitHub. Se utilizaron Pull Requests (PRs) para integrar el trabajo de la rama `develop` a `main`.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-![Team Collaboration Sprint 1](../assets/img/chapter-v/collaboration.png)
-
-## Anexos
-Vídeo Exposición: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDMT9TjIRw1RLKM_7j2hos-AfLlqFAwuKrcE9YKUDOwdWI?e=055arn&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
-=======
->LANDING PAGE: 
-
-![Team Collaboration Sprint 1](../assets/img/landingpage-contributors.png)
-
->REPORT:
-
-![Team Collaboration Sprint 2](../assets/img/chapter-v/report-contributors.png)
->>>>>>> cb66ab435faa1d5e0617dc17860327cd788a8ad9
-=======
 ![Team Collaboration Sprint 1](../assets/img/chapter-v/sprint-collaboration.png)
 
 ### 5.2.2. Sprint 2
@@ -487,31 +469,803 @@ Durante este Sprint la colaboración se gestionó íntegramente a través de Git
 ![Team Collaboration Sprint 2](../assets/img/chapter-v/sprint-collaboration.png)
 
 
+### 5.2.3. Sprint 3
+
+#### 5.2.3.1. Sprint Planning 3
+
+El Sprint 3 está dedicado a la implementación de la primera versión de los Web Services (Backend) del sistema GoldCheck, cubriendo los bounded contexts de Gestión de Extracción y la capa de actualización de lotes. Adicionalmente, se inician las Validation Interviews con los tres segmentos objetivo.
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Sprint #** | Sprint 3 |
+| **Date** | `2026-06-04` |
+| **Time** | `8:00 pm` |
+| **Location** | Reunión virtual por Discord |
+| **Prepared By** | `Philco Mota, Katty Yolanda` |
+| **Attendees** | Armestar Felipa, Adrian / García Paredes, Victor / Navarro Aldoradin, Carolina / Philco Mota, Katty / Tuesta Girón, Kiara |
+| **Sprint 2 Review Summary** | Se completó el desarrollo y despliegue del Frontend Web Application de GoldCheck en Vue 3 con PrimeVue, integrado con MockAPI. Se implementaron las vistas para los tres segmentos objetivo: dashboard de trazabilidad y monitoreo para mineras, panel de verificación para joyerías y vista de consulta de origen ético para consumidores. Se corrigieron los diagramas de clases y base de datos según las observaciones del docente. |
+| **Sprint 2 Retrospective Summary** | El equipo identificó la necesidad de iniciar el desarrollo del backend real (ASP.NET Core/C#) para reemplazar la dependencia de MockAPI. Se acordó priorizar la configuración del entorno de desarrollo backend y la estructura del proyecto siguiendo la arquitectura DDD definida en el Capítulo IV. |
+| **Sprint 3 Goal** | Nuestro enfoque es implementar y desplegar la primera versión de los Web Services de GoldCheck (ASP.NET Core / C#). Creemos que esto entrega a los segmentos de empresas mineras y joyerías los endpoints necesarios para registrar yacimientos, volquetes, asignar responsables, tipificar minerales y actualizar el estado de los lotes de forma programática. Esto se confirmará cuando los endpoints estén documentados con Swagger/OpenAPI, desplegados en un entorno accesible y respondan correctamente a las peticiones del frontend. |
+| **Sprint 3 Velocity** | 12 Story Points |
+| **Sum of Story Points** | 12 |
+
+#### 5.2.3.2. Aspect Leaders and Collaborators
+
+Para este Sprint 3 enfocado en el desarrollo del Backend (Web Services) y la documentación de la API, la distribución de liderazgo (L) y colaboración (C) es la siguiente:
+
+| Team Member (Last Name, First Name) | GitHub Username | Backend API (ASP.NET Core) | Database Design (SQL Server) | DevOps & Deployment | Sprint Documentation |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| Armestar Felipa, Adrian Andres | Adrian5102 | C | C | C | C |
+| García Paredes, Victor Manuel | vicmacode | L | C | L | C |
+| Navarro Aldoradin, Carolina Celeste | genixmvp | C | C | C | L |
+| Philco Mota, Katty Yolanda | kattyph | L | L | C | C |
+| Tuesta Girón, Kiara Lucia | kitu05g | C | L | C | C |
+
+> **L** = Leader &nbsp;|&nbsp; **C** = Collaborator
+
+#### 5.2.3.3. Sprint Backlog 3
+
+El objetivo principal de este Sprint es contar con la primera versión de los Web Services desplegados que soporten las operaciones de gestión de extracción minera.
+
+| **Sprint 3** | **User Story** | | **Work-Item / Task** | | | | |
+| :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| | **ID** | **Título** | **ID** | **Título** | **Descripción** | **Estimación (h)** | **Asignado a** | **Status** |
+| | TS05 | Configuración del proyecto backend | T01 | Configurar proyecto ASP.NET Core y estructura DDD | Inicializar el proyecto backend con la arquitectura de capas (Domain, Application, Infrastructure, Presentation), shared kernel y AppDbContext | 5 | Philco, Katty | Done |
+| | TS05 | Configuración del proyecto backend | T02 | Implementar IAM (sign-up, sign-in, perfil) | Desarrollar los endpoints de autenticación JWT y gestión de usuarios | 5 | Philco, Katty | Done |
+| | US11 | Registro de Yacimiento | T03 | Implementar bounded context Fleet Operations | Desarrollar endpoints de vehículos y ciclos de acarreo: registro, carga, completar ciclo y consultas | 8 | García, Victor | Done |
+| | US12 | Registro de Volquetes | T04 | Implementar bounded context Material Operations | Desarrollar endpoints de materiales: registro, clasificación, descarga, rastreo y consultas | 6 | García, Victor | Done |
+| | US16 | Tipificación de Mineral | T05 | Implementar bounded context Jewelry Inventory | Desarrollar endpoints de certificados y materiales de joyería: generación, firma, escaneo QR y consultas | 6 | García, Victor | Done |
+| | US15 | Asignación de Responsables | T06 | Implementar bounded context Asset & Maintenance | Desarrollar endpoints de maquinaria: registro, actualización, mantenimiento preventivo y baja | 6 | Armestar, Adrian | Done |
+| | - | Analítica y reportes | T07 | Implementar bounded context Analytics | Desarrollar endpoints de rutas y producción: visualización de dashboard, progreso y datos por período | 5 | Navarro, Carolina | Done |
+| | - | Reportes y notificaciones | T08 | Implementar bounded context Reporting & Notifications | Desarrollar endpoints de reportes y notificaciones: generación, exportación, descarga y envío | 8 | Philco, Katty | Done |
+| | - | Suscripciones | T09 | Implementar bounded context Subscriptions & Billing | Desarrollar endpoints de suscripciones: selección de plan, confirmación, downgrade, facturación e historial de pagos | 8 | Tuesta, Kiara | In Progress |
+| | - | Despliegue backend | T10 | Configurar y desplegar Web Services | Configurar appsettings de producción y desplegar la API en el entorno de hosting | 3 | García, Victor | In Progress |
+
+#### 5.2.3.4. Development Evidence for Sprint Review
+
+Durante el Sprint 3 el equipo se enfocó en el desarrollo del Backend (Web Services) utilizando ASP.NET Core con C#, siguiendo la arquitectura DDD definida en el Capítulo IV. Se implementaron múltiples bounded contexts: Shared Kernel, Identity & Access Management, Fleet Operations, Material Operations, Jewelry Inventory, Asset & Maintenance, Subscriptions & Billing, Analytics y Reporting & Notifications. Cada integrante trabajó en su rama correspondiente (`feature/`) y realizó Pull Requests a `develop`.
+
+| Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| goldcheck-platform | develop | `3d55dab` | chore: initial commit. | Initial project structure for ASP.NET Core backend | 2026-06-12 |
+| goldcheck-platform | develop | `52fe372` | feat(shared): add domain abstractions | Add unit of work, base repository, auditable entity, IEvent, IEventHandler and Error abstractions | 2026-06-12 |
+| goldcheck-platform | develop | `e103ef3` | feat(shared): configure program.cs with shared bc wiring. | Configure dependency injection and shared bounded context wiring in Program.cs | 2026-06-12 |
+| goldcheck-platform | develop | `89b059d` | feat(fleetoperations): add start hauling cycle endpoint. | Implement POST endpoint to start a hauling cycle in the Fleet Operations bounded context | 2026-06-19 |
+| goldcheck-platform | develop | `10d76c7` | feat(fleetoperations): add load material endpoint. | Implement endpoint for loading material into a hauling cycle | 2026-06-19 |
+| goldcheck-platform | develop | `77282c7` | feat(jewelryinventory): add generate certificate endpoint. | Implement POST endpoint for generating jewelry certificates | 2026-06-15 |
+| goldcheck-platform | develop | `55f5399` | feat(materialoperations): add identify mineral type endpoint. | Implement endpoint for mineral type identification and classification | 2026-06-15 |
+| goldcheck-platform | develop | `27f7ace` | chore: add production appsettings configuration. | Configure production environment settings for deployment | 2026-06-15 |
+| goldcheck-platform | develop | `aac499e` | feat(reporting-notifications): add send notification endpoint. | Implement POST endpoint for sending notifications to users | 2026-06-15 |
+| goldcheck-platform | develop | `ef0f187` | feat(iam): add get user endpoints and wire query service. | Implement GET endpoints for user retrieval in IAM bounded context | 2026-06-13 |
+| goldcheck-platform | develop | `216474a` | feat(assetmaintenance): add get all machinery endpoint. | Implement GET endpoint to retrieve all registered machinery | 2026-06-18 |
+| goldcheck-platform | develop | `4172edd` | feat(assetmaintenance): add schedule preventive maintenance endpoint. | Implement POST endpoint for scheduling preventive maintenance | 2026-06-18 |
+| goldcheck-platform | develop | `a5176ed` | feat(assetmaintenance): add register machinery endpoint. | Implement POST endpoint for registering new machinery | 2026-06-18 |
+| goldcheck-platform | develop | `eb9b28d` | feat(analytics): add view production dashboard endpoint. | Implement GET endpoint for production dashboard analytics view | 2026-06-18 |
+| goldcheck-platform | develop | `b6568b7` | feat(analytics): add get all routes endpoint. | Implement GET endpoint for retrieving all monitored routes | 2026-06-18 |
+| goldcheck-platform | develop | `d1ef66d` | feat(subscriptionsandbilling): add get user subscription by user id endpoint. | Implement GET endpoint to retrieve user subscription details | 2026-06-19 |
+| goldcheck-platform | develop | `f617754` | feat(subscriptionsandbilling): add request access endpoint. | Implement POST endpoint for requesting access to subscription features | 2026-06-19 |
+| goldcheck-platform | develop | `2132698` | feat(subscriptionsandbilling): add confirm subscription endpoint. | Implement POST endpoint for confirming user subscriptions | 2026-06-19 |
+
+#### 5.2.3.5. Execution Evidence for Sprint Review
+
+_(Completar con capturas de pantalla de los endpoints funcionando, vistas de Swagger/OpenAPI y evidencia de las respuestas HTTP.)_
+
+#### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+En este Sprint se implementó la primera versión de los Web Services de GoldCheck utilizando ASP.NET Core con C#. La documentación de los endpoints se generó automáticamente mediante Swagger (OpenAPI).
+
+A continuación se presentan los endpoints implementados por cada bounded context, organizados por controlador. _(Completar con capturas de Swagger una vez desplegado el backend.)_
+
+**Identity & Access Management (IAM)**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/authentication/sign-up` | POST | Registrar un nuevo usuario |
+| `/api/v1/authentication/sign-in` | POST | Iniciar sesión y obtener token |
+| `/api/v1/users/{userId}` | GET | Obtener usuario por ID |
+| `/api/v1/users` | GET | Obtener todos los usuarios |
+| `/api/v1/users/{userId}/profile` | PUT | Actualizar perfil de usuario |
+
+**Fleet Operations**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/hauling-cycles` | POST | Iniciar un ciclo de acarreo |
+| `/api/v1/hauling-cycles/{cycleId}/load` | PUT | Cargar material en un ciclo |
+| `/api/v1/hauling-cycles/{cycleId}/complete` | PUT | Completar un ciclo de acarreo |
+| `/api/v1/hauling-cycles` | GET | Obtener todos los ciclos de acarreo |
+| `/api/v1/hauling-cycles/{cycleId}` | GET | Obtener ciclo por ID |
+| `/api/v1/vehicles` | POST | Registrar un nuevo vehículo |
+| `/api/v1/vehicles` | GET | Obtener todos los vehículos |
+| `/api/v1/vehicles/{vehicleId}` | GET | Obtener vehículo por ID |
+
+**Material Operations**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/materials` | POST | Registrar un nuevo material/lote |
+| `/api/v1/materials/{batchId}/classify` | PUT | Clasificar tipo de mineral |
+| `/api/v1/materials/{batchId}/download` | PUT | Descargar material |
+| `/api/v1/materials/{batchId}/track` | PUT | Rastrear movimiento de material |
+| `/api/v1/materials` | GET | Obtener todos los materiales |
+| `/api/v1/materials/{batchId}` | GET | Obtener material por ID |
+
+**Jewelry Inventory & Certification**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/certificates` | POST | Generar certificado de joya |
+| `/api/v1/certificates/{certificateId}/sign` | PUT | Firmar certificado |
+| `/api/v1/certificates/{certificateId}` | GET | Obtener certificado por ID |
+| `/api/v1/jewelry-materials` | POST | Registrar material no certificado |
+| `/api/v1/jewelry-materials/{materialId}/scan` | PUT | Escanear QR de material |
+| `/api/v1/jewelry-materials` | GET | Obtener todos los materiales de joyería |
+| `/api/v1/jewelry-materials/{materialId}` | GET | Obtener material por ID |
+
+**Asset & Maintenance**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/machinery` | POST | Registrar maquinaria |
+| `/api/v1/machinery/{machineryId}` | GET | Obtener maquinaria por ID |
+| `/api/v1/machinery` | GET | Obtener toda la maquinaria |
+| `/api/v1/machinery/{machineryId}` | PUT | Actualizar datos de maquinaria |
+| `/api/v1/machinery/{machineryId}/schedule-maintenance` | PUT | Programar mantenimiento preventivo |
+| `/api/v1/machinery/{machineryId}/discharge` | PUT | Dar de baja maquinaria |
+| `/api/v1/machinery/{machineryId}/components/{componentId}/discharge` | PUT | Dar de baja componente |
+
+**Analytics**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/analytics/routes/view` | POST | Visualizar progreso de rutas |
+| `/api/v1/analytics/routes/{routeId}` | GET | Obtener progreso de ruta por ID |
+| `/api/v1/analytics/routes` | GET | Obtener todas las rutas |
+| `/api/v1/analytics/production/dashboard` | POST | Visualizar dashboard de producción |
+| `/api/v1/analytics/production/request` | POST | Solicitar datos de producción |
+| `/api/v1/analytics/production` | GET | Obtener datos de producción |
+
+**Reporting & Notifications**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/reports` | POST | Crear reporte |
+| `/api/v1/reports/{reportId}/load-data` | PUT | Cargar datos de accidente |
+| `/api/v1/reports/{reportId}/generate` | PUT | Generar reporte |
+| `/api/v1/reports/{reportId}/request-export` | PUT | Solicitar exportación |
+| `/api/v1/reports/{reportId}/export` | PUT | Exportar reporte |
+| `/api/v1/reports/{reportId}/download` | GET | Descargar reporte |
+| `/api/v1/reports/{reportId}` | GET | Obtener reporte por ID |
+| `/api/v1/reports` | GET | Obtener todos los reportes |
+| `/api/v1/notifications` | POST | Crear notificación |
+| `/api/v1/notifications/{notificationId}/send` | PUT | Enviar notificación |
+| `/api/v1/notifications/{notificationId}` | GET | Obtener notificación por ID |
+| `/api/v1/notifications/user/{userId}` | GET | Obtener notificaciones por usuario |
+
+**Subscriptions & Billing**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/subscriptions` | POST | Seleccionar plan |
+| `/api/v1/subscriptions/{userId}` | GET | Obtener suscripción por usuario |
+| `/api/v1/subscriptions` | GET | Obtener todas las suscripciones |
+| `/api/v1/subscriptions/{userId}/confirm` | PUT | Confirmar suscripción |
+| `/api/v1/subscriptions/{userId}/downgrade` | PUT | Solicitar downgrade |
+| `/api/v1/subscriptions/{userId}/downgrade/execute` | PUT | Ejecutar downgrade |
+| `/api/v1/subscriptions/{userId}/access-check` | POST | Verificar acceso a feature |
+| `/api/v1/subscriptions/{userId}/invoices` | POST | Generar factura |
+| `/api/v1/subscriptions/{userId}/invoices/{invoiceId}/download` | GET | Descargar factura |
+| `/api/v1/subscriptions/{userId}/invoices/{invoiceId}` | GET | Obtener factura por ID |
+| `/api/v1/subscriptions/{userId}/payment-history` | GET | Historial de pagos |
+| `/api/v1/subscriptions/plans/check` | POST | Verificar plan de usuario |
+| `/api/v1/subscriptions/plans/{planType}/features` | POST | Asignar features a plan |
+| `/api/v1/subscriptions/plans/{planType}/features` | GET | Obtener features de plan |
+| `/api/v1/subscriptions/{userId}/access-request` | POST | Solicitar acceso |
+
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+_(Completar con evidencia del despliegue del backend. Incluir: plataforma utilizada (Azure, Railway, etc.), URL del servicio desplegado, capturas del proceso de despliegue.)_
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint
+
+_(Completar con capturas de los insights de colaboración del repositorio `goldcheck-platform`: contributors, commits por integrante, network graph, Pull Requests.)_
+
+
+## 5.3. Validation Interviews
+
+### 5.3.1. Diseño de Entrevistas de Validación
+
+Para cada segmento objetivo se establecieron los elementos a incluir en la sesión de validación, considerando la interacción con el Landing Page y la aplicación web GoldCheck. Las sesiones siguen un orden estructurado: primero se evalúa el Landing Page y luego los user flows de la aplicación.
+
+---
+
+#### Segmento 1: Empresas Mineras
+
+*User Flows a validar:*
+- Registro de un nuevo lote de mineral (Fleet Operations)
+- Monitoreo de flota y revisión de alertas de anomalía (Monitoring & Telemetry)
+- Reporte de incidentes (Incident Management)
+- Revisión de KPIs en Analytics
+
+*Preguntas — Landing Page*
+1. Al ver esta página por primera vez, ¿qué entiendes que hace esta plataforma?
+2. ¿La información presentada te convence de que GoldCheck puede ayudarte en tu operación? ¿Por qué?
+3. ¿Encuentras fácilmente cómo registrarte o contactar al equipo?
+
+*Preguntas — Aplicación*
+4. Intenta registrar un nuevo lote de mineral desde el dashboard de Fleet Operations. ¿Qué tan intuitivo te resultó el proceso?
+5. Navega a la sección de monitoreo. ¿Las alertas de anomalía son claras y fáciles de interpretar?
+6. Simula reportar un incidente. ¿El formulario recoge toda la información que necesitarías en un escenario real?
+7. Revisa el dashboard de Analytics. ¿Los KPIs mostrados son los que usarías para tomar decisiones operativas?
+8. ¿Hay alguna funcionalidad que esperabas encontrar y no encontraste?
+
+---
+
+#### Segmento 2: Joyerías
+
+*User Flows a validar:*
+- Registro de inventario de piezas (Jewelry Inventory & Certification)
+- Certificación de piezas y generación de QR
+- Consulta del historial de trazabilidad de un material
+
+*Preguntas — Landing Page*
+1. ¿Qué te transmite esta página sobre el producto? ¿Queda claro a quién va dirigido?
+2. ¿La propuesta de valor para joyerías es suficientemente clara y convincente?
+3. ¿El proceso para solicitar una demo o registrarse es sencillo de encontrar?
+
+*Preguntas — Aplicación*
+4. Intenta registrar una pieza en el inventario. ¿El proceso es claro y completo?
+5. Genera el certificado QR de una pieza. ¿La información incluida en el certificado te parece suficiente para compartir con tus clientes?
+6. Consulta el historial de trazabilidad de un material. ¿La información presentada es comprensible y confiable?
+7. ¿Qué información adicional sobre el origen del material te gustaría ver en la plataforma?
+8. ¿Qué le agregarías o cambiarías?
+
+---
+
+#### Segmento 3: Usuarios Consumidores
+
+*User Flows a validar:*
+- Escaneo de código QR de una joya
+- Verificación de autenticidad y trazabilidad del mineral
+- Consulta del origen ético del material (Consumer Traceability)
+
+*Preguntas — Landing Page*
+1. Al ver esta página, ¿entiendes de inmediato para qué sirve la plataforma?
+2. ¿Te genera confianza la información presentada sobre la trazabilidad del oro?
+3. ¿Encuentras fácilmente cómo verificar la autenticidad de una joya?
+
+*Preguntas — Aplicación*
+4. Escanea el código QR de una joya. ¿El proceso es sencillo e intuitivo?
+5. Revisa la información de trazabilidad mostrada. ¿Es fácil de entender de dónde proviene el mineral?
+6. ¿La información sobre la certificación libre de conflicto y los criterios ESG te genera confianza?
+7. ¿Qué información adicional te gustaría ver al verificar una joya?
+8. ¿Qué le agregarías o cambiarías?
+
+---
+
+#### Cierre (todos los segmentos)
+- En una escala del 1 al 10, ¿qué tan probable es que uses o recomiendes GoldCheck?
+- ¿Qué es lo que más te gustó de la plataforma?
+- ¿Qué cambiarías o mejorarías con mayor urgencia?
+
+### 5.3.2. Registro de Entrevistas de Validación
+
+_(Completar una vez realizadas las entrevistas. Se requieren entre 3 y 5 entrevistas por segmento.)_
+
+#### Segmento 1: Empresas Mineras
+
+| Segmento: Empresas Mineras | Entrevista #1 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+| Segmento: Empresas Mineras | Entrevista #2 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+| Segmento: Empresas Mineras | Entrevista #3 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+<div style="page-break-after: always"></div>
+
+#### Segmento 2: Joyerías
+
+| Segmento: Joyerías | Entrevista #1 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+| Segmento: Joyerías | Entrevista #2 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+| Segmento: Joyerías | Entrevista #3 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+<div style="page-break-after: always"></div>
+
+#### Segmento 3: Consumidores Finales
+
+| Segmento: Usuario consumidor | Entrevista #1 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+| Segmento: Usuario consumidor | Entrevista #2 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+| Segmento: Usuario consumidor | Entrevista #3 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
+| Resumen | _(completar)_ |
+
+<div style="page-break-after: always"></div>
+
+**URL del video consolidado de Validation Interviews (Microsoft Stream):**
+
+Nomenclatura: `upc-pre-202610-1asi0730-12053-GoldMetrics-validation-sprint-3`
+
+URL: _(completar)_
+
+### 5.3.3. Evaluaciones según heurísticas
+
+#### UX Heuristics & Principles Evaluation
+**Usability – Inclusive Design – Information Architecture**
+
+| Campo | Detalle |
+|-------|---------|
+| CARRERA | Ingeniería de Software |
+| CURSO | 1ASI0730 Aplicaciones Web |
+| SECCIÓN | NRC 12053 |
+| PROFESORES | Todos |
+| AUDITOR | NutriSense Team |
+| CLIENTE(S) | Olenka Del Aguila, Angela Espinoza, Joel Mora, Rose Vergaray, Angel Villarreal |
+| SITE A EVALUAR | Landing Page: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/ / Web Application: https://goldcheck-goldmetrics.netlify.app/ |
+
+---
+
+#### TAREAS A EVALUAR
+
+El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+
+1. Navegación general del Landing Page y comportamiento responsive del header
+2. Inicio de sesión (login) y cambio de idioma desde la pantalla de autenticación
+3. Registro de un nuevo usuario (datos personales y teléfono)
+4. Selección de un plan de suscripción durante el alta
+5. Registro de un método de pago (tarjeta de crédito) para la suscripción
+6. Vinculación de una joya y registro de su pureza
+7. Validación de joyas contra el inventario existente
+8. Registro de operaciones de material (peso)
+9. Registro y gestión de incidentes (new incident)
+10. Uso del buscador del header
+11. Navegación del dashboard y sus controles
+12. Gestión de perfil, locación y guardado de cambios
+13. Acceso y comportamiento del centro de notificaciones
+14. Comportamiento responsive del sidebar de la Web Application
+
+---
+
+#### ESCALA DE SEVERIDAD
+
+| Nivel | Descripción |
+|-------|-------------|
+| 1 | Problema superficial: puede ser fácilmente superado por el usuario u ocurre con muy poca frecuencia. No necesita ser corregido a menos que exista disponibilidad de tiempo. |
+| 2 | Problema menor: puede ocurrir con más frecuencia o es algo más difícil de superar para el usuario. Se le debería asignar una prioridad baja resolverlo de cara al siguiente release. |
+| 3 | Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante que sea corregido y se le debe asignar una prioridad alta. |
+| 4 | Problema muy grave: un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento. |
+
+---
+
+#### TABLA RESUMEN
+
+| # | Problema | Severidad | Heurística / Principio violado | Plan afectado |
+|---|----------|-----------|-------------------------------|---------------|
+| 1 | El header del Landing Page no colapsa en un menú hamburguesa en vista responsive y se ve amontonado | 2 | Usability: Diseño estético y minimalista / Consistencia y estándares | Todos |
+| 2 | La pantalla de login no ofrece un selector de idioma | 2 | Usability: Flexibilidad y eficiencia de uso / Inclusive Design: Offer choice | Todos |
+| 3 | El campo de teléfono en el registro permite ingresar texto | 2 | Usability: Prevención de errores | Todos |
+| 4 | El registro/login no muestra la selección de planes y asigna uno automáticamente | 3 | Usability: Control y libertad del usuario | Todos |
+| 5 | El registro de tarjeta de crédito permite fechas de vencimiento pasadas | 2 | Usability: Prevención de errores | Todos |
+| 6 | No es posible guardar la tarjeta para reutilizarla en futuros pagos | 2 | Usability: Flexibilidad y eficiencia de uso | Todos |
+| 7 | El campo "Pureza" al vincular una joya permite ingresar letras aleatorias | 3 | Usability: Prevención de errores | Todos |
+| 8 | Es posible vincular una joya que no existe en el inventario | 3 | Usability: Prevención de errores | Todos |
+| 9 | El mensaje de error "weightExceedsInitial" no está en lenguaje natural | 2 | Usability: Ayuda a reconocer, diagnosticar y recuperarse de errores / Coincidencia con el mundo real | Todos |
+| 10 | Al crear y registrar un nuevo incidente, no se guarda lo procesado | 3 | Usability: Visibilidad del estado del sistema / Prevención de errores | Todos |
+| 11 | El perfil permite modificar absolutamente todos los datos sin verificación | 3 | Usability: Prevención de errores | Todos |
+| 12 | El perfil no ofrece un dropdown de locaciones (entrada libre) | 2 | Usability: Prevención de errores / Consistencia y estándares | Todos |
+| 13 | "Save Changes" en el perfil no muestra un modal de confirmación | 2 | Usability: Prevención de errores / Control y libertad del usuario | Todos |
+| 14 | El sidebar de la Web Application no colapsa en hamburguesa en vista responsive | 2 | Usability: Consistencia y estándares / Diseño estético y minimalista | Todos |
+| 15 | El textbox de búsqueda del header no comunica para qué sirve | 2 | Usability: Reconocimiento antes que recuerdo / Ayuda y documentación | Todos |
+| 16 | El botón "Today" del dashboard no comunica su función | 1 | Usability: Reconocimiento antes que recuerdo / Ayuda y documentación | Todos |
+| 17 | El botón de notificaciones redirige a las opciones de notificaciones en lugar de mostrarlas | 2 | Usability: Coincidencia entre el sistema y el mundo real / Consistencia y estándares | Todos |
+
+---
+
+#### DESCRIPCIÓN DE PROBLEMAS
+
+---
+
+##### 1. Landing Page
+
+**PROBLEMA #1:** El header del Landing Page no colapsa en un menú hamburguesa en vista responsive
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Diseño estético y minimalista / Consistencia y estándares
+- **Plan afectado:** Todos
+
+**Problema:**
+Al reducir el ancho de la ventana o acceder desde un dispositivo móvil, los elementos de navegación del header del Landing Page se mantienen en línea y se ven amontonados, sin colapsar en un menú hamburguesa. Esto rompe la convención estándar de navegación responsive que el usuario espera en móvil y deteriora la legibilidad y la jerarquía visual del encabezado.
+
+**Recomendación:**
+Implementar un menú hamburguesa que agrupe los enlaces de navegación por debajo de un breakpoint definido (por ejemplo, < 768px), liberando espacio en el header y manteniendo la coherencia con los patrones de navegación móvil habituales.
+
+---
+
+##### 2. Autenticación (Login y Registro)
+
+**PROBLEMA #2:** La pantalla de login no ofrece un selector de idioma
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Flexibilidad y eficiencia de uso / Inclusive Design — Offer choice
+- **Plan afectado:** Todos
+
+**Problema:**
+La pantalla de inicio de sesión no incluye ningún control para cambiar de idioma. El usuario que no domina el idioma por defecto no puede ajustarlo antes de autenticarse, quedando obligado a navegar el flujo de acceso sin la posibilidad de elegir el idioma que mejor comprende.
+
+**Recomendación:**
+Agregar un language switcher visible en la pantalla de login (y de registro), consistente con el que exista dentro de la aplicación, para que el usuario pueda seleccionar su idioma desde el primer punto de contacto.
+
+---
+
+**PROBLEMA #3:** El campo de teléfono en el registro permite ingresar texto
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Prevención de errores
+- **Plan afectado:** Todos
+
+**Problema:**
+En el formulario de registro, el campo "phone number" acepta cualquier carácter, incluyendo letras y símbolos, sin restringir la entrada a valores numéricos válidos. Esto permite que se almacenen números de teléfono mal formados y puede generar problemas posteriores de contacto o validación.
+
+**Recomendación:**
+Restringir el campo a entrada numérica (tipo `tel` con validación), aplicar una máscara de formato según el país y mostrar un mensaje de error claro cuando el valor ingresado no cumpla el patrón esperado.
+
+---
+
+**PROBLEMA #4:** El registro/login no muestra la selección de planes y asigna uno automáticamente
+
+- **Severidad:** 3
+- **Heurística violada:** Usability — Control y libertad del usuario
+- **Plan afectado:** Todos
+
+**Problema:**
+Al registrarse o iniciar sesión por primera vez, el sistema no presenta la pantalla de selección de planes y asigna un plan automáticamente sin intervención del usuario. El usuario pierde el control sobre una decisión clave del alta (qué plan contrata) y puede terminar con uno que no corresponde a sus necesidades, sin haber sido consciente de la elección.
+
+**Recomendación:**
+Incorporar un paso explícito de selección de plan dentro del flujo de registro/onboarding, mostrando las opciones disponibles con sus diferencias, y requerir una confirmación del usuario antes de asignar cualquier plan.
+
+---
+
+##### 3. Suscripción y Pago
+
+**PROBLEMA #5:** El registro de tarjeta de crédito permite fechas de vencimiento pasadas
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Prevención de errores
+- **Plan afectado:** Todos
+
+**Problema:**
+Al registrar una tarjeta de crédito para la suscripción, el formulario acepta fechas de vencimiento anteriores a la fecha actual sin advertir al usuario. Esto permite enviar datos inválidos que serán rechazados más adelante, generando fricción y desconfianza en el momento del cobro.
+
+**Recomendación:**
+Validar el campo de vencimiento contra la fecha actual y bloquear/avisar cuando se ingrese una fecha pasada, mostrando un mensaje claro como "La fecha de vencimiento no puede ser anterior a la fecha actual".
+
+---
+
+**PROBLEMA #6:** No es posible guardar la tarjeta para reutilizarla
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Flexibilidad y eficiencia de uso
+- **Plan afectado:** Todos
+
+**Problema:**
+El flujo de pago no ofrece la opción de guardar la tarjeta registrada, por lo que el usuario debe volver a ingresar todos sus datos en cada operación o renovación. Esto resta eficiencia a usuarios recurrentes y añade fricción innecesaria al proceso de pago.
+
+**Recomendación:**
+Permitir guardar de forma segura el método de pago (tokenizado por la pasarela) con una casilla "Guardar esta tarjeta", y mostrar las tarjetas almacenadas en futuros pagos para que el usuario solo confirme.
+
+---
+
+##### 4. App — Inventario y Joyas
+
+**PROBLEMA #7:** El campo "Pureza" al vincular una joya permite ingresar letras aleatorias
+
+- **Severidad:** 3
+- **Heurística violada:** Usability — Prevención de errores
+- **Plan afectado:** Todos
+
+**Problema:**
+Al vincular una joya, el campo "Pureza" acepta letras y caracteres arbitrarios en lugar de restringirse a un valor numérico con su unidad de medida. Dado que la pureza (por ejemplo, en quilates) es un dato central del dominio de la aplicación, permitir entradas inválidas compromete directamente la integridad de la información registrada.
+
+**Recomendación:**
+Separar el dato en dos campos: uno numérico para el valor de la pureza y otro (dropdown) para la unidad de medida (K / ...). Validar el campo numérico y limitar las unidades a un conjunto controlado, evitando entradas de texto libre.
+
+---
+
+**PROBLEMA #8:** Es posible vincular una joya que no existe en el inventario
+
+- **Severidad:** 3
+- **Heurística violada:** Usability — Prevención de errores
+- **Plan afectado:** Todos
+
+**Problema:**
+El sistema permite vincular una joya que no se encuentra registrada en el inventario, sin validar su existencia. Esto rompe la integridad referencial entre los registros y el inventario, pudiendo generar datos huérfanos o inconsistencias difíciles de rastrear más adelante.
+
+**Recomendación:**
+Validar contra el inventario antes de permitir la vinculación, restringiendo la selección a joyas existentes (por ejemplo, mediante un selector/autocomplete que consulte el inventario) y bloqueando el guardado cuando la joya no exista.
+
+---
+
+##### 5. App — Operaciones de Material
+
+**PROBLEMA #9:** El mensaje "weightExceedsInitial" no está en lenguaje natural
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Ayuda al usuario a reconocer, diagnosticar y recuperarse de errores / Coincidencia entre el sistema y el mundo real
+- **Plan afectado:** Todos
+
+**Problema:**
+Al registrar el peso de un material en una operación (material ops), si se selecciona un peso que excede el inicial, el sistema muestra el código técnico "weightExceedsInitial" en lugar de un mensaje en lenguaje natural. El usuario final no comprende qué significa la clave interna ni cómo corregir el error.
+
+**Recomendación:**
+Reemplazar el código por un mensaje descriptivo y accionable, por ejemplo: "El peso ingresado supera el peso inicial registrado. Ingresa un valor menor o igual al inicial." Asegurar que todos los mensajes de validación se muestren traducidos y orientados al usuario, no como claves de sistema.
+
+---
+
+##### 6. App — Incidentes
+
+**PROBLEMA #10:** Al crear y registrar un nuevo incidente, no se guarda lo procesado
+
+- **Severidad:** 3
+- **Heurística violada:** Usability — Visibilidad del estado del sistema / Prevención de errores
+- **Plan afectado:** Todos
+
+**Problema:**
+Al usar "New incident" y registrar la información, lo que el usuario acaba de procesar no se guarda. Además de la pérdida de datos, el sistema no comunica de forma clara que la operación falló, por lo que el usuario cree haber completado la tarea cuando en realidad no quedó registro alguno.
+
+**Recomendación:**
+Corregir la lógica de persistencia para que el incidente se guarde correctamente al confirmar. Mostrar retroalimentación explícita del resultado (éxito o error) y, en caso de fallo, conservar los datos ingresados para que el usuario no tenga que volver a capturarlos.
+
+---
+
+##### 7. App — Perfil
+
+**PROBLEMA #11:** El perfil permite modificar todos los datos sin verificación
+
+- **Severidad:** 3
+- **Heurística violada:** Usability — Prevención de errores
+- **Plan afectado:** Todos
+
+**Problema:**
+En `/app/profile` el usuario puede cambiar absolutamente todos sus datos sin ninguna verificación previa. La ausencia de validaciones o confirmaciones sobre datos sensibles (como correo o credenciales) abre la puerta a cambios accidentales o no autorizados, con impacto directo en la seguridad de la cuenta.
+
+**Recomendación:**
+Incorporar verificaciones para los cambios sensibles (por ejemplo, reconfirmación de contraseña o verificación por correo al cambiar el email) y validar cada campo antes de aplicar los cambios.
+
+---
+
+**PROBLEMA #12:** El perfil no ofrece un dropdown de locaciones
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Prevención de errores / Consistencia y estándares
+- **Plan afectado:** Todos
+
+**Problema:**
+En `/app/profile` la locación se ingresa como texto libre, sin un dropdown que limite las opciones a valores válidos. Esto favorece inconsistencias (errores de tipeo, nombres distintos para una misma locación) y dificulta cualquier agrupación o filtrado posterior por ubicación.
+
+**Recomendación:**
+Reemplazar el campo libre por un dropdown (o autocomplete) con el catálogo de locaciones disponibles, garantizando que solo se registren valores válidos y consistentes.
+
+---
+
+**PROBLEMA #13:** "Save Changes" en el perfil no muestra un modal de confirmación
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Prevención de errores / Control y libertad del usuario
+- **Plan afectado:** Todos
+
+**Problema:**
+Al pulsar "Save Changes" en el perfil, los cambios se aplican directamente sin solicitar una confirmación. El usuario no tiene una oportunidad de revisar o cancelar la acción antes de que se persista, lo que puede llevar a guardar cambios no intencionados.
+
+**Recomendación:**
+Mostrar un modal de confirmación ("¿Deseas guardar los cambios?") antes de persistir, con opciones de confirmar o cancelar, y retroalimentación de éxito una vez completado el guardado.
+
+---
+
+##### 8. App — Navegación General
+
+**PROBLEMA #14:** El sidebar de la Web Application no colapsa en hamburguesa en vista responsive
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Consistencia y estándares / Diseño estético y minimalista
+- **Plan afectado:** Todos
+
+**Problema:**
+En vista responsive, el sidebar de la Web Application se mantiene desplegado y ocupa espacio fijo en pantallas pequeñas, en lugar de colapsar en un menú hamburguesa. Esto reduce el área útil de contenido en móvil y se aparta del patrón de navegación esperado en estos tamaños de pantalla.
+
+**Recomendación:**
+Convertir el sidebar en un menú hamburguesa colapsable por debajo de un breakpoint definido, mostrando el contenido principal a ancho completo y desplegando la navegación bajo demanda. Mantener coherencia con la solución aplicada al header del Landing Page (#1).
+
+---
+
+**PROBLEMA #15:** El textbox de búsqueda del header no comunica para qué sirve
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Reconocimiento antes que recuerdo / Ayuda y documentación
+- **Plan afectado:** Todos
+
+**Problema:**
+El header de la Web Application incluye un textbox de búsqueda, pero no comunica qué se puede buscar con él (joyas, incidentes, materiales, etc.). El usuario debe adivinar su alcance, lo que reduce su utilidad y genera incertidumbre sobre el resultado esperado.
+
+**Recomendación:**
+Agregar un placeholder descriptivo que indique el ámbito de la búsqueda (por ejemplo, "Buscar joyas, incidentes o materiales...") y, de ser posible, mostrar sugerencias o categorías de resultados que aclaren su funcionamiento.
+
+---
+
+**PROBLEMA #16:** El botón "Today" del dashboard no comunica su función
+
+- **Severidad:** 1
+- **Heurística violada:** Usability — Reconocimiento antes que recuerdo / Ayuda y documentación
+- **Plan afectado:** Todos
+
+**Problema:**
+El dashboard incluye un botón "Today" cuyo propósito no es evidente. El usuario no puede anticipar qué acción ejecuta (¿filtrar por la fecha de hoy?, ¿volver a la vista actual?), lo que obliga a probarlo para descubrir su función.
+
+**Recomendación:**
+Aclarar la función del control mediante una etiqueta más descriptiva o un tooltip (por ejemplo, "Ver datos de hoy" / "Volver a la fecha actual"), de modo que su efecto sea reconocible sin necesidad de interactuar a ciegas.
+
+---
+
+**PROBLEMA #17:** El botón de notificaciones redirige a las opciones de notificaciones en lugar de mostrarlas
+
+- **Severidad:** 2
+- **Heurística violada:** Usability — Coincidencia entre el sistema y el mundo real / Consistencia y estándares
+- **Plan afectado:** Todos
+
+**Problema:**
+Al pulsar el ícono de notificaciones (campana), el sistema redirige a las opciones de configuración de notificaciones en lugar de mostrar el listado de notificaciones del usuario. Esto contradice la convención universal del ícono de campana, que el usuario asocia con ver sus avisos, no con configurarlos.
+
+**Recomendación:**
+Hacer que el ícono de notificaciones despliegue el listado de notificaciones (panel o dropdown) y mover el acceso a la configuración a un control secundario dentro de ese mismo panel (por ejemplo, un ícono de engranaje o un enlace "Configurar notificaciones").
+
+
+## 5.4. Video About-the-Product
+
+**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-product-av2`
+
+**Requisitos del video:**
+- Duración: entre 1 y 3 minutos.
+- Incluir al menos un testimonio de usuario por cada segmento objetivo (empresa minera, joyería, consumidor final).
+- Publicar en Microsoft Stream y YouTube.
+- Incrustar en el Landing Page de GoldCheck.
+
+**URL Microsoft Stream:** _(completar)_
+
+**URL YouTube:** _(completar)_
+
+
+## 5.5. Video About-the-Team
+
+**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-team-av2`
+
+**Requisitos del video:**
+- Duración: máximo 3 minutos.
+- Presentación de cada integrante del equipo, su rol y contribución al proyecto.
+- Publicar en Microsoft Stream.
+
+**URL Microsoft Stream:** _(completar)_
+
+
 ## Anexos Importantes
+
 URL de la Mockapi desplegado: https://goldcheck-mockapi-production.up.railway.app
 
 URL del Frontend Web Application desplegado: https://luxury-beignet-b30759.netlify.app/
 
 URL del Landing Page integrado con nuestro Frontend: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
 
-URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQB4rryG93n3TJmOjq45RPFXAXI5UyXcV4nDgKvH_Tpa_eU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=WZRYZE  
+URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQB4rryG93n3TJmOjq45RPFXAXI5UyXcV4nDgKvH_Tpa_eU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=WZRYZE
 
-URL upc-pre-202610-1asi0730-12053-GoldMetrics-needfinding-sprint-1 : https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDu6FgeSAQyTIWq7Mi2D3PWAYw61dd-gFnSQCx1kfl35Zs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=OlpPYE 
+URL upc-pre-202610-1asi0730-12053-GoldMetrics-needfinding-sprint-1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDu6FgeSAQyTIWq7Mi2D3PWAYw61dd-gFnSQCx1kfl35Zs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=OlpPYE
 
-## Conclusiones:
+## Conclusiones
+
 **AV1**
 - Validación del problema con usuarios reales: A través de las entrevistas realizadas a los tres segmentos objetivo (empresas mineras, joyerías y consumidores finales), se confirmó que la falta de trazabilidad en la cadena mineral es un problema tangible y costoso. El 100% de los entrevistados mostró interés en herramientas digitales que permitan verificar el origen y autenticidad de los minerales, lo que validó la propuesta de valor de GoldCheck como solución viable para el mercado peruano.
-
 - Definición arquitectónica basada en DDD: La aplicación del enfoque Domain-Driven Design permitió identificar once bounded contexts con responsabilidades claramente delimitadas, desde la extracción del mineral hasta la certificación de la joya. Esta decisión arquitectónica sentó una base sólida y escalable para el desarrollo del producto, evitando acoplamientos innecesarios entre módulos y facilitando el trabajo distribuido del equipo.
 - Alineación entre necesidades del usuario y funcionalidades del sistema: El proceso de Needfinding, junto con la elaboración del Impact Mapping y el Product Backlog, permitió conectar directamente las necesidades identificadas en las entrevistas con las User Stories priorizadas. Cada funcionalidad definida responde a un problema real de alguno de los segmentos, garantizando que el producto tenga orientación al valor desde sus primeras etapas.
 
 **TB1**
-
 - Implementación frontend coherente con la arquitectura DDD: El desarrollo del Single Page Application en Vue 3 respetó fielmente la estructura de bounded contexts definida en el AV1. Cada módulo del frontend sigue una arquitectura de cuatro capas (Presentation, Application, Domain e Infrastructure), lo que facilitó el trabajo paralelo entre integrantes, redujo conflictos en el código y produjo un sistema organizado y mantenible desde la primera iteración funcional.
 - Trazabilidad completa del ciclo mineral demostrada en el producto: Al finalizar el TB1, GoldCheck cuenta con flujos funcionales que cubren el recorrido completo del mineral: desde el registro del lote en la mina, el monitoreo del transporte, la recepción en planta con cálculo de merma, la validación y certificación en la joyería, hasta el escaneo QR por parte del consumidor final. Esto demuestra que el equipo logró traducir la visión del producto en funcionalidades reales y desplegadas, cerrando el ciclo de trazabilidad que motivó el proyecto desde su inicio.
-- Durante el TB1, el equipo generó una documentación arquitectónica completa bajo el modelo C4, abarcando desde el diagrama de contexto del sistema hasta el zoom-in de la capa de presentación por cada bounded context. Esta documentación no solo refleja las decisiones técnicas tomadas durante el desarrollo, sino que garantiza la mantenibilidad y escalabilidad del proyecto hacia futuras iteraciones, estableciendo un estándar de calidad arquitectónica alineado con las buenas prácticas de Domain-Driven Design.
+- Documentación arquitectónica completa bajo el modelo C4: Durante el TB1, el equipo generó una documentación arquitectónica completa bajo el modelo C4, abarcando desde el diagrama de contexto del sistema hasta el zoom-in de la capa de presentación por cada bounded context. Esta documentación no solo refleja las decisiones técnicas tomadas durante el desarrollo, sino que garantiza la mantenibilidad y escalabilidad del proyecto hacia futuras iteraciones, estableciendo un estándar de calidad arquitectónica alineado con las buenas prácticas de Domain-Driven Design.
 
-## Bibliografia:
+**AV2**
+- Transición de mock API a Web Services reales: En el Sprint 3, el equipo dio el paso de reemplazar la capa simulada (MockAPI) por una implementación real de Web Services en ASP.NET Core con C#, siguiendo la arquitectura DDD definida desde el AV1. Esto representa la maduración técnica del proyecto, pasando de prototipos funcionales a una plataforma con backend real capaz de persistir datos, validar reglas de negocio y exponer endpoints documentados mediante Swagger/OpenAPI.
+- Validación directa con usuarios reales de los tres segmentos: Las Validation Interviews permitieron confrontar el producto implementado con las expectativas reales de empresas mineras, joyerías y consumidores finales. Este ciclo de feedback directo sobre el Landing Page y la Web Application confirma que el equipo no solo construye funcionalidades, sino que valida continuamente su utilidad y usabilidad con los actores del mercado objetivo.
+- Evaluación cruzada de calidad mediante heurísticas: La evaluación heurística realizada por el equipo NutriSense sobre GoldCheck proporcionó una perspectiva externa e imparcial sobre la usabilidad de la plataforma, identificando áreas de mejora que el equipo propio podría haber pasado por alto. Este ejercicio de revisión cruzada fortalece la calidad del producto y fomenta una cultura de mejora continua basada en principios de usabilidad reconocidos (Nielsen).
+
+## Bibliografía
+
 Canchari, J. (2025). Las pérdidas económicas por minería ilegal equivalen al 2,5% del PBI peruano. Fiscalías Especializadas en Materia Ambiental.
 
 Cruz, R. (2024). Minería ilegal incorpora más de un millón de onzas de oro al mercado formal. Sociedad Nacional de Minería, Petróleo y Energía.
@@ -521,4 +1275,3 @@ DesdeAdentro. (2025). Trazabilidad del oro: el desafío de separar el mercado in
 Ministerio de Energía y Minas. (2024). Anuario Minero 2024. Gobierno del Perú. https://www.minem.gob.pe
 
 Núñez, R. (2025). Análisis de producción y exportación de oro en el Perú: brecha de 100 mil toneladas. Anuario Minero 2024, Minem.
->>>>>>> develop

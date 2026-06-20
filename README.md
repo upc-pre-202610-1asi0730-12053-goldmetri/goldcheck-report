@@ -1,37 +1,33 @@
-<!-- Cover -->
 <div align="center">
  <img src="assets/img/logoUPC.png">
-</div>
 
 # UNIVERSIDAD PERUANA DE CIENCIAS APLICADAS
 
 ***Ingeniería de Software***
 
-**Curso:** 1ASI0730 | Aplicaciones Web
-**NRC:** 12053
+**Curso:** 1ASI0730 | Aplicaciones Web  
+**NRC:** 12053  
 **Ciclo:** 5  
 **Docente:** Efraín Ricardo Bautista Ubillús  
 
-## **"Informe de trabajo: AV1"**
+## **"Informe de trabajo: AV2"**
 
 #### *Startup:* GoldMetrics
 
 #### *Producto:* GoldCheck
 
-
 ***Relación de integrantes:***
 
-| INTEGRANTES | CÓDIGO |
-| :---: | :---: |
-| Armestar Felipa, Adrian Andres | U202410084 |
-| García Paredes, Victor Manuel | U202012001 |
-| Navarro Aldoradin, Carolina Celeste  | U20241B962 |
-| Philco Mota, Katty Yolanda | U202416107 |
-| Tuesta Girón, Kiara Lucia | U20251i477 |
+<table style="margin: 0 auto;">
+<tr><th>INTEGRANTES</th><th>CÓDIGO</th></tr>
+<tr><td>Armestar Felipa, Adrian Andres</td><td>U202410084</td></tr>
+<tr><td>García Paredes, Victor Manuel</td><td>U202012001</td></tr>
+<tr><td>Navarro Aldoradin, Carolina Celeste</td><td>U20241B962</td></tr>
+<tr><td>Philco Mota, Katty Yolanda</td><td>U202416107</td></tr>
+<tr><td>Tuesta Girón, Kiara Lucia</td><td>U20251i477</td></tr>
+</table>
 
-<!-- Cover -->
-<div align="center">
- <strong>Abril, 2026</strong>
+<strong>Junio, 2026</strong>
 
 </div>
 
@@ -55,6 +51,7 @@
 | 1.5.0 | 13/12/2026 | Philco Mota, Katty Yolanda<br>Tuesta Girón, Kiara Lucia | TB1 — Implementación del Frontend Web Application: desarrollo de vistas principales con Vue Framework y PrimeVue integradas con MockAPI. Corrección de diagramas de clases (4.7.1) y diagramas de base de datos (4.8.1) para refinamiento del modelo orientado al dominio. Corrección de wireframes y user flows observados en el AV1 (4.4.1–4.4.4). *(feature/cap-iv-web-applications-ux-ui-design · feature/chapteriv-class-diagrams · feature/chapter-iv-database · develop)* |
 | 1.6.0 | 13/14/2026 | Navarro Aldoradin, Carolina Celeste | TB1 — Despliegue de la primera versión de Frontend Web Applications. Documentación del Sprint 2: Sprint Planning 2 (5.2.2.1), Aspect Leaders and Collaborators (5.2.2.2), Sprint Backlog 2 (5.2.2.3), Development Evidence (5.2.2.4), Execution Evidence (5.2.2.5), Services Documentation Evidence (5.2.2.6), Software Deployment Evidence (5.2.2.7) y Team Collaboration Insights (5.2.2.8). *(feature/cap-iv-web-applications-ux-ui-design · develop)* |
 | 2.0.0 | 13/14/2026 | Armestar Felipa, Adrian Andres<br>García Paredes, Victor Manuel<br>Navarro Aldoradin, Carolina Celeste<br>Philco Mota, Katty Yolanda<br>Tuesta Girón, Kiara Lucia | TB1 — Consolidación y entrega del TB1. Integración de Sprint 2 completo, Frontend Web Applications desplegado, correcciones de artefactos del AV1 y versión final de todos los capítulos. Actualización del Student Outcome, Project Report Collaboration Insights y Registro de Versiones. Versión exportada a PDF para entrega formal. *(develop → pre-main · release)* |
+| 2.1.0 | _(completar)_ | García Paredes, Victor Manuel | AV2 — Implementación de la primera versión de Web Services (ASP.NET Core/C#). Documentación del Sprint 3 completo (5.2.3.1–5.2.3.8). Inserción de Validation Interviews: diseño de entrevistas por segmento (5.3.1), registro de entrevistas (5.3.2) y evaluación heurística cruzada por NutriSense con 17 hallazgos (5.3.3). Stubs de Video About-the-Product (5.4) y Video About-the-Team (5.5). Conclusiones AV2. Resolución de conflictos de merge en Capítulo V. *(feature/sprint3-victor · develop)* |
 
 <div style="page-break-after: always"></div>
 
@@ -230,13 +227,33 @@ A continuación se presentan las evidencias de colaboración por repositorio:
     - [5.2.1.7. Software Deployment Evidence for Sprint Review](#5217-software-deployment-evidence-for-sprint-review)
     - [5.2.1.8. Team Collaboration Insights during Sprint](#5218-team-collaboration-insights-during-sprint)
 
+  - [5.2.2. Sprint 2](#522-sprint-2)
+    - [5.2.2.1. Sprint Planning 2](#5221-sprint-planning-2)
+    - [5.2.2.2. Aspect Leaders and Collaborators](#5222-aspect-leaders-and-collaborators)
+    - [5.2.2.3. Sprint Backlog 2](#5223-sprint-backlog-2)
+    - [5.2.2.4. Development Evidence for Sprint Review](#5224-development-evidence-for-sprint-review)
+    - [5.2.2.5. Execution Evidence for Sprint Review](#5225-execution-evidence-for-sprint-review)
+    - [5.2.2.6. Services Documentation Evidence for Sprint Review](#5226-services-documentation-evidence-for-sprint-review)
+    - [5.2.2.7. Software Deployment Evidence for Sprint Review](#5227-software-deployment-evidence-for-sprint-review)
+    - [5.2.2.8. Team Collaboration Insights during Sprint](#5228-team-collaboration-insights-during-sprint)
+  - [5.2.3. Sprint 3](#523-sprint-3)
+    - [5.2.3.1. Sprint Planning 3](#5231-sprint-planning-3)
+    - [5.2.3.2. Aspect Leaders and Collaborators](#5232-aspect-leaders-and-collaborators)
+    - [5.2.3.3. Sprint Backlog 3](#5233-sprint-backlog-3)
+    - [5.2.3.4. Development Evidence for Sprint Review](#5234-development-evidence-for-sprint-review)
+    - [5.2.3.5. Execution Evidence for Sprint Review](#5235-execution-evidence-for-sprint-review)
+    - [5.2.3.6. Services Documentation Evidence for Sprint Review](#5236-services-documentation-evidence-for-sprint-review)
+    - [5.2.3.7. Software Deployment Evidence for Sprint Review](#5237-software-deployment-evidence-for-sprint-review)
+    - [5.2.3.8. Team Collaboration Insights during Sprint](#5238-team-collaboration-insights-during-sprint)
+
 - [5.3. Validation Interviews](#53-validation-interviews)
   - [5.3.1. Diseño de Entrevistas](#531-diseño-de-entrevistas)
   - [5.3.2. Registro de Entrevistas](#532-registro-de-entrevistas)
   - [5.3.3. Evaluaciones según heurísticas](#533-evaluaciones-según-heurísticas)
 
 - [5.4. Video About-the-Product](#54-video-about-the-product)
+- [5.5. Video About-the-Team](#55-video-about-the-team)
 
-- [Anexos Importantes](#55-anexos-importantes)
+- [Anexos Importantes](#anexos-importantes)
 - [Conclusiones](#55-Conclusiones)
 - [Bibliografia](#55-Bibliografia)
