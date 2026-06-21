@@ -1,4 +1,4 @@
-# CAPÍTULO I: INTRODUCCIÓN {#capitulo-i-introduccion}
+# CAPÍTULO I: INTRODUCCIÓN
 
 ## 1.1. Startup Profile
 

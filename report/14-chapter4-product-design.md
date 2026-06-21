@@ -908,92 +908,137 @@ Esta vista despliega la totalidad de los once bounded contexts del backend junto
 
 ---
 
-#### BC1 — IAM Bounded Context (Backend)
-
-Gestiona la autenticación y actualización de perfil de usuario. La capa de Interfaces expone endpoints REST sobre `/users` (GET por email para login, POST para registro, PATCH para actualización de perfil); la Application procesa esas peticiones mediante middleware de json-server; el Domain define el recurso User con campos `id`, `email`, `username`, `segment`, `plan`, `location` y `phoneNumber`; y la Infrastructure persiste los registros en la colección `users` de `db.json`.
-
-![Componentes IAM BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC1_IAM.png)
-
----
-
-#### BC2 — Fleet Operations Bounded Context (Backend)
-
-Cubre el ciclo de vida de lotes de mineral, vehículos, depósitos y alertas de anomalía. Las Interfaces exponen endpoints sobre `/mineralBatches`, `/deposits`, `/vehicles` y `/anomalyAlerts`; la Application procesa la creación de lotes y el registro de peso inicial; el Domain define `MineralBatch` (batchCode, depositId, vehicleId, initialWeight, mineralType, status) y `AnomalyAlert` (batchId, alertType, severity); y la Infrastructure persiste todos estos registros en `db.json`. El IoT Gateway envía telemetría directamente a las Fleet Interfaces.
-
-![Componentes Fleet Operations BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC2_Fleet.png)
-
----
-
-#### BC3 — Material Operations Bounded Context (Backend)
+#### BC1 — Material Operations Bounded Context (Backend)
 
 Gestiona la recepción de lotes en planta, el pesaje final y el cálculo de merma. Las Interfaces exponen endpoints PATCH sobre `/mineralBatches` para registrar `finalWeight` y transiciones de estado; la Application orquesta la confirmación de llegada y el marcado de investigación de merma; el Domain proyecta `MineralBatch` como `MaterialReception` (receivedWeight, initialWeight, shrinkagePercent, status); y la Infrastructure persiste esos datos en la misma colección `mineralBatches` de `db.json`.
 
 ![Componentes Material Operations BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC3_Material.png)
 
+El siguiente diagrama de componentes detalla la organización interna de las capas del contexto: los endpoints PATCH del json-server que reciben el peso final del lote, el middleware de Express que confirma la llegada y calcula el porcentaje de merma, la proyección del dominio `MaterialReception` y la colección `mineralBatches` en `db.json`.
+
+![Componentes Material Operations BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/MaterialOperations_Components.png)
+
 ---
 
-#### BC4 — Jewelry Inventory & Certification Bounded Context (Backend)
+#### BC2 — Jewelry Inventory & Certification Bounded Context (Backend)
 
 Permite registrar piezas de joyería y emitir certificados digitales. Las Interfaces exponen GET, POST y PATCH sobre `/jewelryItems` y `/jewelryCertificates`; la Application procesa el registro de ítems, la validación de estado y la emisión de certificados; el Domain define `JewelryItem` (sku, name, type, purity, weight, batchRef, status, certificationId) y `JewelryCertificate` (itemId, qrCode, issuerName); y la Infrastructure persiste ambos recursos en `db.json`.
 
 ![Componentes Jewelry Inventory Certification BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC4_Jewelry.png)
 
+El siguiente diagrama de componentes ilustra la estructura interna del contexto: los endpoints REST para el registro de ítems de joyería y la emisión de certificados digitales, el servicio de aplicación que valida el estado del ítem y genera el código QR, los modelos de dominio `JewelryItem` y `JewelryCertificate`, y la persistencia de ambos recursos en `db.json`.
+
+![Componentes Jewelry Inventory Certification BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/JewelryInventory_Components.png)
+
 ---
 
-#### BC5 — Consumer Traceability Bounded Context (Backend)
+#### BC4 — Consumer Traceability Bounded Context (Backend)
 
 Habilita la vinculación de piezas al consumidor y la verificación por código QR. Las Interfaces exponen endpoints sobre `/consumerPieces` (GET por `ownerId` o `traceabilityCode`, POST para vincular una pieza); la Application cruza datos entre `consumerPieces` y `jewelryItems` para resolver la trazabilidad; el Domain define `ConsumerPiece` (ownerId, sku, traceabilityCode, purity, weight, certificationId, status); y la Infrastructure persiste los registros de piezas del consumidor en `db.json`.
 
 ![Componentes Consumer Traceability BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC5_Consumer.png)
 
+El siguiente diagrama de componentes muestra la arquitectura interna del contexto de trazabilidad al consumidor: los endpoints de vinculación y consulta por `ownerId` o `traceabilityCode`, la lógica de resolución cruzada que cruza datos entre `consumerPieces` y `jewelryItems`, el modelo de dominio `ConsumerPiece` y la colección de persistencia en `db.json`.
+
+![Componentes Consumer Traceability BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/ConsumerTraceability_Components.png)
+
 ---
 
-#### BC6 — Monitoring & Telemetry Bounded Context (Backend)
+#### BC5 — Monitoring & Telemetry Bounded Context (Backend)
 
 Centraliza la gestión de alertas de anomalía en tránsito. Las Interfaces exponen GET, POST y PATCH sobre `/anomalyAlerts` para creación y resolución de alertas; la Application filtra alertas activas por estado y coordina su resolución; el Domain define `AnomalyAlert` (batchId, batchCode, vehicleId, alertType, severity, coordinates, status, detectedAt); y la Infrastructure persiste los registros en la colección `anomalyAlerts` de `db.json`.
 
 ![Componentes Monitoring Telemetry BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC6_Monitoring.png)
 
+El siguiente diagrama de componentes detalla las capas internas del contexto de monitoreo: los endpoints GET, POST y PATCH sobre `anomalyAlerts`, el servicio que filtra alertas activas por estado y coordina su resolución, el modelo de dominio `AnomalyAlert` con sus campos de severidad y coordenadas, y la colección `anomalyAlerts` en `db.json`.
+
+![Componentes Monitoring Telemetry BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/MonitoringTelemetry_Components.png)
+
 ---
 
-#### BC7 — Analytics Bounded Context (Backend)
+#### BC6 — Analytics Bounded Context (Backend)
 
 Agrega KPIs transversales para métricas de merma y certificación. Las Interfaces proveen acceso de solo lectura a `/mineralBatches`, `/vehicles` y `/jewelryItems`; la Application procesa solicitudes de lectura cruzada entre colecciones; el Domain expone proyecciones agregadas sobre los recursos `MineralBatch` y `JewelryItem`; y la Infrastructure lee directamente de las tres colecciones correspondientes en `db.json` sin escribir datos propios.
 
 ![Componentes Analytics BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC7_Analytics.png)
 
+El siguiente diagrama de componentes describe cómo Analytics agrega datos de múltiples fuentes: los accesos de solo lectura a las colecciones `mineralBatches`, `vehicles` y `jewelryItems`, el servicio que procesa las consultas cruzadas y genera proyecciones de KPIs transversales (merma, producción, certificación), sin persistir datos adicionales propios.
+
+![Componentes Analytics BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/Analytics_Components.png)
+
 ---
 
-#### BC8 — Incident Management Bounded Context (Backend)
+#### BC7 — Incident Management Bounded Context (Backend)
 
 Gestiona el reporte y cierre de incidentes operativos, reutilizando la colección `anomalyAlerts`. Las Interfaces exponen GET, POST y PATCH sobre esa colección con semántica de incidente; la Application procesa el reporte y el cambio de estado a cerrado; el Domain proyecta `AnomalyAlert` como `Incident` (title, incidentType, severity, batchId, vehicleId, status); y la Infrastructure persiste los registros de incidente en `anomalyAlerts` dentro de `db.json`.
 
 ![Componentes Incident Management BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC8_Incident.png)
 
+El siguiente diagrama de componentes muestra la estructura interna del contexto de gestión de incidentes: los endpoints GET, POST y PATCH sobre `anomalyAlerts` con semántica de incidente, el servicio que procesa el reporte y el cambio de estado a cerrado, la proyección del dominio `Incident` a partir de `AnomalyAlert`, y la colección compartida `anomalyAlerts` en `db.json`.
+
+![Componentes Incident Management BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/IncidentManagement_Components.png)
+
 ---
 
-#### BC9 — Reporting & Notifications Bounded Context (Backend)
+#### BC8 — Reporting & Notifications Bounded Context (Backend)
 
 Consolida datos de lotes, joyas y alertas para la generación de reportes. Las Interfaces proveen acceso de lectura a `/mineralBatches`, `/jewelryItems` y `/anomalyAlerts`; la Application procesa solicitudes de lectura en paralelo sobre las tres colecciones; el Domain define proyecciones de reporte sobre esos recursos; y la Infrastructure lee desde las tres colecciones de `db.json` sin persistir datos adicionales.
 
 ![Componentes Reporting Notifications BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC9_Reporting.png)
 
+El siguiente diagrama de componentes ilustra cómo el contexto de reportes consolida información de múltiples fuentes: los accesos de lectura en paralelo a `mineralBatches`, `jewelryItems` y `anomalyAlerts`, el servicio que procesa y agrega los datos para generación de reportes, y las proyecciones del dominio `Notification`, sin persistir datos propios adicionales.
+
+![Componentes Reporting Notifications BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/ReportingNotifications_Components.png)
+
 ---
 
-#### BC10 — Asset Maintenance Bounded Context (Backend)
+#### BC9 — Asset Maintenance Bounded Context (Backend)
 
 Gestiona el ciclo de vida y las transiciones de estado de los vehículos de flota. Las Interfaces exponen GET (todos los vehículos) y PATCH (transición de estado) sobre `/vehicles`; la Application procesa las actualizaciones entre los estados `Activo` y `Mantenimiento`; el Domain define el recurso `Vehicle` (id, name, plate, type, capacity, status); y la Infrastructure persiste los registros en la colección `vehicles` de `db.json`.
 
 ![Componentes Asset Maintenance BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC10_Maintenance.png)
 
+El siguiente diagrama de componentes detalla la organización interna del contexto de mantenimiento: los endpoints GET (consulta de todos los vehículos) y PATCH (transición de estado) sobre `/vehicles`, el servicio que gestiona los cambios entre los estados `Activo` y `Mantenimiento`, el modelo de dominio `Vehicle` con sus campos `id`, `name`, `plate`, `type`, `capacity` y `status`, y su persistencia en `db.json`.
+
+![Componentes Asset Maintenance BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/AssetMaintenance_Components.png)
+
 ---
 
-#### BC11 — Subscriptions & Billing Bounded Context (Backend)
+#### BC10 — Subscriptions & Billing Bounded Context (Backend)
 
 Gestiona la actualización del plan de suscripción del usuario. Las Interfaces exponen PATCH sobre `/users` para modificar el campo `plan`; la Application procesa la solicitud de upgrade del plan; el Domain define los valores posibles del campo plan: `BRONZE`, `GOLD` y `PLATINUM`; y la Infrastructure persiste la actualización en la colección `users` de `db.json`, integrándose así con el contexto IAM a nivel de datos.
 
 ![Componentes Subscriptions Billing BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC11_Subscriptions.png)
 
+El siguiente diagrama de componentes muestra la arquitectura interna del contexto de suscripciones y facturación: el endpoint PATCH sobre `/users` para modificar el campo `plan`, el servicio que procesa la solicitud de upgrade, los valores de dominio `BRONZE`, `GOLD` y `PLATINUM`, y la integración con la colección `users` de `db.json` compartida con el contexto IAM.
+
+![Componentes Subscriptions Billing BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/SubscriptionsAndBilling_Components.png)
+
+---
+
+#### BC11 — IAM Bounded Context (Backend)
+
+Gestiona la autenticación y actualización de perfil de usuario. La capa de Interfaces expone endpoints REST sobre `/users` (GET por email para login, POST para registro, PATCH para actualización de perfil); la Application procesa esas peticiones mediante middleware de json-server; el Domain define el recurso User con campos `id`, `email`, `username`, `segment`, `plan`, `location` y `phoneNumber`; y la Infrastructure persiste los registros en la colección `users` de `db.json`.
+
+![Componentes IAM BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC1_IAM.png)
+
+El siguiente diagrama de componentes describe la estructura interna del contexto de identidad y acceso: los endpoints REST sobre `/users` (GET por email para login, POST para registro, PATCH para actualización de perfil), el middleware de json-server que procesa cada petición, el modelo de dominio `User` con sus campos clave (`id`, `email`, `username`, `segment`, `plan`, `location`, `phoneNumber`) y la colección `users` en `db.json`.
+
+![Componentes IAM BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/IAM_Components.png)
+
+---
+
+#### BC12 — Fleet Operations Bounded Context (Backend)
+
+Cubre el ciclo de vida de lotes de mineral, vehículos, depósitos y alertas de anomalía. Las Interfaces exponen endpoints sobre `/mineralBatches`, `/deposits`, `/vehicles` y `/anomalyAlerts`; la Application procesa la creación de lotes y el registro de peso inicial; el Domain define `MineralBatch` (batchCode, depositId, vehicleId, initialWeight, mineralType, status) y `AnomalyAlert` (batchId, alertType, severity); y la Infrastructure persiste todos estos registros en `db.json`. El IoT Gateway envía telemetría directamente a las Fleet Interfaces.
+
+![Componentes Fleet Operations BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC2_Fleet.png)
+
+El siguiente diagrama de componentes ilustra la arquitectura del contexto de operaciones de flota: los endpoints sobre `mineralBatches`, `deposits`, `vehicles` y `anomalyAlerts`, el servicio que gestiona la creación de lotes y el registro del peso inicial, los modelos de dominio `MineralBatch` y `AnomalyAlert`, y la integración directa con el IoT Gateway para la recepción de telemetría en tiempo real.
+
+![Componentes Fleet Operations BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/FleetOperations_Components.png)
+
+---
 
 ## 4.7. Software Object-Oriented Design
 
@@ -1053,51 +1098,208 @@ A continuación se presentaran los diagramas de clases de los respectivos bounde
 ![Diagrama de clase 11](../assets/img/chapter-iv/cdf-subscriptions.png)
 
 
-## DIAGRAMAS BACKEND:
+## Diagramas de Clase del BACKEND:
 
-#### BC1 - Identity Access Management
-
-![BC1 - Identity Access Management](../assets/img/chapter-iv/BC1_Identity_Access_Management_Full.png)
 
 #### BC2 - Fleet Operations
 
 ![BC2 - Fleet Operations](../assets/img/chapter-iv/BC2_Fleet_Operations_Full.png)
 
+##### BC2 - Domain
+
+![BC2 - FleetOperations Domain](../assets/img/chapter-iv/backend/class/FleetOperations%20%28Domain%29-GoldMetrics__FleetOperations__Domain_.png)
+
+##### BC2 - Application
+
+![BC2 - FleetOperations Application](../assets/img/chapter-iv/backend/class/FleetOperations%20%28Application%29-GoldMetrics__FleetOperations__Application_.png)
+
+##### BC2 - Infrastructure
+
+![BC2 - FleetOperations Infrastructure](../assets/img/chapter-iv/backend/class/FleetOperations%20%28Infrastructure%29-GoldMetrics__FleetOperations__Infrastructure_.png)
+
+##### BC2 - Interfaces
+
+![BC2 - FleetOperations Interfaces](../assets/img/chapter-iv/backend/class/FleetOperations%20%28Interfaces%29-GoldMetrics__FleetOperations__Interfaces_.png)
+
 #### BC3 - Material Operations
 
 ![BC3 - Material Operations](../assets/img/chapter-iv/BC3_Material_Operations_Full.png)
+
+##### BC3 - Domain
+
+![BC3 - MaterialOperations Domain](../assets/img/chapter-iv/backend/class/MaterialOperations%20%28Domain%29-GoldMetrics__MaterialOperations__Domain_.png)
+
+##### BC3 - Application
+
+![BC3 - MaterialOperations Application](../assets/img/chapter-iv/backend/class/MaterialOperations%20%28Application%29-GoldMetrics__MaterialOperations__Application_.png)
+
+##### BC3 - Infrastructure
+
+![BC3 - MaterialOperations Infrastructure](../assets/img/chapter-iv/backend/class/MaterialOperations%20%28Infrastructure%29.png)
+
+##### BC3 - Interfaces
+
+![BC3 - MaterialOperations Interfaces](../assets/img/chapter-iv/backend/class/MaterialOperations%20%28Interfaces%29-GoldMetrics__MaterialOperations__Interfaces_.png)
 
 #### BC4 - Jewelry Inventory
 
 ![BC4 - Jewelry Inventory](../assets/img/chapter-iv/BC4_Jewelry_Inventory_Full.png)
 
+##### BC4 - Domain
+
+![BC4 - JewelryInventory Domain](../assets/img/chapter-iv/backend/class/JewelryInventory%20%28Domain%29-GoldMetrics__JewelryInventory__Domain_.png)
+
+##### BC4 - Application
+
+![BC4 - JewelryInventory Application](../assets/img/chapter-iv/backend/class/JewelryInventory%20%28Application%29-GoldMetrics__JewelryInventory__Application_.png)
+
+##### BC4 - Infrastructure
+
+![BC4 - JewelryInventory Infrastructure](../assets/img/chapter-iv/backend/class/JewelryInventory%20%28Infrastructure%29-GoldMetrics__JewelryInventory__Infrastructure_.png)
+
+##### BC4 - Interfaces
+
+![BC4 - JewelryInventory Interfaces](../assets/img/chapter-iv/backend/class/JewelryInventory%20%28Interfaces%29-GoldMetrics__JewelryInventory__Interfaces_.png)
+
 #### BC5 - Consumer Traceability
 
 ![BC5 - Consumer Traceability](../assets/img/chapter-iv/BC5_Consumer_Traceability_Full.png)
+
+##### BC5 - Domain
+
+![BC5 - ConsumerTraceability Domain](../assets/img/chapter-iv/backend/class/ConsumerTraceability%20%28Domain%29-GoldMetrics__ConsumerTraceability__Domain_.png)
+
+##### BC5 - Application
+
+![BC5 - ConsumerTraceability Application](../assets/img/chapter-iv/backend/class/ConsumerTraceability%20%28Application%29-GoldMetrics__ConsumerTraceability__Application_.png)
+
+##### BC5 - Infrastructure
+
+![BC5 - ConsumerTraceability Infrastructure](../assets/img/chapter-iv/backend/class/ConsumerTraceability%20%28Infrastructure%29-GoldMetrics__ConsumerTraceability__Infrastructure_.png)
+
+##### BC5 - Interfaces
+
+![BC5 - ConsumerTraceability Interfaces](../assets/img/chapter-iv/backend/class/ConsumerTraceability%20%28Interfaces%29-GoldMetrics__ConsumerTraceability__Interfaces_.png)
 
 #### BC6 - Monitoring Telemetry
 
 ![BC6 - Monitoring Telemetry](../assets/img/chapter-iv/BC6_Monitoring_Telemetry_Full.png)
 
+##### BC6 - Domain
+
+![BC6 - MonitoringTelemetry Domain](../assets/img/chapter-iv/backend/class/MonitoringTelemetry%20%28Domain%29-GoldMetrics__MonitoringTelemetry__Domain_.png)
+
+##### BC6 - Application
+
+![BC6 - MonitoringTelemetry Application](../assets/img/chapter-iv/backend/class/MonitoringTelemetry%20%28Application%29-GoldMetrics__MonitoringTelemetry__Application_.png)
+
+##### BC6 - Infrastructure
+
+![BC6 - MonitoringTelemetry Infrastructure](../assets/img/chapter-iv/backend/class/MonitoringTelemetry%20%28Infrastructure%29-GoldMetrics__MonitoringTelemetry__Infrastructure_.png)
+
+##### BC6 - Interfaces
+
+![BC6 - MonitoringTelemetry Interfaces](../assets/img/chapter-iv/backend/class/MonitoringTelemetry%20%28Interfaces%29-GoldMetrics__MonitoringTelemetry__Interfaces_.png)
+
 #### BC7 - Analytics
 
 ![BC7 - Analytics](../assets/img/chapter-iv/BC7_Analytics_Full.png)
+
+##### BC7 - Domain
+
+![BC7 - Analytics Domain](../assets/img/chapter-iv/backend/class/Analytics%20%28Domain%29-GoldMetrics__Analytics__Domain_.png)
+
+##### BC7 - Application
+
+![BC7 - Analytics Application](../assets/img/chapter-iv/backend/class/Analytics%20%28Application%29-GoldMetrics__Analytics__Application_.png)
+
+##### BC7 - Infrastructure
+
+![BC7 - Analytics Infrastructure](../assets/img/chapter-iv/backend/class/Analytics%20%28Infrastructure%29-GoldMetrics__Analytics__Infrastructure_.png)
+
+##### BC7 - Interfaces
+
+![BC7 - Analytics Interfaces](../assets/img/chapter-iv/backend/class/Analytics%20%28Interfaces%29-GoldMetrics__Analytics__Interfaces_.png)
 
 #### BC8 - Incident Management
 
 ![BC8 - Incident Management](../assets/img/chapter-iv/BC8_Incident_Management_Full.png)
 
+##### BC8 - Domain
+
+![BC8 - IncidentManagement Domain](../assets/img/chapter-iv/backend/class/IncidentManagement%20%28Domain%29-GoldMetrics__IncidentManagement__Domain_.png)
+
+##### BC8 - Application
+
+![BC8 - IncidentManagement Application](../assets/img/chapter-iv/backend/class/IncidentManagement%20%28Application%29-GoldMetrics__IncidentManagement__Application_.png)
+
+##### BC8 - Infrastructure
+
+![BC8 - IncidentManagement Infrastructure](../assets/img/chapter-iv/backend/class/IncidentManagement%20%28Infrastructure%29-GoldMetrics__IncidentManagement__Infrastructure_.png)
+
+##### BC8 - Interfaces
+
+![BC8 - IncidentManagement Interfaces](../assets/img/chapter-iv/backend/class/IncidentManagement%20%28Interfaces%29-GoldMetrics__IncidentManagement__Interfaces_.png)
+
 #### BC9 - Reporting Notifications
 
 ![BC9 - Reporting Notifications](../assets/img/chapter-iv/BC9_Reporting_Notifications_Full.png)
+
+##### BC9 - Domain
+
+![BC9 - ReportingNotifications Domain](../assets/img/chapter-iv/backend/class/ReportingNotifications%20%28Domain%29-GoldMetrics__ReportingNotifications__Domain_.png)
+
+##### BC9 - Application
+
+![BC9 - ReportingNotifications Application](../assets/img/chapter-iv/backend/class/ReportingNotifications%20%28Application%29-GoldMetrics__ReportingNotifications__Application_.png)
+
+##### BC9 - Infrastructure
+
+![BC9 - ReportingNotifications Infrastructure](../assets/img/chapter-iv/backend/class/ReportingNotifications%20%28Infrastructure%29-GoldMetrics__ReportingNotifications__Infrastructure_.png)
+
+##### BC9 - Interfaces
+
+![BC9 - ReportingNotifications Interfaces](../assets/img/chapter-iv/backend/class/ReportingNotifications%20%28Interfaces%29-GoldMetrics__ReportingNotifications__Interfaces_.png)
 
 #### BC10 - Asset Maintenance
 
 ![BC10 - Asset Maintenance](../assets/img/chapter-iv/BC10_Asset_Maintenance_Full.png)
 
+##### BC10 - Domain
+
+![BC10 - AssetMaintenance Domain](../assets/img/chapter-iv/backend/class/AssetMaintenance%20%28Domain%29-GoldMetrics__AssetMaintenance__Domain_.png)
+
+##### BC10 - Application
+
+![BC10 - AssetMaintenance Application](../assets/img/chapter-iv/backend/class/AssetMaintenance%20%28Application%29-GoldMetrics__AssetMaintenance__Application_.png)
+
+##### BC10 - Infrastructure
+
+![BC10 - AssetMaintenance Infrastructure](../assets/img/chapter-iv/backend/class/AssetMaintenance%20%28Infrastructure%29-GoldMetrics__AssetMaintenance__Infrastructure_.png)
+
+##### BC10 - Interfaces
+
+![BC10 - AssetMaintenance Interfaces](../assets/img/chapter-iv/backend/class/AssetMaintenance%20%28Interfaces%29-GoldMetrics__AssetMaintenance__Interfaces_.png)
+
 #### BC11 - Subscriptions Billing
 
 ![BC11 - Subscriptions Billing](../assets/img/chapter-iv/BC11_Subscriptions_Billing_Full.png)
+
+##### BC11 - Domain
+
+![BC11 - SubscriptionsAndBilling Domain](../assets/img/chapter-iv/backend/class/SubscriptionsAndBilling%20%28Domain%29-GoldMetrics__SubscriptionsAndBilling__Domain_.png)
+
+##### BC11 - Application
+
+![BC11 - SubscriptionsAndBilling Application](../assets/img/chapter-iv/backend/class/SubscriptionsAndBilling%20%28Application%29-GoldMetrics__SubscriptionsAndBilling__Application_.png)
+
+##### BC11 - Infrastructure
+
+![BC11 - SubscriptionsAndBilling Infrastructure](../assets/img/chapter-iv/backend/class/SubscriptionsAndBilling%20%28Infrastructure%29-GoldMetrics__SubscriptionsAndBilling__Infrastructure_.png)
+
+##### BC11 - Interfaces
+
+![BC11 - SubscriptionsAndBilling Interfaces](../assets/img/chapter-iv/backend/class/SubscriptionsAndBilling%20%28Interfaces%29-GoldMetrics__SubscriptionsAndBilling__Interfaces_.png)
 
 ## Diagramas de Clases por Aggregate
 
