@@ -887,33 +887,7 @@ Para cada segmento objetivo se establecieron los elementos a incluir en la sesi�
 
 ### 5.3.2. Registro de Entrevistas de Validación
 
-_(Completar una vez realizadas las entrevistas. Se requieren entre 3 y 5 entrevistas por segmento.)_
-
 #### Segmento 1: Empresas Mineras
-
-| Segmento: Empresas Mineras | Entrevista #1 |
-| --- | --- |
-| Nombres y Apellidos | _(completar)_ |
-| Edad | _(completar)_ |
-| Distrito | _(completar)_ |
-| Ocupación | _(completar)_ |
-| Timming inicio | _(completar — mm:ss)_ |
-| Duración | _(completar)_ |
-| URL | _(completar)_ |
-| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
-| Resumen | _(completar)_ |
-
-| Segmento: Empresas Mineras | Entrevista #2 |
-| --- | --- |
-| Nombres y Apellidos | _(completar)_ |
-| Edad | _(completar)_ |
-| Distrito | _(completar)_ |
-| Ocupación | _(completar)_ |
-| Timming inicio | _(completar — mm:ss)_ |
-| Duración | _(completar)_ |
-| URL | _(completar)_ |
-| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
-| Resumen | _(completar)_ |
 
 | Segmento: Empresas Mineras | Entrevista #3                                                                                                                                                                                                                                                                                                                                  |
 | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -926,48 +900,6 @@ _(Completar una vez realizadas las entrevistas. Se requieren entre 3 y 5 entrevi
 | URL | [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20251i477_upc_edu_pe/IQD1noDKgzKpT4LxC4E27IePAefv99fFas5nfZs_mJ7gZT4?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=9y59SL) |
 | Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/interview-Kimi.jpeg)                                                                                                                                                                                                                                                               |
 | Resumen |  En la entrevista, un representante de una empresa minera validó GoldCheck y entendió bien la propuesta: trazabilidad del oro desde la extracción hasta el producto final, usando IoT/IA y conectando mineras, joyerías y consumidores. Le convenció porque resuelve un problema real —hoy el control se hace en Excel y a mano, generando errores de tonelaje— aunque pidió ver casos reales o un piloto antes de comprometerse. Le resultó muy intuitivo registrar un nuevo lote, y especialmente claro el mapa de monitoreo que compara la ruta planeada contra la real. El punto crítico fue que el formulario de reporte de incidentes no guardó la información (falló dos veces), algo que le preocupó porque un incidente urgente podría quedar sin registrar.                                                                                                                                                                                                                                                                                                                                               |
-
-<div style="page-break-after: always"></div>
-
-#### Segmento 2: Joyerías
-
-| Segmento: Joyerías | Entrevista #1 |
-| --- | --- |
-| Nombres y Apellidos | _(completar)_ |
-| Edad | _(completar)_ |
-| Distrito | _(completar)_ |
-| Ocupación | _(completar)_ |
-| Timming inicio | _(completar — mm:ss)_ |
-| Duración | _(completar)_ |
-| URL | _(completar)_ |
-| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
-| Resumen | _(completar)_ |
-
-| Segmento: Joyerías | Entrevista #2                                                                        |
-| --- |--------------------------------------------------------------------------------------|
-| Nombres y Apellidos | _(completar)_                                                                        |
-| Edad | _(completar)_                                                                        |
-| Distrito | _(completar)_                                                                        |
-| Ocupación | _(completar)_                                                                        |
-| Timming inicio | _(completar — mm:ss)_                                                                |
-| Duración | _(completar)_                                                                        |
-| URL | _(completar)_                                                                        |
-| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.jpeg) |
-| Resumen | _(completar)_                                                                        |
-
-| Segmento: Joyerías | Entrevista #3 |
-| --- | --- |
-| Nombres y Apellidos | _(completar)_ |
-| Edad | _(completar)_ |
-| Distrito | _(completar)_ |
-| Ocupación | _(completar)_ |
-| Timming inicio | _(completar — mm:ss)_ |
-| Duración | _(completar)_ |
-| URL | _(completar)_ |
-| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
-| Resumen | _(completar)_ |
-
-<div style="page-break-after: always"></div>
 
 #### Segmento 3: Consumidores Finales
 
@@ -983,31 +915,6 @@ _(Completar una vez realizadas las entrevistas. Se requieren entre 3 y 5 entrevi
 | Screenshot | ![Screenshot Jenifer](../assets/img/chapter-v/validation/interview-jenifer.png) |
 | Resumen | La entrevistada es Jenifer Natali López Huaman, una administradora de 23 años residente en Santiago de Surco, interesada en la compra de joyas de oro con garantía de autenticidad y origen ético. Respecto al Landing Page, señaló que la primera impresión fue confusa, ya que el mensaje inicial hace referencia a seguridad de vehículos y monitoreo inteligente, y recién al desplazarse encontró contenido relacionado con oro y joyas. Sin embargo, una vez ubicada la sección relevante, la información sobre trazabilidad le generó confianza, destacando positivamente la existencia de un plan gratuito que permite escanear joyas sin compromiso de pago. Sobre la verificación de autenticidad, indicó que los botones de Login y Sign Up son fáciles de encontrar, pero echó en falta un acceso directo para verificar una joya sin necesidad de registrarse. En cuanto a la aplicación, el proceso de escaneo QR le resultó sencillo e intuitivo, valorando la doble opción de ingreso manual y cámara. La información de trazabilidad mostrada tras la verificación le pareció clara y fácil de seguir visualmente, aunque no comprendió los códigos alfanuméricos técnicos asociados a cada etapa. Señaló como principal carencia la ausencia de un sello visible de "origen verificado" o "libre de conflicto" en el certificado, y sugirió incorporar una foto real de la joya junto a los datos de trazabilidad, así como la posibilidad de descargar el certificado en formato PDF. En la escala de recomendación, otorgó un 8 de 10, destacando la transparencia del escaneo como lo que más le gustó, y recomendando que la página de entrada comunique el tema de oro desde el inicio y que la certificación ética sea más explícita. |
 
-| Segmento: Usuario consumidor | Entrevista #2 |
-| --- | --- |
-| Nombres y Apellidos | _(completar)_ |
-| Edad | _(completar)_ |
-| Distrito | _(completar)_ |
-| Ocupación | _(completar)_ |
-| Timming inicio | _(completar — mm:ss)_ |
-| Duración | _(completar)_ |
-| URL | _(completar)_ |
-| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
-| Resumen | _(completar)_ |
-
-| Segmento: Usuario consumidor | Entrevista #3 |
-| --- | --- |
-| Nombres y Apellidos | _(completar)_ |
-| Edad | _(completar)_ |
-| Distrito | _(completar)_ |
-| Ocupación | _(completar)_ |
-| Timming inicio | _(completar — mm:ss)_ |
-| Duración | _(completar)_ |
-| URL | _(completar)_ |
-| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
-| Resumen | _(completar)_ |
-
-<div style="page-break-after: always"></div>
 
 ### 5.3.3. Evaluaciones según heurísticas
 
