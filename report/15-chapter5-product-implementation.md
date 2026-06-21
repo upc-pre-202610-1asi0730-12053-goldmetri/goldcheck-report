@@ -1351,7 +1351,7 @@ Hacer que el ícono de notificaciones despliegue el listado de notificaciones (p
 
 **URL Microsoft Stream:** _(completar)_
 
-**URL YouTube:** _(completar)_
+**URL YouTube:** [Ver video](https://youtu.be/E39HEPqGKok)
 
 
 ## 5.5. Video About-the-Team
