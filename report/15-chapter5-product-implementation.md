@@ -456,7 +456,7 @@ Durante el Sprint 2 se realizó el despliegue exitoso del Frontend Web Applicati
 
 URL de la Mockapi desplegado: https://goldcheck-mockapi-production.up.railway.app
 
-URL del Frontend Web Application desplegado: https://luxury-beignet-b30759.netlify.app/
+URL del Frontend Web Application desplegado: https://goldcheck-goldmetrics.netlify.app/
 
 URL del Landing Page integrado con nuestro Frontend: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
 
@@ -1263,7 +1263,7 @@ El equipo adoptó Domain-Driven Design como eje organizativo del proyecto, lo qu
 
 URL de la Mockapi desplegado: https://goldcheck-mockapi-production.up.railway.app
 
-URL del Frontend Web Application desplegado: https://luxury-beignet-b30759.netlify.app/
+URL del Frontend Web Application desplegado: https://goldcheck-goldmetrics.netlify.app/
 
 URL del Landing Page integrado con nuestro Frontend: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
 
