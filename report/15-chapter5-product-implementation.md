@@ -784,17 +784,17 @@ _(Completar una vez realizadas las entrevistas. Se requieren entre 3 y 5 entrevi
 | Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
 | Resumen | _(completar)_ |
 
-| Segmento: Empresas Mineras | Entrevista #3 |
-| --- | --- |
-| Nombres y Apellidos | _(completar)_ |
-| Edad | _(completar)_ |
-| Distrito | _(completar)_ |
-| Ocupación | _(completar)_ |
-| Timming inicio | _(completar — mm:ss)_ |
-| Duración | _(completar)_ |
-| URL | _(completar)_ |
-| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
-| Resumen | _(completar)_ |
+| Segmento: Empresas Mineras | Entrevista #3                                                                                                                                                                                                                                                                                                                                  |
+| --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nombres y Apellidos | Ian Kimi Sevastian San MArtín Cauti                                                                                                                                                                                                                                                                                                            |
+| Edad | 24                                                                                                                                                                                                                                                                                                                                             |
+| Distrito | Santiago de Surco                                                                                                                                                                                                                                                                                                                              |
+| Ocupación | Ingeniero Metalúrgico                                                                                                                                                                                                                                                                                                                          |
+| Timming inicio | _(completar — mm:ss)_                                                                                                                                                                                                                                                                                                                          |
+| Duración | 6 minutos y 42 segundos                                                                                                                                                                                                                                                                                                                        |
+| URL | [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20251i477_upc_edu_pe/IQD1noDKgzKpT4LxC4E27IePAefv99fFas5nfZs_mJ7gZT4?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=9y59SL) |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/interview-Kimi.jpeg)                                                                                                                                                                                                                                                               |
+| Resumen |  En la entrevista, un representante de una empresa minera validó GoldCheck y entendió bien la propuesta: trazabilidad del oro desde la extracción hasta el producto final, usando IoT/IA y conectando mineras, joyerías y consumidores. Le convenció porque resuelve un problema real —hoy el control se hace en Excel y a mano, generando errores de tonelaje— aunque pidió ver casos reales o un piloto antes de comprometerse. Le resultó muy intuitivo registrar un nuevo lote, y especialmente claro el mapa de monitoreo que compara la ruta planeada contra la real. El punto crítico fue que el formulario de reporte de incidentes no guardó la información (falló dos veces), algo que le preocupó porque un incidente urgente podría quedar sin registrar.                                                                                                                                                                                                                                                                                                                                               |
 
 <div style="page-break-after: always"></div>
 
@@ -812,17 +812,17 @@ _(Completar una vez realizadas las entrevistas. Se requieren entre 3 y 5 entrevi
 | Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
 | Resumen | _(completar)_ |
 
-| Segmento: Joyerías | Entrevista #2 |
-| --- | --- |
-| Nombres y Apellidos | _(completar)_ |
-| Edad | _(completar)_ |
-| Distrito | _(completar)_ |
-| Ocupación | _(completar)_ |
-| Timming inicio | _(completar — mm:ss)_ |
-| Duración | _(completar)_ |
-| URL | _(completar)_ |
-| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
-| Resumen | _(completar)_ |
+| Segmento: Joyerías | Entrevista #2                                                                        |
+| --- |--------------------------------------------------------------------------------------|
+| Nombres y Apellidos | _(completar)_                                                                        |
+| Edad | _(completar)_                                                                        |
+| Distrito | _(completar)_                                                                        |
+| Ocupación | _(completar)_                                                                        |
+| Timming inicio | _(completar — mm:ss)_                                                                |
+| Duración | _(completar)_                                                                        |
+| URL | _(completar)_                                                                        |
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.jpeg) |
+| Resumen | _(completar)_                                                                        |
 
 | Segmento: Joyerías | Entrevista #3 |
 | --- | --- |
