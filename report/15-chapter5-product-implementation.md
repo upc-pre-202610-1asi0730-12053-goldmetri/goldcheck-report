@@ -1343,13 +1343,7 @@ Hacer que el ícono de notificaciones despliegue el listado de notificaciones (p
 
 **Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-product-av2`
 
-**Requisitos del video:**
-- Duración: entre 1 y 3 minutos.
-- Incluir al menos un testimonio de usuario por cada segmento objetivo (empresa minera, joyería, consumidor final).
-- Publicar en Microsoft Stream y YouTube.
-- Incrustar en el Landing Page de GoldCheck.
-
-**URL Microsoft Stream:** _(completar)_
+El Video About-the-Product está dirigido a visitantes del Landing Page y usuarios potenciales de GoldCheck que desean conocer el modelo de negocio y las características principales de la plataforma. El video presenta la problemática de la falta de trazabilidad en la cadena de suministro de oro en el Perú y cómo GoldCheck la resuelve mediante una solución tecnológica que conecta a empresas mineras, joyerías y consumidores finales. Se muestran las funcionalidades principales de la Web Application: el dashboard de monitoreo para mineras, el panel de verificación y certificación para joyerías, y la experiencia de escaneo QR para consumidores. El video incluye testimonios de usuarios que participaron en las entrevistas de validación, quienes destacan la transparencia y facilidad de uso de la plataforma.
 
 **URL YouTube:** [Ver video](https://youtu.be/E39HEPqGKok)
 
