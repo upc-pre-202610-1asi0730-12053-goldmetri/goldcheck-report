@@ -564,9 +564,11 @@ En el Sprint 3 se logró implementar y desplegar la primera versión de los Web 
 La documentación interactiva de la API está disponible en:
 https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
 
-_(Completar con capturas de pantalla de Swagger mostrando los endpoints organizados por controlador y ejemplos de respuestas HTTP.)_
+A continuación se presentan capturas de la documentación Swagger desplegada:
 
-![Swagger GoldCheck API](../assets/img/chapter-v/swagger-goldcheck.png)
+![Swagger GoldCheck API - Página principal](../assets/img/chapter-v/deployment-azure-4.png)
+
+![Swagger GoldCheck API - Endpoints de Reports y Communication](../assets/img/chapter-v/deployment-azure-5.png)
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
@@ -785,9 +787,13 @@ Durante el Sprint 3 se realizó el despliegue exitoso de los Web Services de Gol
 
 **URL del Landing Page:** https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
 
-_(Completar con capturas del proceso de despliegue en Azure: Resource Group, App Service, configuración y verificación.)_
+A continuación se presentan las capturas del proceso de despliegue en Azure:
 
-![Deployment Azure](../assets/img/chapter-v/deployment-azure.png)
+![Implementación en curso - MySQL Flexible Server](../assets/img/chapter-v/deployment-azure-1.png)
+
+![Implementación completada - MySQL Flexible Server](../assets/img/chapter-v/deployment-azure-2.png)
+
+![Información general - goldcheck-db (Azure Database for MySQL)](../assets/img/chapter-v/deployment-azure-3.png)
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
