@@ -3,29 +3,33 @@
 
 # UNIVERSIDAD PERUANA DE CIENCIAS APLICADAS
 
-***Ingeniería de Software***
+***Carrera de Ingeniería de Software***
 
-**Curso:** 1ASI0730 | Aplicaciones Web  
-**NRC:** 12053  
-**Ciclo:** 5  
-**Docente:** Efraín Ricardo Bautista Ubillús  
+**1ASI030** <br>
+**Aplicaciones Web**  
+NRC <br>
+**12053**  
 
-## **"Informe de trabajo: AV2"**
-
-#### *Startup:* GoldMetrics
-
-#### *Producto:* GoldCheck
+## **Informe de trabajo: AV2**
+Docente <br>
+#### **Bautista Ubillús, Efrain Ricardo**
+Equipo <br>
+#### **GoldMetrics**
+Proyecto <br>
+#### **GoldCheck**
 
 ***Relación de integrantes:***
 
-<table style="margin: 0 auto;">
-<tr><th>INTEGRANTES</th><th>CÓDIGO</th></tr>
-<tr><td>Armestar Felipa, Adrian Andres</td><td>U202410084</td></tr>
-<tr><td>García Paredes, Victor Manuel</td><td>U202012001</td></tr>
-<tr><td>Navarro Aldoradin, Carolina Celeste</td><td>U20241B962</td></tr>
-<tr><td>Philco Mota, Katty Yolanda</td><td>U202416107</td></tr>
-<tr><td>Tuesta Girón, Kiara Lucia</td><td>U20251i477</td></tr>
-</table>
+<div style="text-align: center;">
+  <table style="margin: 0 auto; display: inline-table;">
+    <tr><th>CÓDIGO</th><th>INTEGRANTES</th></tr>
+    <tr><td>U202410084</td><td>Armestar Felipa, Adrian Andres</td></tr>
+    <tr><td>U202012001</td><td>García Paredes, Victor Manuel</td></tr>
+    <tr><td>U20241B962</td><td>Navarro Aldoradin, Carolina Celeste</td></tr>
+    <tr><td>U202416107</td><td>Philco Mota, Katty Yolanda</td></tr>
+    <tr><td>U20251i477</td><td>Tuesta Girón, Kiara Lucia</td></tr>
+  </table>
+</div>
 
 <strong>Junio, 2026</strong>
 
