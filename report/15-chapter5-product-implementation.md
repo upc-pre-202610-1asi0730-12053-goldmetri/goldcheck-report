@@ -842,15 +842,15 @@ _(Completar una vez realizadas las entrevistas. Se requieren entre 3 y 5 entrevi
 
 | Segmento: Usuario consumidor | Entrevista #1 |
 | --- | --- |
-| Nombres y Apellidos | _(completar)_ |
-| Edad | _(completar)_ |
-| Distrito | _(completar)_ |
-| Ocupación | _(completar)_ |
-| Timming inicio | _(completar — mm:ss)_ |
-| Duración | _(completar)_ |
-| URL | _(completar)_ |
-| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/_(nombre-archivo)_.png) |
-| Resumen | _(completar)_ |
+| Nombres y Apellidos | Jenifer Natali López Huaman |
+| Edad | 23 años |
+| Distrito | Santiago de Surco |
+| Ocupación | Administradora |
+| Timming inicio | 00:00:00 - 00:10:15 |
+| Duración | 10 minutos y 15 segundos |
+| URL | [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202012001_upc_edu_pe/IQDGQNwonxjfRZXOdomReSRMARVTM3fMpFk16HmBIbvaTRc?e=m8Vkyg&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
+| Screenshot | ![Screenshot Jenifer](../assets/img/chapter-v/validation/interview-jenifer.png) |
+| Resumen | La entrevistada es Jenifer Natali López Huaman, una administradora de 23 años residente en Santiago de Surco, interesada en la compra de joyas de oro con garantía de autenticidad y origen ético. Respecto al Landing Page, señaló que la primera impresión fue confusa, ya que el mensaje inicial hace referencia a seguridad de vehículos y monitoreo inteligente, y recién al desplazarse encontró contenido relacionado con oro y joyas. Sin embargo, una vez ubicada la sección relevante, la información sobre trazabilidad le generó confianza, destacando positivamente la existencia de un plan gratuito que permite escanear joyas sin compromiso de pago. Sobre la verificación de autenticidad, indicó que los botones de Login y Sign Up son fáciles de encontrar, pero echó en falta un acceso directo para verificar una joya sin necesidad de registrarse. En cuanto a la aplicación, el proceso de escaneo QR le resultó sencillo e intuitivo, valorando la doble opción de ingreso manual y cámara. La información de trazabilidad mostrada tras la verificación le pareció clara y fácil de seguir visualmente, aunque no comprendió los códigos alfanuméricos técnicos asociados a cada etapa. Señaló como principal carencia la ausencia de un sello visible de "origen verificado" o "libre de conflicto" en el certificado, y sugirió incorporar una foto real de la joya junto a los datos de trazabilidad, así como la posibilidad de descargar el certificado en formato PDF. En la escala de recomendación, otorgó un 8 de 10, destacando la transparencia del escaneo como lo que más le gustó, y recomendando que la página de entrada comunique el tema de oro desde el inicio y que la certificación ética sea más explícita. |
 
 | Segmento: Usuario consumidor | Entrevista #2 |
 | --- | --- |
