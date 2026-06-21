@@ -1098,51 +1098,208 @@ A continuación se presentaran los diagramas de clases de los respectivos bounde
 ![Diagrama de clase 11](../assets/img/chapter-iv/cdf-subscriptions.png)
 
 
-## DIAGRAMAS BACKEND:
+## Diagramas de Clase del BACKEND:
 
-#### BC1 - Identity Access Management
-
-![BC1 - Identity Access Management](../assets/img/chapter-iv/BC1_Identity_Access_Management_Full.png)
 
 #### BC2 - Fleet Operations
 
 ![BC2 - Fleet Operations](../assets/img/chapter-iv/BC2_Fleet_Operations_Full.png)
 
+##### BC2 - Domain
+
+![BC2 - FleetOperations Domain](../assets/img/chapter-iv/backend/class/FleetOperations%20%28Domain%29-GoldMetrics__FleetOperations__Domain_.png)
+
+##### BC2 - Application
+
+![BC2 - FleetOperations Application](../assets/img/chapter-iv/backend/class/FleetOperations%20%28Application%29-GoldMetrics__FleetOperations__Application_.png)
+
+##### BC2 - Infrastructure
+
+![BC2 - FleetOperations Infrastructure](../assets/img/chapter-iv/backend/class/FleetOperations%20%28Infrastructure%29-GoldMetrics__FleetOperations__Infrastructure_.png)
+
+##### BC2 - Interfaces
+
+![BC2 - FleetOperations Interfaces](../assets/img/chapter-iv/backend/class/FleetOperations%20%28Interfaces%29-GoldMetrics__FleetOperations__Interfaces_.png)
+
 #### BC3 - Material Operations
 
 ![BC3 - Material Operations](../assets/img/chapter-iv/BC3_Material_Operations_Full.png)
+
+##### BC3 - Domain
+
+![BC3 - MaterialOperations Domain](../assets/img/chapter-iv/backend/class/MaterialOperations%20%28Domain%29-GoldMetrics__MaterialOperations__Domain_.png)
+
+##### BC3 - Application
+
+![BC3 - MaterialOperations Application](../assets/img/chapter-iv/backend/class/MaterialOperations%20%28Application%29-GoldMetrics__MaterialOperations__Application_.png)
+
+##### BC3 - Infrastructure
+
+![BC3 - MaterialOperations Infrastructure](../assets/img/chapter-iv/backend/class/MaterialOperations%20%28Infrastructure%29.png)
+
+##### BC3 - Interfaces
+
+![BC3 - MaterialOperations Interfaces](../assets/img/chapter-iv/backend/class/MaterialOperations%20%28Interfaces%29-GoldMetrics__MaterialOperations__Interfaces_.png)
 
 #### BC4 - Jewelry Inventory
 
 ![BC4 - Jewelry Inventory](../assets/img/chapter-iv/BC4_Jewelry_Inventory_Full.png)
 
+##### BC4 - Domain
+
+![BC4 - JewelryInventory Domain](../assets/img/chapter-iv/backend/class/JewelryInventory%20%28Domain%29-GoldMetrics__JewelryInventory__Domain_.png)
+
+##### BC4 - Application
+
+![BC4 - JewelryInventory Application](../assets/img/chapter-iv/backend/class/JewelryInventory%20%28Application%29-GoldMetrics__JewelryInventory__Application_.png)
+
+##### BC4 - Infrastructure
+
+![BC4 - JewelryInventory Infrastructure](../assets/img/chapter-iv/backend/class/JewelryInventory%20%28Infrastructure%29-GoldMetrics__JewelryInventory__Infrastructure_.png)
+
+##### BC4 - Interfaces
+
+![BC4 - JewelryInventory Interfaces](../assets/img/chapter-iv/backend/class/JewelryInventory%20%28Interfaces%29-GoldMetrics__JewelryInventory__Interfaces_.png)
+
 #### BC5 - Consumer Traceability
 
 ![BC5 - Consumer Traceability](../assets/img/chapter-iv/BC5_Consumer_Traceability_Full.png)
+
+##### BC5 - Domain
+
+![BC5 - ConsumerTraceability Domain](../assets/img/chapter-iv/backend/class/ConsumerTraceability%20%28Domain%29-GoldMetrics__ConsumerTraceability__Domain_.png)
+
+##### BC5 - Application
+
+![BC5 - ConsumerTraceability Application](../assets/img/chapter-iv/backend/class/ConsumerTraceability%20%28Application%29-GoldMetrics__ConsumerTraceability__Application_.png)
+
+##### BC5 - Infrastructure
+
+![BC5 - ConsumerTraceability Infrastructure](../assets/img/chapter-iv/backend/class/ConsumerTraceability%20%28Infrastructure%29-GoldMetrics__ConsumerTraceability__Infrastructure_.png)
+
+##### BC5 - Interfaces
+
+![BC5 - ConsumerTraceability Interfaces](../assets/img/chapter-iv/backend/class/ConsumerTraceability%20%28Interfaces%29-GoldMetrics__ConsumerTraceability__Interfaces_.png)
 
 #### BC6 - Monitoring Telemetry
 
 ![BC6 - Monitoring Telemetry](../assets/img/chapter-iv/BC6_Monitoring_Telemetry_Full.png)
 
+##### BC6 - Domain
+
+![BC6 - MonitoringTelemetry Domain](../assets/img/chapter-iv/backend/class/MonitoringTelemetry%20%28Domain%29-GoldMetrics__MonitoringTelemetry__Domain_.png)
+
+##### BC6 - Application
+
+![BC6 - MonitoringTelemetry Application](../assets/img/chapter-iv/backend/class/MonitoringTelemetry%20%28Application%29-GoldMetrics__MonitoringTelemetry__Application_.png)
+
+##### BC6 - Infrastructure
+
+![BC6 - MonitoringTelemetry Infrastructure](../assets/img/chapter-iv/backend/class/MonitoringTelemetry%20%28Infrastructure%29-GoldMetrics__MonitoringTelemetry__Infrastructure_.png)
+
+##### BC6 - Interfaces
+
+![BC6 - MonitoringTelemetry Interfaces](../assets/img/chapter-iv/backend/class/MonitoringTelemetry%20%28Interfaces%29-GoldMetrics__MonitoringTelemetry__Interfaces_.png)
+
 #### BC7 - Analytics
 
 ![BC7 - Analytics](../assets/img/chapter-iv/BC7_Analytics_Full.png)
+
+##### BC7 - Domain
+
+![BC7 - Analytics Domain](../assets/img/chapter-iv/backend/class/Analytics%20%28Domain%29-GoldMetrics__Analytics__Domain_.png)
+
+##### BC7 - Application
+
+![BC7 - Analytics Application](../assets/img/chapter-iv/backend/class/Analytics%20%28Application%29-GoldMetrics__Analytics__Application_.png)
+
+##### BC7 - Infrastructure
+
+![BC7 - Analytics Infrastructure](../assets/img/chapter-iv/backend/class/Analytics%20%28Infrastructure%29-GoldMetrics__Analytics__Infrastructure_.png)
+
+##### BC7 - Interfaces
+
+![BC7 - Analytics Interfaces](../assets/img/chapter-iv/backend/class/Analytics%20%28Interfaces%29-GoldMetrics__Analytics__Interfaces_.png)
 
 #### BC8 - Incident Management
 
 ![BC8 - Incident Management](../assets/img/chapter-iv/BC8_Incident_Management_Full.png)
 
+##### BC8 - Domain
+
+![BC8 - IncidentManagement Domain](../assets/img/chapter-iv/backend/class/IncidentManagement%20%28Domain%29-GoldMetrics__IncidentManagement__Domain_.png)
+
+##### BC8 - Application
+
+![BC8 - IncidentManagement Application](../assets/img/chapter-iv/backend/class/IncidentManagement%20%28Application%29-GoldMetrics__IncidentManagement__Application_.png)
+
+##### BC8 - Infrastructure
+
+![BC8 - IncidentManagement Infrastructure](../assets/img/chapter-iv/backend/class/IncidentManagement%20%28Infrastructure%29-GoldMetrics__IncidentManagement__Infrastructure_.png)
+
+##### BC8 - Interfaces
+
+![BC8 - IncidentManagement Interfaces](../assets/img/chapter-iv/backend/class/IncidentManagement%20%28Interfaces%29-GoldMetrics__IncidentManagement__Interfaces_.png)
+
 #### BC9 - Reporting Notifications
 
 ![BC9 - Reporting Notifications](../assets/img/chapter-iv/BC9_Reporting_Notifications_Full.png)
+
+##### BC9 - Domain
+
+![BC9 - ReportingNotifications Domain](../assets/img/chapter-iv/backend/class/ReportingNotifications%20%28Domain%29-GoldMetrics__ReportingNotifications__Domain_.png)
+
+##### BC9 - Application
+
+![BC9 - ReportingNotifications Application](../assets/img/chapter-iv/backend/class/ReportingNotifications%20%28Application%29-GoldMetrics__ReportingNotifications__Application_.png)
+
+##### BC9 - Infrastructure
+
+![BC9 - ReportingNotifications Infrastructure](../assets/img/chapter-iv/backend/class/ReportingNotifications%20%28Infrastructure%29-GoldMetrics__ReportingNotifications__Infrastructure_.png)
+
+##### BC9 - Interfaces
+
+![BC9 - ReportingNotifications Interfaces](../assets/img/chapter-iv/backend/class/ReportingNotifications%20%28Interfaces%29-GoldMetrics__ReportingNotifications__Interfaces_.png)
 
 #### BC10 - Asset Maintenance
 
 ![BC10 - Asset Maintenance](../assets/img/chapter-iv/BC10_Asset_Maintenance_Full.png)
 
+##### BC10 - Domain
+
+![BC10 - AssetMaintenance Domain](../assets/img/chapter-iv/backend/class/AssetMaintenance%20%28Domain%29-GoldMetrics__AssetMaintenance__Domain_.png)
+
+##### BC10 - Application
+
+![BC10 - AssetMaintenance Application](../assets/img/chapter-iv/backend/class/AssetMaintenance%20%28Application%29-GoldMetrics__AssetMaintenance__Application_.png)
+
+##### BC10 - Infrastructure
+
+![BC10 - AssetMaintenance Infrastructure](../assets/img/chapter-iv/backend/class/AssetMaintenance%20%28Infrastructure%29-GoldMetrics__AssetMaintenance__Infrastructure_.png)
+
+##### BC10 - Interfaces
+
+![BC10 - AssetMaintenance Interfaces](../assets/img/chapter-iv/backend/class/AssetMaintenance%20%28Interfaces%29-GoldMetrics__AssetMaintenance__Interfaces_.png)
+
 #### BC11 - Subscriptions Billing
 
 ![BC11 - Subscriptions Billing](../assets/img/chapter-iv/BC11_Subscriptions_Billing_Full.png)
+
+##### BC11 - Domain
+
+![BC11 - SubscriptionsAndBilling Domain](../assets/img/chapter-iv/backend/class/SubscriptionsAndBilling%20%28Domain%29-GoldMetrics__SubscriptionsAndBilling__Domain_.png)
+
+##### BC11 - Application
+
+![BC11 - SubscriptionsAndBilling Application](../assets/img/chapter-iv/backend/class/SubscriptionsAndBilling%20%28Application%29-GoldMetrics__SubscriptionsAndBilling__Application_.png)
+
+##### BC11 - Infrastructure
+
+![BC11 - SubscriptionsAndBilling Infrastructure](../assets/img/chapter-iv/backend/class/SubscriptionsAndBilling%20%28Infrastructure%29-GoldMetrics__SubscriptionsAndBilling__Infrastructure_.png)
+
+##### BC11 - Interfaces
+
+![BC11 - SubscriptionsAndBilling Interfaces](../assets/img/chapter-iv/backend/class/SubscriptionsAndBilling%20%28Interfaces%29-GoldMetrics__SubscriptionsAndBilling__Interfaces_.png)
 
 ## Diagramas de Clases por Aggregate
 
