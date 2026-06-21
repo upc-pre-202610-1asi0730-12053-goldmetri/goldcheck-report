@@ -559,13 +559,20 @@ Durante el Sprint 3 el equipo se enfocó en el desarrollo del Backend (Web Servi
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
-_(Completar con capturas de pantalla de los endpoints funcionando, vistas de Swagger/OpenAPI y evidencia de las respuestas HTTP.)_
+En el Sprint 3 se logró implementar y desplegar la primera versión de los Web Services de GoldCheck en Azure App Service. La API RESTful cuenta con más de 100 endpoints distribuidos en 11 bounded contexts, todos documentados automáticamente mediante Swagger/OpenAPI. Los bounded contexts implementados son: Identity & Access Management, Fleet Operations, Material Operations, Jewelry Inventory & Certification, Asset & Maintenance, Analytics, Reporting & Notifications, Subscriptions & Billing, Incident Management, Monitoring & Telemetry y Consumer Traceability.
+
+La documentación interactiva de la API está disponible en:
+https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
+
+_(Completar con capturas de pantalla de Swagger mostrando los endpoints organizados por controlador y ejemplos de respuestas HTTP.)_
+
+![Swagger GoldCheck API](../assets/img/chapter-v/swagger-goldcheck.png)
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
 En este Sprint se implementó la primera versión de los Web Services de GoldCheck utilizando ASP.NET Core con C#. La documentación de los endpoints se generó automáticamente mediante Swagger (OpenAPI).
 
-A continuación se presentan los endpoints implementados por cada bounded context, organizados por controlador. _(Completar con capturas de Swagger una vez desplegado el backend.)_
+A continuación se presentan los endpoints implementados por cada bounded context, organizados por controlador. La documentación interactiva de Swagger está disponible en: https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
 
 **Identity & Access Management (IAM)**
 
@@ -761,7 +768,26 @@ A continuación se presentan los endpoints implementados por cada bounded contex
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
-_(Completar con evidencia del despliegue del backend. Incluir: plataforma utilizada (Azure, Railway, etc.), URL del servicio desplegado, capturas del proceso de despliegue.)_
+Durante el Sprint 3 se realizó el despliegue exitoso de los Web Services de GoldCheck utilizando Microsoft Azure App Service. A continuación se detallan los pasos realizados:
+
+1. Se creó una cuenta en Microsoft Azure y se configuró un Resource Group para el proyecto.
+2. Se creó un Azure App Service con runtime .NET (ASP.NET Core) para alojar la API.
+3. Se configuró la cadena de conexión a la base de datos en las Application Settings del App Service.
+4. Se desplegó la aplicación desde el repositorio `goldcheck-platform` mediante el flujo de publicación de Azure.
+5. Se configuró Swagger/OpenAPI como página de inicio para la documentación interactiva.
+6. Se verificó el correcto funcionamiento de los endpoints accediendo a la URL pública.
+
+**URL del Backend desplegado:** https://goldcheck-platform-wa.azurewebsites.net
+
+**URL de la documentación Swagger:** https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
+
+**URL del Frontend Web Application desplegado:** https://goldcheck-goldmetrics.netlify.app/
+
+**URL del Landing Page:** https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
+
+_(Completar con capturas del proceso de despliegue en Azure: Resource Group, App Service, configuración y verificación.)_
+
+![Deployment Azure](../assets/img/chapter-v/deployment-azure.png)
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
