@@ -118,6 +118,23 @@ A continuación se presentan las evidencias de colaboración por repositorio:
 
 ![Team Collaboration Sprint 2-3](assets/img/chapter-v/collaboration-3.png)
 
+---
+
+### AV2
+
+Durante el AV2, el equipo se enfocó en la implementación y despliegue de la primera versión de los Web Services (Backend) en ASP.NET Core con C#, desplegados en Azure App Service. El repositorio principal de esta entrega fue `goldcheck-platform`, donde se implementaron más de 100 endpoints RESTful distribuidos en 11 bounded contexts. Adicionalmente, se completaron las secciones de Validation Interviews, la evaluación heurística cruzada con NutriSense, y los videos About-the-Product y About-the-Team. La colaboración se gestionó mediante GitFlow con ramas `feature/` y Pull Requests a `develop`, con coordinación diaria por Discord.
+
+Los repositorios involucrados en esta entrega son:
+
+- **Report:** https://github.com/upc-pre-202610-1asi0730-12053-goldmetri/goldcheck-report
+- **Platform:** https://github.com/upc-pre-202610-1asi0730-12053-goldmetri/goldcheck-platform
+
+A continuación se presentan las evidencias de colaboración por repositorio:
+
+![Team Collaboration AV2 — Report](assets/img/chapter-v/collaboration-report-av2.png)
+
+![Team Collaboration AV2 — Platform](assets/img/chapter-v/collaboration-platform-av2.png)
+
 <div style="page-break-after: always"></div>
 
 
