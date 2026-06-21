@@ -545,6 +545,17 @@ Durante el Sprint 3 el equipo se enfocó en el desarrollo del Backend (Web Servi
 | goldcheck-platform | develop | `d1ef66d` | feat(subscriptionsandbilling): add get user subscription by user id endpoint. | Implement GET endpoint to retrieve user subscription details | 2026-06-19 |
 | goldcheck-platform | develop | `f617754` | feat(subscriptionsandbilling): add request access endpoint. | Implement POST endpoint for requesting access to subscription features | 2026-06-19 |
 | goldcheck-platform | develop | `2132698` | feat(subscriptionsandbilling): add confirm subscription endpoint. | Implement POST endpoint for confirming user subscriptions | 2026-06-19 |
+| goldcheck-platform | develop | `f18edd5` | feat(incidentmanagement): add detect driver fatigue endpoint. | Implement POST endpoint for detecting driver fatigue incidents | 2026-06-19 |
+| goldcheck-platform | develop | `671978a` | feat(incidentmanagement): add escalate risk level endpoint. | Implement PUT endpoint for escalating incident risk level | 2026-06-19 |
+| goldcheck-platform | develop | `751d51c` | feat(incidentmanagement): add commit accident endpoint. | Implement POST endpoint for committing accident records | 2026-06-19 |
+| goldcheck-platform | develop | `b3f6c7c` | feat(monitoringtelemetry): add process telemetry data endpoint. | Implement POST endpoint for processing telemetry data from assets | 2026-06-19 |
+| goldcheck-platform | develop | `42d0876` | feat(monitoringtelemetry): add monitor gnss status endpoint. | Implement POST endpoint for monitoring GNSS status of assets | 2026-06-20 |
+| goldcheck-platform | develop | `1be6761` | feat(monitoringtelemetry): add detect gnss anomaly endpoint. | Implement POST endpoint for detecting GNSS anomalies | 2026-06-20 |
+| goldcheck-platform | develop | `b584079` | feat(monitoringtelemetry): add monitor engine temperature endpoint. | Implement POST endpoint for monitoring engine temperature | 2026-06-20 |
+| goldcheck-platform | develop | `62c479c` | feat(monitoring-telemetry): add monitor pressure endpoint. | Implement POST endpoint for monitoring pressure readings | 2026-06-20 |
+| goldcheck-platform | develop | `8f83f6c` | feat(monitoring-telemetry): add monitor speed status endpoint. | Implement POST endpoint for monitoring vehicle speed status | 2026-06-20 |
+| goldcheck-platform | develop | `675a92d` | feat(monitoringtelemetry): add detect communication anomaly endpoint. | Implement POST endpoint for detecting communication anomalies | 2026-06-20 |
+| goldcheck-platform | develop | `3429853` | fix(monitoring-telemetry): sync schema with final version and fix migration compatibility. | Fix migration compatibility with MySQL and sync monitoring telemetry schema | 2026-06-20 |
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
@@ -661,6 +672,92 @@ A continuación se presentan los endpoints implementados por cada bounded contex
 | `/api/v1/subscriptions/plans/{planType}/features` | POST | Asignar features a plan |
 | `/api/v1/subscriptions/plans/{planType}/features` | GET | Obtener features de plan |
 | `/api/v1/subscriptions/{userId}/access-request` | POST | Solicitar acceso |
+
+**Incident Management**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/incidents/fatigue` | POST | Detectar fatiga de conductor |
+| `/api/v1/incidents/{incidentId}` | GET | Obtener incidente por ID |
+| `/api/v1/incidents` | GET | Obtener todos los incidentes |
+| `/api/v1/incidents/{incidentId}/escalate` | PUT | Escalar nivel de riesgo |
+| `/api/v1/incidents/{incidentId}/evaluate` | PUT | Evaluar riesgo de seguridad |
+| `/api/v1/incidents/{incidentId}/alert` | PUT | Enviar alerta de nivel de riesgo |
+| `/api/v1/incidents/smoke` | POST | Detectar humo |
+| `/api/v1/incidents/{incidentId}/smoke-alert` | PUT | Confirmar alerta de humo |
+| `/api/v1/incidents/accidents` | POST | Registrar accidente |
+| `/api/v1/incidents/type/{incidentType}` | GET | Obtener incidentes por tipo |
+| `/api/v1/incidents/risk-level/{riskLevel}` | GET | Obtener incidentes por nivel de riesgo |
+
+**Monitoring & Telemetry — Telemetry**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/monitoring/telemetry/process` | POST | Procesar datos de telemetría |
+| `/api/v1/monitoring/telemetry/validate` | POST | Validar datos de telemetría |
+| `/api/v1/monitoring/telemetry/{assetId}` | GET | Obtener datos de telemetría por activo |
+
+**Monitoring & Telemetry — Temperature**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/monitoring/temperature/monitor` | POST | Monitorear temperatura de motor |
+| `/api/v1/monitoring/temperature/{assetId}/analyse/exhaust` | POST | Analizar temperatura de escape |
+| `/api/v1/monitoring/temperature/{assetId}/analyse/exhaust-limit` | POST | Analizar límite de escape por cilindro |
+| `/api/v1/monitoring/temperature/{assetId}/analyse/refrigerant` | POST | Analizar temperatura de refrigerante |
+| `/api/v1/monitoring/temperature/{assetId}/analyse/oil` | POST | Analizar temperatura de aceite |
+| `/api/v1/monitoring/temperature/{assetId}/analyse/fuel` | POST | Analizar temperatura de combustible |
+| `/api/v1/monitoring/temperature/{assetId}/anomalies/detect` | POST | Detectar anomalía de temperatura |
+| `/api/v1/monitoring/temperature/{assetId}` | GET | Obtener lecturas de temperatura por activo |
+| `/api/v1/monitoring/temperature/{assetId}/anomalies` | GET | Obtener anomalías de temperatura por activo |
+
+**Monitoring & Telemetry — Pressure**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/monitoring/pressure/monitor` | POST | Monitorear presión |
+| `/api/v1/monitoring/pressure/{assetId}/analyse` | POST | Analizar presión |
+| `/api/v1/monitoring/pressure/{assetId}/anomalies/detect` | POST | Detectar anomalía de presión |
+| `/api/v1/monitoring/pressure/{assetId}` | GET | Obtener lecturas de presión por activo |
+| `/api/v1/monitoring/pressure/{assetId}/anomalies` | GET | Obtener anomalías de presión por activo |
+
+**Monitoring & Telemetry — Speed**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/monitoring/speed/monitor` | POST | Monitorear velocidad |
+| `/api/v1/monitoring/speed/{assetId}/detect-excess` | POST | Detectar exceso de velocidad |
+| `/api/v1/monitoring/speed/{assetId}` | GET | Obtener lecturas de velocidad por activo |
+| `/api/v1/monitoring/speed/{assetId}/violations` | GET | Obtener violaciones de velocidad por activo |
+
+**Monitoring & Telemetry — GNSS**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/monitoring/gnss/monitor` | POST | Monitorear estado GNSS |
+| `/api/v1/monitoring/gnss/{assetId}/anomalies/detect` | POST | Detectar anomalía GNSS |
+| `/api/v1/monitoring/gnss/{assetId}/restart` | POST | Reiniciar GNSS |
+| `/api/v1/monitoring/gnss/{assetId}` | GET | Obtener estado GNSS por activo |
+
+**Monitoring & Telemetry — Communication**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/monitoring/communication/monitor` | POST | Monitorear canal de comunicación |
+| `/api/v1/monitoring/communication/{assetId}/analyse` | POST | Analizar comunicación |
+| `/api/v1/monitoring/communication/{assetId}/anomalies/detect` | POST | Detectar anomalía de comunicación |
+| `/api/v1/monitoring/communication/{assetId}` | GET | Obtener canal de comunicación por activo |
+| `/api/v1/monitoring/communication/{assetId}/anomalies` | GET | Obtener anomalías de comunicación por activo |
+
+**Consumer Traceability**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/consumer/scan` | POST | Escanear código QR de joya |
+| `/api/v1/consumer/products/{qrCode}` | GET | Obtener producto por código QR |
+| `/api/v1/consumer/products/{qrCode}/journey` | GET | Obtener recorrido de trazabilidad del producto |
+| `/api/v1/consumer/certificates/{certificateId}/download` | POST | Descargar certificado de autenticidad |
+| `/api/v1/consumer/certificates/{certificateId}` | GET | Obtener certificado por ID |
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
