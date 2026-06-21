@@ -1381,7 +1381,7 @@ El equipo adoptó Domain-Driven Design como eje organizativo del proyecto, lo qu
 
 **URL Microsoft Stream:** [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQA5EMbGN-tDQ7chrUi2jqgtAVtvfpQa7dnuD7l5nvBVtPM?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=4ycDq5)
 
-**URL YouTube:** _(completar)_
+**URL YouTube:** [Ver video](https://youtu.be/kRmkPHiJUa8)
 
 
 ## Anexos Importantes
