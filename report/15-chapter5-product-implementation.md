@@ -1231,14 +1231,32 @@ Hacer que el ícono de notificaciones despliegue el listado de notificaciones (p
 
 ## 5.5. Video About-the-Team
 
-**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-team-av2`
+**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-team-sprint-3`
 
-**Requisitos del video:**
-- Duración: máximo 3 minutos.
-- Presentación de cada integrante del equipo, su rol y contribución al proyecto.
-- Publicar en Microsoft Stream.
+El video About-the-Team resume el proceso de trabajo realizado por el equipo GoldMetrics durante el ciclo de vida del proyecto GoldCheck. El video se estructura en dos bloques: una narración en off que contextualiza el proceso de trabajo del equipo con escenas de las sesiones de trabajo reales (Discord, GitHub, Trello), y los testimonios individuales de cada integrante ante cámara describiendo sus actividades, logros y competencias desarrolladas.
+
+El equipo adoptó Domain-Driven Design como eje organizativo del proyecto, lo que permitió que cada integrante liderara su bounded context con autonomía desde el diseño hasta la implementación, tanto en frontend (Vue con PrimeVue) como en backend (ASP.NET Core con C#). La coordinación se realizó mediante sprints planificados con objetivos claros, matrices de liderazgo y colaboración, y comunicación diaria por Discord.
+
+**Pauta de secuencias del video:**
+
+| Sección | Timing | Descripción |
+| :--- | :---: | :--- |
+| Introducción y contexto del proyecto | 00:00 – 00:50 | Origen del proyecto, adopción de DDD y organización del equipo (Navarro, Carolina) |
+| Proceso de investigación y modelado | 00:50 – 01:40 | Entrevistas con actores de la cadena minera, Ubiquitous Language, Big Picture EventStorming y definición de bounded contexts (Armestar, Adrian) |
+| Desarrollo Frontend | 01:40 – 02:30 | Implementación de bounded contexts en Vue con arquitectura DDD por capas (Philco, Katty) |
+| Desarrollo Backend | 02:30 – 03:20 | Transición a backend real con ASP.NET Core, lógica de dominio y APIs RESTful (García, Victor) |
+| Cierre y reflexión del equipo | 03:20 – 04:10 | Logros del equipo, competencias adquiridas y reflexión sobre el trabajo colaborativo (Tuesta, Kiara) |
+| Testimonio — Katty Philco | 04:10 – 05:10 | Liderazgo en diagramas C4, base de datos y clases. Frontend: IAM, Shared, Analytics. Backend: Reporting & Notifications, IAM, Shared |
+| Testimonio — Adrian Armestar | 05:10 – 06:10 | Liderazgo en perfil de startup, antecedentes y Event Storming. Frontend: ConsumerTraceability, Subscriptions. Backend: AssetMaintenance |
+| Testimonio — Victor García | 06:10 – 07:10 | Liderazgo en User Stories, Impact Mapping y Product Backlog. Frontend: FleetOperations, MaterialOperations, IncidentManagement. Backend: FleetOperations, JewelryInventory, MaterialOperations |
+| Testimonio — Kiara Tuesta | 07:10 – 08:10 | Liderazgo en Style Guidelines, Information Architecture y UX/UI Design. Frontend: JewelryInventory, ReportingNotifications. Backend: IncidentManagement, SubscriptionsAndBilling |
+| Testimonio — Carolina Navarro | 08:10 – 09:10 | Liderazgo en análisis competitivo, Big Picture EventStorming y Ubiquitous Language. Frontend: MonitoringTelemetry, AssetMaintenance. Backend: Analytics, ConsumerTraceability |
+
+![Screenshot About-the-Team](../assets/img/chapter-v/about-the-team.png)
 
 **URL Microsoft Stream:** _(completar)_
+
+**URL YouTube:** _(completar)_
 
 
 ## Anexos Importantes
