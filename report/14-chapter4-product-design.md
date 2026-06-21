@@ -908,31 +908,16 @@ Esta vista despliega la totalidad de los once bounded contexts del backend junto
 
 ---
 
-#### BC1 — IAM Bounded Context (Backend)
-
-Gestiona la autenticación y actualización de perfil de usuario. La capa de Interfaces expone endpoints REST sobre `/users` (GET por email para login, POST para registro, PATCH para actualización de perfil); la Application procesa esas peticiones mediante middleware de json-server; el Domain define el recurso User con campos `id`, `email`, `username`, `segment`, `plan`, `location` y `phoneNumber`; y la Infrastructure persiste los registros en la colección `users` de `db.json`.
-
-![Componentes IAM BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC1_IAM.png)
-
----
-
-#### BC2 — Fleet Operations Bounded Context (Backend)
-
-Cubre el ciclo de vida de lotes de mineral, vehículos, depósitos y alertas de anomalía. Las Interfaces exponen endpoints sobre `/mineralBatches`, `/deposits`, `/vehicles` y `/anomalyAlerts`; la Application procesa la creación de lotes y el registro de peso inicial; el Domain define `MineralBatch` (batchCode, depositId, vehicleId, initialWeight, mineralType, status) y `AnomalyAlert` (batchId, alertType, severity); y la Infrastructure persiste todos estos registros en `db.json`. El IoT Gateway envía telemetría directamente a las Fleet Interfaces.
-
-![Componentes Fleet Operations BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC2_Fleet.png)
-
----
-
-#### BC3 — Material Operations Bounded Context (Backend)
+#### BC1 — Material Operations Bounded Context (Backend)
 
 Gestiona la recepción de lotes en planta, el pesaje final y el cálculo de merma. Las Interfaces exponen endpoints PATCH sobre `/mineralBatches` para registrar `finalWeight` y transiciones de estado; la Application orquesta la confirmación de llegada y el marcado de investigación de merma; el Domain proyecta `MineralBatch` como `MaterialReception` (receivedWeight, initialWeight, shrinkagePercent, status); y la Infrastructure persiste esos datos en la misma colección `mineralBatches` de `db.json`.
 
 ![Componentes Material Operations BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC3_Material.png)
+![Component Material Operation BC - Backend](.../assets/img/chapter-v/backend/components-diagrams/MaterialOperations_Components.png)
 
 ---
 
-#### BC4 — Jewelry Inventory & Certification Bounded Context (Backend)
+#### BC2 — Jewelry Inventory & Certification Bounded Context (Backend)
 
 Permite registrar piezas de joyería y emitir certificados digitales. Las Interfaces exponen GET, POST y PATCH sobre `/jewelryItems` y `/jewelryCertificates`; la Application procesa el registro de ítems, la validación de estado y la emisión de certificados; el Domain define `JewelryItem` (sku, name, type, purity, weight, batchRef, status, certificationId) y `JewelryCertificate` (itemId, qrCode, issuerName); y la Infrastructure persiste ambos recursos en `db.json`.
 
@@ -940,7 +925,7 @@ Permite registrar piezas de joyería y emitir certificados digitales. Las Interf
 
 ---
 
-#### BC5 — Consumer Traceability Bounded Context (Backend)
+#### BC4 — Consumer Traceability Bounded Context (Backend)
 
 Habilita la vinculación de piezas al consumidor y la verificación por código QR. Las Interfaces exponen endpoints sobre `/consumerPieces` (GET por `ownerId` o `traceabilityCode`, POST para vincular una pieza); la Application cruza datos entre `consumerPieces` y `jewelryItems` para resolver la trazabilidad; el Domain define `ConsumerPiece` (ownerId, sku, traceabilityCode, purity, weight, certificationId, status); y la Infrastructure persiste los registros de piezas del consumidor en `db.json`.
 
@@ -948,7 +933,7 @@ Habilita la vinculación de piezas al consumidor y la verificación por código 
 
 ---
 
-#### BC6 — Monitoring & Telemetry Bounded Context (Backend)
+#### BC5 — Monitoring & Telemetry Bounded Context (Backend)
 
 Centraliza la gestión de alertas de anomalía en tránsito. Las Interfaces exponen GET, POST y PATCH sobre `/anomalyAlerts` para creación y resolución de alertas; la Application filtra alertas activas por estado y coordina su resolución; el Domain define `AnomalyAlert` (batchId, batchCode, vehicleId, alertType, severity, coordinates, status, detectedAt); y la Infrastructure persiste los registros en la colección `anomalyAlerts` de `db.json`.
 
@@ -956,7 +941,7 @@ Centraliza la gestión de alertas de anomalía en tránsito. Las Interfaces expo
 
 ---
 
-#### BC7 — Analytics Bounded Context (Backend)
+#### BC6 — Analytics Bounded Context (Backend)
 
 Agrega KPIs transversales para métricas de merma y certificación. Las Interfaces proveen acceso de solo lectura a `/mineralBatches`, `/vehicles` y `/jewelryItems`; la Application procesa solicitudes de lectura cruzada entre colecciones; el Domain expone proyecciones agregadas sobre los recursos `MineralBatch` y `JewelryItem`; y la Infrastructure lee directamente de las tres colecciones correspondientes en `db.json` sin escribir datos propios.
 
@@ -964,7 +949,7 @@ Agrega KPIs transversales para métricas de merma y certificación. Las Interfac
 
 ---
 
-#### BC8 — Incident Management Bounded Context (Backend)
+#### BC7 — Incident Management Bounded Context (Backend)
 
 Gestiona el reporte y cierre de incidentes operativos, reutilizando la colección `anomalyAlerts`. Las Interfaces exponen GET, POST y PATCH sobre esa colección con semántica de incidente; la Application procesa el reporte y el cambio de estado a cerrado; el Domain proyecta `AnomalyAlert` como `Incident` (title, incidentType, severity, batchId, vehicleId, status); y la Infrastructure persiste los registros de incidente en `anomalyAlerts` dentro de `db.json`.
 
@@ -972,7 +957,7 @@ Gestiona el reporte y cierre de incidentes operativos, reutilizando la colecció
 
 ---
 
-#### BC9 — Reporting & Notifications Bounded Context (Backend)
+#### BC8 — Reporting & Notifications Bounded Context (Backend)
 
 Consolida datos de lotes, joyas y alertas para la generación de reportes. Las Interfaces proveen acceso de lectura a `/mineralBatches`, `/jewelryItems` y `/anomalyAlerts`; la Application procesa solicitudes de lectura en paralelo sobre las tres colecciones; el Domain define proyecciones de reporte sobre esos recursos; y la Infrastructure lee desde las tres colecciones de `db.json` sin persistir datos adicionales.
 
@@ -980,7 +965,7 @@ Consolida datos de lotes, joyas y alertas para la generación de reportes. Las I
 
 ---
 
-#### BC10 — Asset Maintenance Bounded Context (Backend)
+#### BC9 — Asset Maintenance Bounded Context (Backend)
 
 Gestiona el ciclo de vida y las transiciones de estado de los vehículos de flota. Las Interfaces exponen GET (todos los vehículos) y PATCH (transición de estado) sobre `/vehicles`; la Application procesa las actualizaciones entre los estados `Activo` y `Mantenimiento`; el Domain define el recurso `Vehicle` (id, name, plate, type, capacity, status); y la Infrastructure persiste los registros en la colección `vehicles` de `db.json`.
 
@@ -988,12 +973,28 @@ Gestiona el ciclo de vida y las transiciones de estado de los vehículos de flot
 
 ---
 
-#### BC11 — Subscriptions & Billing Bounded Context (Backend)
+#### BC10 — Subscriptions & Billing Bounded Context (Backend)
 
 Gestiona la actualización del plan de suscripción del usuario. Las Interfaces exponen PATCH sobre `/users` para modificar el campo `plan`; la Application procesa la solicitud de upgrade del plan; el Domain define los valores posibles del campo plan: `BRONZE`, `GOLD` y `PLATINUM`; y la Infrastructure persiste la actualización en la colección `users` de `db.json`, integrándose así con el contexto IAM a nivel de datos.
 
 ![Componentes Subscriptions Billing BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC11_Subscriptions.png)
 
+
+#### BC11 — IAM Bounded Context (Backend)
+
+Gestiona la autenticación y actualización de perfil de usuario. La capa de Interfaces expone endpoints REST sobre `/users` (GET por email para login, POST para registro, PATCH para actualización de perfil); la Application procesa esas peticiones mediante middleware de json-server; el Domain define el recurso User con campos `id`, `email`, `username`, `segment`, `plan`, `location` y `phoneNumber`; y la Infrastructure persiste los registros en la colección `users` de `db.json`.
+
+![Componentes IAM BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC1_IAM.png)
+
+---
+
+#### BC12 — Fleet Operations Bounded Context (Backend)
+
+Cubre el ciclo de vida de lotes de mineral, vehículos, depósitos y alertas de anomalía. Las Interfaces exponen endpoints sobre `/mineralBatches`, `/deposits`, `/vehicles` y `/anomalyAlerts`; la Application procesa la creación de lotes y el registro de peso inicial; el Domain define `MineralBatch` (batchCode, depositId, vehicleId, initialWeight, mineralType, status) y `AnomalyAlert` (batchId, alertType, severity); y la Infrastructure persiste todos estos registros en `db.json`. El IoT Gateway envía telemetría directamente a las Fleet Interfaces.
+
+![Componentes Fleet Operations BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC2_Fleet.png)
+
+---
 
 ## 4.7. Software Object-Oriented Design
 
