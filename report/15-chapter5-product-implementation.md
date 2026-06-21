@@ -797,7 +797,9 @@ A continuación se presentan las capturas del proceso de despliegue en Azure:
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
-_(Completar con capturas de los insights de colaboración del repositorio `goldcheck-platform`: contributors, commits por integrante, network graph, Pull Requests.)_
+Durante este Sprint la colaboración se gestionó a través de GitHub utilizando el repositorio `goldcheck-platform`. Cada integrante trabajó sobre ramas `feature/` siguiendo GitFlow y realizó Pull Requests a `develop`. La coordinación diaria se realizó por Discord. El repositorio acumula más de 1,100 commits con participación activa de los 5 integrantes del equipo.
+
+![Team Collaboration Sprint 3 — Contributors](../assets/img/chapter-v/platform-contributors.png)
 
 
 ## 5.3. Validation Interviews
@@ -1006,12 +1008,6 @@ _(Completar una vez realizadas las entrevistas. Se requieren entre 3 y 5 entrevi
 | Resumen | _(completar)_ |
 
 <div style="page-break-after: always"></div>
-
-**URL del video consolidado de Validation Interviews (Microsoft Stream):**
-
-Nomenclatura: `upc-pre-202610-1asi0730-12053-GoldMetrics-validation-sprint-3`
-
-URL: _(completar)_
 
 ### 5.3.3. Evaluaciones según heurísticas
 
