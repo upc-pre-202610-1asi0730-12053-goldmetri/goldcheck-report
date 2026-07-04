@@ -5,12 +5,14 @@
 
 ***Carrera de Ingeniería de Software***
 
-**1ASI030** <br>
+**1ASI0730** <br>
 **Aplicaciones Web**  
 NRC <br>
 **12053**  
 
-## **Informe de trabajo: AV2**
+**Período: 2026-1**
+
+## **Informe de trabajo: TB2**
 Docente <br>
 #### **Bautista Ubillús, Efrain Ricardo**
 Equipo <br>
@@ -31,7 +33,7 @@ Proyecto <br>
   </table>
 </div>
 
-<strong>Junio, 2026</strong>
+<strong>Julio, 2026</strong>
 
 </div>
 
@@ -60,6 +62,7 @@ Proyecto <br>
 | 2.1.0 | 20/06/2026 | Philco Mota, Katty Yolanda                                                                                                                                        | AV2 — Implementación de la primera versión de Web Services (ASP.NET Core/C#). Inserción de Validation Interviews: diseño de entrevistas por segmento (5.3.1), registro de entrevistas (5.3.2). Stubs de Video About-the-Product (5.4) y Video About-the-Team (5.5). Backend 2 bounded context. Integración con el Frontend                                                                                                                                                                                                                         |
 | 2.1.0 | 20/06/2026 | Navarro Aldoradin, Carolina Celeste                                                                                                                               | AV2 — Implementación de 2 bounded context. Video About-the-Team (5.5). 1 entrevista.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | 2.1.0 | 20/06/2026 | Armestar Felipe, Adrian Andres                                                                                                                                    | AV2 — Implementación de 2 bounded context. Video About-the-Team (5.5).                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 3.0.0 | _(completar)_ | Armestar Felipa, Adrian Andres<br>García Paredes, Victor Manuel<br>Navarro Aldoradin, Carolina Celeste<br>Philco Mota, Katty Yolanda<br>Tuesta Girón, Kiara Lucia | TB2 — Sprint 4 completo: integración del Frontend Web Application con el Backend real (reemplazo de MockAPI), implementación de mejoras de usabilidad identificadas en la evaluación heurística del AV2, correcciones de responsive design en Landing Page y Web App. Entrevistas de validación adicionales con los tres segmentos. Video About-the-Product mejorado con testimonios de usuarios. Student Outcome TB2, Collaboration Insights TB2 y conclusiones del trabajo final.
 
 
 <div style="page-break-after: always"></div>
@@ -134,6 +137,23 @@ A continuación se presentan las evidencias de colaboración por repositorio:
 ![Team Collaboration AV2 — Report](assets/img/chapter-v/collaboration-report-av2.png)
 
 ![Team Collaboration AV2 — Platform](assets/img/chapter-v/collaboration-platform-av2.png)
+
+---
+
+### TB2
+
+Durante el TB2, el equipo se enfocó en la integración del Frontend Web Application con el Backend real (Azure App Service), reemplazando la capa MockAPI, y en la implementación de las mejoras de usabilidad identificadas en la evaluación heurística del AV2. Los repositorios principales de esta entrega fueron `goldcheck-webapp` (integración frontend-backend y correcciones UX) y `goldcheck-website` (videos embebidos y responsive). Adicionalmente, se completó el ciclo de entrevistas de validación con los tres segmentos objetivo. La colaboración se gestionó mediante GitFlow con ramas `feature/sprint4-*` y Pull Requests a `develop`, con coordinación diaria por Discord.
+
+Los repositorios involucrados en esta entrega son:
+
+- **Report:** https://github.com/upc-pre-202610-1asi0730-12053-goldmetri/goldcheck-report
+- **Web App:** https://github.com/upc-pre-202610-1asi0730-12053-goldmetri/goldcheck-webapp
+- **Website:** https://github.com/upc-pre-202610-1asi0730-12053-goldmetri/goldcheck-website
+- **Platform:** https://github.com/upc-pre-202610-1asi0730-12053-goldmetri/goldcheck-platform
+
+A continuación se presentan las evidencias de colaboración por repositorio:
+
+_(completar con capturas de colaboración del repositorio goldcheck-report y goldcheck-webapp para TB2)_
 
 <div style="page-break-after: always"></div>
 
