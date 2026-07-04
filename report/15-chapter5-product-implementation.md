@@ -802,87 +802,178 @@ Durante este Sprint la colaboración se gestionó a través de GitHub utilizando
 ![Team Collaboration Sprint 3 — Contributors](../assets/img/chapter-v/platform-contributors.png)
 
 
+### 5.2.4. Sprint 4
+
+#### 5.2.4.1. Sprint Planning 4
+
+El Sprint 4 está dedicado a la integración completa del Frontend Web Application con los Web Services reales (ASP.NET Core), reemplazando la capa MockAPI por el backend desplegado en Azure. Adicionalmente, se implementan las mejoras de usabilidad identificadas en la evaluación heurística del AV2 y se realizan las entrevistas de validación con los segmentos faltantes.
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Sprint #** | Sprint 4 |
+| **Date** | `_(completar)_` |
+| **Time** | `8:00 pm` |
+| **Location** | Reunión virtual por Discord |
+| **Prepared By** | `Philco Mota, Katty` |
+| **Attendees** | Armestar Felipa, Adrian / García Paredes, Victor / Navarro Aldoradin, Carolina / Philco Mota, Katty / Tuesta Girón, Kiara |
+| **Sprint 3 Review Summary** | Se completó la implementación de los Web Services de GoldCheck (ASP.NET Core/C#), cubriendo 11 bounded contexts con más de 100 endpoints documentados en Swagger/OpenAPI y desplegados en Azure App Service. Se realizaron entrevistas de validación con un usuario del segmento minero y uno del segmento consumidor. Se identificaron 17 hallazgos de usabilidad mediante evaluación heurística cruzada con el equipo NutriSense. |
+| **Sprint 3 Retrospective Summary** | El equipo identificó que el frontend aún está conectado a MockAPI en lugar de al backend real. Se acordó priorizar la integración frontend-backend en el Sprint 4, junto con las correcciones de usabilidad de mayor severidad (niveles 3 y 4). Se comprometieron a completar las entrevistas de validación con el segmento de joyerías. |
+| **Sprint 4 Goal** | Our focus is on integrating the GoldCheck Frontend Web Application with the real backend Web Services and applying the critical usability improvements identified in the heuristic evaluation. We believe this delivers a complete, connected product experience that replaces the MockAPI layer and resolves the main usability barriers reported by users. This will be confirmed when users can complete the main flows end-to-end through the deployed frontend connected to the Azure backend, and when the most severe usability issues (severity 3) are no longer reproducible. |
+| **Sprint 4 Velocity** | 35 Story Points |
+| **Sum of Story Points** | `_(completar)_` |
+
+#### 5.2.4.2. Aspect Leaders and Collaborators
+
+Para este Sprint 4 enfocado en la integración frontend-backend, las mejoras de usabilidad y las entrevistas de validación, la distribución de liderazgo (L) y colaboración (C) es la siguiente:
+
+| Team Member (Last Name, First Name) | GitHub Username | Frontend-Backend Integration | Usability Fixes (UX) | Validation Interviews | DevOps & Deployment | Sprint Documentation |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| Armestar Felipa, Adrian Andres | Adrian5102 | L | C | C | C | C |
+| García Paredes, Victor Manuel | vicmacode | C | L | L | C | L |
+| Navarro Aldoradin, Carolina Celeste | genixmvp | C | C | C | L | C |
+| Philco Mota, Katty Yolanda | kattyph | L | C | C | C | C |
+| Tuesta Girón, Kiara Lucia | kitu05g | C | L | L | C | C |
+
+> **L** = Leader &nbsp;|&nbsp; **C** = Collaborator
+
+#### 5.2.4.3. Sprint Backlog 4
+
+El objetivo principal de este Sprint es contar con el Frontend Web Application integrado con el Backend real (Azure) y con las mejoras de usabilidad de mayor severidad implementadas.
+
+| **Sprint 4** | **User Story** | | **Work-Item / Task** | | | | |
+| :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| | **ID** | **Título** | **ID** | **Título** | **Descripción** | **Estimación (h)** | **Asignado a** | **Status** |
+| | US01 | Autenticación con backend real | T01 | Integrar IAM: sign-up y sign-in con JWT | Reemplazar MockAPI por los endpoints reales de `/api/v1/authentication/sign-up` y `/api/v1/authentication/sign-in`. Almacenar el JWT en localStorage. | 5 | Philco, Katty | To Do |
+| | US01 | Autenticación con backend real | T02 | Integrar perfil de usuario con backend | Conectar la vista de perfil con `/api/v1/users/{userId}` y `/api/v1/users/{userId}/profile`. | 3 | Philco, Katty | To Do |
+| | US05 | Gestionar suscripción con backend | T03 | Integrar Subscriptions & Billing con backend | Conectar flujo de selección de plan, confirmación y downgrade con los endpoints reales de suscripciones. | 6 | Tuesta, Kiara | To Do |
+| | US02 | Monitorear flota con backend real | T04 | Integrar Fleet Operations con backend | Conectar las vistas de ciclos de acarreo y vehículos con los endpoints `/api/v1/hauling-cycles` y `/api/v1/vehicles`. | 6 | Armestar, Adrian | To Do |
+| | US03 | Gestionar inventario de joyería | T05 | Integrar Jewelry Inventory con backend | Conectar las vistas de certificados y materiales de joyería con los endpoints reales de `/api/v1/certificates` y `/api/v1/jewelry-materials`. | 5 | García, Victor | To Do |
+| | US04 | Trazabilidad de consumidor | T06 | Integrar Consumer Traceability con backend | Conectar la vista de escaneo QR y detalle de producto con los endpoints `/api/v1/consumer/scan` y `/api/v1/consumer/products/{qrCode}`. | 4 | García, Victor | To Do |
+| | HU01 | Responsive header Landing Page | T07 | Implementar menú hamburguesa en Landing Page | Agregar breakpoint responsive al header del Landing Page con menú colapsable bajo 768px. (Problema #1 heurístico) | 3 | Navarro, Carolina | To Do |
+| | HU02 | Responsive sidebar Web App | T08 | Implementar sidebar colapsable en Web App | Convertir el sidebar fijo en menú hamburguesa responsive para pantallas móviles. (Problema #14 heurístico) | 3 | Tuesta, Kiara | To Do |
+| | HU03 | Validación campo teléfono | T09 | Restringir campo phone a entrada numérica | Cambiar el campo de teléfono en el registro a tipo `tel` con validación numérica y máscara de formato. (Problema #3 heurístico) | 2 | Armestar, Adrian | To Do |
+| | HU04 | Selección de plan en registro | T10 | Agregar pantalla de selección de plan en onboarding | Incorporar paso de selección de plan dentro del flujo de registro para que el usuario elija antes de acceder. (Problema #4 heurístico) | 4 | Tuesta, Kiara | To Do |
+| | HU05 | Persistencia de incidentes | T11 | Corregir lógica de guardado de incidentes | Depurar y corregir el endpoint y la lógica frontend para que los incidentes queden persistidos al confirmar. (Problema #10 heurístico) | 4 | Armestar, Adrian | To Do |
+| | HU06 | Pureza de joya con validación | T12 | Validar campo Pureza al vincular joya | Separar el campo en valor numérico + dropdown de unidad (K/quilates) y bloquear texto libre. (Problema #7 heurístico) | 2 | García, Victor | To Do |
+| | LP01 | Embeber videos en Landing Page | T13 | Insertar YouTube embed About-the-Product y About-the-Team | Integrar los reproductores embebidos de los videos de YouTube en la sección correspondiente del Landing Page. | 2 | Navarro, Carolina | To Do |
+| | VI01 | Entrevistas de validación Seg. 2 | T14 | Realizar entrevistas de validación con joyerías | Conducir al menos 1 entrevista de validación con el segmento joyerías siguiendo el diseño establecido. | 4 | Philco, Katty | To Do |
+| | VI02 | Entrevistas de validación Seg. 1 | T15 | Realizar entrevistas de validación adicionales Mineras | Conducir al menos 1 entrevista de validación adicional con el segmento empresas mineras. | 4 | García, Victor | To Do |
+
+#### 5.2.4.4. Development Evidence for Sprint Review
+
+Durante el Sprint 4 el equipo se enfocó en la integración del Frontend Web Application con el backend real (Azure App Service), reemplazando la capa de MockAPI, e implementando las mejoras de usabilidad de mayor severidad identificadas en la evaluación heurística del AV2.
+
+| Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| goldcheck-webapp | _(completar)_ | _(completar)_ | feat(iam): integrate sign-up and sign-in with real backend | Replace MockAPI authentication calls with real JWT endpoints from Azure backend | _(completar)_ |
+| goldcheck-webapp | _(completar)_ | _(completar)_ | feat(consumer): integrate consumer traceability with real api | Connect QR scan and product detail views to Azure backend consumer endpoints | _(completar)_ |
+| goldcheck-webapp | _(completar)_ | _(completar)_ | feat(fleet): integrate fleet operations with real backend | Connect hauling cycle and vehicle views to real API endpoints | _(completar)_ |
+| goldcheck-webapp | _(completar)_ | _(completar)_ | feat(iam): connect profile view to real user api | Integrate user profile GET and PUT with real backend endpoints | _(completar)_ |
+| goldcheck-webapp | _(completar)_ | _(completar)_ | feat(subscriptions): integrate billing with real backend | Connect subscription plan selection and confirmation to real Azure endpoints | _(completar)_ |
+| goldcheck-webapp | _(completar)_ | _(completar)_ | fix(landing): add responsive hamburger menu | Implement collapsible navigation menu for mobile breakpoint under 768px | _(completar)_ |
+| goldcheck-webapp | _(completar)_ | _(completar)_ | fix(webapp): add responsive sidebar | Convert fixed sidebar to collapsible hamburger menu for mobile viewports | _(completar)_ |
+| goldcheck-webapp | _(completar)_ | _(completar)_ | fix(register): add phone field numeric validation | Restrict phone input to numeric type with format mask and validation | _(completar)_ |
+| goldcheck-webapp | _(completar)_ | _(completar)_ | fix(onboarding): add plan selection step | Add explicit plan selection screen to registration flow before account access | _(completar)_ |
+| goldcheck-webapp | _(completar)_ | _(completar)_ | fix(incidents): correct incident persistence logic | Fix incident creation to properly save records and show success/error feedback | _(completar)_ |
+| goldcheck-website | _(completar)_ | _(completar)_ | feat(landing): embed about-the-product and about-the-team videos | Add YouTube embedded players for product and team videos in the landing page | _(completar)_ |
+
+#### 5.2.4.5. Execution Evidence for Sprint Review
+
+_(Completar con capturas de las vistas del frontend integrado con el backend real.)_
+
+URL del Frontend Web Application: https://goldcheck-goldmetrics.netlify.app/
+
+URL del Landing Page: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
+
+#### 5.2.4.6. Services Documentation Evidence for Sprint Review
+
+Durante el Sprint 4 no se implementaron nuevos endpoints en el Backend. El alcance del Sprint 4 fue la integración del Frontend con los Web Services ya documentados en el Sprint 3. La documentación completa de los endpoints sigue disponible en:
+
+**URL Swagger:** https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
+
+#### 5.2.4.7. Software Deployment Evidence for Sprint Review
+
+_(Completar con capturas del redeploy del frontend en Netlify y verificación del funcionamiento integrado.)_
+
+**URL del Backend desplegado:** https://goldcheck-platform-wa.azurewebsites.net
+
+**URL del Frontend Web Application desplegado:** https://goldcheck-goldmetrics.netlify.app/
+
+**URL del Landing Page:** https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
+
+#### 5.2.4.8. Team Collaboration Insights during Sprint
+
+_(Completar con captura del gráfico de contribuciones del repositorio goldcheck-webapp para el Sprint 4.)_
+
 ## 5.3. Validation Interviews
 
 ### 5.3.1. Diseño de Entrevistas de Validación
 
-Para cada segmento objetivo se establecieron los elementos a incluir en la sesión de validación, considerando la interacción con el Landing Page y la aplicación web GoldCheck. Las sesiones siguen un orden estructurado: primero se evalúa el Landing Page y luego los user flows de la aplicación.
+Las sesiones de validación siguen el protocolo de **User Testing con Think Aloud**: se le explica al participante el propósito de la sesión y los User Goals que debe alcanzar (basados en el User Persona de su segmento), pero **no** se le indica qué botones pulsar ni se le guía paso a paso por la interfaz. El participante navega libremente y verbaliza lo que piensa mientras lo hace. El evaluador observa y toma nota de los hallazgos sin intervenir.
+
+**Estructura de cada sesión:**
+1. **Introducción (5 min):** presentar el objetivo de la sesión, explicar que no se evalúa al usuario sino al producto, solicitar permiso de grabación y pedir que piense en voz alta durante la navegación.
+2. **Evaluación del Landing Page (10 min):** el usuario lo revisa libremente a partir de sus User Goals.
+3. **Evaluación de la Aplicación Web (15–20 min):** se le presentan los User Goals de su segmento como escenarios de tarea. El evaluador no menciona secciones específicas de la interfaz.
+4. **Cierre y escala NPS (5 min):** preguntas de cierre y puntuación de recomendación.
+
+**Formato de hallazgos:** cada observación registrada indica (a) referencia a la sesión, (b) descripción del problema, (c) heurística Nielsen violada, (d) nivel de severidad (1–4) y (e) alternativa de solución.
 
 ---
 
 #### Segmento 1: Empresas Mineras
 
-**User Flows a validar:**
-- Registro de un nuevo lote de mineral (Fleet Operations)
-- Monitoreo de flota y revisión de alertas de anomalía (Monitoring & Telemetry)
-- Reporte de incidentes (Incident Management)
-- Revisión de KPIs en Analytics
+**User Persona de referencia:** Rodrigo Mendez — Gerente de Operaciones de empresa minera mediana que necesita visibilidad en tiempo real sobre sus ciclos de acarreo y alertas de incidentes para reducir pérdidas por tonelaje y mejorar la seguridad de su flota.
 
-**Preguntas — Landing Page**
+**User Goals a alcanzar (se presentan como escenario, sin indicar la ruta en la interfaz):**
 
-1. Al ver esta página por primera vez, ¿qué entiendes que hace esta plataforma?
-2. ¿La información presentada te convence de que GoldCheck puede ayudarte en tu operación? ¿Por qué?
-3. ¿Encuentras fácilmente cómo registrarte o contactar al equipo?
+1. *"Imagina que acabas de llegar a la plataforma. ¿Qué entiendes que hace este producto y para quién es?"* (Evaluación del Landing Page — meta: comprensión de la propuesta de valor)
+2. *"Quieres registrarte para probar el sistema. Hazlo como lo harías normalmente."* (meta: onboarding / autenticación)
+3. *"Necesitas registrar un nuevo lote de mineral que acaba de salir de la mina. ¿Puedes hacerlo?"* (meta: Fleet Operations — iniciar ciclo de acarreo)
+4. *"Quieres revisar si hay alguna alerta de anomalía en tu flota en este momento. ¿Dónde lo harías?"* (meta: Monitoring & Telemetry — lectura de alertas)
+5. *"Acaba de ocurrir un incidente en uno de tus vehículos. Necesitas reportarlo en el sistema."* (meta: Incident Management — registro de incidente)
+6. *"Quieres ver un resumen de producción del mes. ¿Puedes acceder a esos datos?"* (meta: Analytics dashboard)
 
-**Preguntas — Aplicación**
-
-4. Intenta registrar un nuevo lote de mineral desde el dashboard de Fleet Operations. ¿Qué tan intuitivo te resultó el proceso?
-5. Navega a la sección de monitoreo. ¿Las alertas de anomalía son claras y fáciles de interpretar?
-6. Simula reportar un incidente. ¿El formulario recoge toda la información que necesitarías en un escenario real?
-7. Revisa el dashboard de Analytics. ¿Los KPIs mostrados son los que usarías para tomar decisiones operativas?
-8. ¿Hay alguna funcionalidad que esperabas encontrar y no encontraste?
+**Preguntas de cierre:**
+- En una escala del 1 al 10, ¿qué tan probable es que uses o recomiendes GoldCheck en tu operación?
+- ¿Qué es lo que más te gustó de la plataforma?
+- ¿Qué cambiarías o mejorarías con mayor urgencia?
 
 ---
 
 #### Segmento 2: Joyerías
 
-**User Flows a validar:**
-- Registro de inventario de piezas (Jewelry Inventory & Certification)
-- Certificación de piezas y generación de QR
-- Consulta del historial de trazabilidad de un material
+**User Persona de referencia:** María Torres — Dueña de una joyería artesanal que necesita certificar el origen ético de sus materiales y compartir esa garantía con sus clientes mediante documentos verificables.
 
-**Preguntas — Landing Page**
+**User Goals a alcanzar:**
 
-1. ¿Qué te transmite esta página sobre el producto? ¿Queda claro a quién va dirigido?
-2. ¿La propuesta de valor para joyerías es suficientemente clara y convincente?
-3. ¿El proceso para solicitar una demo o registrarse es sencillo de encontrar?
+1. *"Llegas a esta página por primera vez. ¿Qué entiendes que puede hacer este producto por tu joyería?"* (meta: comprensión de la propuesta de valor para joyerías)
+2. *"Quieres crear una cuenta para probar el sistema. Hazlo."* (meta: onboarding)
+3. *"Acabas de recibir un material nuevo. Necesitas registrarlo en tu inventario."* (meta: Jewelry Inventory — registrar material)
+4. *"Quieres generar el certificado de autenticidad de una pieza y obtener su código QR para compartirlo con tu cliente."* (meta: Jewelry Inventory — generar certificado)
+5. *"Un cliente te pregunta de dónde viene el material de una pieza específica. ¿Puedes mostrarle el historial de trazabilidad?"* (meta: Consumer Traceability — consulta pública)
 
-**Preguntas — Aplicación**
-
-4. Intenta registrar una pieza en el inventario. ¿El proceso es claro y completo?
-5. Genera el certificado QR de una pieza. ¿La información incluida en el certificado te parece suficiente para compartir con tus clientes?
-6. Consulta el historial de trazabilidad de un material. ¿La información presentada es comprensible y confiable?
-7. ¿Qué información adicional sobre el origen del material te gustaría ver en la plataforma?
-8. ¿Qué le agregarías o cambiarías?
+**Preguntas de cierre:**
+- En una escala del 1 al 10, ¿qué tan probable es que uses o recomiendes GoldCheck en tu joyería?
+- ¿Qué es lo que más te gustó?
+- ¿Qué cambiarías o mejorarías con mayor urgencia?
 
 ---
 
 #### Segmento 3: Usuarios Consumidores
 
-**User Flows a validar:**
-- Escaneo de código QR de una joya
-- Verificación de autenticidad y trazabilidad del mineral
-- Consulta del origen ético del material (Consumer Traceability)
+**User Persona de referencia:** Lucía Ramírez — Consumidora consciente que quiere verificar que la joya que compró proviene de minería responsable antes de finalizar la compra.
 
-**Preguntas — Landing Page**
+**User Goals a alcanzar:**
 
-1. Al ver esta página, ¿entiendes de inmediato para qué sirve la plataforma?
-2. ¿Te genera confianza la información presentada sobre la trazabilidad del oro?
-3. ¿Encuentras fácilmente cómo verificar la autenticidad de una joya?
+1. *"Llegas a esta página. ¿Entiendes para qué sirve y si es relevante para ti como compradora?"* (meta: comprensión de la propuesta de valor)
+2. *"Quieres verificar la autenticidad de una joya que acabas de comprar. Hazlo como lo harías."* (meta: Consumer Traceability — escaneo QR o búsqueda)
+3. *"Revisa la información que el sistema te muestra sobre la joya. ¿Entiendes de dónde viene el material?"* (meta: lectura del recorrido de trazabilidad)
+4. *"¿La información te genera confianza suficiente para saber si el oro es de origen ético?"* (meta: percepción de confianza y certificación ESG)
 
-**Preguntas — Aplicación**
-
-4. Escanea el código QR de una joya. ¿El proceso es sencillo e intuitivo?
-5. Revisa la información de trazabilidad mostrada. ¿Es fácil de entender de dónde proviene el mineral?
-6. ¿La información sobre la certificación libre de conflicto y los criterios ESG te genera confianza?
-7. ¿Qué información adicional te gustaría ver al verificar una joya?
-8. ¿Qué le agregarías o cambiarías?
-
----
-
-#### Cierre (todos los segmentos)
-- En una escala del 1 al 10, ¿qué tan probable es que uses o recomiendes GoldCheck?
-- ¿Qué es lo que más te gustó de la plataforma?
+**Preguntas de cierre:**
+- En una escala del 1 al 10, ¿qué tan probable es que uses GoldCheck la próxima vez que compres una joya?
+- ¿Qué es lo que más te gustó?
 - ¿Qué cambiarías o mejorarías con mayor urgencia?
 
 ### 5.3.2. Registro de Entrevistas de Validación
@@ -915,6 +1006,20 @@ Para cada segmento objetivo se establecieron los elementos a incluir en la sesi�
 | Screenshot | ![Screenshot Jenifer](../assets/img/chapter-v/validation/interview-jenifer.png) |
 | Resumen | La entrevistada es Jenifer Natali López Huaman, una administradora de 23 años residente en Santiago de Surco, interesada en la compra de joyas de oro con garantía de autenticidad y origen ético. Respecto al Landing Page, señaló que la primera impresión fue confusa, ya que el mensaje inicial hace referencia a seguridad de vehículos y monitoreo inteligente, y recién al desplazarse encontró contenido relacionado con oro y joyas. Sin embargo, una vez ubicada la sección relevante, la información sobre trazabilidad le generó confianza, destacando positivamente la existencia de un plan gratuito que permite escanear joyas sin compromiso de pago. Sobre la verificación de autenticidad, indicó que los botones de Login y Sign Up son fáciles de encontrar, pero echó en falta un acceso directo para verificar una joya sin necesidad de registrarse. En cuanto a la aplicación, el proceso de escaneo QR le resultó sencillo e intuitivo, valorando la doble opción de ingreso manual y cámara. La información de trazabilidad mostrada tras la verificación le pareció clara y fácil de seguir visualmente, aunque no comprendió los códigos alfanuméricos técnicos asociados a cada etapa. Señaló como principal carencia la ausencia de un sello visible de "origen verificado" o "libre de conflicto" en el certificado, y sugirió incorporar una foto real de la joya junto a los datos de trazabilidad, así como la posibilidad de descargar el certificado en formato PDF. En la escala de recomendación, otorgó un 8 de 10, destacando la transparencia del escaneo como lo que más le gustó, y recomendando que la página de entrada comunique el tema de oro desde el inicio y que la certificación ética sea más explícita. |
 
+
+#### Segmento 2: Joyerías
+
+| Segmento: Joyerías | Entrevista #1 |
+| --- | --- |
+| Nombres y Apellidos | _(completar)_ |
+| Edad | _(completar)_ |
+| Distrito | _(completar)_ |
+| Ocupación | _(completar)_ |
+| Timming inicio | _(completar — mm:ss)_ |
+| Duración | _(completar)_ |
+| URL | _(completar)_ |
+| Screenshot | _(completar)_ |
+| Resumen | _(completar)_ |
 
 ### 5.3.3. Evaluaciones según heurísticas
 
@@ -1248,16 +1353,30 @@ Hacer que el ícono de notificaciones despliegue el listado de notificaciones (p
 
 ## 5.4. Video About-the-Product
 
-**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-product-av2`
+**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-product-sprint-4`
 
-El Video About-the-Product está dirigido a visitantes del Landing Page y usuarios potenciales de GoldCheck que desean conocer el modelo de negocio y las características principales de la plataforma. El video presenta la problemática de la falta de trazabilidad en la cadena de suministro de oro en el Perú y cómo GoldCheck la resuelve mediante una solución tecnológica que conecta a empresas mineras, joyerías y consumidores finales. Se muestran las funcionalidades principales de la Web Application: el dashboard de monitoreo para mineras, el panel de verificación y certificación para joyerías, y la experiencia de escaneo QR para consumidores. El video incluye testimonios de usuarios que participaron en las entrevistas de validación, quienes destacan la transparencia y facilidad de uso de la plataforma.
+El Video About-the-Product presenta la propuesta de valor de GoldCheck a visitantes del Landing Page y usuarios potenciales. El video sigue la siguiente secuencia de escenas:
+
+1. **Problema y contexto (0:00 – 0:40):** Narración en off sobre la falta de trazabilidad en la cadena minera peruana y los riesgos para mineras, joyerías y consumidores. Imágenes de operaciones mineras e intercambio comercial de oro.
+2. **Propuesta de solución (0:40 – 1:20):** Presentación de GoldCheck como plataforma de trazabilidad integral que conecta los tres segmentos. Animación del recorrido del mineral desde la extracción hasta el consumidor.
+3. **Demostración de funcionalidades (1:20 – 2:40):**
+   - Dashboard de monitoreo de flota y Analytics para empresas mineras.
+   - Panel de certificación y generación de QR para joyerías.
+   - Escaneo QR y consulta de origen ético para consumidores.
+4. **Testimonios de usuarios (2:40 – 3:20):**
+   - Testimonio de Ian Kimi San Martín (Ingeniero Metalúrgico — segmento minero): *"El mapa de monitoreo que compara la ruta planeada contra la real me parece muy útil. Antes hacíamos ese control en Excel."*
+   - Testimonio de Jenifer Natali López Huaman (Administradora — segmento consumidor): *"El escaneo QR es sencillo e intuitivo. Ver de dónde proviene la joya me da mucha más confianza al comprar."*
+   - _(completar — testimonio representante segmento joyería TB2)_
+5. **Cierre y CTA (3:20 – 3:40):** Pantalla con el logo de GoldMetrics/GoldCheck, branding de la startup y llamado a la acción para visitar el Landing Page.
+
+El video incluye música de fondo instrumental, subtítulos en los testimonios, logo de GoldMetrics en el corner inferior y una edición con transiciones coherentes entre escenas.
 
 **URL YouTube:** [Ver video](https://youtu.be/E39HEPqGKok)
 
 
 ## 5.5. Video About-the-Team
 
-**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-team-sprint-3`
+**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-team-sprint-4`
 
 El video About-the-Team resume el proceso de trabajo realizado por el equipo GoldMetrics durante el ciclo de vida del proyecto GoldCheck. El video se estructura en dos bloques: una narración en off que contextualiza el proceso de trabajo del equipo con escenas de las sesiones de trabajo reales (Discord, GitHub, Trello), y los testimonios individuales de cada integrante ante cámara describiendo sus actividades, logros y competencias desarrolladas.
 
@@ -1313,6 +1432,11 @@ URL upc-pre-202610-1asi0730-12053-GoldMetrics-needfinding-sprint-1: https://upce
 - Transición de mock API a Web Services reales: En el Sprint 3, el equipo dio el paso de reemplazar la capa simulada (MockAPI) por una implementación real de Web Services en ASP.NET Core con C#, siguiendo la arquitectura DDD definida desde el AV1. Esto representa la maduración técnica del proyecto, pasando de prototipos funcionales a una plataforma con backend real capaz de persistir datos, validar reglas de negocio y exponer endpoints documentados mediante Swagger/OpenAPI.
 - Validación directa con usuarios reales de los tres segmentos: Las Validation Interviews permitieron confrontar el producto implementado con las expectativas reales de empresas mineras, joyerías y consumidores finales. Este ciclo de feedback directo sobre el Landing Page y la Web Application confirma que el equipo no solo construye funcionalidades, sino que valida continuamente su utilidad y usabilidad con los actores del mercado objetivo.
 - Evaluación cruzada de calidad mediante heurísticas: La evaluación heurística realizada por el equipo NutriSense sobre GoldCheck proporcionó una perspectiva externa e imparcial sobre la usabilidad de la plataforma, identificando áreas de mejora que el equipo propio podría haber pasado por alto. Este ejercicio de revisión cruzada fortalece la calidad del producto y fomenta una cultura de mejora continua basada en principios de usabilidad reconocidos (Nielsen).
+
+**TB2**
+- Integración plena del producto y cierre del ciclo de desarrollo: En el Sprint 4, el equipo completó la integración del Frontend Web Application con el Backend real desplegado en Azure, eliminando la dependencia de MockAPI y cerrando el ciclo de desarrollo previsto desde el AV1. GoldCheck funciona como una plataforma integrada de extremo a extremo: desde el registro de lotes de mineral en la mina hasta la verificación del origen ético por parte del consumidor final mediante código QR, con datos reales persistidos en la base de datos de producción.
+- Mejora continua dirigida por evidencia heurística: La aplicación de las correcciones de usabilidad identificadas en la evaluación heurística del AV2 demuestra la capacidad del equipo para incorporar retroalimentación externa en el ciclo de mejora del producto. El Sprint 4 abordó los problemas de mayor severidad (nivel 3), incluyendo la persistencia de incidentes, el flujo de selección de plan en el registro, la validación de campos críticos y el diseño responsive, resultando en una experiencia de usuario sustancialmente más robusta y coherente.
+- Validación completa con los tres segmentos objetivo: Al completar las entrevistas de validación con representantes de los segmentos de empresas mineras, joyerías y consumidores finales durante el TB2, el equipo cerró el ciclo de investigación iniciado en el AV1. Los hallazgos obtenidos en las sesiones de validación con el protocolo Think Aloud confirmaron que el producto resuelve problemas reales para cada segmento y proporcionaron insumos concretos para futuras iteraciones del roadmap del producto.
 
 ## Bibliografía
 
