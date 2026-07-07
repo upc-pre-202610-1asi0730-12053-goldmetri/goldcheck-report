@@ -10,9 +10,7 @@
 NRC <br>
 **12053**  
 
-**Período: 2026-1**
-
-## **Informe de trabajo: TB2**
+## **Informe del Trabajo Final**
 Docente <br>
 #### **Bautista Ubillús, Efrain Ricardo**
 Equipo <br>
@@ -20,11 +18,11 @@ Equipo <br>
 Proyecto <br>
 #### **GoldCheck**
 
-***Relación de integrantes:***
+**Integrantes**
 
 <div style="text-align: center;">
   <table style="margin: 0 auto; display: inline-table;">
-    <tr><th>CÓDIGO</th><th>INTEGRANTES</th></tr>
+    <tr><th>Código</th><th>Apellidos y Nombres</th></tr>
     <tr><td>U202410084</td><td>Armestar Felipa, Adrian Andres</td></tr>
     <tr><td>U202012001</td><td>García Paredes, Victor Manuel</td></tr>
     <tr><td>U20241B962</td><td>Navarro Aldoradin, Carolina Celeste</td></tr>
@@ -32,6 +30,8 @@ Proyecto <br>
     <tr><td>U20251i477</td><td>Tuesta Girón, Kiara Lucia</td></tr>
   </table>
 </div>
+
+**Período 202610**
 
 <strong>Julio, 2026</strong>
 
