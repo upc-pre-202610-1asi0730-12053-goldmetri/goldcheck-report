@@ -1495,11 +1495,9 @@ El equipo adoptó Domain-Driven Design como eje organizativo del proyecto, lo qu
 **URL YouTube:** [Ver video](https://youtu.be/kRmkPHiJUa8)
 
 
-## 5.6. Documentación de Servicios Externos
+## Anexos Importantes
 
-Durante el desarrollo de GoldCheck se integraron los siguientes servicios externos de terceros:
-
-### Stripe — Pasarela de Pago
+**Servicios externos de terceros utilizados:**
 
 | Campo | Detalle |
 | :--- | :--- |
@@ -1511,8 +1509,6 @@ Durante el desarrollo de GoldCheck se integraron los siguientes servicios extern
 | **SDK utilizado** | `Stripe.net` (paquete NuGet oficial para ASP.NET Core) |
 | **Endpoints de integración** | `POST /api/v1/subscriptions/checkout` — inicia sesión de Stripe Checkout; `POST /api/v1/subscriptions/webhook` — recibe evento `checkout.session.completed` de Stripe para activar el plan |
 | **Modo de uso** | Se crea una sesión de Checkout con los precios configurados en el dashboard de Stripe. Al completar el pago, Stripe envía un webhook firmado al backend que activa la suscripción del usuario en la base de datos. |
-
-## Anexos Importantes
 
 **Repositorios GitHub:**
 
