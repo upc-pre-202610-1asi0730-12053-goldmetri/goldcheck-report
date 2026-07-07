@@ -1,0 +1,50 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 50, 'curve': 'basis'}}}%%
+
+flowchart LR
+
+subgraph JEWELRY["BC: Jewelry Inventory & Certification"]
+direction LR
+
+  actor1{{Jeweler}}:::external
+  extBC1{{Material Operations}}:::external
+
+  extBC1 -.->|MaterialDownloaded\nIntegrationEvent| cmd1
+
+  actor1 --> cmd1([RegisterNonCertifiedMaterial\nmaterialId, jewelerId]):::command
+  cmd1 --> agg1[JewelryMaterial]:::aggregate
+  agg1 --> evt1>NonCertifiedMaterial\nRegistered]:::event
+
+  actor1 --> cmd2([ScanQRMaterial\nqrCode]):::command
+  cmd2 --> agg1
+  agg1 --> evt2>MaterialDataScanned]:::event
+
+  actor1 --> cmd3([RegisterMaterialInInventory\nqrCode]):::command
+  cmd3 --> agg1
+  agg1 --> evt3>MaterialStatusUpdated]:::event
+
+  actor1 --> cmd4([GenerateCertificate]):::command
+  cmd4 --> agg1
+  agg1 --> evt4>CertificateGenerated]:::event
+
+  actor1 --> cmd5([SignCertificate\ncertificateId, jewelerId]):::command
+  cmd5 --> agg2[Jewelry]:::aggregate
+  agg2 --> evt5>CertificateSaved]:::event
+
+  evt1 --> rm1[(Jewelry Inventory\nDashboard)]:::readmodel
+  evt2 --> rm1
+  evt3 --> rm1
+  evt4 --> rm2[(Certifications\nView)]:::readmodel
+  evt5 --> rm2
+
+  evt5 --> int1>CertificateSaved\nIntegrationEvent]:::integration
+  int1 -.->|to Consumer\nTraceability| extBC2{{Consumer Traceability}}:::external
+
+end
+
+classDef command fill:#4a86e8,stroke:#2a5db0,color:#fff,rx:20,ry:20
+classDef aggregate fill:#ffe066,stroke:#d4a800,color:#333,rx:5,ry:5
+classDef event fill:#ff8a65,stroke:#e65100,color:#fff
+classDef policy fill:#ce93d8,stroke:#8e24aa,color:#fff
+classDef readmodel fill:#81c784,stroke:#388e3c,color:#fff
+classDef external fill:#f48fb1,stroke:#c2185b,color:#fff
+classDef integration fill:#ff7043,stroke:#d84315,color:#fff,stroke-dasharray:5 5
