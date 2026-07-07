@@ -1532,7 +1532,11 @@ URL de documentación Swagger del Backend / Web Services: https://goldcheck-plat
 
 **Credenciales de prueba:**
 
-_(completar — usuario y contraseña de cuenta de prueba para cada segmento)_
+| Segmento | Email | Username | Contraseña |
+|---|---|---|---|
+| Minero | minero@goldcheck.com | minero_test | 12345 |
+| Joyería | joyeria@goldcheck.com | joyeria_test | 12345 |
+| Consumidor | consumidor@goldcheck.com | consumidor_test | 12345 |
 
 **Videos:**
 
