@@ -1432,86 +1432,124 @@ Contiene el value object QRCodeData, que almacena el código generado, el identi
 ![JewelryCertificate Aggregate Diagram](../assets/img/chapter-iv/AGG_JewelryCertificate_JewelryInventory.png)
 
 ## 4.8. Database Design
-
 ### 4.8.1. Database Diagrams
-El diseño de base de datos de OpalTrace sigue una arquitectura relacional implementada en **Microsoft SQL Server** y **Verbatelo**, organizada en torno a los Bounded Contexts definidos en la arquitectura DDD. Cada Bounded Context posee sus propias tablas con un prefijo identificador (`iam_`, `mineral_`, `custody_`, `refinery_`, `jewelry_`, `consumer_`, `admin_`, `analytics_`, `billing_`), garantizando separación lógica de responsabilidades y bajo acoplamiento entre contextos.
  
-Las principales características del diseño son las siguientes. Primero, los Value Objects del dominio se persisten como columnas embebidas dentro de la tabla de su Aggregate Root — por ejemplo, `GPSLocation` se almacena como `location_latitude` y `location_longitude` en `mineral_batches`, evitando joins innecesarios para datos que son parte intrínseca del aggregate. Segundo, los Enums del dominio se implementan como columnas con constraints `CHECK`, garantizando integridad referencial sin tablas adicionales de catálogo. Tercero, las relaciones entre Bounded Contexts se establecen únicamente a través de Foreign Keys hacia las tablas raíz (`iam_organizations`, `iam_user_accounts`, `mineral_batches`), respetando el principio DDD de que los BCs se referencian por identidad y no por objeto. Cuarto, la tabla `traceability_tracking_events` centraliza el historial completo de eventos de trazabilidad de cada Batch a lo largo de toda la cadena de suministro, permitiendo construir el `TraceabilityRecord` sin duplicar información entre contextos. Finalmente, todos los identificadores primarios son de tipo `UNIQUEIDENTIFIER` (UUID), eliminando dependencias de secuencias y facilitando la distribución futura del sistema.
+El diseño de base de datos de GoldCheck sigue una arquitectura relacional implementada en **MySQL 8** a través de **Entity Framework Core**, organizada en torno a los Bounded Contexts definidos en la arquitectura DDD. Cada Bounded Context posee sus propias tablas, generadas a partir de sus Aggregate Roots mediante el método `ApplyXxxConfiguration()` que cada contexto registra sobre el `AppDbContext` compartido, garantizando separación lógica de responsabilidades y bajo acoplamiento entre contextos.
  
-A continuación se presentan los diagramas de base de datos para cada Bounded Context, mostrando tablas, columnas, constraints y relaciones.
+Las principales características del diseño son las siguientes. Primero, los Value Objects del dominio se persisten como columnas propias dentro de la tabla de su Aggregate Root gracias a `OwnsOne` de EF Core — por ejemplo, `MaterialBatchId`, `MineralType` o `Payload` no generan tablas adicionales, sino columnas embebidas en `material_operations_materials`, evitando joins innecesarios para datos que son parte intrínseca del aggregate. Segundo, el estado de cada aggregate se maneja como una columna `status` de tipo texto que registra la transición de dominio más reciente (por ejemplo `Identified`, `Classified`, `MovementTracked`), en lugar de un catálogo separado, siguiendo el patrón de máquina de estados propio de cada contexto. Tercero, las relaciones entre Bounded Contexts no se resuelven mediante Foreign Keys físicas sino a través de identificadores de referencia (`ReporterId`, `BatchId`, `MaterialIdRef`, `CertificateIdRef`) resueltos en tiempo de ejecución por los Context Facades (ACL), respetando el principio DDD de que los BCs se referencian por identidad y no por objeto. Cuarto, todas las tablas implementan la interfaz `IAuditableEntity`, por lo que cada una incluye de forma uniforme las columnas `created_at` y `updated_at`, gestionadas automáticamente por un interceptor de EF Core en cada operación de guardado. Finalmente, la convención de nombres de columnas es `snake_case`, aplicada de forma global mediante `UseSnakeCaseNamingConvention()` como última instrucción del `OnModelCreating`.
  
----
- 
-#### BC: Identity & Access Management
- 
-El contexto de identidad gestiona las tablas `iam_organizations`, `iam_user_accounts` e `iam_role_assignments`. La tabla `iam_organizations` almacena los datos de cada empresa registrada en la plataforma, incluyendo su tipo (`MINERA`, `TRANSPORTISTA`, `REFINERIA`, `JOYERIA`), su estado de aprobación y el `plan_tier` contratado. La tabla `iam_user_accounts` centraliza las credenciales y el rol de cada usuario, almacenando el `hashed_password` y los claims `role`, `segment` y `plan_tier` que conforman el JWT emitido por este contexto. La tabla `iam_role_assignments` registra el historial de asignaciones de roles por cuenta.
- 
-![Database BC1 IAM](../assets/img/chapter-iv/DB_BC1_IAM.png)
- 
+A continuación se presentan los diagramas de base de datos para cada Bounded Context, ordenados según su relevancia dentro de la cadena de valor del negocio, mostrando tablas, columnas y su Aggregate Root de origen.
  
 ---
  
-#### BC: Mineral Extraction & Offline Ops
+#### BC: Fleet Operations
  
-El contexto de extracción gestiona cuatro tablas. `mineral_batches` es la tabla central del sistema — almacena el Aggregate Root `MineralBatch` con el `traceability_code` único, el `qr_code`, el tipo de mineral, el peso, las coordenadas GPS embebidas (`location_latitude`, `location_longitude`) y el `status` del Batch a lo largo de su ciclo de vida. `mineral_anomaly_reports` registra cada anomalía detectada con su `alert_type` y estado de resolución. `mineral_extraction_records` persiste los registros de extracción con timestamp sellado e inmutable. `mineral_sync_queue_items` gestiona la cola de operaciones offline pendientes de sincronización. Adicionalmente, la tabla `traceability_tracking_events` inicia su historial en este BC con el evento `MINERAL_EXTRACTED`.
+El contexto de flota gestiona dos tablas correspondientes a sus dos Aggregate Roots. `vehicles` almacena el `vehicle_id`, el `operator_id` asignado, la `capacity_tons` técnica del vehículo y el flag `is_engine_on`. `hauling_cycles` registra cada ciclo de transporte con su `vehicle_id`, el `loading_point`, el `driver_id` asignado, el `batch_id` cargado, el `payload_tons` pesado y el flag `payload_exceeds_capacity`, que se activa cuando el peso cargado supera la capacidad técnica del vehículo declarado en su ficha.
  
-![Database BC2 Mineral Extraction](../assets/img/chapter-iv/DB_BC2_Mineral%20Extraction%20%26%20Offline%20Ops.png)
+![Database vehicles](../assets/img/chapter-iv/vehicles.png)
  
- 
----
- 
-#### BC: Custody Chain & Logistics
- 
-El contexto de cadena de custodia gestiona cinco tablas. `custody_batches` referencia al `mineral_batches` padre y mantiene el estado de transporte (`EN_ORIGEN`, `EN_TRANSITO`, `ENTREGADO`, `BLOQUEADO`) junto con la última `Location` conocida embebida. `custody_qr_codes` almacena el hash de firma digital del QR Code generado para cada Batch. `custody_transport_operations` registra cada operación de transporte con la ruta, kilómetros estimados y tiempo máximo permitido. `custody_location_updates` persiste cada actualización GPS durante el transporte, asociada a la operación correspondiente. `custody_transfers` registra cada transferencia formal de custodia entre Organizations, constituyendo el `Domain Event` más crítico de la cadena.
- 
-![Database BC3 Custody Chain](../assets/img/chapter-iv/DB_BC3_Custody%20Chain%20%26%20Logistics.png)
+![Database hauling_cycles](../assets/img/chapter-iv/hauling_cycles.png)
  
 ---
  
-#### BC: Refinery Processing
+#### BC: Material Operations
  
-El contexto de refinería gestiona cuatro tablas. `refinery_batches` referencia al `mineral_batches` padre y almacena la invariante de conservación de masa mediante `mass_balance_tolerance_pct` y `mass_balance_is_valid`. El campo `inherited_traceability_code` garantiza que cada Batch en refinería conserve la trazabilidad de su origen. `refinery_child_batches` registra cada sublote generado en la división, con su peso y organización de destino. `refinery_processing_operations` persiste cada operación de procesamiento (`SMELTING`, `REFINING`, `ASSAYING`, `CASTING`). `refinery_shrinkage_records` almacena la merma en cada etapa, con `input_weight`, `output_weight` y `loss_pct`, datos consumidos por el BC8 para los reportes ESG.
+El contexto de operaciones de material gestiona la tabla `material_operations_materials`, que persiste el Aggregate Root `Material` correspondiente a cada lote extraído. Almacena el `batch_id` como identificador de negocio, el `mineral_type` declarado, el `payload` en toneladas y el `reporter_id` del usuario Minera que originó el registro. Los campos `classification`, `dumping_point_name` y `current_location` se completan a medida que el lote avanza por el flujo de clasificación, descarga y seguimiento de movimiento, mientras que `final_weight_tons` y `shrinkage_percent` registran el cálculo automático de merma; cuando este último supera el 5%, el `status` transiciona a `UnderInvestigation`.
  
-![Database BC4 Refinery](../assets/img/chapter-iv/DB_BC4_Refinery.png)
- 
+![Database material_operations_materials](../assets/img/chapter-iv/material_operations_materials.png)
  
 ---
  
 #### BC: Jewelry Inventory & Certification
  
-El contexto de joyería gestiona cinco tablas correspondientes a los dos Aggregate Roots del dominio. Para `JewelryProduct`: `jewelry_products` almacena la columna `stock_category` con constraint `CHECK ('CERTIFIED_OPALTRACE', 'EXTERNAL')` que implementa la invariante de segregación ética; `jewelry_inventory_items` gestiona el stock con `StorageLocation` embebida; `jewelry_fabrication_orders` registra las órdenes de fabricación con estado `BLOCKED` cuando se detecta mezcla de stocks; `jewelry_fabrication_order_components` persiste los componentes de cada orden. Para `JewelryCertificate`: `jewelry_certificates` almacena el estado de la Certification de Autenticidad, el `rejection_code` en caso de rechazo, y la URL del PDF almacenado en AWS S3.
+El contexto de joyería gestiona dos tablas correspondientes a sus dos Aggregate Roots. `jewelries` persiste el `certificate_id` firmado, el `jeweler_id` responsable y el `material_id_ref` hacia el lote de origen, junto con el flag `is_signed` que indica si el certificado de autenticidad ya fue firmado digitalmente. `jewelry_materials` es la tabla más extensa del contexto: registra el ciclo de vida completo de cada pieza, desde su ingreso (`source`, que distingue oro de proveedor u oro de cliente), pasando por la prueba de pureza (`declared_karats`, `verified_karats`, `has_commercial_discrepancy`), la subdivisión de lotes (`parent_material_id`, `mass_grams`), el registro de merma por refinamiento (`refined_weight_grams`, `refinement_shrinkage_percent`), hasta los datos de presentación del certificado (`photo`, `description`) y el código QR generado (`qr_code_value`).
  
-![Database BC5 Jewelry](../assets/img/chapter-iv/DB_BC5_Jewelry.png)
+![Database jewelries](../assets/img/chapter-iv/jewelries.png)
  
----
- 
-#### BC: Consumer Experience
- 
-El contexto de experiencia del consumidor gestiona dos tablas de solo lectura que implementan el patrón CQRS. `consumer_certificates` es una proyección optimizada del estado de certificación de cada Product, indexada por `qr_code_hash` para consultas públicas de alta frecuencia sin autenticación. Almacena el `journey_map_json` con el recorrido geográfico completo del Mineral en formato JSON. `consumer_verification_events` registra cada intento de verificación vía QR Code con su resultado (`SUCCESS`, `FAILED`, `NOT_FOUND`) y el `failure_code` correspondiente si la verificación falló.
- 
-![Database BC6 Consumer Experience](../assets/img/chapter-iv/DB_BC6_Consumer_Experience.png)
+![Database jewelry_materials](../assets/img/chapter-iv/jewelry_materials.png)
  
 ---
  
-#### BC: Administration & Audit
+#### BC: Consumer Traceability
  
-El contexto de administración gestiona la tabla `admin_audit_records`, que implementa el Entity `AuditRecord` con carácter inmutable por diseño — ningún registro de auditoría puede ser modificado una vez creado. Almacena el `event_type` (`ACCOUNT_APPROVED`, `ACCOUNT_REJECTED`, `ORGANIZATION_SUSPENDED`, etc.), el `actor_id` responsable de la acción, la `ip_address` desde donde se ejecutó, y el payload en formato JSON con el estado anterior y posterior del objeto afectado (`payload_before`, `payload_after`). Este contexto referencia a `iam_organizations` e `iam_user_accounts` del BC1 para mantener la trazabilidad administrativa completa.
+El contexto de trazabilidad al consumidor gestiona tres tablas correspondientes a sus tres Aggregate Roots. `jewelry_products` almacena el `qr_code` escaneado por el consumidor, el `consumer_id`, el `scan_count` acumulado y el `certificate_id_ref` cuando el producto queda vinculado a un certificado descargado. `traceability_journeys` persiste el `journey_summary` construido a partir de los datos recolectados en los demás contextos a través de los Context Facades, junto con el `qr_code` y `consumer_id` que lo originaron. `irregularity_reports` registra cada reporte de código QR sospechoso enviado por un consumidor, con su `reason` (validado con un mínimo de caracteres para evitar reportes vacíos), el `device_id`, el `consumer_id` y el `status` de revisión administrativa.
  
-![Database BC7 Administration](../assets/img/chapter-iv/DB_BC7_Administration%20%26%20Audit.png)
+![Database jewelry_products](../assets/img/chapter-iv/jewelry_products.png)
+ 
+![Database traceability_journeys](../assets/img/chapter-iv/traceability_journeys.png)
+ 
+![Database irregularity_reports](../assets/img/chapter-iv/irregularity_reports.png)
  
 ---
  
-#### BC: Reporting & Analytics
+#### BC: Monitoring & Telemetry
  
-El contexto de reportes gestiona cuatro tablas de solo lectura orientadas al análisis de datos. `analytics_reports` centraliza cada reporte generado con su tipo y período. `analytics_merma_indicators` persiste el Value Object `MermaIndicator` con `stage_origin`, `stage_destination`, `input_weight`, `output_weight` y `loss_pct` por etapa de procesamiento. `analytics_sustainability_records` almacena el Value Object `SustainabilityRecord` con los tres scores ESG: `environmental_score`, `social_score` y `ethical_score`. `analytics_dashboard_snapshots` captura el estado operativo del sistema en un momento dado, incluyendo `active_batches`, `pending_anomalies`, `certifications_granted` y `certification_rate` para el Dashboard de monitoreo en tiempo real.
+El contexto de monitoreo y telemetría es el de mayor número de tablas, con ocho Aggregate Roots independientes que representan cada canal de sensor sobre un mismo activo (`asset_id`). `telemetry_data` centraliza el dato crudo recibido con `telemetry_data_id`, `raw_data` y el flag `is_validated`. `checkpoints` registra el paso de un lote por un punto de control, con `batch_id`, `control_point_name`, la coordenada GNSS embebida y `recorded_at`. `gnss_statuses` lleva el conteo de reinicios del receptor (`restart_count`, `restart_reason`). `speed_readings` almacena la velocidad actual y el límite permitido (`current_speed_km_per_hour`, `speed_limit_km_per_hour`) junto con el flag `is_violation`. `pressure_readings` registra las lecturas de presión de aceite en sus distintos puntos (`oil_filter_bar`, `oil_pan_bar`, `absolute_engine_oil_bar`) y el tipo de anomalía detectada. `temperature_readings` almacena las lecturas térmicas del motor (`exhaust_celsius`, `refrigerant_celsius`, `oil_celsius`, `fuel_celsius`) y sus límites por cilindro. `communication_channels` registra el protocolo analizado y las anomalías de comunicación detectadas. `route_alerts` centraliza las alertas generadas sobre la ruta de un lote, con `batch_id`, `alert_type`, `risk_level` y `message`.
  
-![Database BC8 Reporting](../assets/img/chapter-iv/DB_BC8_Reporting.png)
-
+![Database telemetry_data](../assets/img/chapter-iv/telemetry_data.png)
+ 
+![Database checkpoints](../assets/img/chapter-iv/checkpoints.png)
+ 
+![Database gnss_statuses](../assets/img/chapter-iv/gnss_statuses.png)
+ 
+![Database speed_readings](../assets/img/chapter-iv/speed_readings.png)
+ 
+![Database pressure_readings](../assets/img/chapter-iv/pressure_readings.png)
+ 
+![Database temperature_readings](../assets/img/chapter-iv/temperature_readings.png)
+ 
+![Database communication_channels](../assets/img/chapter-iv/communication_channels.png)
+ 
+![Database route_alerts](../assets/img/chapter-iv/route_alerts.png)
+ 
+---
+ 
+#### BC: Analytics
+ 
+El contexto de analítica gestiona la tabla `analytics_materials`, una proyección de solo consulta orientada al seguimiento de rutas y producción. Almacena el `material_id`, el `route_id` monitoreado, el `route_status` obtenido vía ACL desde Fleet Operations, y el `supervisor_id` que solicita el dashboard. Los campos `production_start`, `production_end` y `production_tons` se completan cuando un supervisor solicita el reporte de producción de un periodo específico.
+ 
+![Database analytics_materials](../assets/img/chapter-iv/analytics_materials.png)
+ 
+---
+ 
+#### BC: Incident Management
+ 
+El contexto de gestión de incidentes gestiona la tabla `safety_records`, que persiste el Aggregate Root `SafetyRecord`. Almacena el `incident_type` detectado (fatiga del operador, humo, entre otros), el `operator_id` y `asset_id` involucrados, y el `risk_level` asignado, que puede escalar durante el ciclo de vida del incidente. El campo `description` documenta el detalle del evento y `status` refleja la última transición (`FatigueDetected`, `RiskLevelEscalated`, `SmokeDetected`, entre otras).
+ 
+![Database safety_records](../assets/img/chapter-iv/safety_records.png)
+ 
+---
+ 
+#### BC: Reporting & Notifications
+ 
+El contexto de reportes y notificaciones gestiona dos tablas correspondientes a sus dos Aggregate Roots. `reports` almacena el `supervisor_id` solicitante, el `incident_id` asociado, el `report_status` (que avanza de `Requested` a `DataLoaded`, `Generated` y `Exported`), el `report_format` elegido para la exportación y el `downloaded_by_user_id` que registra la descarga. `notifications` persiste cada aviso emitido con su `recipient_id`, `notification_type`, el contenido en `message` y el `notification_status` que distingue entre `Requested` y `Sent`.
+ 
+![Database reports](../assets/img/chapter-iv/reports.png)
+ 
+![Database notifications](../assets/img/chapter-iv/notifications.png)
+ 
+---
+ 
+#### BC: Asset Maintenance
+ 
+El contexto de mantenimiento de activos gestiona la tabla `machineries`, que persiste el Aggregate Root `Machinery`. Almacena el `machinery_id`, el `model` y `oem` del fabricante, y las `engine_hours` acumuladas, sobre las cuales se calcula el `maintenance_scheduled_at_hours` al programar un mantenimiento preventivo. El `maintenance_status` distingue entre `Active`, `UnderMaintenance` y `Discharged`, mientras que `discharge_reason`, `discharged_component_id` y `component_discharge_reason` documentan las bajas totales o parciales de componentes.
+ 
+![Database machineries](../assets/img/chapter-iv/machineries.png)
+ 
+---
+ 
+#### BC: Identity & Access Management
+ 
+El contexto de identidad gestiona la tabla `users`, que persiste el Aggregate Root `User`. Almacena las credenciales del usuario a través de los Value Objects embebidos `username`, `hashed_password` (hash generado con BCrypt) y `email`, junto con el `role` que determina si la cuenta corresponde a una Minera, una Joyería o un Consumidor. El campo `status` registra la última transición del ciclo de vida de la cuenta (`UserRegistered`, `ProfileUpdated`, `PasswordReset`), y los campos `password_reset_token` y `password_reset_token_expires_at` habilitan el flujo de recuperación de contraseña con expiración controlada.
+ 
+![Database users](../assets/img/chapter-iv/users.png)
+ 
 ---
  
 #### BC: Subscriptions & Billing
  
-El contexto de suscripciones gestiona tres tablas. `billing_subscriptions` almacena el Aggregate Root `Subscription` con el `plan_tier` contratado, el `billing_cycle` (`MONTHLY`, `ANNUAL`) y el Value Object `FeatureSet` embebido como columnas booleanas (`has_offline_mode`, `has_esg_reporting`, `has_advanced_analytics`, `has_api_access`) y límites numéricos (`max_batches_per_month`, `max_users`). También almacena el `stripe_customer_id` para la integración con Stripe API. `billing_records` persiste cada factura con su monto, moneda, estado (`PENDING`, `PAID`, `OVERDUE`, `CANCELLED`) y el `stripe_invoice_id` de referencia. `billing_plan_change_records` registra el historial de cambios de plan con el tier anterior y nuevo, implementando el Value Object `PlanChangeRecord` de forma inmutable.
+El contexto de suscripciones gestiona dos tablas. `user_subscriptions` almacena el Aggregate Root `UserSubscription` con el `user_id` titular, el `plan_type` contratado, el `billing_cycle` y el `subscription_status`, además del flag `access_granted` que habilita o restringe el uso de las funcionalidades del plan y el `requested_downgrade_plan` cuando el usuario solicita bajar de nivel. `invoices` es una entidad hija de la suscripción: cada fila referencia a su `user_subscription_id` y almacena el `invoice_id`, el `amount` cobrado y el `status`, que pasa de `Generated` a `Downloaded` cuando el usuario descarga el comprobante.
  
-![Database BC9 Subscriptions Billing](../assets/img/chapter-iv/DB_BC9_Subscriptions%26Billing.png)
+![Database user_subscriptions](../assets/img/chapter-iv/user_subscriptions.png)
  
+![Database invoices](../assets/img/chapter-iv/invoices.png)
