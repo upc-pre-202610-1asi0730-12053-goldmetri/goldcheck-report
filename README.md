@@ -292,6 +292,16 @@ _(completar con capturas de colaboración del repositorio goldcheck-report y gol
     - [5.2.3.7. Software Deployment Evidence for Sprint Review](report/15-chapter5-product-implementation.md#5237-software-deployment-evidence-for-sprint-review)
     - [5.2.3.8. Team Collaboration Insights during Sprint](report/15-chapter5-product-implementation.md#5238-team-collaboration-insights-during-sprint)
 
+  - [5.2.4. Sprint 4](report/15-chapter5-product-implementation.md#524-sprint-4)
+    - [5.2.4.1. Sprint Planning 4](report/15-chapter5-product-implementation.md#5241-sprint-planning-4)
+    - [5.2.4.2. Aspect Leaders and Collaborators](report/15-chapter5-product-implementation.md#5242-aspect-leaders-and-collaborators)
+    - [5.2.4.3. Sprint Backlog 4](report/15-chapter5-product-implementation.md#5243-sprint-backlog-4)
+    - [5.2.4.4. Development Evidence for Sprint Review](report/15-chapter5-product-implementation.md#5244-development-evidence-for-sprint-review)
+    - [5.2.4.5. Execution Evidence for Sprint Review](report/15-chapter5-product-implementation.md#5245-execution-evidence-for-sprint-review)
+    - [5.2.4.6. Services Documentation Evidence for Sprint Review](report/15-chapter5-product-implementation.md#5246-services-documentation-evidence-for-sprint-review)
+    - [5.2.4.7. Software Deployment Evidence for Sprint Review](report/15-chapter5-product-implementation.md#5247-software-deployment-evidence-for-sprint-review)
+    - [5.2.4.8. Team Collaboration Insights during Sprint](report/15-chapter5-product-implementation.md#5248-team-collaboration-insights-during-sprint)
+
 - [5.3. Validation Interviews](report/15-chapter5-product-implementation.md#53-validation-interviews)
   - [5.3.1. Diseño de Entrevistas](report/15-chapter5-product-implementation.md#531-diseño-de-entrevistas-de-validación)
   - [5.3.2. Registro de Entrevistas](report/15-chapter5-product-implementation.md#532-registro-de-entrevistas-de-validación)
