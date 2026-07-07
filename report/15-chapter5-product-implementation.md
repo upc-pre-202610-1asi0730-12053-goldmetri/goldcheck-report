@@ -1450,7 +1450,7 @@ El Video About-the-Product presenta la propuesta de valor de GoldCheck a visitan
 4. **Testimonios de usuarios (2:40 – 3:20):**
    - Testimonio de Ian Kimi San Martín (Ingeniero Metalúrgico — segmento minero): *"El mapa de monitoreo que compara la ruta planeada contra la real me parece muy útil. Antes hacíamos ese control en Excel."*
    - Testimonio de Jenifer Natali López Huaman (Administradora — segmento consumidor): *"El escaneo QR es sencillo e intuitivo. Ver de dónde proviene la joya me da mucha más confianza al comprar."*
-   - _(completar — testimonio representante segmento joyería TB2)_
+   - Testimonio de Yesiliany Canchica (Emprendedora de joyas — segmento joyería): *"Antes cuando un cliente me preguntaba sobre el origen del oro, no tenía cómo demostrarlo. Ahora con la aplicación solo se escanea el código QR y se ve todo. Se ve desde qué mina fue transportado, cómo fue transportado, si está libre de conflicto y esto me genera una diferencia con la competencia, por lo cual hace que los clientes tengan más confianza hacia mí."*
 5. **Cierre y CTA (3:20 – 3:40):** Pantalla con el logo de GoldMetrics/GoldCheck, branding de la startup y llamado a la acción para visitar el Landing Page.
 
 El video incluye música de fondo instrumental, subtítulos en los testimonios, logo de GoldMetrics en el corner inferior y una edición con transiciones coherentes entre escenas.
