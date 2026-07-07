@@ -1445,30 +1445,29 @@ Hacer que el ícono de notificaciones despliegue el listado de notificaciones (p
 
 ## 5.4. Video About-the-Product
 
-**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-product-sprint-4`
+**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-goldmetrics-about-the-product-sprint-4`
 
 El Video About-the-Product presenta la propuesta de valor de GoldCheck a visitantes del Landing Page y usuarios potenciales. El video sigue la siguiente secuencia de escenas:
 
-1. **Problema y contexto (0:00 – 0:40):** Narración en off sobre la falta de trazabilidad en la cadena minera peruana y los riesgos para mineras, joyerías y consumidores. Imágenes de operaciones mineras e intercambio comercial de oro.
-2. **Propuesta de solución (0:40 – 1:20):** Presentación de GoldCheck como plataforma de trazabilidad integral que conecta los tres segmentos. Animación del recorrido del mineral desde la extracción hasta el consumidor.
-3. **Demostración de funcionalidades (1:20 – 2:40):**
-   - Dashboard de monitoreo de flota y Analytics para empresas mineras.
-   - Panel de certificación y generación de QR para joyerías.
-   - Escaneo QR y consulta de origen ético para consumidores.
-4. **Testimonios de usuarios (2:40 – 3:20):**
-   - Testimonio de Ian Kimi San Martín (Ingeniero Metalúrgico — segmento minero): *"El mapa de monitoreo que compara la ruta planeada contra la real me parece muy útil. Antes hacíamos ese control en Excel."*
-   - Testimonio de Jenifer Natali López Huaman (Administradora — segmento consumidor): *"El escaneo QR es sencillo e intuitivo. Ver de dónde proviene la joya me da mucha más confianza al comprar."*
+1. **Problema y contexto (0:00 – 0:28):** Narración en off sobre la falta de trazabilidad en la cadena minera peruana y los riesgos para mineras, joyerías y consumidores. Imágenes de operaciones mineras e intercambio comercial de oro.
+2. **Propuesta de solución (0:28 – 0:50):** Presentación de GoldCheck como plataforma de trazabilidad integral que conecta los tres segmentos. Animación del recorrido del mineral desde la extracción hasta el consumidor.
+3. **Testimonios de usuarios y demostración de funcionalidades (0:50 – 2:10):**
+   - Testimonio de Anthony Paredes (Operador Metalúrgico — segmento minero): *"Ahora puedo demostrarle a mis clientes exactamente de donde viene cada gramo de oro que extraemos."*
+   - Testimonio de Carla Gallardo (Consumidora final — segmento consumidor): *"El escaneo QR es sencillo e intuitivo. Ver de dónde proviene la joya me da mucha más confianza al comprar."*
    - Testimonio de Yesiliany Canchica (Emprendedora de joyas — segmento joyería): *"Antes cuando un cliente me preguntaba sobre el origen del oro, no tenía cómo demostrarlo. Ahora con la aplicación solo se escanea el código QR y se ve todo. Se ve desde qué mina fue transportado, cómo fue transportado, si está libre de conflicto y esto me genera una diferencia con la competencia, por lo cual hace que los clientes tengan más confianza hacia mí."*
-5. **Cierre y CTA (3:20 – 3:40):** Pantalla con el logo de GoldMetrics/GoldCheck, branding de la startup y llamado a la acción para visitar el Landing Page.
+4. **Cierre y CTA (2:10 – 2:18):** Pantalla con el logo de GoldMetrics/GoldCheck, branding de la startup.
 
-El video incluye música de fondo instrumental, subtítulos en los testimonios, logo de GoldMetrics en el corner inferior y una edición con transiciones coherentes entre escenas.
+El video incluye música de fondo instrumental, lower thirds en los testimonios, logo de GoldMetrics en el corner inferior y una edición con transiciones coherentes entre escenas.
 
-**URL YouTube:** [Ver video](https://youtu.be/E39HEPqGKok)
+![Screenshot About-the-Product](../assets/img/chapter-v/about-the-product.png)
+
+**URL Microsoft Stream:** [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQC7W39zUETUQpKsEUmqKGmDAUENRXB72OOW9wBzNXXwqbA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=8FjQGw)
+**URL YouTube:** [Ver video](https://youtu.be/AaWmhLNmybM)
 
 
 ## 5.5. Video About-the-Team
 
-**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-team-sprint-4`
+**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-goldmetrics-about-the-team-sprint-4`
 
 El video About-the-Team resume el proceso de trabajo realizado por el equipo GoldMetrics durante el ciclo de vida del proyecto GoldCheck. El video se estructura en dos bloques: una narración en off que contextualiza el proceso de trabajo del equipo con escenas de las sesiones de trabajo reales (Discord, GitHub, Trello), y los testimonios individuales de cada integrante ante cámara describiendo sus actividades, logros y competencias desarrolladas.
 
@@ -1504,7 +1503,7 @@ URL del Frontend Web Application desplegado: https://goldcheck-goldmetrics.netli
 
 URL del Landing Page integrado con nuestro Frontend: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
 
-URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQB4rryG93n3TJmOjq45RPFXAXI5UyXcV4nDgKvH_Tpa_eU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=WZRYZE
+URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2: https
 
 URL upc-pre-202610-1asi0730-12053-GoldMetrics-needfinding-sprint-1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDu6FgeSAQyTIWq7Mi2D3PWAYw61dd-gFnSQCx1kfl35Zs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=OlpPYE
 
