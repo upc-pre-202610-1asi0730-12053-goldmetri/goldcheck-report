@@ -1495,15 +1495,51 @@ El equipo adoptó Domain-Driven Design como eje organizativo del proyecto, lo qu
 **URL YouTube:** [Ver video](https://youtu.be/kRmkPHiJUa8)
 
 
+## 5.6. Documentación de Servicios Externos
+
+Durante el desarrollo de GoldCheck se integraron los siguientes servicios externos de terceros:
+
+### Stripe — Pasarela de Pago
+
+| Campo | Detalle |
+| :--- | :--- |
+| **Servicio** | Stripe Payments |
+| **URL oficial** | https://stripe.com |
+| **Documentación** | https://stripe.com/docs |
+| **Propósito** | Gestión de sesiones de pago y confirmación de suscripciones de plan mediante webhooks |
+| **Bounded Context** | Subscriptions & Billing |
+| **SDK utilizado** | `Stripe.net` (paquete NuGet oficial para ASP.NET Core) |
+| **Endpoints de integración** | `POST /api/v1/subscriptions/checkout` — inicia sesión de Stripe Checkout; `POST /api/v1/subscriptions/webhook` — recibe evento `checkout.session.completed` de Stripe para activar el plan |
+| **Modo de uso** | Se crea una sesión de Checkout con los precios configurados en el dashboard de Stripe. Al completar el pago, Stripe envía un webhook firmado al backend que activa la suscripción del usuario en la base de datos. |
+
 ## Anexos Importantes
 
-URL de la Mockapi desplegado: https://goldcheck-mockapi-production.up.railway.app
+**Repositorios GitHub:**
+
+| Repositorio | URL |
+| :--- | :--- |
+| goldcheck-report | https://github.com/upc-pre-202610-1asi0730-11863-GoldMetri/goldcheck-report |
+| goldcheck-website | https://github.com/upc-pre-202610-1asi0730-11863-GoldMetri/goldcheck-website |
+| goldcheck-webapp | https://github.com/upc-pre-202610-1asi0730-11863-GoldMetri/goldcheck-webapp |
+| goldcheck-platform | https://github.com/upc-pre-202610-1asi0730-11863-GoldMetri/goldcheck-platform |
+
+**Productos desplegados:**
 
 URL del Frontend Web Application desplegado: https://goldcheck-goldmetrics.netlify.app/
 
 URL del Landing Page integrado con nuestro Frontend: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
 
-URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2: https
+URL del Backend / Web Services desplegado: https://goldcheck-platform-wa.azurewebsites.net
+
+URL de documentación Swagger del Backend / Web Services: https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
+
+**Credenciales de prueba:**
+
+_(completar — usuario y contraseña de cuenta de prueba para cada segmento)_
+
+**Videos:**
+
+URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2: _(completar)_
 
 URL upc-pre-202610-1asi0730-12053-GoldMetrics-needfinding-sprint-1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDu6FgeSAQyTIWq7Mi2D3PWAYw61dd-gFnSQCx1kfl35Zs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=OlpPYE
 
