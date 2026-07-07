@@ -149,24 +149,56 @@ Asimismo, el sistema permite visualizar información relacionada al mantenimient
 
 
 ### 4.4.1. Web Applications Wireframes
-<img src="../assets/img/chapter-iv/Log in.png" width="300"/>
-<img src="../assets/img/chapter-iv/Sign up.png" width="300"/>
-<img src="../assets/img/chapter-iv/Profile Screen.png" width="300"/>
-<img src="../assets/img/chapter-iv/Payment Method.png" width="300"/>
-<img src="../assets/img/chapter-iv/REGISTER.png" width="300"/>
-<img src="../assets/img/chapter-iv/Frame 1321317457.png" width="300"/>
-<img src="../assets/img/chapter-iv/Overlay+OverlayBlur.png" width="300"/>
-<img src="../assets/img/chapter-iv/Dashboard Joyería - Modal Validación.png" width="300"/>
-<img src="../assets/img/chapter-iv/Profile Screen.png" width="300"/>
-<img src="../assets/img/chapter-iv/Overlay+OverlayBlur-1.png" width="300"/>
-<img src="../assets/img/chapter-iv/Dashboard Minería - Principal.png" width="300"/>
-<img src="../assets/img/chapter-iv/Overlay+OverlayBlur-2.png" width="300"/>
-<img src="../assets/img/chapter-iv/Overlay+OverlayBlur-3.png" width="300"/>
-<img src="../assets/img/chapter-iv/Dashboard Minería - Detalle Lote.png" width="300"/>
-<img src="../assets/img/chapter-iv/Dashboard Usuario Final.png" width="300"/>
-<img src="../assets/img/chapter-iv/Overlay+OverlayBlur-4.png" width="300"/>
-<img src="../assets/img/chapter-iv/Dashboard Minería - Alerta Activa.png" width="300"/>
-<img src="../assets/img/chapter-iv/Overlay+OverlayBlur-5.png" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/LOG%20IN.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/SIGN%20UP.jpeg" width="300"/>
+
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/CONSUMER/1.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/CONSUMER/2.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/CONSUMER/3.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/CONSUMER/4.jpeg" width="300"/>
+
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/1.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/2.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/3.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/4.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/5.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/6.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/7.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/8.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/9.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/10.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/11.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/12.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/13.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/14.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/15.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/JEWELER/16.jpeg" width="300"/>
+
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/1.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/2.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/3.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/4.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/5.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/6.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/7.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/8.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/9.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/10.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/11.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/12.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/13.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/14.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/15.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/16.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/17.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/18.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/19.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/20.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/21.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/22.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/23.jpeg" width="300"/>
+<img src="../assets/img/chapter-iv/WIREFRAMES%20ACT/MINING/24.jpeg" width="300"/>
+
 
 ### 4.4.2. Web Applications Wireflow Diagrams
 <img src="../assets/img/chapter-iv/wireflow/1 (1).jpeg" width="300"/>
