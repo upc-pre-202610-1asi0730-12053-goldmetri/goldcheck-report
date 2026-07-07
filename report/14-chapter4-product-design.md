@@ -326,24 +326,57 @@ Análisis basado en los 6 frames de mockups de alta fidelidad de la landing page
 
 
 ### 4.4.1. Web Applications Wireframes
-![Log in](../assets/img/chapter-iv/Log%20in.png)  
-![Sign up](../assets/img/chapter-iv/Sign%20up.png)  
-![Profile Screen](../assets/img/chapter-iv/Profile%20Screen.png)  
-![Payment Method](../assets/img/chapter-iv/Payment%20Method.png)  
-![REGISTER](../assets/img/chapter-iv/REGISTER.png)  
-![Frame](../assets/img/chapter-iv/Frame%201321317457.png)  
-![Overlay](../assets/img/chapter-iv/Overlay+OverlayBlur.png)  
-![Modal Validación](../assets/img/chapter-iv/Dashboard%20Joyería%20-%20Modal%20Validación.png)  
-![Profile Screen](../assets/img/chapter-iv/Profile%20Screen.png)  
-![Overlay](../assets/img/chapter-iv/Overlay+OverlayBlur-1.png)  
-![Dashboard Minería](../assets/img/chapter-iv/Dashboard%20Minería%20-%20Principal.png)  
-![Overlay](../assets/img/chapter-iv/Overlay+OverlayBlur-2.png)  
-![Overlay](../assets/img/chapter-iv/Overlay+OverlayBlur-3.png)  
-![Detalle Lote](../assets/img/chapter-iv/Dashboard%20Minería%20-%20Detalle%20Lote.png)  
-![Dashboard Usuario](../assets/img/chapter-iv/Dashboard%20Usuario%20Final.png)  
-![Overlay](../assets/img/chapter-iv/Overlay+OverlayBlur-4.png)  
-![Alerta Activa](../assets/img/chapter-iv/Dashboard%20Minería%20-%20Alerta%20Activa.png)  
-![Overlay](../assets/img/chapter-iv/Overlay+OverlayBlur-5.png)  
+![Log in](../assets/img/chapter-iv/WIREFRAMESACT/LOGIN.jpeg)  
+![Sign up](../assets/img/chapter-iv/WIREFRAMESACT/SIGNUP.jpeg)   
+![Payment Method](../assets/img/chapter-iv/Payment%20Method.png) 
+
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/CONSUMER/1.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/CONSUMER/2.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/CONSUMER/3.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/CONSUMER/4.jpeg">
+
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/1.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/2.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/3.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/4.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/5.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/6.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/7.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/8.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/9.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/10.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/11.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/12.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/13.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/14.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/15.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/JEWELER/16.jpeg">
+
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/1.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/2.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/3.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/4.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/5.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/6.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/7.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/8.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/9.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/10.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/11.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/12.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/13.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/14.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/15.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/16.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/17.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/18.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/19.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/20.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/21.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/22.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/23.jpeg">
+<img src="../assets/img/chapter-iv/WIREFRAMESACT/MINING/24.jpeg">
+
 ---
 
 # GoldMetrics — Justificación de Diseño (Web Applications Wireframes)
