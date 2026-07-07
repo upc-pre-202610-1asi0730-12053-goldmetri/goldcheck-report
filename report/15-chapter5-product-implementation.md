@@ -815,7 +815,7 @@ El Sprint 4 está dedicado a la integración completa del Frontend Web Applicati
 | **Time** | `8:00 pm` |
 | **Location** | Reunión virtual por Discord |
 | **Prepared By** | `Philco Mota, Katty` |
-| **Attendees** | Armestar Felipa, Adrian / García Paredes, Victor / Navarro Aldoradin, Carolina / Philco Mota, Katty / Tuesta Girón, Kiara |
+| **Attendees** | García Paredes, Victor / Navarro Aldoradin, Carolina / Philco Mota, Katty / Tuesta Girón, Kiara |
 | **Sprint 3 Review Summary** | Se completó la implementación de los Web Services de GoldCheck (ASP.NET Core/C#), cubriendo 11 bounded contexts con más de 100 endpoints documentados en Swagger/OpenAPI y desplegados en Azure App Service. Se realizaron entrevistas de validación con un usuario del segmento minero y uno del segmento consumidor. Se identificaron 17 hallazgos de usabilidad mediante evaluación heurística cruzada con el equipo NutriSense. |
 | **Sprint 3 Retrospective Summary** | El equipo identificó que el frontend aún está conectado a MockAPI en lugar de al backend real. Se acordó priorizar la integración frontend-backend en el Sprint 4, junto con las correcciones de usabilidad de mayor severidad (niveles 3 y 4). Se comprometieron a completar las entrevistas de validación con el segmento de joyerías. |
 | **Sprint 4 Goal** | Nuestro enfoque está en entregar a los usuarios de GoldCheck una plataforma operativa de extremo a extremo, donde puedan registrar y consultar sus operaciones con datos reales. Creemos que esto les permitirá validar el producto en condiciones reales de uso, evidenciando el valor de la solución desarrollada. Confirmaremos el logro cuando los usuarios de los tres segmentos hayan interactuado con la plataforma y cuando las principales barreras de usabilidad identificadas hayan sido corregidas. |
@@ -897,10 +897,23 @@ Durante el Sprint 4 el equipo se enfocó en la integración del Frontend Web App
 | goldcheck-website | feature/add-product-team-videos | `6d75c9e` | feat: add responsive About the Team video section with i18n | Implementa la sección de video About-the-Team con diseño responsive e internacionalización en el Landing Page | 2026-07-02 |
 | goldcheck-website | feature/add-product-team-videos | `46fddb5` | feat: add About the Product video to the Videos section | Agrega el reproductor embebido del video About-the-Product en la sección de videos del Landing Page | 2026-07-02 |
 | goldcheck-website | fix/audit-adjustments | `cb597bd` | fix: collapse header actions into hamburger menu on mobile | Implementa el menú hamburguesa en el header del Landing Page para vistas móviles | 2026-07-03 |
+| goldcheck-website | fix/audit-adjustments | `a28f1dd` | feat: add success stories testimonials carousel (US04) | Implementa el carrusel de historias de éxito y testimonios de usuarios en el Landing Page | 2026-07-03 |
+| goldcheck-website | fix/audit-adjustments | `e486467` | chore: update mission, vision and jewelry images | Actualiza las imágenes de misión, visión y galería de joyería en el Landing Page | 2026-07-03 |
+| goldcheck-website | fix/audit-adjustments | `195a4d9` | feat: point auth CTAs to app register/login routes (US01) | Actualiza los CTAs de autenticación para apuntar a las rutas de registro e inicio de sesión de la Web App | 2026-07-03 |
+| goldcheck-website | fix/audit-adjustments | `ee7b068` | feat: add field-level validation to contact form (US03) | Implementa validación a nivel de campo en el formulario de contacto del Landing Page | 2026-07-03 |
+| goldcheck-website | feature/terms-and-conditions | `af97232` | feat: add terms & conditions and privacy policy to landing page footer | Agrega los enlaces de términos y condiciones y política de privacidad en el footer del Landing Page | 2026-07-07 |
+| goldcheck-website | feature/terms-and-conditions | `1481437` | feat: replace legal modals with dedicated terms and privacy pages | Reemplaza los modales de información legal con páginas dedicadas de términos y condiciones y política de privacidad | 2026-07-07 |
+| goldcheck-website | feat/update-plans | `4ec5cd7` | fix: update About the Product video link | Actualiza el enlace del video About-the-Product en la sección de videos del Landing Page | 2026-07-07 |
+| goldcheck-website | feat/update-plans | `502c28b` | fix: sync jewelry and mining pricing with the web app (USD) | Sincroniza los precios de suscripción para joyerías y mineras en el Landing Page con los valores en USD de la Web App | 2026-07-07 |
 
 #### 5.2.4.5. Execution Evidence for Sprint Review
 
-_(Completar con capturas de las vistas del frontend integrado con el backend real.)_
+![Screenshot 1](../assets/img/chapter-v/frontend-1.png)
+![Screenshot 2](../assets/img/chapter-v/frontend-2.png)
+![Screenshot 3](../assets/img/chapter-v/frontend-3.png)
+![Screenshot 4](../assets/img/chapter-v/frontend-4.png)
+![Screenshot 5](../assets/img/chapter-v/frontend-5.png)
+![Screenshot 6](../assets/img/chapter-v/frontend-6.png)
 
 URL del Frontend Web Application: https://goldcheck-goldmetrics.netlify.app/
 
@@ -976,8 +989,8 @@ Durante el Sprint 4 se extendió el Backend con nuevos endpoints que completan l
 | `/api/v1/subscriptions/plans/{planType}/features` | GET | Obtener features disponibles por tipo de plan |
 
 #### 5.2.4.7. Software Deployment Evidence for Sprint Review
-
-_(Completar con capturas del redeploy del frontend en Netlify y verificación del funcionamiento integrado.)_
+![Screenshot 7](../assets/img/chapter-v/frontend-7.png)
+![Screenshot 1](../assets/img/chapter-v/frontend-1.png)
 
 **URL del Backend desplegado:** https://goldcheck-platform-wa.azurewebsites.net
 
@@ -987,7 +1000,7 @@ _(Completar con capturas del redeploy del frontend en Netlify y verificación de
 
 #### 5.2.4.8. Team Collaboration Insights during Sprint
 
-_(Completar con captura del gráfico de contribuciones del repositorio goldcheck-webapp para el Sprint 4.)_
+![Screenshot 8](../assets/img/chapter-v/evidence.png)
 
 ## 5.3. Validation Interviews
 
@@ -996,9 +1009,9 @@ _(Completar con captura del gráfico de contribuciones del repositorio goldcheck
 Las sesiones de validación siguen el protocolo de **User Testing con Think Aloud**: se le explica al participante el propósito de la sesión y los User Goals que debe alcanzar (basados en el User Persona de su segmento), pero **no** se le indica qué botones pulsar ni se le guía paso a paso por la interfaz. El participante navega libremente y verbaliza lo que piensa mientras lo hace. El evaluador observa y toma nota de los hallazgos sin intervenir.
 
 **Estructura de cada sesión:**
-1. **Introducción (5 min):** presentar el objetivo de la sesión, explicar que no se evalúa al usuario sino al producto, solicitar permiso de grabación y pedir que piense en voz alta durante la navegación.
-2. **Evaluación del Landing Page (10 min):** el usuario lo revisa libremente a partir de sus User Goals.
-3. **Evaluación de la Aplicación Web (15–20 min):** se le presentan los User Goals de su segmento como escenarios de tarea. El evaluador no menciona secciones específicas de la interfaz.
+1. **Introducción (1-3 min aproximadamente):** presentar el objetivo de la sesión, explicar que no se evalúa al usuario sino al producto, solicitar permiso de grabación y pedir que piense en voz alta durante la navegación.
+2. **Evaluación del Landing Page (3-10 min aproximadamente):** el usuario lo revisa libremente a partir de sus User Goals.
+3. **Evaluación de la Aplicación Web (5–20 min aproximadamente):** se le presentan los User Goals de su segmento como escenarios de tarea. El evaluador no menciona secciones específicas de la interfaz.
 4. **Cierre y escala NPS (5 min):** preguntas de cierre y puntuación de recomendación.
 
 **Formato de hallazgos:** cada observación registrada indica (a) referencia a la sesión, (b) descripción del problema, (c) heurística Nielsen violada, (d) nivel de severidad (1–4) y (e) alternativa de solución.
@@ -1064,17 +1077,45 @@ Las sesiones de validación siguen el protocolo de **User Testing con Think Alou
 
 #### Segmento 1: Empresas Mineras
 
-| Segmento: Empresas Mineras | Entrevista #3                                                                                                                                                                                                                                                                                                                                  |
-| --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nombres y Apellidos | Ian Kimi Sevastian San MArtín Cauti                                                                                                                                                                                                                                                                                                            |
-| Edad | 24                                                                                                                                                                                                                                                                                                                                             |
-| Distrito | Santiago de Surco                                                                                                                                                                                                                                                                                                                              |
-| Ocupación | Ingeniero Metalúrgico                                                                                                                                                                                                                                                                                                                          |
-| Timming inicio | _(completar — mm:ss)_                                                                                                                                                                                                                                                                                                                          |
-| Duración | 6 minutos y 42 segundos                                                                                                                                                                                                                                                                                                                        |
-| URL | [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20251i477_upc_edu_pe/IQD1noDKgzKpT4LxC4E27IePAefv99fFas5nfZs_mJ7gZT4?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=9y59SL) |
-| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/validation/interview-Kimi.jpeg)                                                                                                                                                                                                                                                               |
-| Resumen |  En la entrevista, un representante de una empresa minera validó GoldCheck y entendió bien la propuesta: trazabilidad del oro desde la extracción hasta el producto final, usando IoT/IA y conectando mineras, joyerías y consumidores. Le convenció porque resuelve un problema real —hoy el control se hace en Excel y a mano, generando errores de tonelaje— aunque pidió ver casos reales o un piloto antes de comprometerse. Le resultó muy intuitivo registrar un nuevo lote, y especialmente claro el mapa de monitoreo que compara la ruta planeada contra la real. El punto crítico fue que el formulario de reporte de incidentes no guardó la información (falló dos veces), algo que le preocupó porque un incidente urgente podría quedar sin registrar.                                                                                                                                                                                                                                                                                                                                               |
+| Segmento: Empresas Mineras | Entrevista #1 |
+| --- |---|
+| Nombres y Apellidos | Cristian Rimac |
+| Edad | 24  |
+| Distrito | Santiago de Surco |
+| Ocupación | Ingeniero Metalúrgico |
+| Timming inicio | 13 minutos y 28 segundos |
+| Duración |  00:00:00 - 00:13:28 |
+| URL | [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQAbpDPVh8bmSYhLhDAmghHhASnCZ5goLkJEP_6k8s8ingM?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=goqEkJ)|
+| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/entrevista_cristian.png) |
+| Resumen |  Durante la entrevista, el participante Cristian Rimac inició sesión en la plataforma y realizó distintas tareas para validar el funcionamiento de CallCheck. Registró una maquinaria y un vehículo, aunque encontró un inconveniente con un ID duplicado que se resolvió creando uno nuevo. Luego completó el flujo de trabajo registrando datos en el dashboard, cambiando el tipo de mineral, asignando un conductor, calculando la merma, iniciando la ruta, revisando el monitoreo, confirmando la llegada a planta y exportando un reporte en formato CSV. En general, pudo completar las tareas sin mayores dificultades. Al finalizar, Cristian comentó que la plataforma le pareció intuitiva y práctica, destacando que el registro de información requiere pocos pasos y facilita el trabajo operativo. También señaló que las alertas son claras, el formulario para reportar incidentes contiene la información necesaria y los indicadores del dashboard son útiles para la toma de decisiones. Como sugerencia, mencionó que podría ser útil integrar notificaciones por correo electrónico, aunque entiende que esto depende de la infraestructura de cada empresa minera. En conclusión, consideró que la aplicación está completa y cumple con las necesidades esperadas.|
+
+| Segmento: Empresas Mineras | Entrevista #2 |
+| --- |---|
+| Nombres y Apellidos | Ian Kimi Sevastian San MArtín Cauti |
+| Edad | 24  |
+| Distrito | Santiago de Surco |
+| Ocupación | Ingeniero Metalúrgico |
+| Timming inicio | 00:13:28 -  00:20:10|
+| Duración | 6 minutos y 42 segundos |
+| URL | [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQAbpDPVh8bmSYhLhDAmghHhASnCZ5goLkJEP_6k8s8ingM?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=goqEkJ) |
+| Screenshot | ![Screenshot _kimi_](../assets/img/chapter-v/validation/interview-Kimi.jpeg) |
+| Resumen |  En la entrevista, un representante de una empresa minera validó GoldCheck y entendió bien la propuesta: trazabilidad del oro desde la extracción hasta el producto final, usando IoT/IA y conectando mineras, joyerías y consumidores. Le convenció porque resuelve un problema real —hoy el control se hace en Excel y a mano, generando errores de tonelaje— aunque pidió ver casos reales o un piloto antes de comprometerse. Le resultó muy intuitivo registrar un nuevo lote, y especialmente claro el mapa de monitoreo que compara la ruta planeada contra la real. El punto crítico fue que el formulario de reporte de incidentes no guardó la información (falló dos veces), algo que le preocupó porque un incidente urgente podría quedar sin registrar.|
+
+
+#### Segmento 2: Joyerías
+
+| Segmento: Joyerías | Entrevista #1 |
+| --- | --- |
+| Nombres y Apellidos | Gabriela Cabaña |
+| Edad | 25 |
+| Distrito | Surquillo |
+| Ocupación | Administradora de Joyeria |
+| Timming inicio | 00:20:10 - 00:23:48 |
+| Duración | 3 minutos y 38 segundos |
+| URL | [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQAbpDPVh8bmSYhLhDAmghHhASnCZ5goLkJEP_6k8s8ingM?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=goqEkJ) |
+| Screenshot | ![Screenshot _gabriela_](../assets/img/chapter-v/entrevista_gabriela.png) |
+| Resumen | La entrevista evalúa una plataforma de trazabilidad dirigida a joyerías. Gabriela destaca que la landing page transmite exclusividad, seguridad y modernidad, posicionándose claramente como una herramienta premium para diferenciar marcas de joyería mediante transparencia. Valida que la propuesta de valor es convincente, especialmente el certificado digital que permite demostrar visualmente a los clientes que los materiales son éticos y libres de conflicto. Elogia la sencillez del proceso de registro y el flujo limpio de la aplicación, describiendo que el sistema es intuitivo y no consume tiempo innecesario. Sin embargo, identifica varias mejoras: el certificado QR necesita incluir el logo de la joyería y detalles como el laboratorio certificador; la línea de tiempo de trazabilidad es visualmente clara pero demasiado técnica para clientes comunes. Recomienda agregar certificaciones ambientales y sociales, además de fotos o videos de los artesanos para conectar emocionalmente con el consumidor. Finalmente, sugiere implementar botones de compartición directa a WhatsApp e Instagram desde el certificado, ya que la venta de joyería fina se cierra principalmente por canales digitales. |
+
 
 #### Segmento 3: Consumidores Finales
 
@@ -1084,26 +1125,12 @@ Las sesiones de validación siguen el protocolo de **User Testing con Think Alou
 | Edad | 23 años |
 | Distrito | Santiago de Surco |
 | Ocupación | Administradora |
-| Timming inicio | 00:00:00 - 00:10:15 |
+| Timming inicio | 00:23:48 - 00:34:03 |
 | Duración | 10 minutos y 15 segundos |
-| URL | [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202012001_upc_edu_pe/IQDGQNwonxjfRZXOdomReSRMARVTM3fMpFk16HmBIbvaTRc?e=m8Vkyg&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
+| URL | [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQAbpDPVh8bmSYhLhDAmghHhASnCZ5goLkJEP_6k8s8ingM?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=goqEkJ) |
 | Screenshot | ![Screenshot Jenifer](../assets/img/chapter-v/validation/interview-jenifer.png) |
 | Resumen | La entrevistada es Jenifer Natali López Huaman, una administradora de 23 años residente en Santiago de Surco, interesada en la compra de joyas de oro con garantía de autenticidad y origen ético. Respecto al Landing Page, señaló que la primera impresión fue confusa, ya que el mensaje inicial hace referencia a seguridad de vehículos y monitoreo inteligente, y recién al desplazarse encontró contenido relacionado con oro y joyas. Sin embargo, una vez ubicada la sección relevante, la información sobre trazabilidad le generó confianza, destacando positivamente la existencia de un plan gratuito que permite escanear joyas sin compromiso de pago. Sobre la verificación de autenticidad, indicó que los botones de Login y Sign Up son fáciles de encontrar, pero echó en falta un acceso directo para verificar una joya sin necesidad de registrarse. En cuanto a la aplicación, el proceso de escaneo QR le resultó sencillo e intuitivo, valorando la doble opción de ingreso manual y cámara. La información de trazabilidad mostrada tras la verificación le pareció clara y fácil de seguir visualmente, aunque no comprendió los códigos alfanuméricos técnicos asociados a cada etapa. Señaló como principal carencia la ausencia de un sello visible de "origen verificado" o "libre de conflicto" en el certificado, y sugirió incorporar una foto real de la joya junto a los datos de trazabilidad, así como la posibilidad de descargar el certificado en formato PDF. En la escala de recomendación, otorgó un 8 de 10, destacando la transparencia del escaneo como lo que más le gustó, y recomendando que la página de entrada comunique el tema de oro desde el inicio y que la certificación ética sea más explícita. |
 
-
-#### Segmento 2: Joyerías
-
-| Segmento: Joyerías | Entrevista #1 |
-| --- | --- |
-| Nombres y Apellidos | _(completar)_ |
-| Edad | _(completar)_ |
-| Distrito | _(completar)_ |
-| Ocupación | _(completar)_ |
-| Timming inicio | _(completar — mm:ss)_ |
-| Duración | _(completar)_ |
-| URL | _(completar)_ |
-| Screenshot | _(completar)_ |
-| Resumen | _(completar)_ |
 
 ### 5.3.3. Evaluaciones según heurísticas
 
@@ -1437,30 +1464,29 @@ Hacer que el ícono de notificaciones despliegue el listado de notificaciones (p
 
 ## 5.4. Video About-the-Product
 
-**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-product-sprint-4`
+**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-goldmetrics-about-the-product-sprint-4`
 
 El Video About-the-Product presenta la propuesta de valor de GoldCheck a visitantes del Landing Page y usuarios potenciales. El video sigue la siguiente secuencia de escenas:
 
-1. **Problema y contexto (0:00 – 0:40):** Narración en off sobre la falta de trazabilidad en la cadena minera peruana y los riesgos para mineras, joyerías y consumidores. Imágenes de operaciones mineras e intercambio comercial de oro.
-2. **Propuesta de solución (0:40 – 1:20):** Presentación de GoldCheck como plataforma de trazabilidad integral que conecta los tres segmentos. Animación del recorrido del mineral desde la extracción hasta el consumidor.
-3. **Demostración de funcionalidades (1:20 – 2:40):**
-   - Dashboard de monitoreo de flota y Analytics para empresas mineras.
-   - Panel de certificación y generación de QR para joyerías.
-   - Escaneo QR y consulta de origen ético para consumidores.
-4. **Testimonios de usuarios (2:40 – 3:20):**
-   - Testimonio de Ian Kimi San Martín (Ingeniero Metalúrgico — segmento minero): *"El mapa de monitoreo que compara la ruta planeada contra la real me parece muy útil. Antes hacíamos ese control en Excel."*
-   - Testimonio de Jenifer Natali López Huaman (Administradora — segmento consumidor): *"El escaneo QR es sencillo e intuitivo. Ver de dónde proviene la joya me da mucha más confianza al comprar."*
+1. **Problema y contexto (0:00 – 0:28):** Narración en off sobre la falta de trazabilidad en la cadena minera peruana y los riesgos para mineras, joyerías y consumidores. Imágenes de operaciones mineras e intercambio comercial de oro.
+2. **Propuesta de solución (0:28 – 0:50):** Presentación de GoldCheck como plataforma de trazabilidad integral que conecta los tres segmentos. Animación del recorrido del mineral desde la extracción hasta el consumidor.
+3. **Testimonios de usuarios y demostración de funcionalidades (0:50 – 2:10):**
+   - Testimonio de Anthony Paredes (Operador Metalúrgico — segmento minero): *"Ahora puedo demostrarle a mis clientes exactamente de donde viene cada gramo de oro que extraemos."*
+   - Testimonio de Carla Gallardo (Consumidora final — segmento consumidor): *"El escaneo QR es sencillo e intuitivo. Ver de dónde proviene la joya me da mucha más confianza al comprar."*
    - Testimonio de Yesiliany Canchica (Emprendedora de joyas — segmento joyería): *"Antes cuando un cliente me preguntaba sobre el origen del oro, no tenía cómo demostrarlo. Ahora con la aplicación solo se escanea el código QR y se ve todo. Se ve desde qué mina fue transportado, cómo fue transportado, si está libre de conflicto y esto me genera una diferencia con la competencia, por lo cual hace que los clientes tengan más confianza hacia mí."*
-5. **Cierre y CTA (3:20 – 3:40):** Pantalla con el logo de GoldMetrics/GoldCheck, branding de la startup y llamado a la acción para visitar el Landing Page.
+4. **Cierre y CTA (2:10 – 2:18):** Pantalla con el logo de GoldMetrics/GoldCheck, branding de la startup.
 
-El video incluye música de fondo instrumental, subtítulos en los testimonios, logo de GoldMetrics en el corner inferior y una edición con transiciones coherentes entre escenas.
+El video incluye música de fondo instrumental, lower thirds en los testimonios, logo de GoldMetrics en el corner inferior y una edición con transiciones coherentes entre escenas.
 
-**URL YouTube:** [Ver video](https://youtu.be/E39HEPqGKok)
+![Screenshot About-the-Product](../assets/img/chapter-v/about-the-product.png)
+
+**URL Microsoft Stream:** [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQC7W39zUETUQpKsEUmqKGmDAUENRXB72OOW9wBzNXXwqbA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=8FjQGw)
+**URL YouTube:** [Ver video](https://youtu.be/AaWmhLNmybM)
 
 
 ## 5.5. Video About-the-Team
 
-**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-GoldMetrics-about-the-team-sprint-4`
+**Nomenclatura del archivo:** `upc-pre-202610-1asi0730-12053-goldmetrics-about-the-team-sprint-4`
 
 El video About-the-Team resume el proceso de trabajo realizado por el equipo GoldMetrics durante el ciclo de vida del proyecto GoldCheck. El video se estructura en dos bloques: una narración en off que contextualiza el proceso de trabajo del equipo con escenas de las sesiones de trabajo reales (Discord, GitHub, Trello), y los testimonios individuales de cada integrante ante cámara describiendo sus actividades, logros y competencias desarrolladas.
 
@@ -1496,7 +1522,22 @@ URL del Frontend Web Application desplegado: https://goldcheck-goldmetrics.netli
 
 URL del Landing Page integrado con nuestro Frontend: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
 
-URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQB4rryG93n3TJmOjq45RPFXAXI5UyXcV4nDgKvH_Tpa_eU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=WZRYZE
+URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2: https
+URL del Backend / Web Services desplegado: https://goldcheck-platform-wa.azurewebsites.net
+
+URL de documentación Swagger del Backend / Web Services: https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
+
+**Credenciales de prueba:**
+
+| Segmento | Email | Username | Contraseña |
+|---|---|---|---|
+| Minero | minero@goldcheck.com | minero_test | 12345 |
+| Joyería | joyeria@goldcheck.com | joyeria_test | 12345 |
+| Consumidor | consumidor@goldcheck.com | consumidor_test | 12345 |
+
+**Videos:**
+
+URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2: _(completar)_
 
 URL upc-pre-202610-1asi0730-12053-GoldMetrics-needfinding-sprint-1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDu6FgeSAQyTIWq7Mi2D3PWAYw61dd-gFnSQCx1kfl35Zs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=OlpPYE
 
