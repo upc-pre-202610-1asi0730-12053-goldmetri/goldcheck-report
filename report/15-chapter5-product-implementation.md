@@ -897,6 +897,14 @@ Durante el Sprint 4 el equipo se enfocó en la integración del Frontend Web App
 | goldcheck-website | feature/add-product-team-videos | `6d75c9e` | feat: add responsive About the Team video section with i18n | Implementa la sección de video About-the-Team con diseño responsive e internacionalización en el Landing Page | 2026-07-02 |
 | goldcheck-website | feature/add-product-team-videos | `46fddb5` | feat: add About the Product video to the Videos section | Agrega el reproductor embebido del video About-the-Product en la sección de videos del Landing Page | 2026-07-02 |
 | goldcheck-website | fix/audit-adjustments | `cb597bd` | fix: collapse header actions into hamburger menu on mobile | Implementa el menú hamburguesa en el header del Landing Page para vistas móviles | 2026-07-03 |
+| goldcheck-website | fix/audit-adjustments | `a28f1dd` | feat: add success stories testimonials carousel (US04) | Implementa el carrusel de historias de éxito y testimonios de usuarios en el Landing Page | 2026-07-03 |
+| goldcheck-website | fix/audit-adjustments | `e486467` | chore: update mission, vision and jewelry images | Actualiza las imágenes de misión, visión y galería de joyería en el Landing Page | 2026-07-03 |
+| goldcheck-website | fix/audit-adjustments | `195a4d9` | feat: point auth CTAs to app register/login routes (US01) | Actualiza los CTAs de autenticación para apuntar a las rutas de registro e inicio de sesión de la Web App | 2026-07-03 |
+| goldcheck-website | fix/audit-adjustments | `ee7b068` | feat: add field-level validation to contact form (US03) | Implementa validación a nivel de campo en el formulario de contacto del Landing Page | 2026-07-03 |
+| goldcheck-website | feature/terms-and-conditions | `af97232` | feat: add terms & conditions and privacy policy to landing page footer | Agrega los enlaces de términos y condiciones y política de privacidad en el footer del Landing Page | 2026-07-07 |
+| goldcheck-website | feature/terms-and-conditions | `1481437` | feat: replace legal modals with dedicated terms and privacy pages | Reemplaza los modales de información legal con páginas dedicadas de términos y condiciones y política de privacidad | 2026-07-07 |
+| goldcheck-website | feat/update-plans | `4ec5cd7` | fix: update About the Product video link | Actualiza el enlace del video About-the-Product en la sección de videos del Landing Page | 2026-07-07 |
+| goldcheck-website | feat/update-plans | `502c28b` | fix: sync jewelry and mining pricing with the web app (USD) | Sincroniza los precios de suscripción para joyerías y mineras en el Landing Page con los valores en USD de la Web App | 2026-07-07 |
 
 #### 5.2.4.5. Execution Evidence for Sprint Review
 
