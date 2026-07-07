@@ -1,0 +1,50 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 50, 'curve': 'basis'}}}%%
+
+flowchart LR
+
+subgraph FLEET["BC: Fleet Operations"]
+direction LR
+
+  actor1{{Mining Operator}}:::external
+
+  actor1 --> cmd1([AssignVehicle\nvehicleId, operatorId]):::command
+  cmd1 --> agg1[Vehicle]:::aggregate
+  agg1 --> evt1>VehicleAssigned]:::event
+
+  actor1 --> cmd2([StartEngine]):::command
+  cmd2 --> agg1
+  agg1 --> evt2>EngineIgnitionOn]:::event
+
+  actor1 --> cmd3([StartHaulingCycle\nvehicleId, loadingPoint]):::command
+  cmd3 --> agg2[HaulingCycle]:::aggregate
+  agg2 --> evt3>HaulingCycleStarted]:::event
+
+  actor1 --> cmd4([LoadMaterial\npayloadTons]):::command
+  cmd4 --> agg2
+  agg2 --> evt4>MaterialLoaded]:::event
+
+  actor1 --> cmd5([UpdateRouteProgress\nrouteProgress]):::command
+  cmd5 --> agg2
+  agg2 --> evt6>ChargingPointReached]:::event
+
+  actor1 --> cmd6([CompleteHaulingCycle\ndumpingPoint]):::command
+  cmd6 --> agg2
+  agg2 --> evt5>HaulingCycleCompleted]:::event
+
+  evt1 --> rm1[(Vehicles Dashboard\nON/OFF)]:::readmodel
+  evt3 --> rm2[(Active Cycles\nDashboard)]:::readmodel
+  evt4 --> rm2
+  evt5 --> rm2
+
+  evt6 --> int1>ChargingPointReached\nIntegrationEvent]:::integration
+  int1 -.->|to Material\nOperations| extBC1{{Material Operations}}:::external
+
+end
+
+classDef command fill:#4a86e8,stroke:#2a5db0,color:#fff,rx:20,ry:20
+classDef aggregate fill:#ffe066,stroke:#d4a800,color:#333,rx:5,ry:5
+classDef event fill:#ff8a65,stroke:#e65100,color:#fff
+classDef policy fill:#ce93d8,stroke:#8e24aa,color:#fff
+classDef readmodel fill:#81c784,stroke:#388e3c,color:#fff
+classDef external fill:#f48fb1,stroke:#c2185b,color:#fff
+classDef integration fill:#ff7043,stroke:#d84315,color:#fff,stroke-dasharray:5 5

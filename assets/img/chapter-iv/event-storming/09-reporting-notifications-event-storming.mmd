@@ -1,0 +1,54 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 50, 'curve': 'basis'}}}%%
+
+flowchart LR
+
+subgraph REPORTING["BC: Reporting & Notifications"]
+direction LR
+
+  actor1{{Supervisor}}:::external
+  extBC1{{Incident Management}}:::external
+
+  extBC1 -.->|AccidentCommitted\nIntegrationEvent| cmd1
+
+  actor1 --> cmd1([RequestAccidentData\nsupervisorId, incidentId]):::command
+  cmd1 --> agg1[Report]:::aggregate
+  agg1 --> evt1>AccidentDataRequested]:::event
+
+  cmd1b([LoadAccidentData]):::command --> agg1
+  agg1 --> evt1b>AccidentDataLoaded]:::event
+
+  actor1 --> cmd2([GenerateReport]):::command
+  cmd2 --> agg1
+  agg1 --> evt2>ReportGenerated]:::event
+
+  actor1 --> cmd3([RequestReportExportation\nformat]):::command
+  cmd3 --> agg1
+  agg1 --> evt3>ReportExportationRequested]:::event
+
+  cmd3b([ExportReport]):::command --> agg1
+  agg1 --> evt3b>ReportExported]:::event
+
+  actor1 --> cmd4([DownloadReport\nuserId]):::command
+  cmd4 --> agg1
+  agg1 --> evt4>ReportDownloaded]:::event
+
+  actor1 --> cmd5([RequestNotification\nrecipientId, type, message]):::command
+  cmd5 --> agg2[Notification]:::aggregate
+  agg2 --> evt5>NotificationRequested]:::event
+
+  cmd5b([SendNotification]):::command --> agg2
+  agg2 --> evt5b>NotificationSent]:::event
+
+  evt2 --> rm1[(Reports Dashboard)]:::readmodel
+  evt3b --> rm1
+  evt5b --> rm2[(Alerts Inbox)]:::readmodel
+
+end
+
+classDef command fill:#4a86e8,stroke:#2a5db0,color:#fff,rx:20,ry:20
+classDef aggregate fill:#ffe066,stroke:#d4a800,color:#333,rx:5,ry:5
+classDef event fill:#ff8a65,stroke:#e65100,color:#fff
+classDef policy fill:#ce93d8,stroke:#8e24aa,color:#fff
+classDef readmodel fill:#81c784,stroke:#388e3c,color:#fff
+classDef external fill:#f48fb1,stroke:#c2185b,color:#fff
+classDef integration fill:#ff7043,stroke:#d84315,color:#fff,stroke-dasharray:5 5

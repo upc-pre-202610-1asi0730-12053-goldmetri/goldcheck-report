@@ -5,12 +5,12 @@
 
 ***Carrera de Ingeniería de Software***
 
-**1ASI030** <br>
+**1ASI0730** <br>
 **Aplicaciones Web**  
 NRC <br>
 **12053**  
 
-## **Informe de trabajo: AV2**
+## **Informe del Trabajo Final**
 Docente <br>
 #### **Bautista Ubillús, Efrain Ricardo**
 Equipo <br>
@@ -18,11 +18,11 @@ Equipo <br>
 Proyecto <br>
 #### **GoldCheck**
 
-***Relación de integrantes:***
+**Integrantes**
 
 <div style="text-align: center;">
   <table style="margin: 0 auto; display: inline-table;">
-    <tr><th>CÓDIGO</th><th>INTEGRANTES</th></tr>
+    <tr><th>Código</th><th>Apellidos y Nombres</th></tr>
     <tr><td>U202410084</td><td>Armestar Felipa, Adrian Andres</td></tr>
     <tr><td>U202012001</td><td>García Paredes, Victor Manuel</td></tr>
     <tr><td>U20241B962</td><td>Navarro Aldoradin, Carolina Celeste</td></tr>
@@ -31,7 +31,9 @@ Proyecto <br>
   </table>
 </div>
 
-<strong>Junio, 2026</strong>
+**Período 202610**
+
+<strong>Julio, 2026</strong>
 
 </div>
 
@@ -56,10 +58,11 @@ Proyecto <br>
 | 1.6.0 | 13/05/2026 | Navarro Aldoradin, Carolina Celeste                                                                                                                               | TB1 — Despliegue de la primera versión de Frontend Web Applications. Documentación del Sprint 2: Sprint Planning 2 (5.2.2.1), Aspect Leaders and Collaborators (5.2.2.2), Sprint Backlog 2 (5.2.2.3), Development Evidence (5.2.2.4), Execution Evidence (5.2.2.5), Services Documentation Evidence (5.2.2.6), Software Deployment Evidence (5.2.2.7) y Team Collaboration Insights (5.2.2.8). *(feature/cap-iv-web-applications-ux-ui-design · develop)*                                                                                          |
 | 2.0.0 | 13/05/2026 | Armestar Felipa, Adrian Andres<br>García Paredes, Victor Manuel<br>Navarro Aldoradin, Carolina Celeste<br>Philco Mota, Katty Yolanda<br>Tuesta Girón, Kiara Lucia | TB1 — Consolidación y entrega del TB1. Integración de Sprint 2 completo, Frontend Web Applications desplegado, correcciones de artefactos del AV1 y versión final de todos los capítulos. Actualización del Student Outcome, Project Report Collaboration Insights y Registro de Versiones. Versión exportada a PDF para entrega formal. *(develop → pre-main · release)*                                                                                                                                                                          |
 | 2.1.0 | 20/06/2026 | García Paredes, Victor Manuel                                                                                                                                     | AV2 — Implementación de la primera versión de Web Services (ASP.NET Core/C#). Documentación del Sprint 3 completo (5.2.3.1–5.2.3.8). Inserción de Validation Interviews: diseño de entrevistas por segmento (5.3.1), registro de entrevistas (5.3.2) y evaluación heurística cruzada por NutriSense con 17 hallazgos (5.3.3). Stubs de Video About-the-Product (5.4) y Video About-the-Team (5.5). Conclusiones AV2. Resolución de conflictos de merge en Capítulo V. *(feature/sprint3-victor · develop)*                                         |
-| 2.1.0 | 20/06/2026 | Tuesta Girón, Kiara Tuesta                                                                                                                                        | AV2 — Implementación de la primera versión de Web Services (ASP.NET Core/C#). Inserción de Validation Interviews: diseño de entrevistas por segmento (5.3.1), registro de entrevistas (5.3.2) y evaluación heurística cruzada por NutriSense con 17 hallazgos (5.3.3). Stubs de Video About-the-Product (5.4) y Video About-the-Team (5.5). Resolución de conflictos de merge en Capítulo V. Backend IncidentManagement y SubscriptionsandBilling                                                                                                  |
-| 2.1.0 | 20/06/2026 | Philco Mota, Katty Yolanda                                                                                                                                        | AV2 — Implementación de la primera versión de Web Services (ASP.NET Core/C#). Inserción de Validation Interviews: diseño de entrevistas por segmento (5.3.1), registro de entrevistas (5.3.2). Stubs de Video About-the-Product (5.4) y Video About-the-Team (5.5). Backend 2 bounded context. Integración con el Frontend                                                                                                                                                                                                                         |
-| 2.1.0 | 20/06/2026 | Navarro Aldoradin, Carolina Celeste                                                                                                                               | AV2 — Implementación de 2 bounded context. Video About-the-Team (5.5). 1 entrevista.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| 2.1.0 | 20/06/2026 | Armestar Felipe, Adrian Andres                                                                                                                                    | AV2 — Implementación de 2 bounded context. Video About-the-Team (5.5).                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 2.2.0 | 20/06/2026 | Tuesta Girón, Kiara Lucia                                                                                                                                         | AV2 — Implementación de la primera versión de Web Services (ASP.NET Core/C#). Inserción de Validation Interviews: diseño de entrevistas por segmento (5.3.1), registro de entrevistas (5.3.2) y evaluación heurística cruzada por NutriSense con 17 hallazgos (5.3.3). Stubs de Video About-the-Product (5.4) y Video About-the-Team (5.5). Resolución de conflictos de merge en Capítulo V. Backend IncidentManagement y SubscriptionsandBilling                                                                                                  |
+| 2.3.0 | 20/06/2026 | Philco Mota, Katty Yolanda                                                                                                                                        | AV2 — Implementación de la primera versión de Web Services (ASP.NET Core/C#). Inserción de Validation Interviews: diseño de entrevistas por segmento (5.3.1), registro de entrevistas (5.3.2). Stubs de Video About-the-Product (5.4) y Video About-the-Team (5.5). Backend 2 bounded context. Integración con el Frontend                                                                                                                                                                                                                         |
+| 2.4.0 | 20/06/2026 | Navarro Aldoradin, Carolina Celeste                                                                                                                               | AV2 — Implementación de 2 bounded context. Video About-the-Team (5.5). 1 entrevista.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| 2.5.0 | 20/06/2026 | Armestar Felipa, Adrian Andres                                                                                                                                    | AV2 — Implementación de 2 bounded context. Video About-the-Team (5.5).                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 3.0.0 | _(completar)_ | Armestar Felipa, Adrian Andres<br>García Paredes, Victor Manuel<br>Navarro Aldoradin, Carolina Celeste<br>Philco Mota, Katty Yolanda<br>Tuesta Girón, Kiara Lucia | TB2 — Sprint 4 completo: integración del Frontend Web Application con el Backend real (reemplazo de MockAPI), implementación de mejoras de usabilidad identificadas en la evaluación heurística del AV2, correcciones de responsive design en Landing Page y Web App. Entrevistas de validación adicionales con los tres segmentos. Video About-the-Product mejorado con testimonios de usuarios. Student Outcome TB2, Collaboration Insights TB2 y conclusiones del trabajo final.|
 
 
 <div style="page-break-after: always"></div>
@@ -135,6 +138,23 @@ A continuación se presentan las evidencias de colaboración por repositorio:
 
 ![Team Collaboration AV2 — Platform](assets/img/chapter-v/collaboration-platform-av2.png)
 
+---
+
+### TB2
+
+Durante el TB2, el equipo se enfocó en la integración del Frontend Web Application con el Backend real (Azure App Service), reemplazando la capa MockAPI, y en la implementación de las mejoras de usabilidad identificadas en la evaluación heurística del AV2. Los repositorios principales de esta entrega fueron `goldcheck-webapp` (integración frontend-backend y correcciones UX) y `goldcheck-website` (videos embebidos y responsive). Adicionalmente, se completó el ciclo de entrevistas de validación con los tres segmentos objetivo. La colaboración se gestionó mediante GitFlow con ramas `feature/` y Pull Requests a `develop`, con coordinación diaria por Discord.
+
+Los repositorios involucrados en esta entrega son:
+
+- **Report:** https://github.com/upc-pre-202610-1asi0730-12053-goldmetri/goldcheck-report
+- **Web App:** https://github.com/upc-pre-202610-1asi0730-12053-goldmetri/goldcheck-webapp
+- **Website:** https://github.com/upc-pre-202610-1asi0730-12053-goldmetri/goldcheck-website
+- **Platform:** https://github.com/upc-pre-202610-1asi0730-12053-goldmetri/goldcheck-platform
+
+A continuación se presentan las evidencias de colaboración por repositorio:
+
+_(completar con capturas de colaboración del repositorio goldcheck-report y goldcheck-webapp para TB2)_
+
 <div style="page-break-after: always"></div>
 
 
@@ -152,7 +172,7 @@ A continuación se presentan las evidencias de colaboración por repositorio:
   - [1.1.1. Descripción del Startup](report/11-chapter1-introduction.md#111-descripción-del-startup)
   - [1.1.2. Perfiles de integrantes del equipo](report/11-chapter1-introduction.md#112-perfiles-de-integrantes-del-equipo)
 
-- [1.2. Solution Profile](report/11-chapter1-introduction.md#11-solution-profile)
+- [1.2. Solution Profile](report/11-chapter1-introduction.md#12-solution-profile)
   - [1.2.1. Antecedentes y problemática](report/11-chapter1-introduction.md#121-antecedentes-y-problemática)
   - [1.2.2. Lean UX Process](report/11-chapter1-introduction.md#122-lean-ux-process)
     - [1.2.2.1. Lean UX Problem Statements](report/11-chapter1-introduction.md#1221-lean-ux-problem-statements)
@@ -271,6 +291,16 @@ A continuación se presentan las evidencias de colaboración por repositorio:
     - [5.2.3.6. Services Documentation Evidence for Sprint Review](report/15-chapter5-product-implementation.md#5236-services-documentation-evidence-for-sprint-review)
     - [5.2.3.7. Software Deployment Evidence for Sprint Review](report/15-chapter5-product-implementation.md#5237-software-deployment-evidence-for-sprint-review)
     - [5.2.3.8. Team Collaboration Insights during Sprint](report/15-chapter5-product-implementation.md#5238-team-collaboration-insights-during-sprint)
+
+  - [5.2.4. Sprint 4](report/15-chapter5-product-implementation.md#524-sprint-4)
+    - [5.2.4.1. Sprint Planning 4](report/15-chapter5-product-implementation.md#5241-sprint-planning-4)
+    - [5.2.4.2. Aspect Leaders and Collaborators](report/15-chapter5-product-implementation.md#5242-aspect-leaders-and-collaborators)
+    - [5.2.4.3. Sprint Backlog 4](report/15-chapter5-product-implementation.md#5243-sprint-backlog-4)
+    - [5.2.4.4. Development Evidence for Sprint Review](report/15-chapter5-product-implementation.md#5244-development-evidence-for-sprint-review)
+    - [5.2.4.5. Execution Evidence for Sprint Review](report/15-chapter5-product-implementation.md#5245-execution-evidence-for-sprint-review)
+    - [5.2.4.6. Services Documentation Evidence for Sprint Review](report/15-chapter5-product-implementation.md#5246-services-documentation-evidence-for-sprint-review)
+    - [5.2.4.7. Software Deployment Evidence for Sprint Review](report/15-chapter5-product-implementation.md#5247-software-deployment-evidence-for-sprint-review)
+    - [5.2.4.8. Team Collaboration Insights during Sprint](report/15-chapter5-product-implementation.md#5248-team-collaboration-insights-during-sprint)
 
 - [5.3. Validation Interviews](report/15-chapter5-product-implementation.md#53-validation-interviews)
   - [5.3.1. Diseño de Entrevistas](report/15-chapter5-product-implementation.md#531-diseño-de-entrevistas-de-validación)

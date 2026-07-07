@@ -673,11 +673,117 @@ A continuación, se muestra la matriz de interdependencias entre los módulos:
 | **Monitoring & Telemetry:** Telemetry data proccessed | **Incident Management:** Commit accident | Guarda la información del accidente recibido gracias a la telemetría. |
 | **Incident Management:** Accident commited | **Reporting & Notifications:** Request accident data | Pide la información del accidente para generar un reporte sobre este. |
 
-**EventStorming**
+**Leyenda de colores:**
 
-![EventStorming](../assets/img/chapter-iv/event-storming-goldmetrics.jpg)
+| Color | Elemento |
+| :--- | :--- |
+| 🔵 Azul | Comandos (Commands) |
+| 🟠 Naranja | Eventos de Dominio (Domain Events) |
+| 🟡 Amarillo | Agregados (Aggregates) |
+| 🟢 Verde | Read Models / Vistas |
+| 🟣 Púrpura | Políticas (Policies) |
+| 🩷 Rosa | Actores / Sistemas externos |
+| 🟧 Naranja punteado | Eventos de Integración (Integration Events) |
 
-Para visualizar el Event Storming de mejor manera recomendamos ingresar al siguiente link:
+---
+
+#### Diagrama General — Event Storming Design Level
+
+El siguiente diagrama presenta una vista panorámica de los once Bounded Contexts del sistema GoldCheck, mostrando los comandos principales, agregados y eventos de dominio de cada contexto, así como los flujos de integración entre ellos. Las flechas punteadas representan los eventos de integración que cruzan las fronteras de los Bounded Contexts, reflejando las interdependencias documentadas en la matriz anterior.
+
+![Event Storming General](../assets/img/chapter-iv/event-storming/00-general-event-storming.png)
+
+---
+
+#### BC1 — IAM (Identity & Access Management)
+
+Este Bounded Context gestiona el ciclo de vida del usuario: registro, autenticación y actualización de perfil. El agregado **User** recibe los comandos `RegisterUser`, `AuthenticateUser` y `UpdateProfile`, emitiendo los eventos `UserRegistered`, `UserLoggedIn` y `ProfileUpdated` respectivamente. El evento `UserRegistered` se propaga como evento de integración para que otros contextos puedan reaccionar al alta de nuevos usuarios.
+
+![Event Storming IAM](../assets/img/chapter-iv/event-storming/01-iam-event-storming.png)
+
+---
+
+#### BC2 — Fleet Operations
+
+Fleet Operations cubre la asignación de vehículos y la gestión completa del ciclo de acarreo minero. Los agregados **Vehicle** y **HaulingCycle** procesan comandos como `AssignVehicle`, `StartEngine`, `StartHaulingCycle`, `LoadMaterial`, `UpdateRouteProgress` y `CompleteHaulingCycle`. Cuando el vehículo alcanza un punto de descarga, se emite el evento `ChargingPointReached`, que se integra con **Material Operations** para iniciar la recepción del material.
+
+![Event Storming Fleet Operations](../assets/img/chapter-iv/event-storming/02-fleet-operations-event-storming.png)
+
+---
+
+#### BC3 — Material Operations
+
+Material Operations gestiona la recepción, clasificación y seguimiento de materiales en planta. El agregado **Material** procesa los comandos `IdentifyMineralType`, `ClassifyMaterial`, `DownloadMaterial` y `TrackMaterialMovement`. Recibe el evento de integración `ChargingPointReached` desde Fleet Operations y, al completar la descarga, emite `MaterialDownloaded` como evento de integración hacia **Jewelry Inventory & Certification**.
+
+![Event Storming Material Operations](../assets/img/chapter-iv/event-storming/03-material-operations-event-storming.png)
+
+---
+
+#### BC4 — Jewelry Inventory & Certification
+
+Este contexto permite al joyero registrar materiales no certificados, escanear códigos QR, generar y firmar certificados digitales. Los agregados **JewelryMaterial** y **Jewelry** procesan comandos como `RegisterNonCertifiedMaterial`, `ScanQRMaterial`, `GenerateCertificate` y `SignCertificate`. El evento `CertificateSaved` se integra con **Consumer Traceability** para que el consumidor final pueda verificar la autenticidad de la pieza.
+
+![Event Storming Jewelry Inventory](../assets/img/chapter-iv/event-storming/04-jewelry-inventory-event-storming.png)
+
+---
+
+#### BC5 — Consumer Traceability
+
+Consumer Traceability permite al consumidor final escanear el QR de una joya, descargar su certificado y consultar el recorrido completo de trazabilidad desde la mina hasta el punto de venta. Los agregados **JewelryProduct** y **TraceabilityJourney** procesan los comandos `ScanProductQR`, `DownloadCertificate` y `RequestJourney`. Incluye una política de localización de contenido (`ContentLocalization Policy`). El evento `TraceabilityDataRequested` se integra con **Analytics** para alimentar la vista de progreso de ruta.
+
+![Event Storming Consumer Traceability](../assets/img/chapter-iv/event-storming/05-consumer-traceability-event-storming.png)
+
+---
+
+#### BC6 — Monitoring & Telemetry
+
+Es el Bounded Context más extenso en cuanto a agregados. Gestiona la telemetría en tiempo real de los activos mineros a través de seis agregados especializados: **TelemetryData**, **SpeedReading**, **TemperatureReading**, **PressureReading**, **GNSSStatus** y **CommunicationChannel**. Cada uno procesa comandos de monitoreo, análisis y detección de anomalías (velocidad excesiva, anomalías de temperatura, presión y GNSS). El evento `TelemetryDataProcessed` se integra con **Incident Management** para registrar accidentes detectados por sensores. A su vez, recibe el evento `SmokeAlertCommitted` desde Incident Management para monitorear temperaturas de escape.
+
+![Event Storming Monitoring & Telemetry](../assets/img/chapter-iv/event-storming/06-monitoring-telemetry-event-storming.png)
+
+---
+
+#### BC7 — Analytics
+
+Analytics agrega y visualiza métricas de producción y progreso de ruta. El agregado **Material** (en el contexto de Analytics) procesa los comandos `ViewProductionDashboard`, `RequestProductionData`, `LoadProductionData` y `ViewRouteProgress`. Recibe el evento de integración `TraceabilityDataRequested` desde Consumer Traceability para alimentar la vista de progreso de ruta con datos analíticos.
+
+![Event Storming Analytics](../assets/img/chapter-iv/event-storming/07-analytics-event-storming.png)
+
+---
+
+#### BC8 — Incident Management
+
+Incident Management gestiona la detección, registro y escalamiento de incidentes de seguridad operacional. El agregado **SafetyRecord** procesa comandos como `DetectDriverFatigue`, `DetectSmoke`, `CommitAccident`, `EscalateRiskLevel`, `EvaluateSafetyRisk` y `SendRiskLevelAlert`. Emite dos eventos de integración: `SmokeAlertCommitted` hacia **Monitoring & Telemetry** para activar el monitoreo de temperatura de escape, y `AccidentCommitted` hacia **Reporting & Notifications** para solicitar la generación de reportes de accidentes.
+
+![Event Storming Incident Management](../assets/img/chapter-iv/event-storming/08-incident-management-event-storming.png)
+
+---
+
+#### BC9 — Reporting & Notifications
+
+Reporting & Notifications se encarga de la generación, exportación y descarga de reportes de accidentes, así como del envío de notificaciones a usuarios. Los agregados **Report** y **Notification** procesan comandos como `RequestAccidentData`, `GenerateReport`, `ExportReport`, `DownloadReport`, `RequestNotification` y `SendNotification`. Recibe el evento de integración `AccidentCommitted` desde Incident Management para iniciar el flujo de generación de reportes.
+
+![Event Storming Reporting & Notifications](../assets/img/chapter-iv/event-storming/09-reporting-notifications-event-storming.png)
+
+---
+
+#### BC10 — Asset Maintenance
+
+Asset Maintenance gestiona el ciclo de vida de la maquinaria minera: registro, actualización de horas motor, programación de mantenimiento preventivo y baja de equipos o componentes. El agregado **Machinery** procesa los comandos `RegisterMachinery`, `UpdateMachineryData`, `SchedulePreventiveMaintenance`, `DischargeMachinery` y `DischargeComponent`. Incluye una política de umbral de mantenimiento (`Maintenance Threshold Policy`) que activa automáticamente la programación de mantenimiento preventivo cuando las horas de motor alcanzan el valor configurado.
+
+![Event Storming Asset Maintenance](../assets/img/chapter-iv/event-storming/10-asset-maintenance-event-storming.png)
+
+---
+
+#### BC11 — Subscriptions & Billing
+
+Subscriptions & Billing gestiona la selección de planes, confirmación de suscripciones, asignación y restricción de funcionalidades, solicitudes de downgrade, verificación de acceso a features y generación de facturas. El agregado **UserSubscription** (con la entidad anidada **Invoice**) procesa comandos como `SelectPlan`, `ConfirmSubscription`, `AssignFeatures`, `RequestDowngrade`, `CheckFeatureAccess`, `GenerateInvoice` y `ViewPaymentHistory`. Incluye una política de decisión de acceso (`Access Decision Policy`) que evalúa si el plan del usuario permite el acceso a una funcionalidad específica. Se integra con un sistema externo de **Payment Gateway** para la aprobación de pagos.
+
+![Event Storming Subscriptions & Billing](../assets/img/chapter-iv/event-storming/11-subscriptions-billing-event-storming.png)
+
+---
+
+Para visualizar el Event Storming original de mejor manera recomendamos ingresar al siguiente link:
 [Visualizar EventStorming en Miro](https://miro.com/app/board/uXjVJeWDqwE=/?share_link_id=757586972674)
 
 ### 4.6.2. Software Architecture Context Diagram
