@@ -908,9 +908,72 @@ URL del Landing Page: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/
 
 #### 5.2.4.6. Services Documentation Evidence for Sprint Review
 
-Durante el Sprint 4 no se implementaron nuevos endpoints en el Backend. El alcance del Sprint 4 fue la integración del Frontend con los Web Services ya documentados en el Sprint 3. La documentación completa de los endpoints sigue disponible en:
+Durante el Sprint 4 se extendió el Backend con nuevos endpoints que completan los bounded contexts de Jewelry Inventory, Consumer Traceability, Analytics y Subscriptions & Billing, y se añadieron endpoints de recuperación de contraseña en IAM y de gestión avanzada de ruta en Fleet Operations. La documentación interactiva actualizada está disponible en:
 
 **URL Swagger:** https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
+
+**Identity & Access Management — nuevos endpoints Sprint 4**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/authentication/forgot-password` | POST | Solicitar token de restablecimiento de contraseña |
+| `/api/v1/authentication/reset-password` | POST | Restablecer contraseña con token de recuperación |
+
+**Fleet Operations — nuevos endpoints Sprint 4**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/hauling-cycles/{cycleId}/assign-driver` | PUT | Asignar conductor a un ciclo de acarreo |
+| `/api/v1/hauling-cycles/{cycleId}/start-route` | PUT | Iniciar ruta con guardia de pesaje previo |
+| `/api/v1/hauling-cycles/{cycleId}/confirm-arrival` | PUT | Confirmar llegada del volquete con geocerca |
+
+**Jewelry Inventory & Certification — nuevos endpoints Sprint 4**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/jewelry-materials` | POST | Registrar material de joyería |
+| `/api/v1/jewelry-materials/client-gold` | POST | Registrar oro de cliente sin origen minero |
+| `/api/v1/jewelry-materials/{materialId}/split` | POST | Dividir lote de material en sublotes |
+| `/api/v1/jewelry-materials/{materialId}/generate-qr` | POST | Generar código QR condicionado a pureza verificada |
+| `/api/v1/jewelry-materials/{materialId}/purity-test` | PUT | Registrar prueba de pureza del material |
+| `/api/v1/jewelry-materials/{materialId}/refinement` | PUT | Registrar proceso de refinamiento |
+| `/api/v1/jewelry-materials/{materialId}/details` | PUT | Asignar detalles a material de joyería |
+| `/api/v1/jewelry-materials/{materialId}/mark-sold` | PUT | Marcar material como vendido con protección anti doble venta |
+| `/api/v1/jewelry-materials/{materialId}/origin` | PUT | Cambiar origen del material |
+| `/api/v1/jewelry-materials/{materialId}/scan` | PUT | Escanear QR del material |
+| `/api/v1/jewelry-materials` | GET | Obtener todos los materiales (filtrable por joyero) |
+| `/api/v1/jewelry-materials/{materialId}` | GET | Obtener material por ID |
+| `/api/v1/jewelry-materials/{materialId}/refinement-report` | GET | Obtener reporte de refinamiento del material |
+
+**Consumer Traceability — nuevos endpoints Sprint 4**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/consumer/scan` | POST | Escanear QR de producto para identificarlo |
+| `/api/v1/consumer/reports` | POST | Reportar irregularidad en QR (con rate limiting por dispositivo) |
+| `/api/v1/consumer/certificates/{certificateId}/download` | POST | Descargar certificado de joya |
+| `/api/v1/consumer/products/{qrCode}` | GET | Obtener datos del producto por código QR |
+| `/api/v1/consumer/products/{qrCode}/journey` | GET | Obtener recorrido de trazabilidad del producto |
+| `/api/v1/consumer/products/{qrCode}/traceability-sheet` | GET | Obtener ficha de vida completa con origen, pureza y socio autorizado |
+| `/api/v1/consumer/certificates/{certificateId}` | GET | Obtener certificado del consumidor por ID |
+
+**Analytics — nuevos endpoints Sprint 4**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/analytics/mining/shrinkage` | GET | Obtener merma global minera por año y mes |
+| `/api/v1/analytics/jewelry/validated-volume` | GET | Obtener volumen validado de joyería por joyero y proveedor |
+| `/api/v1/analytics/mining/batch-history/export` | GET | Exportar historial de lotes en CSV |
+
+**Subscriptions & Billing — nuevos endpoints Sprint 4**
+
+| Endpoint | Método HTTP | Acción |
+| :--- | :---: | :--- |
+| `/api/v1/subscriptions/checkout` | POST | Iniciar sesión de pago con Stripe Checkout |
+| `/api/v1/subscriptions/webhook` | POST | Webhook de confirmación de pago desde Stripe |
+| `/api/v1/subscriptions/plan-checks` | POST | Verificar plan activo del usuario |
+| `/api/v1/subscriptions/{userId}/feature-access` | POST | Verificar acceso a una feature según plan |
+| `/api/v1/subscriptions/plans/{planType}/features` | GET | Obtener features disponibles por tipo de plan |
 
 #### 5.2.4.7. Software Deployment Evidence for Sprint Review
 
