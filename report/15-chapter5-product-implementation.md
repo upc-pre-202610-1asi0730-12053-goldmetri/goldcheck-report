@@ -811,7 +811,7 @@ El Sprint 4 está dedicado a la integración completa del Frontend Web Applicati
 | Campo | Detalle |
 | :--- | :--- |
 | **Sprint #** | Sprint 4 |
-| **Date** | `_(completar)_` |
+| **Date** | 23/06/2026 |
 | **Time** | `8:00 pm` |
 | **Location** | Reunión virtual por Discord |
 | **Prepared By** | `Philco Mota, Katty` |
@@ -820,7 +820,7 @@ El Sprint 4 está dedicado a la integración completa del Frontend Web Applicati
 | **Sprint 3 Retrospective Summary** | El equipo identificó que el frontend aún está conectado a MockAPI en lugar de al backend real. Se acordó priorizar la integración frontend-backend en el Sprint 4, junto con las correcciones de usabilidad de mayor severidad (niveles 3 y 4). Se comprometieron a completar las entrevistas de validación con el segmento de joyerías. |
 | **Sprint 4 Goal** | Nuestro enfoque está en entregar a los usuarios de GoldCheck una plataforma operativa de extremo a extremo, donde puedan registrar y consultar sus operaciones con datos reales. Creemos que esto les permitirá validar el producto en condiciones reales de uso, evidenciando el valor de la solución desarrollada. Confirmaremos el logro cuando los usuarios de los tres segmentos hayan interactuado con la plataforma y cuando las principales barreras de usabilidad identificadas hayan sido corregidas. |
 | **Sprint 4 Velocity** | 35 Story Points |
-| **Sum of Story Points** | `_(completar)_` |
+| **Sum of Story Points** | 35 |
 
 #### 5.2.4.2. Aspect Leaders and Collaborators
 
@@ -865,17 +865,22 @@ Durante el Sprint 4 el equipo se enfocó en la integración del Frontend Web App
 
 | Repository | Branch | Commit ID | Commit Message | Commit Message Body | Committed on (Date) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| goldcheck-webapp | _(completar)_ | _(completar)_ | feat(iam): integrate sign-up and sign-in with real backend | Replace MockAPI authentication calls with real JWT endpoints from Azure backend | _(completar)_ |
-| goldcheck-webapp | _(completar)_ | _(completar)_ | feat(consumer): integrate consumer traceability with real api | Connect QR scan and product detail views to Azure backend consumer endpoints | _(completar)_ |
-| goldcheck-webapp | _(completar)_ | _(completar)_ | feat(fleet): integrate fleet operations with real backend | Connect hauling cycle and vehicle views to real API endpoints | _(completar)_ |
-| goldcheck-webapp | _(completar)_ | _(completar)_ | feat(iam): connect profile view to real user api | Integrate user profile GET and PUT with real backend endpoints | _(completar)_ |
-| goldcheck-webapp | _(completar)_ | _(completar)_ | feat(subscriptions): integrate billing with real backend | Connect subscription plan selection and confirmation to real Azure endpoints | _(completar)_ |
-| goldcheck-webapp | _(completar)_ | _(completar)_ | fix(landing): add responsive hamburger menu | Implement collapsible navigation menu for mobile breakpoint under 768px | _(completar)_ |
-| goldcheck-webapp | _(completar)_ | _(completar)_ | fix(webapp): add responsive sidebar | Convert fixed sidebar to collapsible hamburger menu for mobile viewports | _(completar)_ |
-| goldcheck-webapp | _(completar)_ | _(completar)_ | fix(register): add phone field numeric validation | Restrict phone input to numeric type with format mask and validation | _(completar)_ |
-| goldcheck-webapp | _(completar)_ | _(completar)_ | fix(onboarding): add plan selection step | Add explicit plan selection screen to registration flow before account access | _(completar)_ |
-| goldcheck-webapp | _(completar)_ | _(completar)_ | fix(incidents): correct incident persistence logic | Fix incident creation to properly save records and show success/error feedback | _(completar)_ |
-| goldcheck-website | _(completar)_ | _(completar)_ | feat(landing): embed about-the-product and about-the-team videos | Add YouTube embedded players for product and team videos in the landing page | _(completar)_ |
+| goldcheck-webapp | feature/connect-real-backend | `8d22da7` | feat: connect all bounded contexts to real backend API | Integra los principales bounded contexts del frontend con los endpoints reales del backend en Azure | 2026-06-21 |
+| goldcheck-webapp | feature/connect-real-backend | `997eb6c` | fix: correct production API base URL and use PascalCase in auth requests | Corrige la URL base de la API de producción y los nombres de campos en las peticiones de autenticación | 2026-06-21 |
+| goldcheck-webapp | feature/connect-real-backend | `6e6e7a0` | feat(iam): add reset-password view and connect to backend (US09) | Implementa la vista de restablecimiento de contraseña integrada con el endpoint IAM del backend | 2026-07-03 |
+| goldcheck-webapp | feature/connect-real-backend | `2c1fe38` | feat(fleet-operations): confirm-arrival flow (US20) and server-side reporterId scoping | Implementa el flujo de confirmación de llegada y acota las consultas por reporterId del usuario autenticado | 2026-07-03 |
+| goldcheck-webapp | develop | `f11e9f2` | fix(jewelry-inventory): scope materials by current jeweler (server-side) | Corrige el filtrado de materiales para mostrar únicamente los registros del joyero autenticado | 2026-07-03 |
+| goldcheck-webapp | develop | `1f308fa` | feat(jewelry-inventory): dedicated QR generation view with scannable image via qrcode lib (US26) | Implementa la vista dedicada de generación de código QR con imagen escaneable para certificados de joyería | 2026-07-03 |
+| goldcheck-webapp | develop | `fe07674` | feat(jewelry-inventory): certificate PDF export (US27) and sales mark-sold views (US28) | Implementa la exportación de certificados en PDF y la vista de marcación de venta en el inventario de joyería | 2026-07-03 |
+| goldcheck-webapp | feature/consolidate-user-story | `2abdfdd` | feat(consumer-traceability): report suspicious QR and share traceability link via clipboard/WhatsApp (US36, US37) | Implementa el reporte de QR sospechoso y el compartido de enlace de trazabilidad por WhatsApp y portapapeles | 2026-07-04 |
+| goldcheck-webapp | feature/consolidate-user-story | `47760d1` | feat(analytics): global shrinkage chart, validated-volume dashboard and CSV export (US38, US39, US40) | Implementa el dashboard de merma global con gráfico, volumen validado y exportación CSV para el segmento minero | 2026-07-04 |
+| goldcheck-webapp | develop | `d44e59d` | refactor(api): align analytics and subscriptions endpoint paths with RESTful noun resources | Actualiza las rutas de analytics y subscriptions para alinearlas con la convención RESTful del backend | 2026-07-04 |
+| goldcheck-webapp | develop | `fc4c8a8` | feat(subscriptions-billing): route paid onboarding and plans upgrade through Stripe Checkout with success/cancel handling | Integra el flujo de pago de onboarding y upgrade de plan con Stripe Checkout con manejo de éxito y cancelación | 2026-07-06 |
+| goldcheck-webapp | develop | `407885b` | fix(ui): responsive tables with horizontal scroll on mobile and fix misaligned jewelry action column | Corrige las tablas responsive añadiendo scroll horizontal en móvil y alinea la columna de acciones de joyería | 2026-07-06 |
+| goldcheck-webapp | develop | `26e5246` | feat(ui): add brand logo across app (sidebar, mobile bar, auth, favicon) and project docs (README, testing guide) | Agrega el logo de marca GoldMetrics en toda la aplicación y actualiza la documentación del repositorio | 2026-07-06 |
+| goldcheck-website | feature/add-product-team-videos | `6d75c9e` | feat: add responsive About the Team video section with i18n | Implementa la sección de video About-the-Team con diseño responsive e internacionalización en el Landing Page | 2026-07-02 |
+| goldcheck-website | feature/add-product-team-videos | `46fddb5` | feat: add About the Product video to the Videos section | Agrega el reproductor embebido del video About-the-Product en la sección de videos del Landing Page | 2026-07-02 |
+| goldcheck-website | fix/audit-adjustments | `cb597bd` | fix: collapse header actions into hamburger menu on mobile | Implementa el menú hamburguesa en el header del Landing Page para vistas móviles | 2026-07-03 |
 
 #### 5.2.4.5. Execution Evidence for Sprint Review
 
