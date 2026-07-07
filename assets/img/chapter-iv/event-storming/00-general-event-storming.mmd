@@ -1,0 +1,159 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '13px'}, 'flowchart': {'nodeSpacing': 18, 'rankSpacing': 40, 'curve': 'basis'}}}%%
+
+flowchart LR
+
+subgraph IAM["IAM"]
+direction LR
+  iam_cmd1([RegisterUser]):::command --> iam_agg1[User]:::aggregate
+  iam_agg1 --> iam_evt1>UserRegistered]:::event
+  iam_cmd2([AuthenticateUser]):::command --> iam_agg1
+  iam_agg1 --> iam_evt2>UserLoggedIn]:::event
+  iam_cmd3([UpdateProfile]):::command --> iam_agg1
+  iam_agg1 --> iam_evt3>ProfileUpdated]:::event
+end
+
+subgraph FLEET["Fleet Operations"]
+direction LR
+  fl_cmd1([AssignVehicle]):::command --> fl_agg1[Vehicle]:::aggregate
+  fl_agg1 --> fl_evt1>VehicleAssigned]:::event
+  fl_cmd2([StartEngine]):::command --> fl_agg1
+  fl_agg1 --> fl_evt2>EngineIgnitionOn]:::event
+  fl_cmd3([StartHaulingCycle]):::command --> fl_agg2[HaulingCycle]:::aggregate
+  fl_agg2 --> fl_evt3>HaulingCycleStarted]:::event
+  fl_cmd4([LoadMaterial]):::command --> fl_agg2
+  fl_agg2 --> fl_evt4>MaterialLoaded]:::event
+  fl_cmd5([CompleteHaulingCycle]):::command --> fl_agg2
+  fl_agg2 --> fl_evt5>HaulingCycleCompleted]:::event
+  fl_agg2 --> fl_evt6>ChargingPointReached]:::event
+end
+
+subgraph MATOPS["Material Operations"]
+direction LR
+  mo_cmd1([IdentifyMineralType]):::command --> mo_agg1[Material]:::aggregate
+  mo_agg1 --> mo_evt1>MaterialIdentified]:::event
+  mo_cmd2([ClassifyMaterial]):::command --> mo_agg1
+  mo_agg1 --> mo_evt2>MaterialClassified]:::event
+  mo_cmd3([DownloadMaterial]):::command --> mo_agg1
+  mo_agg1 --> mo_evt3>MaterialDownloaded]:::event
+  mo_cmd4([TrackMaterialMovement]):::command --> mo_agg1
+  mo_agg1 --> mo_evt4>MaterialMovementTracked]:::event
+end
+
+subgraph JEWELRY["Jewelry Inventory & Certification"]
+direction LR
+  jw_cmd1([RegisterNonCertifiedMaterial]):::command --> jw_agg1[JewelryMaterial]:::aggregate
+  jw_agg1 --> jw_evt1>NonCertifiedMaterialRegistered]:::event
+  jw_cmd2([ScanQRMaterial]):::command --> jw_agg1
+  jw_agg1 --> jw_evt2>MaterialDataScanned]:::event
+  jw_cmd3([GenerateCertificate]):::command --> jw_agg1
+  jw_agg1 --> jw_evt3>CertificateGenerated]:::event
+  jw_cmd4([SignCertificate]):::command --> jw_agg2[Jewelry]:::aggregate
+  jw_agg2 --> jw_evt4>CertificateSaved]:::event
+end
+
+subgraph CONSUMER["Consumer Traceability"]
+direction LR
+  ct_cmd1([ScanProductQR]):::command --> ct_agg1[JewelryProduct]:::aggregate
+  ct_agg1 --> ct_evt1>ProductQRScanned]:::event
+  ct_cmd2([DownloadCertificate]):::command --> ct_agg1
+  ct_agg1 --> ct_evt2>CertificateDownloaded]:::event
+  ct_cmd3([RequestJourney]):::command --> ct_agg2[TraceabilityJourney]:::aggregate
+  ct_agg2 --> ct_evt3>TraceabilityDataRequested]:::event
+end
+
+subgraph MONITORING["Monitoring & Telemetry"]
+direction LR
+  mn_cmd1([ProcessTelemetryData]):::command --> mn_agg1[TelemetryData]:::aggregate
+  mn_agg1 --> mn_evt1>TelemetryDataProcessed]:::event
+  mn_cmd2([MonitorSpeed]):::command --> mn_agg2[SpeedReading]:::aggregate
+  mn_agg2 --> mn_evt2>SpeedExcessDetected]:::event
+  mn_cmd3([MonitorTemperature]):::command --> mn_agg3[TemperatureReading]:::aggregate
+  mn_agg3 --> mn_evt3>TemperatureAnomalyDetected]:::event
+  mn_cmd4([MonitorPressure]):::command --> mn_agg4[PressureReading]:::aggregate
+  mn_agg4 --> mn_evt4>PressureAnomalyDetected]:::event
+  mn_cmd5([MonitorGNSS]):::command --> mn_agg5[GNSSStatus]:::aggregate
+  mn_agg5 --> mn_evt5>GNSSAnomalyDetected]:::event
+end
+
+subgraph ANALYTICS["Analytics"]
+direction LR
+  an_cmd1([ViewProductionDashboard]):::command --> an_agg1[Material]:::aggregate
+  an_agg1 --> an_evt1>ProductionDataValidated]:::event
+  an_cmd2([RequestProductionData]):::command --> an_agg1
+  an_agg1 --> an_evt2>ProductionDataRequested]:::event
+  an_cmd3([LoadProductionData]):::command --> an_agg1
+  an_agg1 --> an_evt3>ProductionDataLoaded]:::event
+  an_cmd4([ViewRouteProgress]):::command --> an_agg1
+  an_agg1 --> an_evt4>RouteDataLoaded]:::event
+end
+
+subgraph INCIDENT["Incident Management"]
+direction LR
+  im_cmd1([DetectDriverFatigue]):::command --> im_agg1[SafetyRecord]:::aggregate
+  im_agg1 --> im_evt1>FatigueEventTriggered]:::event
+  im_cmd2([DetectSmoke]):::command --> im_agg1
+  im_agg1 --> im_evt2>SmokeDetected]:::event
+  im_cmd3([CommitAccident]):::command --> im_agg1
+  im_agg1 --> im_evt3>AccidentCommitted]:::event
+  im_cmd4([EscalateRiskLevel]):::command --> im_agg1
+  im_agg1 --> im_evt4>RiskLevelEscalated]:::event
+  im_cmd5([SendRiskLevelAlert]):::command --> im_agg1
+  im_agg1 --> im_evt5>RiskLevelAlertCommitted]:::event
+end
+
+subgraph REPORTING["Reporting & Notifications"]
+direction LR
+  rp_cmd1([RequestAccidentData]):::command --> rp_agg1[Report]:::aggregate
+  rp_agg1 --> rp_evt1>AccidentDataRequested]:::event
+  rp_cmd2([GenerateReport]):::command --> rp_agg1
+  rp_agg1 --> rp_evt2>ReportGenerated]:::event
+  rp_cmd3([ExportReport]):::command --> rp_agg1
+  rp_agg1 --> rp_evt3>ReportExported]:::event
+  rp_cmd4([RequestNotification]):::command --> rp_agg2[Notification]:::aggregate
+  rp_agg2 --> rp_evt4>NotificationSent]:::event
+end
+
+subgraph ASSET["Asset Maintenance"]
+direction LR
+  am_cmd1([RegisterMachinery]):::command --> am_agg1[Machinery]:::aggregate
+  am_agg1 --> am_evt1>MachineryRegistered]:::event
+  am_cmd2([UpdateMachineryData]):::command --> am_agg1
+  am_agg1 --> am_evt2>MachineryDataUpdated]:::event
+  am_cmd3([SchedulePreventiveMaintenance]):::command --> am_agg1
+  am_agg1 --> am_evt3>PreventiveMaintenanceScheduled]:::event
+  am_cmd4([DischargeMachinery]):::command --> am_agg1
+  am_agg1 --> am_evt4>MachineryDischarged]:::event
+end
+
+subgraph SUBS["Subscriptions & Billing"]
+direction LR
+  sb_cmd1([SelectPlan]):::command --> sb_agg1[UserSubscription]:::aggregate
+  sb_agg1 --> sb_evt1>PlanSelected]:::event
+  sb_cmd2([ConfirmSubscription]):::command --> sb_agg1
+  sb_agg1 --> sb_evt2>SubscriptionConfirmed]:::event
+  sb_cmd3([RequestDowngrade]):::command --> sb_agg1
+  sb_agg1 --> sb_evt3>DowngradeRequested]:::event
+  sb_cmd4([GenerateInvoice]):::command --> sb_agg1
+  sb_agg1 --> sb_evt4>InvoiceGenerated]:::event
+  sb_cmd5([CheckFeatureAccess]):::command --> sb_agg1
+  sb_agg1 --> sb_evt5>FeatureAccessChecked]:::event
+end
+
+%% Cross-context flows
+fl_evt6 -.->|integration| mo_cmd3
+mo_evt3 -.->|integration| jw_cmd1
+jw_evt4 -.->|integration| ct_cmd2
+ct_evt3 -.->|integration| an_cmd4
+im_evt2 -.->|integration| mn_cmd3
+mn_evt1 -.->|integration| im_cmd3
+im_evt3 -.->|integration| rp_cmd1
+
+classDef command fill:#4a86e8,stroke:#2a5db0,color:#fff,rx:20,ry:20
+classDef aggregate fill:#ffe066,stroke:#d4a800,color:#333,rx:5,ry:5
+classDef event fill:#ff8a65,stroke:#e65100,color:#fff
+classDef policy fill:#ce93d8,stroke:#8e24aa,color:#fff
+classDef readmodel fill:#81c784,stroke:#388e3c,color:#fff
+classDef external fill:#f48fb1,stroke:#c2185b,color:#fff
+classDef integration fill:#ff7043,stroke:#d84315,color:#fff,stroke-dasharray:5 5
+
+linkStyle default stroke:#666,stroke-width:1.5px

@@ -1,0 +1,63 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 50, 'curve': 'basis'}}}%%
+
+flowchart LR
+
+subgraph SUBS["BC: Subscriptions & Billing"]
+direction LR
+
+  actor1{{User}}:::external
+  extSys1{{Payment Gateway}}:::external
+
+  actor1 --> cmd1([SelectPlan\nuserId, planType,\nbillingCycle]):::command
+  cmd1 --> agg1[UserSubscription]:::aggregate
+  agg1 --> evt1>PlanSelected]:::event
+
+  evt1 --> extSys1
+  extSys1 -->|approved| cmd2([ConfirmSubscription]):::command
+  cmd2 --> agg1
+  agg1 --> evt2>SubscriptionConfirmed]:::event
+
+  evt2 --> cmd2b([AssignFeatures\nfeatures]):::command
+  cmd2b --> agg1
+  agg1 --> evt2b>FeaturesAssigned]:::event
+
+  actor1 --> cmd3([RequestDowngrade\nnewPlanType]):::command
+  cmd3 --> agg1
+  agg1 --> evt3>DowngradeRequested]:::event
+
+  cmd3b([ExecuteDowngrade]):::command --> agg1
+  agg1 --> evt3b>DowngradeExecuted]:::event
+  evt3b --> cmd3c([RestrictFeatures]):::command
+  cmd3c --> agg1
+  agg1 --> evt3c>FeaturesRestricted]:::event
+
+  actor1 --> cmd4([CheckFeatureAccess\nfeatureName]):::command
+  cmd4 --> agg1
+  agg1 --> evt4>FeatureAccessChecked]:::event
+
+  pol1{Access Decision\nPolicy}:::policy
+  evt4 --> pol1
+  pol1 -->|granted| evt4b>AccessGranted]:::event
+  pol1 -->|denied| evt4c>AccessDenied]:::event
+
+  actor1 --> cmd5([GenerateInvoice\ninvoiceId]):::command
+  cmd5 --> agg1
+  agg1 --> evt5>InvoiceGenerated]:::event
+
+  actor1 --> cmd6([ViewPaymentHistory]):::command
+  cmd6 --> agg1
+  agg1 --> evt6>PaymentHistoryLoaded]:::event
+
+  evt2 --> rm1[(Subscription\nDashboard)]:::readmodel
+  evt5 --> rm2[(Invoice View)]:::readmodel
+  evt6 --> rm3[(Payment History)]:::readmodel
+
+end
+
+classDef command fill:#4a86e8,stroke:#2a5db0,color:#fff,rx:20,ry:20
+classDef aggregate fill:#ffe066,stroke:#d4a800,color:#333,rx:5,ry:5
+classDef event fill:#ff8a65,stroke:#e65100,color:#fff
+classDef policy fill:#ce93d8,stroke:#8e24aa,color:#fff
+classDef readmodel fill:#81c784,stroke:#388e3c,color:#fff
+classDef external fill:#f48fb1,stroke:#c2185b,color:#fff
+classDef integration fill:#ff7043,stroke:#d84315,color:#fff,stroke-dasharray:5 5

@@ -1,0 +1,46 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 50, 'curve': 'basis'}}}%%
+
+flowchart LR
+
+subgraph CONSUMER["BC: Consumer Traceability"]
+direction LR
+
+  actor1{{End Consumer}}:::external
+  extBC1{{Jewelry Inventory}}:::external
+
+  extBC1 -.->|CertificateSaved\nIntegrationEvent| cmd2
+
+  actor1 --> cmd1([ScanProductQR\nqrCode, consumerId]):::command
+  cmd1 --> agg1[JewelryProduct]:::aggregate
+  agg1 --> evt1>ProductQRScanned]:::event
+
+  actor1 --> cmd2([DownloadCertificate\ncertificateId, consumerId]):::command
+  cmd2 --> agg1
+  agg1 --> evt2>CertificateDownloaded]:::event
+  agg1 --> evt2b>CertificateViewed]:::event
+
+  actor1 --> cmd3([RequestJourney\nqrCode, consumerId]):::command
+  cmd3 --> agg2[TraceabilityJourney]:::aggregate
+  agg2 --> evt3>TraceabilityData\nRequested]:::event
+
+  actor1 --> cmd4([DetectLanguage]):::command
+  cmd4 --> pol1{ContentLocalization\nPolicy}:::policy
+  pol1 --> evt4>LanguageDetected]:::event
+  evt4 --> evt4b>ContentLocalized]:::event
+
+  evt1 --> rm1[(My Collection)]:::readmodel
+  evt2 --> rm2[(Certificate View)]:::readmodel
+  evt3 --> rm3[(Traceability\nJourney)]:::readmodel
+
+  evt3 --> int1>TraceabilityDataRequested\nIntegrationEvent]:::integration
+  int1 -.->|to Analytics| extBC2{{Analytics}}:::external
+
+end
+
+classDef command fill:#4a86e8,stroke:#2a5db0,color:#fff,rx:20,ry:20
+classDef aggregate fill:#ffe066,stroke:#d4a800,color:#333,rx:5,ry:5
+classDef event fill:#ff8a65,stroke:#e65100,color:#fff
+classDef policy fill:#ce93d8,stroke:#8e24aa,color:#fff
+classDef readmodel fill:#81c784,stroke:#388e3c,color:#fff
+classDef external fill:#f48fb1,stroke:#c2185b,color:#fff
+classDef integration fill:#ff7043,stroke:#d84315,color:#fff,stroke-dasharray:5 5

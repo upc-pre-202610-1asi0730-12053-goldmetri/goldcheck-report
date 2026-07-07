@@ -1,0 +1,36 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 50, 'curve': 'basis'}}}%%
+
+flowchart LR
+
+subgraph IAM["BC: Identity & Access Management"]
+direction LR
+
+  actor1{{Visitor}}:::external
+  actor2{{Authenticated User}}:::external
+
+  actor1 --> cmd1([RegisterUser\nusername, password,\nemail, role]):::command
+  cmd1 --> agg1[User]:::aggregate
+  agg1 --> evt1>UserRegistered]:::event
+  evt1 --> int1>UserRegistered\nIntegrationEvent]:::integration
+
+  actor1 --> cmd2([AuthenticateUser\nusername, password]):::command
+  cmd2 --> agg1
+  agg1 --> evt2>UserLoggedIn]:::event
+
+  actor2 --> cmd3([UpdateProfile\nusername, email]):::command
+  cmd3 --> agg1
+  agg1 --> evt3>ProfileUpdated]:::event
+
+  evt2 --> rm1[(User Dashboard)]:::readmodel
+  evt3 --> rm1
+  evt1 --> rm2[(User List)]:::readmodel
+
+end
+
+classDef command fill:#4a86e8,stroke:#2a5db0,color:#fff,rx:20,ry:20
+classDef aggregate fill:#ffe066,stroke:#d4a800,color:#333,rx:5,ry:5
+classDef event fill:#ff8a65,stroke:#e65100,color:#fff
+classDef policy fill:#ce93d8,stroke:#8e24aa,color:#fff
+classDef readmodel fill:#81c784,stroke:#388e3c,color:#fff
+classDef external fill:#f48fb1,stroke:#c2185b,color:#fff
+classDef integration fill:#ff7043,stroke:#d84315,color:#fff,stroke-dasharray:5 5

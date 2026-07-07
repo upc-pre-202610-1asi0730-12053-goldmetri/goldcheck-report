@@ -1,0 +1,67 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 50, 'curve': 'basis'}}}%%
+
+flowchart LR
+
+subgraph MONITORING["BC: Monitoring & Telemetry"]
+direction LR
+
+  actor1{{IoT Device / Sensor}}:::external
+  extBC1{{Incident Management}}:::external
+
+  extBC1 -.->|SmokeAlertCommitted\nIntegrationEvent| cmd3
+
+  actor1 --> cmd1([ProcessTelemetryData\nassetId, rawData]):::command
+  cmd1 --> agg1[TelemetryData]:::aggregate
+  agg1 --> evt1>TelemetryDataProcessed]:::event
+
+  cmd1b([ValidateTelemetryData]):::command --> agg1
+  agg1 --> evt1b>TelemetryDataValidated]:::event
+
+  actor1 --> cmd2([MonitorSpeed\nassetId]):::command
+  cmd2 --> agg2[SpeedReading]:::aggregate
+  agg2 --> evt2>SpeedStatusShown]:::event
+  cmd2b([DetectSpeedExcess]):::command --> agg2
+  agg2 --> evt2b>SpeedExcessDetected]:::event
+  cmd2c([LogSpeedExcess]):::command --> agg2
+  agg2 --> evt2c>SpeedViolationLogged]:::event
+
+  actor1 --> cmd3([MonitorTemperature\nassetId]):::command
+  cmd3 --> agg3[TemperatureReading]:::aggregate
+  agg3 --> evt3>ExhaustTemperatureShown]:::event
+  cmd3b([DetectTemperatureAnomaly]):::command --> agg3
+  agg3 --> evt3b>TemperatureAnomalyDetected]:::event
+
+  actor1 --> cmd4([MonitorPressure\nassetId]):::command
+  cmd4 --> agg4[PressureReading]:::aggregate
+  agg4 --> evt4>PressureAnalysed]:::event
+  cmd4b([DetectPressureAnomaly]):::command --> agg4
+  agg4 --> evt4b>PressureAnomalyDetected]:::event
+
+  actor1 --> cmd5([MonitorGNSS\nassetId]):::command
+  cmd5 --> agg5[GNSSStatus]:::aggregate
+  agg5 --> evt5>GNSSChipOff]:::event
+  cmd5b([RestartGNSS]):::command --> agg5
+  agg5 --> evt5b>GNSSChipRestarted]:::event
+
+  actor1 --> cmd6([MonitorCommunication\nassetId]):::command
+  cmd6 --> agg6[CommunicationChannel]:::aggregate
+  agg6 --> evt6>CommunicationAnalysed]:::event
+
+  evt1 --> rm1[(Real-time\nTelemetry Dashboard)]:::readmodel
+  evt2 --> rm1
+  evt3 --> rm1
+  evt4 --> rm1
+  evt5 --> rm1
+
+  evt1 --> int1>TelemetryDataProcessed\nIntegrationEvent]:::integration
+  int1 -.->|to Incident\nManagement| extBC2{{Incident Management}}:::external
+
+end
+
+classDef command fill:#4a86e8,stroke:#2a5db0,color:#fff,rx:20,ry:20
+classDef aggregate fill:#ffe066,stroke:#d4a800,color:#333,rx:5,ry:5
+classDef event fill:#ff8a65,stroke:#e65100,color:#fff
+classDef policy fill:#ce93d8,stroke:#8e24aa,color:#fff
+classDef readmodel fill:#81c784,stroke:#388e3c,color:#fff
+classDef external fill:#f48fb1,stroke:#c2185b,color:#fff
+classDef integration fill:#ff7043,stroke:#d84315,color:#fff,stroke-dasharray:5 5

@@ -1,0 +1,45 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 50, 'curve': 'basis'}}}%%
+
+flowchart LR
+
+subgraph MATOPS["BC: Material Operations"]
+direction LR
+
+  actor1{{Plant Operator}}:::external
+  extBC1{{Fleet Operations}}:::external
+
+  extBC1 -.->|ChargingPointReached\nIntegrationEvent| cmd3
+
+  actor1 --> cmd1([IdentifyMineralType\nbatchId, mineralType,\npayloadTons]):::command
+  cmd1 --> agg1[Material]:::aggregate
+  agg1 --> evt1>MaterialIdentified]:::event
+
+  actor1 --> cmd2([ClassifyMaterial\nclassification]):::command
+  cmd2 --> agg1
+  agg1 --> evt2>MaterialClassified]:::event
+
+  actor1 --> cmd3([DownloadMaterial\ndumpingPoint]):::command
+  cmd3 --> agg1
+  agg1 --> evt3>MaterialDownloaded]:::event
+
+  actor1 --> cmd4([TrackMaterialMovement\ncurrentLocation]):::command
+  cmd4 --> agg1
+  agg1 --> evt4>MaterialMovementTracked]:::event
+
+  evt1 --> rm1[(Material Reception\nDashboard)]:::readmodel
+  evt2 --> rm1
+  evt3 --> rm1
+  evt4 --> rm1
+
+  evt3 --> int1>MaterialDownloaded\nIntegrationEvent]:::integration
+  int1 -.->|to Jewelry\nInventory| extBC2{{Jewelry Inventory}}:::external
+
+end
+
+classDef command fill:#4a86e8,stroke:#2a5db0,color:#fff,rx:20,ry:20
+classDef aggregate fill:#ffe066,stroke:#d4a800,color:#333,rx:5,ry:5
+classDef event fill:#ff8a65,stroke:#e65100,color:#fff
+classDef policy fill:#ce93d8,stroke:#8e24aa,color:#fff
+classDef readmodel fill:#81c784,stroke:#388e3c,color:#fff
+classDef external fill:#f48fb1,stroke:#c2185b,color:#fff
+classDef integration fill:#ff7043,stroke:#d84315,color:#fff,stroke-dasharray:5 5

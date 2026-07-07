@@ -1,0 +1,60 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 50, 'curve': 'basis'}}}%%
+
+flowchart LR
+
+subgraph INCIDENT["BC: Incident Management"]
+direction LR
+
+  actor1{{Supervisor}}:::external
+  extBC1{{Monitoring & Telemetry}}:::external
+
+  extBC1 -.->|TelemetryDataProcessed\nIntegrationEvent| cmd3
+
+  actor1 --> cmd1([DetectDriverFatigue\noperatorId, assetId]):::command
+  cmd1 --> agg1[SafetyRecord]:::aggregate
+  agg1 --> evt1>FatigueEventTriggered]:::event
+
+  actor1 --> cmd2([DetectSmoke\nassetId]):::command
+  cmd2 --> agg1
+  agg1 --> evt2>SmokeDetected]:::event
+
+  evt2 --> cmd2b([TriggerSmokeAlert]):::command
+  cmd2b --> agg1
+  agg1 --> evt2b>SmokeAlertCommitted]:::event
+
+  actor1 --> cmd3([CommitAccident\noperatorId, description]):::command
+  cmd3 --> agg1
+  agg1 --> evt3>AccidentCommitted]:::event
+
+  actor1 --> cmd4([EscalateRiskLevel\nnewRiskLevel]):::command
+  cmd4 --> agg1
+  agg1 --> evt4>RiskLevelEscalated]:::event
+
+  actor1 --> cmd5([EvaluateSafetyRisk]):::command
+  cmd5 --> agg1
+  agg1 --> evt5>RiskLevelUpdated]:::event
+
+  actor1 --> cmd6([SendRiskLevelAlert]):::command
+  cmd6 --> agg1
+  agg1 --> evt6>RiskLevelAlertCommitted]:::event
+
+  evt1 --> rm1[(Incident Dashboard)]:::readmodel
+  evt2 --> rm1
+  evt3 --> rm1
+  evt4 --> rm1
+
+  evt2b --> int1>SmokeAlertCommitted\nIntegrationEvent]:::integration
+  int1 -.->|to Monitoring\n& Telemetry| extBC2{{Monitoring & Telemetry}}:::external
+
+  evt3 --> int2>AccidentCommitted\nIntegrationEvent]:::integration
+  int2 -.->|to Reporting\n& Notifications| extBC3{{Reporting & Notifications}}:::external
+
+end
+
+classDef command fill:#4a86e8,stroke:#2a5db0,color:#fff,rx:20,ry:20
+classDef aggregate fill:#ffe066,stroke:#d4a800,color:#333,rx:5,ry:5
+classDef event fill:#ff8a65,stroke:#e65100,color:#fff
+classDef policy fill:#ce93d8,stroke:#8e24aa,color:#fff
+classDef readmodel fill:#81c784,stroke:#388e3c,color:#fff
+classDef external fill:#f48fb1,stroke:#c2185b,color:#fff
+classDef integration fill:#ff7043,stroke:#d84315,color:#fff,stroke-dasharray:5 5

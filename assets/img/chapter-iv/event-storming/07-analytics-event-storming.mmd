@@ -1,0 +1,42 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 50, 'curve': 'basis'}}}%%
+
+flowchart LR
+
+subgraph ANALYTICS["BC: Analytics"]
+direction LR
+
+  actor1{{Supervisor}}:::external
+  extBC1{{Consumer Traceability}}:::external
+
+  extBC1 -.->|TraceabilityDataRequested\nIntegrationEvent| cmd4
+
+  actor1 --> cmd1([ViewProductionDashboard\nsupervisorId]):::command
+  cmd1 --> agg1[Material]:::aggregate
+  agg1 --> evt1>ProductionDataValidated]:::event
+
+  actor1 --> cmd2([RequestProductionData\nsupervisorId, start, end]):::command
+  cmd2 --> agg1
+  agg1 --> evt2>ProductionDataRequested]:::event
+
+  actor1 --> cmd3([LoadProductionData\nmaterialId, routeId]):::command
+  cmd3 --> agg1
+  agg1 --> evt3>ProductionDataLoaded]:::event
+
+  actor1 --> cmd4([ViewRouteProgress\nrouteId, userId]):::command
+  cmd4 --> agg1
+  agg1 --> evt4>RouteDataLoaded]:::event
+
+  evt1 --> rm1[(Production\nDashboard)]:::readmodel
+  evt2 --> rm2[(Production Data\nby Period)]:::readmodel
+  evt3 --> rm1
+  evt4 --> rm3[(Route Progress\nView)]:::readmodel
+
+end
+
+classDef command fill:#4a86e8,stroke:#2a5db0,color:#fff,rx:20,ry:20
+classDef aggregate fill:#ffe066,stroke:#d4a800,color:#333,rx:5,ry:5
+classDef event fill:#ff8a65,stroke:#e65100,color:#fff
+classDef policy fill:#ce93d8,stroke:#8e24aa,color:#fff
+classDef readmodel fill:#81c784,stroke:#388e3c,color:#fff
+classDef external fill:#f48fb1,stroke:#c2185b,color:#fff
+classDef integration fill:#ff7043,stroke:#d84315,color:#fff,stroke-dasharray:5 5
