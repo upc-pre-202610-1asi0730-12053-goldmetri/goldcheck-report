@@ -23,7 +23,6 @@ Proyecto <br>
 <div style="text-align: center;">
   <table style="margin: 0 auto; display: inline-table;">
     <tr><th>Código</th><th>Apellidos y Nombres</th></tr>
-    <tr><td>U202410084</td><td>Armestar Felipa, Adrian Andres</td></tr>
     <tr><td>U202012001</td><td>García Paredes, Victor Manuel</td></tr>
     <tr><td>U20241B962</td><td>Navarro Aldoradin, Carolina Celeste</td></tr>
     <tr><td>U202416107</td><td>Philco Mota, Katty Yolanda</td></tr>
