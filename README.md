@@ -157,7 +157,13 @@ Los repositorios involucrados en esta entrega son:
 
 A continuación se presentan las evidencias de colaboración por repositorio:
 
-_(completar con capturas de colaboración del repositorio goldcheck-report y goldcheck-webapp para TB2)_
+![Team Collaboration TB2 — Report](assets/img/chapter-v/collaboration-report-tb2.png)
+
+![Team Collaboration TB2 — Web App](assets/img/chapter-v/collaboration-webapp-tb2.png)
+
+![Team Collaboration TB2 — Website](assets/img/chapter-v/collaboration-website-tb2.png)
+
+![Team Collaboration TB2 — Platform](assets/img/chapter-v/collaboration-platform-tb2.png)
 
 <div style="page-break-after: always"></div>
 
