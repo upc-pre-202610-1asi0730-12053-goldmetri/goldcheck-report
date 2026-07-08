@@ -157,6 +157,10 @@ A continuación se presentan las evidencias de colaboración por repositorio:
 
 ![Team Collaboration TB2 — Web App](assets/img/chapter-v/collaboration-webapp-tb2.png)
 
+![Team Collaboration TB2 — Website](assets/img/chapter-v/collaboration-website-tb2.png)
+
+![Team Collaboration TB2 — Platform](assets/img/chapter-v/collaboration-platform-tb2.png)
+
 <div style="page-break-after: always"></div>
 
 
