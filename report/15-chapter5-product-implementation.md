@@ -1086,7 +1086,7 @@ Las sesiones de validación siguen el protocolo de **User Testing con Think Alou
 | Timming inicio | 13 minutos y 28 segundos |
 | Duración |  00:00:00 - 00:13:28 |
 | URL | [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQAbpDPVh8bmSYhLhDAmghHhASnCZ5goLkJEP_6k8s8ingM?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=goqEkJ)|
-| Screenshot | ![Screenshot _(nombre)_](../assets/img/chapter-v/entrevista_cristian.png) |
+| Screenshot | ![Screenshot Cristian Rimac](../assets/img/chapter-v/entrevista_cristian.png) |
 | Resumen |  Durante la entrevista, el participante Cristian Rimac inició sesión en la plataforma y realizó distintas tareas para validar el funcionamiento de CallCheck. Registró una maquinaria y un vehículo, aunque encontró un inconveniente con un ID duplicado que se resolvió creando uno nuevo. Luego completó el flujo de trabajo registrando datos en el dashboard, cambiando el tipo de mineral, asignando un conductor, calculando la merma, iniciando la ruta, revisando el monitoreo, confirmando la llegada a planta y exportando un reporte en formato CSV. En general, pudo completar las tareas sin mayores dificultades. Al finalizar, Cristian comentó que la plataforma le pareció intuitiva y práctica, destacando que el registro de información requiere pocos pasos y facilita el trabajo operativo. También señaló que las alertas son claras, el formulario para reportar incidentes contiene la información necesaria y los indicadores del dashboard son útiles para la toma de decisiones. Como sugerencia, mencionó que podría ser útil integrar notificaciones por correo electrónico, aunque entiende que esto depende de la infraestructura de cada empresa minera. En conclusión, consideró que la aplicación está completa y cumple con las necesidades esperadas.|
 
 | Segmento: Empresas Mineras | Entrevista #2 |
@@ -1522,7 +1522,6 @@ URL del Frontend Web Application desplegado: https://goldcheck-goldmetrics.netli
 
 URL del Landing Page integrado con nuestro Frontend: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
 
-URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2: https
 URL del Backend / Web Services desplegado: https://goldcheck-platform-wa.azurewebsites.net
 
 URL de documentación Swagger del Backend / Web Services: https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
@@ -1537,7 +1536,7 @@ URL de documentación Swagger del Backend / Web Services: https://goldcheck-plat
 
 **Videos:**
 
-URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2: _(completar)_
+URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2: https://upcedupe-my.sharepoint.com/personal/u202416107_upc_edu_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu202416107_upc_edu_pe%2FDocuments%2Fupc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&ga=1
 
 URL upc-pre-202610-1asi0730-12053-GoldMetrics-needfinding-sprint-1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDu6FgeSAQyTIWq7Mi2D3PWAYw61dd-gFnSQCx1kfl35Zs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=OlpPYE
 
