@@ -1522,7 +1522,6 @@ URL del Frontend Web Application desplegado: https://goldcheck-goldmetrics.netli
 
 URL del Landing Page integrado con nuestro Frontend: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
 
-URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2: https
 URL del Backend / Web Services desplegado: https://goldcheck-platform-wa.azurewebsites.net
 
 URL de documentación Swagger del Backend / Web Services: https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
