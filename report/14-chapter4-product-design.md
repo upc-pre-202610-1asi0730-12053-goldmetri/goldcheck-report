@@ -1047,135 +1047,335 @@ Esta vista despliega la totalidad de los once bounded contexts del backend junto
 
 ---
 
-#### BC1 — Material Operations Bounded Context (Backend)
+Los siguientes diagramas de componentes descomponen cada bounded context del backend en sus **cuatro capas DDD** (Interfaces REST, Application, Domain e Infrastructure), siguiendo el estilo C4 de nivel 3. En cada diagrama el **paquete representa una capa** y cada **componente agrupa un tipo de _building block_** (controladores, assemblers, resources, servicios de aplicación, agregados, value objects, repositorios, etc.), enumerando las clases reales del código fuente de la plataforma `GoldMetrics.GoldCheck.Platform`.
 
-Gestiona la recepción de lotes en planta, el pesaje final y el cálculo de merma. Las Interfaces exponen endpoints PATCH sobre `/mineralBatches` para registrar `finalWeight` y transiciones de estado; la Application orquesta la confirmación de llegada y el marcado de investigación de merma; el Domain proyecta `MineralBatch` como `MaterialReception` (receivedWeight, initialWeight, shrinkagePercent, status); y la Infrastructure persiste esos datos en la misma colección `mineralBatches` de `db.json`.
+#### BC1 — Fleet Operations (Backend)
 
-![Componentes Material Operations BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC3_Material.png)
+Bounded context responsable de **transporte y flota de vehículos**. A continuación se presenta su descomposición por capas DDD.
 
-El siguiente diagrama de componentes detalla la organización interna de las capas del contexto: los endpoints PATCH del json-server que reciben el peso final del lote, el middleware de Express que confirma la llegada y calcula el porcentaje de merma, la proyección del dominio `MaterialReception` y la colección `mineralBatches` en `db.json`.
+##### Fleet Operations — Interfaces REST
 
-![Componentes Material Operations BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/MaterialOperations_Components.png)
+Capa de presentación del contexto. Los **Controllers** (`HaulingCyclesController, VehiclesController`) exponen los endpoints REST, los **Resources** son los DTOs de entrada/salida (`CompleteHaulingCycleResource, CreateVehicleResource, HaulingCycleResource, LoadMaterialResource, StartHaulingCycleResource, VehicleResource`) y **Transform** contiene los assemblers que convierten entre resources, commands y entidades (`AssignVehicleCommandFromResourceAssembler, FleetOperationsActionResultAssembler, HaulingCycleResourceFromEntityAssembler, StartHaulingCycleCommandFromResourceAssembler, VehicleResourceFromEntityAssembler`).
 
----
+![Fleet Operations — Interfaces REST](../assets/img/chapter-iv/backend/components/FleetOperations_Interfaces.png)
 
-#### BC2 — Jewelry Inventory & Certification Bounded Context (Backend)
+##### Fleet Operations — Application
 
-Permite registrar piezas de joyería y emitir certificados digitales. Las Interfaces exponen GET, POST y PATCH sobre `/jewelryItems` y `/jewelryCertificates`; la Application procesa el registro de ítems, la validación de estado y la emisión de certificados; el Domain define `JewelryItem` (sku, name, type, purity, weight, batchRef, status, certificationId) y `JewelryCertificate` (itemId, qrCode, issuerName); y la Infrastructure persiste ambos recursos en `db.json`.
+Orquesta los casos de uso. Los **Command Services** (`HaulingCycleCommandService, VehicleCommandService`) ejecutan las operaciones de escritura y los **Query Services** (`HaulingCycleQueryService, VehicleQueryService`) resuelven las lecturas; la **ACL / Context Facade** (`FleetOperationsContextFacade`) expone el modelo de lectura del contexto a otros bounded contexts sin acoplarlos a su dominio.
 
-![Componentes Jewelry Inventory Certification BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC4_Jewelry.png)
+![Fleet Operations — Application](../assets/img/chapter-iv/backend/components/FleetOperations_Application.png)
 
-El siguiente diagrama de componentes ilustra la estructura interna del contexto: los endpoints REST para el registro de ítems de joyería y la emisión de certificados digitales, el servicio de aplicación que valida el estado del ítem y genera el código QR, los modelos de dominio `JewelryItem` y `JewelryCertificate`, y la persistencia de ambos recursos en `db.json`.
+##### Fleet Operations — Domain
 
-![Componentes Jewelry Inventory Certification BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/JewelryInventory_Components.png)
+Núcleo de negocio del contexto. Los **Aggregates** (`HaulingCycle, Vehicle`) encapsulan las invariantes, apoyados en **Value Objects** (`CycleId, DumpingPoint, LoadingPoint, OperatorId, Payload, VehicleId`); publican **Domain Events** (`ChargingPointReachedEvent, EngineIgnitionOnEvent, HaulingCycleCompletedEvent, HaulingCycleStartedEvent, MaterialLoadedEvent, VehicleAssignedEvent`). Las **Repository Interfaces** (`IHaulingCycleRepository, IVehicleRepository`) definen los puertos de persistencia y el **Audit Trail** registra el historial de cambios.
 
----
+![Fleet Operations — Domain](../assets/img/chapter-iv/backend/components/FleetOperations_Domain.png)
 
-#### BC4 — Consumer Traceability Bounded Context (Backend)
+##### Fleet Operations — Infrastructure
 
-Habilita la vinculación de piezas al consumidor y la verificación por código QR. Las Interfaces exponen endpoints sobre `/consumerPieces` (GET por `ownerId` o `traceabilityCode`, POST para vincular una pieza); la Application cruza datos entre `consumerPieces` y `jewelryItems` para resolver la trazabilidad; el Domain define `ConsumerPiece` (ownerId, sku, traceabilityCode, purity, weight, certificationId, status); y la Infrastructure persiste los registros de piezas del consumidor en `db.json`.
+Implementa la persistencia. Los **Repositories** (`HaulingCycleRepository, VehicleRepository`) materializan los puertos del dominio sobre **Entity Framework Core**, y la **EF Core Persistence** (`AppDbContext` compartido + `ModelBuilderExtensions`) mapea los agregados a la base de datos **MySQL**.
 
-![Componentes Consumer Traceability BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC5_Consumer.png)
-
-El siguiente diagrama de componentes muestra la arquitectura interna del contexto de trazabilidad al consumidor: los endpoints de vinculación y consulta por `ownerId` o `traceabilityCode`, la lógica de resolución cruzada que cruza datos entre `consumerPieces` y `jewelryItems`, el modelo de dominio `ConsumerPiece` y la colección de persistencia en `db.json`.
-
-![Componentes Consumer Traceability BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/ConsumerTraceability_Components.png)
+![Fleet Operations — Infrastructure](../assets/img/chapter-iv/backend/components/FleetOperations_Infrastructure.png)
 
 ---
 
-#### BC5 — Monitoring & Telemetry Bounded Context (Backend)
+#### BC2 — Material Operations (Backend)
 
-Centraliza la gestión de alertas de anomalía en tránsito. Las Interfaces exponen GET, POST y PATCH sobre `/anomalyAlerts` para creación y resolución de alertas; la Application filtra alertas activas por estado y coordina su resolución; el Domain define `AnomalyAlert` (batchId, batchCode, vehicleId, alertType, severity, coordinates, status, detectedAt); y la Infrastructure persiste los registros en la colección `anomalyAlerts` de `db.json`.
+Bounded context responsable de **registro y clasificación de lotes de mineral**. A continuación se presenta su descomposición por capas DDD.
 
-![Componentes Monitoring Telemetry BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC6_Monitoring.png)
+##### Material Operations — Interfaces REST
 
-El siguiente diagrama de componentes detalla las capas internas del contexto de monitoreo: los endpoints GET, POST y PATCH sobre `anomalyAlerts`, el servicio que filtra alertas activas por estado y coordina su resolución, el modelo de dominio `AnomalyAlert` con sus campos de severidad y coordenadas, y la colección `anomalyAlerts` en `db.json`.
+Capa de presentación del contexto. Los **Controllers** (`MaterialsController`) exponen los endpoints REST, los **Resources** son los DTOs de entrada/salida (`ClassifyMaterialResource, CreateMaterialResource, DownloadMaterialResource, MaterialResource, TrackMaterialMovementResource`) y **Transform** contiene los assemblers que convierten entre resources, commands y entidades (`IdentifyMineralTypeCommandFromResourceAssembler, MaterialOperationsActionResultAssembler, MaterialResourceFromEntityAssembler`).
 
-![Componentes Monitoring Telemetry BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/MonitoringTelemetry_Components.png)
+![Material Operations — Interfaces REST](../assets/img/chapter-iv/backend/components/MaterialOperations_Interfaces.png)
 
----
+##### Material Operations — Application
 
-#### BC6 — Analytics Bounded Context (Backend)
+Orquesta los casos de uso. Los **Command Services** (`MaterialCommandService`) ejecutan las operaciones de escritura y los **Query Services** (`MaterialQueryService`) resuelven las lecturas; la **ACL / Context Facade** (`MaterialOperationsContextFacade`) expone el modelo de lectura del contexto a otros bounded contexts sin acoplarlos a su dominio.
 
-Agrega KPIs transversales para métricas de merma y certificación. Las Interfaces proveen acceso de solo lectura a `/mineralBatches`, `/vehicles` y `/jewelryItems`; la Application procesa solicitudes de lectura cruzada entre colecciones; el Domain expone proyecciones agregadas sobre los recursos `MineralBatch` y `JewelryItem`; y la Infrastructure lee directamente de las tres colecciones correspondientes en `db.json` sin escribir datos propios.
+![Material Operations — Application](../assets/img/chapter-iv/backend/components/MaterialOperations_Application.png)
 
-![Componentes Analytics BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC7_Analytics.png)
+##### Material Operations — Domain
 
-El siguiente diagrama de componentes describe cómo Analytics agrega datos de múltiples fuentes: los accesos de solo lectura a las colecciones `mineralBatches`, `vehicles` y `jewelryItems`, el servicio que procesa las consultas cruzadas y genera proyecciones de KPIs transversales (merma, producción, certificación), sin persistir datos adicionales propios.
+Núcleo de negocio del contexto. Los **Aggregates** (`Material`) encapsulan las invariantes, apoyados en **Value Objects** (`DumpingPoint, MaterialBatchId, MineralType, Payload`); publican **Domain Events** (`MaterialClassifiedEvent, MaterialDownloadedEvent, MaterialMovementTrackedEvent, MineralTypeIdentifiedEvent`). Las **Repository Interfaces** (`IMaterialRepository`) definen los puertos de persistencia y el **Audit Trail** registra el historial de cambios.
 
-![Componentes Analytics BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/Analytics_Components.png)
+![Material Operations — Domain](../assets/img/chapter-iv/backend/components/MaterialOperations_Domain.png)
 
----
+##### Material Operations — Infrastructure
 
-#### BC7 — Incident Management Bounded Context (Backend)
+Implementa la persistencia. Los **Repositories** (`MaterialRepository`) materializan los puertos del dominio sobre **Entity Framework Core**, y la **EF Core Persistence** (`AppDbContext` compartido + `ModelBuilderExtensions`) mapea los agregados a la base de datos **MySQL**.
 
-Gestiona el reporte y cierre de incidentes operativos, reutilizando la colección `anomalyAlerts`. Las Interfaces exponen GET, POST y PATCH sobre esa colección con semántica de incidente; la Application procesa el reporte y el cambio de estado a cerrado; el Domain proyecta `AnomalyAlert` como `Incident` (title, incidentType, severity, batchId, vehicleId, status); y la Infrastructure persiste los registros de incidente en `anomalyAlerts` dentro de `db.json`.
-
-![Componentes Incident Management BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC8_Incident.png)
-
-El siguiente diagrama de componentes muestra la estructura interna del contexto de gestión de incidentes: los endpoints GET, POST y PATCH sobre `anomalyAlerts` con semántica de incidente, el servicio que procesa el reporte y el cambio de estado a cerrado, la proyección del dominio `Incident` a partir de `AnomalyAlert`, y la colección compartida `anomalyAlerts` en `db.json`.
-
-![Componentes Incident Management BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/IncidentManagement_Components.png)
+![Material Operations — Infrastructure](../assets/img/chapter-iv/backend/components/MaterialOperations_Infrastructure.png)
 
 ---
 
-#### BC8 — Reporting & Notifications Bounded Context (Backend)
+#### BC3 — Jewelry Inventory & Certification (Backend)
 
-Consolida datos de lotes, joyas y alertas para la generación de reportes. Las Interfaces proveen acceso de lectura a `/mineralBatches`, `/jewelryItems` y `/anomalyAlerts`; la Application procesa solicitudes de lectura en paralelo sobre las tres colecciones; el Domain define proyecciones de reporte sobre esos recursos; y la Infrastructure lee desde las tres colecciones de `db.json` sin persistir datos adicionales.
+Bounded context responsable de **certificación de joyas y materiales**. A continuación se presenta su descomposición por capas DDD.
 
-![Componentes Reporting Notifications BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC9_Reporting.png)
+##### Jewelry Inventory & Certification — Interfaces REST
 
-El siguiente diagrama de componentes ilustra cómo el contexto de reportes consolida información de múltiples fuentes: los accesos de lectura en paralelo a `mineralBatches`, `jewelryItems` y `anomalyAlerts`, el servicio que procesa y agrega los datos para generación de reportes, y las proyecciones del dominio `Notification`, sin persistir datos propios adicionales.
+Capa de presentación del contexto. Los **Controllers** (`CertificatesController, JewelryMaterialsController`) exponen los endpoints REST, los **Resources** son los DTOs de entrada/salida (`CertificateResource, CreateMaterialResource, GenerateCertificateResource, JewelryMaterialResource, ScanQRResource, SignCertificateResource`) y **Transform** contiene los assemblers que convierten entre resources, commands y entidades (`CertificateResourceFromEntityAssembler, GenerateCertificateCommandFromResourceAssembler, JewelryInventoryActionResultAssembler, JewelryMaterialResourceFromEntityAssembler, RegisterNonCertifiedMaterialCommandFromResourceAssembler, ScanQRMaterialCommandFromResourceAssembler, SignCertificateCommandFromResourceAssembler`).
 
-![Componentes Reporting Notifications BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/ReportingNotifications_Components.png)
+![Jewelry Inventory & Certification — Interfaces REST](../assets/img/chapter-iv/backend/components/JewelryInventory_Interfaces.png)
 
----
+##### Jewelry Inventory & Certification — Application
 
-#### BC9 — Asset Maintenance Bounded Context (Backend)
+Orquesta los casos de uso. Los **Command Services** (`JewelryCommandService, JewelryMaterialCommandService`) ejecutan las operaciones de escritura y los **Query Services** (`JewelryMaterialQueryService, JewelryQueryService`) resuelven las lecturas; la **ACL / Context Facade** (`JewelryInventoryContextFacade`) expone el modelo de lectura del contexto a otros bounded contexts sin acoplarlos a su dominio.
 
-Gestiona el ciclo de vida y las transiciones de estado de los vehículos de flota. Las Interfaces exponen GET (todos los vehículos) y PATCH (transición de estado) sobre `/vehicles`; la Application procesa las actualizaciones entre los estados `Activo` y `Mantenimiento`; el Domain define el recurso `Vehicle` (id, name, plate, type, capacity, status); y la Infrastructure persiste los registros en la colección `vehicles` de `db.json`.
+![Jewelry Inventory & Certification — Application](../assets/img/chapter-iv/backend/components/JewelryInventory_Application.png)
 
-![Componentes Asset Maintenance BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC10_Maintenance.png)
+##### Jewelry Inventory & Certification — Domain
 
-El siguiente diagrama de componentes detalla la organización interna del contexto de mantenimiento: los endpoints GET (consulta de todos los vehículos) y PATCH (transición de estado) sobre `/vehicles`, el servicio que gestiona los cambios entre los estados `Activo` y `Mantenimiento`, el modelo de dominio `Vehicle` con sus campos `id`, `name`, `plate`, `type`, `capacity` y `status`, y su persistencia en `db.json`.
+Núcleo de negocio del contexto. Los **Aggregates** (`Jewelry, JewelryMaterial`) encapsulan las invariantes, apoyados en **Value Objects** (`CertificateId, JewelerId, MaterialId, MaterialStatus, QRCode`); publican **Domain Events** (`CertificateGeneratedEvent, CertificateSavedEvent, MaterialDataScannedEvent, MaterialStatusUpdatedEvent, NonCertifiedMaterialRegisteredEvent`). Las **Repository Interfaces** (`IJewelryMaterialRepository, IJewelryRepository`) definen los puertos de persistencia y el **Audit Trail** registra el historial de cambios.
 
-![Componentes Asset Maintenance BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/AssetMaintenance_Components.png)
+![Jewelry Inventory & Certification — Domain](../assets/img/chapter-iv/backend/components/JewelryInventory_Domain.png)
 
----
+##### Jewelry Inventory & Certification — Infrastructure
 
-#### BC10 — Subscriptions & Billing Bounded Context (Backend)
+Implementa la persistencia. Los **Repositories** (`JewelryMaterialRepository, JewelryRepository`) materializan los puertos del dominio sobre **Entity Framework Core**, y la **EF Core Persistence** (`AppDbContext` compartido + `ModelBuilderExtensions`) mapea los agregados a la base de datos **MySQL**.
 
-Gestiona la actualización del plan de suscripción del usuario. Las Interfaces exponen PATCH sobre `/users` para modificar el campo `plan`; la Application procesa la solicitud de upgrade del plan; el Domain define los valores posibles del campo plan: `BRONZE`, `GOLD` y `PLATINUM`; y la Infrastructure persiste la actualización en la colección `users` de `db.json`, integrándose así con el contexto IAM a nivel de datos.
-
-![Componentes Subscriptions Billing BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC11_Subscriptions.png)
-
-El siguiente diagrama de componentes muestra la arquitectura interna del contexto de suscripciones y facturación: el endpoint PATCH sobre `/users` para modificar el campo `plan`, el servicio que procesa la solicitud de upgrade, los valores de dominio `BRONZE`, `GOLD` y `PLATINUM`, y la integración con la colección `users` de `db.json` compartida con el contexto IAM.
-
-![Componentes Subscriptions Billing BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/SubscriptionsAndBilling_Components.png)
+![Jewelry Inventory & Certification — Infrastructure](../assets/img/chapter-iv/backend/components/JewelryInventory_Infrastructure.png)
 
 ---
 
-#### BC11 — IAM Bounded Context (Backend)
+#### BC4 — Consumer Traceability (Backend)
 
-Gestiona la autenticación y actualización de perfil de usuario. La capa de Interfaces expone endpoints REST sobre `/users` (GET por email para login, POST para registro, PATCH para actualización de perfil); la Application procesa esas peticiones mediante middleware de json-server; el Domain define el recurso User con campos `id`, `email`, `username`, `segment`, `plan`, `location` y `phoneNumber`; y la Infrastructure persiste los registros en la colección `users` de `db.json`.
+Bounded context responsable de **trazabilidad pública para el consumidor**. A continuación se presenta su descomposición por capas DDD.
 
-![Componentes IAM BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC1_IAM.png)
+##### Consumer Traceability — Interfaces REST
 
-El siguiente diagrama de componentes describe la estructura interna del contexto de identidad y acceso: los endpoints REST sobre `/users` (GET por email para login, POST para registro, PATCH para actualización de perfil), el middleware de json-server que procesa cada petición, el modelo de dominio `User` con sus campos clave (`id`, `email`, `username`, `segment`, `plan`, `location`, `phoneNumber`) y la colección `users` en `db.json`.
+Capa de presentación del contexto. Los **Controllers** (`ConsumerController`) exponen los endpoints REST, los **Resources** son los DTOs de entrada/salida (`DownloadCertificateResource, JewelryProductResource, ScanProductQRResource, TraceabilityJourneyResource`) y **Transform** contiene los assemblers que convierten entre resources, commands y entidades (`ConsumerTraceabilityActionResultAssembler, DownloadCertificateCommandFromResourceAssembler, JewelryProductResourceFromEntityAssembler, ScanProductQRCommandFromResourceAssembler, TraceabilityJourneyResourceFromEntityAssembler`).
 
-![Componentes IAM BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/IAM_Components.png)
+![Consumer Traceability — Interfaces REST](../assets/img/chapter-iv/backend/components/ConsumerTraceability_Interfaces.png)
+
+##### Consumer Traceability — Application
+
+Orquesta los casos de uso. Los **Command Services** (`JewelryProductCommandService, TraceabilityJourneyCommandService`) ejecutan las operaciones de escritura y los **Query Services** (`JewelryProductQueryService, TraceabilityJourneyQueryService`) resuelven las lecturas.
+
+![Consumer Traceability — Application](../assets/img/chapter-iv/backend/components/ConsumerTraceability_Application.png)
+
+##### Consumer Traceability — Domain
+
+Núcleo de negocio del contexto. Los **Aggregates** (`JewelryProduct, TraceabilityJourney`) encapsulan las invariantes, apoyados en **Value Objects** (`CertificateId, ConsumerId, Language, ProductQRCode`); publican **Domain Events** (`CertificateViewedEvent, ContentLocalizedEvent, LanguageDetectedEvent, ProductQRScannedEvent, TraceabilityDataRequestedEvent`). Las **Repository Interfaces** (`IJewelryProductRepository, ITraceabilityJourneyRepository`) definen los puertos de persistencia y el **Audit Trail** registra el historial de cambios.
+
+![Consumer Traceability — Domain](../assets/img/chapter-iv/backend/components/ConsumerTraceability_Domain.png)
+
+##### Consumer Traceability — Infrastructure
+
+Implementa la persistencia. Los **Repositories** (`JewelryProductRepository, TraceabilityJourneyRepository`) materializan los puertos del dominio sobre **Entity Framework Core**, y la **EF Core Persistence** (`AppDbContext` compartido + `ModelBuilderExtensions`) mapea los agregados a la base de datos **MySQL**.
+
+![Consumer Traceability — Infrastructure](../assets/img/chapter-iv/backend/components/ConsumerTraceability_Infrastructure.png)
 
 ---
 
-#### BC12 — Fleet Operations Bounded Context (Backend)
+#### BC5 — Monitoring & Telemetry (Backend)
 
-Cubre el ciclo de vida de lotes de mineral, vehículos, depósitos y alertas de anomalía. Las Interfaces exponen endpoints sobre `/mineralBatches`, `/deposits`, `/vehicles` y `/anomalyAlerts`; la Application procesa la creación de lotes y el registro de peso inicial; el Domain define `MineralBatch` (batchCode, depositId, vehicleId, initialWeight, mineralType, status) y `AnomalyAlert` (batchId, alertType, severity); y la Infrastructure persiste todos estos registros en `db.json`. El IoT Gateway envía telemetría directamente a las Fleet Interfaces.
+Bounded context responsable de **sensores IoT sobre los activos**. A continuación se presenta su descomposición por capas DDD.
 
-![Componentes Fleet Operations BC — Backend](../assets/img/chapter-iv/structurizr-103798-L3_BE_BC2_Fleet.png)
+##### Monitoring & Telemetry — Interfaces REST
 
-El siguiente diagrama de componentes ilustra la arquitectura del contexto de operaciones de flota: los endpoints sobre `mineralBatches`, `deposits`, `vehicles` y `anomalyAlerts`, el servicio que gestiona la creación de lotes y el registro del peso inicial, los modelos de dominio `MineralBatch` y `AnomalyAlert`, y la integración directa con el IoT Gateway para la recepción de telemetría en tiempo real.
+Capa de presentación del contexto. Los **Controllers** (`CommunicationController, GNSSController, PressureController, SpeedController, TelemetryController, TemperatureController`) exponen los endpoints REST, los **Resources** son los DTOs de entrada/salida (`CommunicationResources, GNSSResources, PressureResources, SpeedResources, TelemetryResources, TemperatureResources`) y **Transform** contiene los assemblers que convierten entre resources, commands y entidades (`CommunicationAssemblers, GNSSAssemblers, MonitoringTelemetryActionResultAssembler, PressureAssemblers, SpeedAssemblers, TelemetryAssemblers, TemperatureAssemblers`).
 
-![Componentes Fleet Operations BC — Diagrama de componentes](../assets/img/chapter-iv/backend/components/FleetOperations_Components.png)
+![Monitoring & Telemetry — Interfaces REST](../assets/img/chapter-iv/backend/components/MonitoringTelemetry_Interfaces.png)
+
+##### Monitoring & Telemetry — Application
+
+Orquesta los casos de uso. Los **Command Services** (`CommunicationCommandService, GNSSCommandService, PressureCommandService, SpeedCommandService, TelemetryCommandService, TemperatureCommandService`) ejecutan las operaciones de escritura y los **Query Services** (`CommunicationQueryService, GNSSQueryService, PressureQueryService, SpeedQueryService, TelemetryQueryService, TemperatureQueryService`) resuelven las lecturas; la **ACL / Context Facade** (`MonitoringTelemetryContextFacade`) expone el modelo de lectura del contexto a otros bounded contexts sin acoplarlos a su dominio.
+
+![Monitoring & Telemetry — Application](../assets/img/chapter-iv/backend/components/MonitoringTelemetry_Application.png)
+
+##### Monitoring & Telemetry — Domain
+
+Núcleo de negocio del contexto. Los **Aggregates** (`CommunicationChannel, GNSSStatus, PressureReading, SpeedReading, TelemetryData, TemperatureReading`) encapsulan las invariantes, apoyados en **Value Objects** (`AnomalyType, AssetId, CommunicationProtocol, GNSSCoordinate, Pressure, PressureType, RiskLevel, Speed, Temperature, TemperatureType`); publican **Domain Events** (`AbsoluteEngineOilPressureAnalysedEvent, CANOpenCommunicationAnalysedEvent, CellularCommunicationAnalysedEvent, CommunicationAnomalyDetectedEvent, CommunicationAnomalyLoggedEvent, CommunicationStatusShownEvent, EngineFuelTemperatureAnalysedEvent, EngineOilTemperatureDetectedEvent, EngineRefrigerantTemperatureAnalysedEvent, EthernetIPCommunicationAnalysedEvent, ExhaustTemperatureLimitPerCylinderAnalysedEvent, ExhaustTemperatureStatusShownEvent, GNSSAnomalyDetectedEvent, GNSSChipOffEvent, GNSSChipRestartedEvent, GNSSRestartLoggedEvent, GNSSStatusShownEvent, GNSSWatchdogRestartFinishedEvent, ModbusCommunicationAnalysedEvent, OPCCommunicationAnalysedEvent, OilFilterPressureAnalysedEvent, OilFilterPressureDifferenceAnalysedEvent, OilPanPressureAnalysedEvent, PressureAnomalyDetectedEvent, PressureAnomalyLoggedEvent, PressureStatusShownEvent, RS232CommunicationAnalysedEvent, SpeedExcessDetectedEvent, SpeedSafetyViolationLoggedEvent, SpeedStatusShownEvent, TelemetryDataProcessedEvent, TelemetryDataValidatedEvent, TemperatureAnomalyDetectedEvent, TemperatureAnomalyLoggedEvent, TemperatureStatusShownEvent`). Las **Repository Interfaces** (`ICommunicationChannelRepository, IGNSSStatusRepository, IPressureReadingRepository, ISpeedReadingRepository, ITelemetryDataRepository, ITemperatureReadingRepository`) definen los puertos de persistencia y el **Audit Trail** registra el historial de cambios.
+
+![Monitoring & Telemetry — Domain](../assets/img/chapter-iv/backend/components/MonitoringTelemetry_Domain.png)
+
+##### Monitoring & Telemetry — Infrastructure
+
+Implementa la persistencia. Los **Repositories** (`CommunicationChannelRepository, GNSSStatusRepository, PressureReadingRepository, SpeedReadingRepository, TelemetryDataRepository, TemperatureReadingRepository`) materializan los puertos del dominio sobre **Entity Framework Core**, y la **EF Core Persistence** (`AppDbContext` compartido + `ModelBuilderExtensions`) mapea los agregados a la base de datos **MySQL**.
+
+![Monitoring & Telemetry — Infrastructure](../assets/img/chapter-iv/backend/components/MonitoringTelemetry_Infrastructure.png)
+
+---
+
+#### BC6 — Analytics (Backend)
+
+Bounded context responsable de **métricas de rutas y producción**. A continuación se presenta su descomposición por capas DDD.
+
+##### Analytics — Interfaces REST
+
+Capa de presentación del contexto. Los **Controllers** (`AnalyticsController`) exponen los endpoints REST, los **Resources** son los DTOs de entrada/salida (`MaterialResource, RequestProductionDataResource, ViewProductionDashboardResource, ViewRouteProgressResource`) y **Transform** contiene los assemblers que convierten entre resources, commands y entidades (`AnalyticsActionResultAssembler, MaterialResourceFromEntityAssembler`).
+
+![Analytics — Interfaces REST](../assets/img/chapter-iv/backend/components/Analytics_Interfaces.png)
+
+##### Analytics — Application
+
+Orquesta los casos de uso. Los **Command Services** (`AnalyticsCommandService`) ejecutan las operaciones de escritura y los **Query Services** (`AnalyticsQueryService`) resuelven las lecturas; la **ACL / Context Facade** (`AnalyticsContextFacade`) expone el modelo de lectura del contexto a otros bounded contexts sin acoplarlos a su dominio.
+
+![Analytics — Application](../assets/img/chapter-iv/backend/components/Analytics_Application.png)
+
+##### Analytics — Domain
+
+Núcleo de negocio del contexto. Los **Aggregates** (`Material`) encapsulan las invariantes, apoyados en **Value Objects** (`MaterialId, ProductionPeriod, ProductionVolume, RouteId, RouteStatus, SupervisorId, UserId`); publican **Domain Events** (`ProductionDataLoadedEvent, ProductionDataRequestedEvent, ProductionDataValidatedEvent, RouteDataLoadedEvent`). Las **Repository Interfaces** (`IMaterialRepository`) definen los puertos de persistencia y el **Audit Trail** registra el historial de cambios.
+
+![Analytics — Domain](../assets/img/chapter-iv/backend/components/Analytics_Domain.png)
+
+##### Analytics — Infrastructure
+
+Implementa la persistencia. Los **Repositories** (`MaterialRepository`) materializan los puertos del dominio sobre **Entity Framework Core**, y la **EF Core Persistence** (`AppDbContext` compartido + `ModelBuilderExtensions`) mapea los agregados a la base de datos **MySQL**.
+
+![Analytics — Infrastructure](../assets/img/chapter-iv/backend/components/Analytics_Infrastructure.png)
+
+---
+
+#### BC7 — Incident Management (Backend)
+
+Bounded context responsable de **incidentes de seguridad**. A continuación se presenta su descomposición por capas DDD.
+
+##### Incident Management — Interfaces REST
+
+Capa de presentación del contexto. Los **Controllers** (`IncidentManagementController`) exponen los endpoints REST, los **Resources** son los DTOs de entrada/salida (`CommitAccidentResource, DetectDriverFatigueResource, DetectSmokeResource, EscalateRiskLevelResource, SafetyRecordResource`) y **Transform** contiene los assemblers que convierten entre resources, commands y entidades (`IncidentManagementActionResultAssembler, SafetyRecordResourceFromEntityAssembler`).
+
+![Incident Management — Interfaces REST](../assets/img/chapter-iv/backend/components/IncidentManagement_Interfaces.png)
+
+##### Incident Management — Application
+
+Orquesta los casos de uso. Los **Command Services** (`IncidentManagementCommandService`) ejecutan las operaciones de escritura y los **Query Services** (`IncidentManagementQueryService`) resuelven las lecturas; la **ACL / Context Facade** (`IncidentManagementContextFacade`) expone el modelo de lectura del contexto a otros bounded contexts sin acoplarlos a su dominio.
+
+![Incident Management — Application](../assets/img/chapter-iv/backend/components/IncidentManagement_Application.png)
+
+##### Incident Management — Domain
+
+Núcleo de negocio del contexto. Los **Aggregates** (`SafetyRecord`) encapsulan las invariantes, apoyados en **Value Objects** (`AssetId, IncidentType, OperatorId, RiskLevel`); publican **Domain Events** (`AccidentCommittedEvent, FatigueEventTriggeredEvent, RiskLevelAlertCommittedEvent, RiskLevelEscalatedEvent, RiskLevelUpdatedEvent, SmokeAlertCommittedEvent, SmokeDetectedEvent`). Las **Repository Interfaces** (`ISafetyRecordRepository`) definen los puertos de persistencia y el **Audit Trail** registra el historial de cambios.
+
+![Incident Management — Domain](../assets/img/chapter-iv/backend/components/IncidentManagement_Domain.png)
+
+##### Incident Management — Infrastructure
+
+Implementa la persistencia. Los **Repositories** (`SafetyRecordRepository`) materializan los puertos del dominio sobre **Entity Framework Core**, y la **EF Core Persistence** (`AppDbContext` compartido + `ModelBuilderExtensions`) mapea los agregados a la base de datos **MySQL**.
+
+![Incident Management — Infrastructure](../assets/img/chapter-iv/backend/components/IncidentManagement_Infrastructure.png)
+
+---
+
+#### BC8 — Reporting & Notifications (Backend)
+
+Bounded context responsable de **reportes y notificaciones**. A continuación se presenta su descomposición por capas DDD.
+
+##### Reporting & Notifications — Interfaces REST
+
+Capa de presentación del contexto. Los **Controllers** (`NotificationsController, ReportsController`) exponen los endpoints REST, los **Resources** son los DTOs de entrada/salida (`NotificationResource, ReportResource, RequestAccidentDataResource, RequestNotificationResource, RequestReportExportationResource`) y **Transform** contiene los assemblers que convierten entre resources, commands y entidades (`NotificationResourceFromEntityAssembler, ReportResourceFromEntityAssembler, ReportingNotificationsActionResultAssembler`).
+
+![Reporting & Notifications — Interfaces REST](../assets/img/chapter-iv/backend/components/ReportingNotifications_Interfaces.png)
+
+##### Reporting & Notifications — Application
+
+Orquesta los casos de uso. Los **Command Services** (`NotificationCommandService, ReportCommandService`) ejecutan las operaciones de escritura y los **Query Services** (`NotificationQueryService, ReportQueryService`) resuelven las lecturas.
+
+![Reporting & Notifications — Application](../assets/img/chapter-iv/backend/components/ReportingNotifications_Application.png)
+
+##### Reporting & Notifications — Domain
+
+Núcleo de negocio del contexto. Los **Aggregates** (`Notification, Report`) encapsulan las invariantes, apoyados en **Value Objects** (`NotificationId, NotificationStatus, NotificationType, RecipientId, ReportFormat, ReportId, ReportStatus, SupervisorId`); publican **Domain Events** (`AccidentDataLoadedEvent, AccidentDataRequestedEvent, NotificationRequestedEvent, NotificationSentEvent, ReportDownloadedEvent, ReportExportationRequestedEvent, ReportExportedEvent, ReportGeneratedEvent`). Las **Repository Interfaces** (`INotificationRepository, IReportRepository`) definen los puertos de persistencia y el **Audit Trail** registra el historial de cambios.
+
+![Reporting & Notifications — Domain](../assets/img/chapter-iv/backend/components/ReportingNotifications_Domain.png)
+
+##### Reporting & Notifications — Infrastructure
+
+Implementa la persistencia. Los **Repositories** (`NotificationRepository, ReportRepository`) materializan los puertos del dominio sobre **Entity Framework Core**, y la **EF Core Persistence** (`AppDbContext` compartido + `ModelBuilderExtensions`) mapea los agregados a la base de datos **MySQL**.
+
+![Reporting & Notifications — Infrastructure](../assets/img/chapter-iv/backend/components/ReportingNotifications_Infrastructure.png)
+
+---
+
+#### BC9 — Asset Maintenance (Backend)
+
+Bounded context responsable de **mantenimiento de maquinaria**. A continuación se presenta su descomposición por capas DDD.
+
+##### Asset Maintenance — Interfaces REST
+
+Capa de presentación del contexto. Los **Controllers** (`MachineryController`) exponen los endpoints REST, los **Resources** son los DTOs de entrada/salida (`DischargeComponentResource, DischargeMachineryResource, MachineryResource, RegisterMachineryResource, ScheduleMaintenanceResource, UpdateMachineryDataResource`) y **Transform** contiene los assemblers que convierten entre resources, commands y entidades (`AssetMaintenanceActionResultAssembler, MachineryResourceFromEntityAssembler`).
+
+![Asset Maintenance — Interfaces REST](../assets/img/chapter-iv/backend/components/AssetMaintenance_Interfaces.png)
+
+##### Asset Maintenance — Application
+
+Orquesta los casos de uso. Los **Command Services** (`AssetMaintenanceCommandService`) ejecutan las operaciones de escritura y los **Query Services** (`AssetMaintenanceQueryService`) resuelven las lecturas; la **ACL / Context Facade** (`AssetMaintenanceContextFacade`) expone el modelo de lectura del contexto a otros bounded contexts sin acoplarlos a su dominio.
+
+![Asset Maintenance — Application](../assets/img/chapter-iv/backend/components/AssetMaintenance_Application.png)
+
+##### Asset Maintenance — Domain
+
+Núcleo de negocio del contexto. Los **Aggregates** (`Machinery`) encapsulan las invariantes, apoyados en **Value Objects** (`ComponentId, EngineHours, MachineryId, MaintenanceStatus`); publican **Domain Events** (`ComponentDischargedEvent, MachineryDataUpdatedEvent, MachineryDischargedEvent, MachineryRegisteredEvent, PreventiveMaintenanceScheduledEvent`). Las **Repository Interfaces** (`IMachineryRepository`) definen los puertos de persistencia y el **Audit Trail** registra el historial de cambios.
+
+![Asset Maintenance — Domain](../assets/img/chapter-iv/backend/components/AssetMaintenance_Domain.png)
+
+##### Asset Maintenance — Infrastructure
+
+Implementa la persistencia. Los **Repositories** (`MachineryRepository`) materializan los puertos del dominio sobre **Entity Framework Core**, y la **EF Core Persistence** (`AppDbContext` compartido + `ModelBuilderExtensions`) mapea los agregados a la base de datos **MySQL**.
+
+![Asset Maintenance — Infrastructure](../assets/img/chapter-iv/backend/components/AssetMaintenance_Infrastructure.png)
+
+---
+
+#### BC10 — Identity & Access Management (IAM) (Backend)
+
+Bounded context responsable de **autenticación y usuarios**. A continuación se presenta su descomposición por capas DDD.
+
+##### Identity & Access Management (IAM) — Interfaces REST
+
+Capa de presentación del contexto. Los **Controllers** (`AuthenticationController, UsersController`) exponen los endpoints REST, los **Resources** son los DTOs de entrada/salida (`AuthTokenResponse, AuthenticateUserResource, RegisterUserResource, UpdateProfileResource, UserResponse`) y **Transform** contiene los assemblers que convierten entre resources, commands y entidades (`IamActionResultAssembler, UserResourceFromEntityAssembler`).
+
+![Identity & Access Management (IAM) — Interfaces REST](../assets/img/chapter-iv/backend/components/Iam_Interfaces.png)
+
+##### Identity & Access Management (IAM) — Application
+
+Orquesta los casos de uso. Los **Command Services** (`IamCommandService`) ejecutan las operaciones de escritura y los **Query Services** (`IamQueryService`) resuelven las lecturas; la **ACL / Context Facade** (`IamContextFacade`) expone el modelo de lectura del contexto a otros bounded contexts sin acoplarlos a su dominio.
+
+![Identity & Access Management (IAM) — Application](../assets/img/chapter-iv/backend/components/Iam_Application.png)
+
+##### Identity & Access Management (IAM) — Domain
+
+Núcleo de negocio del contexto. Los **Aggregates** (`User`) encapsulan las invariantes, apoyados en **Value Objects** (`Email, HashedPassword, Token, UserRole, Username`); publican **Domain Events** (`ProfileUpdatedEvent, UserLoggedInEvent, UserRegisteredEvent`). Las **Repository Interfaces** (`IUserRepository`) definen los puertos de persistencia y el **Audit Trail** registra el historial de cambios.
+
+![Identity & Access Management (IAM) — Domain](../assets/img/chapter-iv/backend/components/Iam_Domain.png)
+
+##### Identity & Access Management (IAM) — Infrastructure
+
+Implementa la persistencia. Los **Repositories** (`UserRepository`) materializan los puertos del dominio sobre **Entity Framework Core**, y la **EF Core Persistence** (`AppDbContext` compartido + `ModelBuilderExtensions`) mapea los agregados a la base de datos **MySQL**.
+
+![Identity & Access Management (IAM) — Infrastructure](../assets/img/chapter-iv/backend/components/Iam_Infrastructure.png)
+
+---
+
+#### BC11 — Subscriptions & Billing (Backend)
+
+Bounded context responsable de **suscripciones y facturación**. A continuación se presenta su descomposición por capas DDD.
+
+##### Subscriptions & Billing — Interfaces REST
+
+Capa de presentación del contexto. Los **Controllers** (`SubscriptionsController`) exponen los endpoints REST, los **Resources** son los DTOs de entrada/salida (`AssignFeaturesResource, CheckFeatureAccessResource, CheckUserPlanResource, ConfirmSubscriptionResource, InvoiceResponse, RequestAccessResource, RequestDowngradeResource, SelectPlanResource, UserSubscriptionResponse`) y **Transform** contiene los assemblers que convierten entre resources, commands y entidades (`SubscriptionsBillingActionResultAssembler, UserSubscriptionResourceFromEntityAssembler`).
+
+![Subscriptions & Billing — Interfaces REST](../assets/img/chapter-iv/backend/components/SubscriptionsAndBilling_Interfaces.png)
+
+##### Subscriptions & Billing — Application
+
+Orquesta los casos de uso. Los **Command Services** (`SubscriptionsBillingCommandService`) ejecutan las operaciones de escritura y los **Query Services** (`SubscriptionsBillingQueryService`) resuelven las lecturas; la **ACL / Context Facade** (`SubscriptionsBillingContextFacade`) expone el modelo de lectura del contexto a otros bounded contexts sin acoplarlos a su dominio.
+
+![Subscriptions & Billing — Application](../assets/img/chapter-iv/backend/components/SubscriptionsAndBilling_Application.png)
+
+##### Subscriptions & Billing — Domain
+
+Núcleo de negocio del contexto. Los **Aggregates** (`UserSubscription`) encapsulan las invariantes y contienen las **Entities** (`Invoice`), apoyados en **Value Objects** (`AdministratorId, Amount, BillingCycle, FeatureName, InvoiceId, PlanType, SubscriptionStatus, UserId`); publican **Domain Events** (`AccessDeniedEvent, AccessGrantedEvent, AccessRequestedEvent, DowngradeExecutedEvent, DowngradeRequestedEvent, FeatureAccessCheckedEvent, FeaturesAssignedEvent, FeaturesRestrictedEvent, InvoiceDownloadedEvent, InvoiceGeneratedEvent, InvoiceRequestedEvent, PaymentHistoryLoadedEvent, PaymentHistoryRequestedEvent, PlanSelectedEvent, SubscriptionActivatedEvent, UserPlanDefinedEvent`). Las **Repository Interfaces** (`IUserSubscriptionRepository`) definen los puertos de persistencia y el **Audit Trail** registra el historial de cambios.
+
+![Subscriptions & Billing — Domain](../assets/img/chapter-iv/backend/components/SubscriptionsAndBilling_Domain.png)
+
+##### Subscriptions & Billing — Infrastructure
+
+Implementa la persistencia. Los **Repositories** (`UserSubscriptionRepository`) materializan los puertos del dominio sobre **Entity Framework Core**, y la **EF Core Persistence** (`AppDbContext` compartido + `ModelBuilderExtensions`) mapea los agregados a la base de datos **MySQL**.
+
+![Subscriptions & Billing — Infrastructure](../assets/img/chapter-iv/backend/components/SubscriptionsAndBilling_Infrastructure.png)
 
 ---
 
