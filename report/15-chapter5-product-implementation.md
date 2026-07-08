@@ -1536,7 +1536,7 @@ URL de documentación Swagger del Backend / Web Services: https://goldcheck-plat
 
 **Videos:**
 
-URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2: _(completar)_
+URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2: https://upcedupe-my.sharepoint.com/personal/u202416107_upc_edu_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu202416107_upc_edu_pe%2FDocuments%2Fupc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&ga=1
 
 URL upc-pre-202610-1asi0730-12053-GoldMetrics-needfinding-sprint-1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDu6FgeSAQyTIWq7Mi2D3PWAYw61dd-gFnSQCx1kfl35Zs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=OlpPYE
 
