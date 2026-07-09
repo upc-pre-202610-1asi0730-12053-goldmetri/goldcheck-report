@@ -19,14 +19,14 @@ Visión: Gold Metrics busca posicionarse como la plataforma líder en trazabilid
 | Integrantes | Descripción |
 | :--- | :--- |
 |![Adrian](../assets/img/chapter-i/Armestar.png) | **Nombres y Apellidos:** Adrian Andres Armestar Felipa <br> **Código:** U202410084 <br> **Carrera:** Ingenieria de Software <br> Soy una persona confiable, adaptable y responsable en cuanto a las entregas de los trabajos. Me especializo en el lenguaje C++ pero también tengo conocimientos acerca de base de datos y JavaScript. Poseo una mentalidad de mejora continua, donde busco aprender y mejorar mis habilidades. Del mismo modo, busco trabajar de manera constante y con una adecuada gestión del tiempo. |
-|![Victor](../assets/img/chapter-i/Garcia.png)  |**Nombres y Apellidos:** García Paredes, Victor Manuel  <br> **Código:** U202012001 <br> **Carrera:** Ingenieria de Software Estudiante de la carrera de ingeniería de software con sólidos conocimientos en desarrollo de aplicaciones, estructuras de datos y programación orientada a objetos. Tengo experiencia en el uso de C++, así como en la gestión de proyectos mediante herramientas como Git y GitHub para el control de versiones. También tengo un conocimiento basico sobre Python, MSSQL y MongoDB. Me caracterizo por ser una persona responsable, con iniciativa para el aprendizaje autónomo, y con habilidades para el trabajo en equipo y la comunicación efectiva de ideas.|
-|![Carolina](../assets/img/chapter-i/Navarro.png) | **Nombres y Apellidos:** Carolina Celeste Navarro Aldoradin <br> **Código:** U20241b962 <br> **Carrera:** Ingenieria de Software <br> Soy una persona resiliente, analítica y creativa. Tengo conocimientos en el lenguaje C++, Python, Javascript, SQL y Vercel, así como conocimientos en telemetría y IoT industrial. Poseo habilidades de gestión del tiempo y gestión de proyectos y estoy enfocada en la resolución de problemas y optimización de procesos.
-|![Katty](../assets/img/chapter-i/Philco.png)  | **Nombres y Apellidos:** Katty Yolanda Philco Mota <br> **Código:** U202416107<br> **Carrera:** Ingeniería de Software<br> Soy una persona organizada, responsable y comprometida con mi crecimiento académico. Cuento con conocimientos en programación, especialmente en C++, así como en estructuras de datos, algoritmos y desarrollo de soluciones tecnológicas orientadas a proyectos reales. Me destaco por mi capacidad de análisis, resiliencia frente a los desafíos y disposición para el trabajo en equipo. Me interesa el desarrollo de proyectos innovadores que generen impacto, manteniendo siempre una actitud de aprendizaje constante y mejora continua.|
-|![Kiara](../assets/img/chapter-i/Tuesta.png)|**Nombres y Apellidos:** Kiara Lucia Tuesta Girón <br> **Código:** U20251I2025 <br> **Carrera:** Ingenieria de Software Tengo 20 años y me interesa el desarrollo de aplicaciones. He trabajado con lenguajes como C++ y C#, y también tengo experiencia usando SQL para bases de datos. En trabajos en equipo me gusta participar activamente, aportar ideas y ayudar a que el grupo avance.|
+|![Victor](../assets/img/chapter-i/Garcia.png) | **Nombres y Apellidos:** García Paredes, Victor Manuel <br> **Código:** U202012001 <br> **Carrera:** Ingenieria de Software <br> Estudiante de la carrera de ingeniería de software con sólidos conocimientos en desarrollo de aplicaciones, estructuras de datos y programación orientada a objetos. Tengo experiencia en el uso de C++, así como en la gestión de proyectos mediante herramientas como Git y GitHub para el control de versiones. También tengo un conocimiento básico sobre Python, MSSQL y MongoDB. Me caracterizo por ser una persona responsable, con iniciativa para el aprendizaje autónomo, y con habilidades para el trabajo en equipo y la comunicación efectiva de ideas. |
+|![Carolina](../assets/img/chapter-i/Navarro.png) | **Nombres y Apellidos:** Carolina Celeste Navarro Aldoradin <br> **Código:** U20241b962 <br> **Carrera:** Ingenieria de Software <br> Soy una persona resiliente, analítica y creativa. Tengo conocimientos en el lenguaje C++, Python, Javascript, SQL y Vercel, así como conocimientos en telemetría y IoT industrial. Poseo habilidades de gestión del tiempo y gestión de proyectos y estoy enfocada en la resolución de problemas y optimización de procesos. |
+|![Katty](../assets/img/chapter-i/Philco.png) | **Nombres y Apellidos:** Katty Yolanda Philco Mota <br> **Código:** U202416107 <br> **Carrera:** Ingeniería de Software <br> Soy una persona organizada, responsable y comprometida con mi crecimiento académico. Cuento con conocimientos en programación, especialmente en C++, así como en estructuras de datos, algoritmos y desarrollo de soluciones tecnológicas orientadas a proyectos reales. Me destaco por mi capacidad de análisis, resiliencia frente a los desafíos y disposición para el trabajo en equipo. Me interesa el desarrollo de proyectos innovadores que generen impacto, manteniendo siempre una actitud de aprendizaje constante y mejora continua. |
+|![Kiara](../assets/img/chapter-i/Tuesta.png) | **Nombres y Apellidos:** Kiara Lucia Tuesta Girón <br> **Código:** U20251I2025 <br> **Carrera:** Ingenieria de Software <br> Tengo 20 años y me interesa el desarrollo de aplicaciones. He trabajado con lenguajes como C++ y C#, y también tengo experiencia usando SQL para bases de datos. En trabajos en equipo me gusta participar activamente, aportar ideas y ayudar a que el grupo avance. |
 
-## 1.1. Solution Profile
+## 1.2. Solution Profile
 
-Somos GoldMetrics, una startup integrado por estudiantes de la carrera de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas. Nuestra startup se centra en la industria minera, con el objetivo de monitorear, examinar y certificar el camino de los minerales desde su extracción hasta el producto final. Esto se logra mediante el desarrollo de una plataforma que permite la trazabilidad de minerales, utilizando tecnología IoT, soluciones web e inteligencia artificial.
+Somos GoldMetrics, una startup integrada por estudiantes de la carrera de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas. Nuestra startup se centra en la industria minera, con el objetivo de monitorear, examinar y certificar el camino de los minerales desde su extracción hasta el producto final. Esto se logra mediante el desarrollo de una plataforma que permite la trazabilidad de minerales, utilizando tecnología IoT, soluciones web e inteligencia artificial.
 
 **Misión:** Desarrollar tecnologías de vanguardia que permitan rastrear, examinar y validar el trayecto de los minerales, asegurando la autenticidad de los productos y promoviendo activamente la responsabilidad social en la industria.
 
@@ -56,6 +56,8 @@ La problemática sucede en momentos como el transporte, procesamiento y transfer
 
 #### Why?
 
+Chopra y Meindl (2013) afirman que la información es uno de los principales drivers del rendimiento de una cadena de suministro, ya que permite coordinar actividades y maximizar la rentabilidad total; cuando esa información es inexacta, incompleta o inaccesible, la cadena incurre en ineficiencias que se traducen en pérdidas económicas directas (p. 454).
+
 Este problema surge por la poca implementación de tecnologías para el monitoreo y control de los minerales, siendo que varias empresas siguen usando registros manuales cuyos datos pueden ser fácilmente manipulados.
 
 #### How?
@@ -70,99 +72,125 @@ Esta problemática tiene impactos en varios sectores, especialmente el económic
 
 #### 1.2.2.1. Lean UX Problem Statements
 
+Siguiendo el proceso Lean UX propuesto por Gothelf y Seiden (2021), el equipo formuló problem statements orientados a iniciativas nuevas, los cuales enmarcan el problema desde la perspectiva del dominio actual (domain), los segmentos de clientes afectados (customer segments), los puntos de dolor identificados (pain points), la brecha existente en el mercado (gap), la visión y estrategia de solución (visión/strategy) y el segmento inicial de enfoque (initial segment).
+
 **Problem Statement 1 (Empresas Mineras)**
 
-El estado actual del sector minero peruano se ha enfocado principalmente en procesos manuales y reportes empíricos para el registro y control del traslado de minerales, con bajo nivel de digitalización en la trazabilidad de sus operaciones.
+El estado actual del sector minero peruano se ha centrado principalmente en procesos manuales de registro y en sistemas de reporte empírico para el control de operaciones logísticas.
 
-Lo que las soluciones existentes no logran resolver es el seguimiento confiable y en tiempo real del mineral desde la zona de extracción hasta su comercialización, lo que genera pérdidas económicas equivalentes a millones de soles anuales (Canchari, 2025).
+Lo que los productos y servicios existentes no logran abordar es la ausencia de un mecanismo confiable, automático e inmutable que permita monitorear en tiempo real el traslado, pesaje y condiciones de los minerales a lo largo de toda la cadena logística.
 
-Nuestro producto abordará esta brecha mediante una plataforma web que automatice el registro de pesajes, geolocalización y ciclos de acarreo del mineral.
+GoldMetrics abordará esta brecha mediante una plataforma web integrada con tecnología IoT que automatice el registro de datos de geolocalización, pesaje y condiciones del mineral en cada etapa de la operación.
 
-Nuestro enfoque inicial serán las empresas mineras medianas que operan rutas logísticas propias y que exigen alta confidencialidad sobre sus datos de producción.
+Nuestro enfoque inicial será el segmento de empresas mineras medianas del Perú que requieran optimizar su logística de acarreo y reducir pérdidas operativas.
 
-Sabremos que tuvimos éxito cuando veamos una reducción medible de mermas y un incremento en el número de empresas mineras que registran sus ciclos de acarreo de forma digital en la plataforma.
+Sabremos que hemos tenido éxito cuando observemos que las empresas mineras piloto reporten una reducción de mermas de al menos un 15% durante los primeros tres meses de uso, y cuando logremos suscribir a cinco empresas mineras a nuestro plan B2B.
 
 **Problem Statement 2 (Joyerías)**
 
-El estado actual del mercado de joyería en el Perú se ha enfocado en la venta de piezas sin mecanismos formales, accesibles e inmutables para certificar el origen de los minerales con los que se fabrican.
+El estado actual del mercado de joyería en el Perú se ha centrado en la comercialización de piezas sin disponer de mecanismos formales, accesibles e inmutables para certificar el origen de los minerales utilizados en su fabricación.
 
-Lo que las soluciones existentes no logran resolver es que las joyerías puedan garantizar de forma verificable el origen ético y la autenticidad de sus productos frente a consumidores cada vez más exigentes e informados.
+Lo que los productos y servicios existentes no logran abordar es la imposibilidad de las joyerías de demostrar a sus clientes que los minerales que emplean provienen de fuentes éticas y legalmente verificadas.
 
-Nuestro producto abordará esta brecha mediante un sistema que permita a las joyerías emitir certificados digitales, respaldados por códigos QR, con datos trazables desde la mina de origen.
+GoldMetrics abordará esta brecha mediante un sistema que permita a las joyerías emitir certificados digitales respaldados por datos trazables desde la mina, accesibles a través de códigos QR vinculados a cada pieza.
 
-Nuestro enfoque inicial serán joyerías artesanales y medianas dispuestas a diferenciarse mediante certificación de origen ético.
+Nuestro enfoque inicial será el segmento de tiendas y distribuidores de joyas ubicados en zonas comerciales del Perú que busquen diferenciarse mediante la certificación de origen.
 
-Sabremos que tuvimos éxito cuando veamos un incremento en la cantidad de certificados digitales emitidos y en las ventas de piezas certificadas respecto al inventario regular.
+Sabremos que hemos tenido éxito cuando las joyerías afiliadas reporten un incremento del 20% en las ventas de joyas certificadas respecto a su inventario regular, y cuando logremos emitir 500 certificados QR en el primer semestre de operación.
 
 **Problem Statement 3 (Consumidores Finales)**
 
-El estado actual del mercado de consumo muestra compradores cada vez más preocupados por el impacto ambiental y social de los productos que adquieren, sin mecanismos accesibles para verificarlo.
+El estado actual del mercado de consumo de joyería y productos minerales en el Perú se ha centrado en la experiencia de compra estética y en el precio, sin proveer al consumidor final información verificable sobre el origen y la trazabilidad del producto adquirido.
 
-Lo que las soluciones existentes no logran resolver es que el consumidor final cuente con una forma confiable y rápida de verificar si la joya que compra proviene de fuentes responsables.
+Lo que los productos y servicios existentes no logran abordar es la falta de un canal transparente y de fácil acceso que permita al consumidor confirmar la autenticidad y el origen ético del producto antes o después de su compra.
 
-Nuestro producto abordará esta brecha ofreciendo acceso transparente a la "hoja de vida" del producto mediante el escaneo de un código QR generado por nuestra plataforma.
+GoldMetrics abordará esta brecha ofreciendo al consumidor final acceso a la trazabilidad completa del mineral mediante el escaneo de un código QR impreso en el producto o en su empaque.
 
-Nuestro enfoque inicial serán consumidores jóvenes interesados en el consumo responsable y con acceso a un smartphone con conexión a internet.
+Nuestro enfoque inicial será el segmento de consumidores adultos jóvenes con interés en el consumo responsable que adquieran productos de joyería en establecimientos afiliados a la plataforma.
 
-Sabremos que tuvimos éxito cuando veamos un volumen sostenido de escaneos de códigos QR y un mayor tiempo de permanencia en la vista de trazabilidad del producto.
+Sabremos que hemos tenido éxito cuando alcancemos más de 2,000 escaneos de códigos QR por mes en productos afiliados, y cuando el tiempo promedio de sesión en la vista de trazabilidad supere un minuto y treinta segundos.
 
 #### 1.2.2.2. Lean UX Assumptions
 
-**Business Assumptions:**
-- Creemos que nuestros usuarios necesitan tener una herramienta con la que puedan validar el recorrido de los minerales.
-- Estas necesidades se pueden satisfacer con una solucion web que brinde informacion detallada sobre los minerales tratados.
-- Nuestros clientes iniciales seran las empresas, joyerias y los usuarios finales.
-- El valor mas importante que un cliente quiere de nuestros servicios es la trazabilidad de los minerales, incluyendo informacion desde su origen.
-- El cliente tambien va a obtener reduccion de perdidas y apoyo en las decisiones logísticas.
-- Vamos a obtener la mayoria de los clientes mediante alianzas con empresas relacionadas al sector minero al igual que marketing B2B y demostraciones del sistema en eventos del sector.
-- Vamos a obtener ingresos mediante suscripciones mensuales las cuales dependan de un numero de productos analizados preestablecido.
-- Nuestra competencia en el mercado seran soluciones que monitoreen los minerales de manera incompleta con software caro y poco flexible.
-- Vamos a tener ventaja frente a nuestra competencia debido a la integración de tecnologías IoT, IA y WEB en el enfoque de la trazabilidad del mineral.
-- El mayor riesgo del servicio es la adaptación del sistema en productos ya existentes y errores manuales al momento de registrar datos.
-- Lo resolveremos realizando interfaces simple y sesiones de entrenamiento simulando casos reales.
+Gothelf y Seiden (2021) explican que cada sección del Lean UX Canvas es en sí misma un ejercicio de declaración de assumptions. En lugar de trabajar con requisitos rígidos, los equipos declaran sus suposiciones sobre el negocio, los usuarios, los outcomes esperados y las soluciones propuestas para identificar los mayores riesgos antes de construir nada. A continuación se presentan las assumptions del equipo organizadas en las cinco categorías del Lean UX Canvas v2.
 
-**User Assumptions:**
-- ¿Quien es el usuario?
-Los usuarios son empresas mineras que necesiten gestionar los bienes obtenidos. Tambien estan, las joyerías que requieran validar dichos insumos. Finalmente son los usuarios finales que esten interesados en conocer el origen de los productos y evitar ser estafados en el proceso.
-- ¿Que problemas tiene nuestro producto que resolver?
-Nuestro producto tiene que resolver las dificultades en el monitoreo de los minerales, al igual que necesita verificar tanto la autenticidad como el origen etico de estos.
-- ¿Que caracteristicas son importantes?
-Se incluye el registro y monitoreo en tiempo real del traslado de los minerales, en estos registros estará información como el peso del mineral, la cantidad de este, las condiciones del envió y la verificación de la carga y de la descarga. Del mismo modo es necesaria la generacion de reportes especificando quien superviso, quien manipulo, cuando y donde.
-- ¿Donde encaja nuestro producto en su trabajo o vida?
-El producto encaja en la gestión operativa y en la logística de las empresas mineras para que estas puedan tener un mejor control sobre los minerales obtenidos. También encaja tanto en tiendas como en consumidores pues estos pueden validar y verificar información sobre los productos.
-- ¿Cuando y como es nuestro producto usado?
-Se utiliza durante todo el proceso del ámbito minero, llendo desde la extracción, incluyendo el traslado, el deposito o el procesamiento hasta la venta final. El producto puede ser usado mediante una plataforma web en cualquier momento siendo limitado por el rol del usuario.
-- ¿Como debe verse nuestro producto y como debe comportarse?
-Debe ser intuitiva mediante el uso de dashboards, de esta manera brindara una navegación sencilla a los usuarios mientras brinda información confiable y lo suficientemente rápida como para estar a tiempo real.
+**Assumption 1: Business Problem**
+
+Según Gothelf y Seiden (2021), el Business Problem es la assumption central que encuadra todo el trabajo del equipo: define el reto específico a resolver desde la perspectiva del negocio, sin prescribir una solución. El equipo asume lo siguiente:
+
+El estado actual del sector minero peruano, del comercio de joyería y del consumo de productos minerales se ha centrado principalmente en la cadena de extracción y comercialización sin disponer de mecanismos confiables, automáticos e inmutables para rastrear el origen y recorrido de los minerales. Creemos que esta falta de trazabilidad genera pérdidas económicas significativas para las empresas mineras, impide a las joyerías certificar el origen ético de sus materiales y deja al consumidor final sin información verificable sobre los productos que adquiere. GoldMetrics buscará resolver esta brecha mediante una plataforma integrada que conecte a todos los actores de la cadena con datos confiables y verificables. Sabremos que hemos resuelto el problema cuando observemos una reducción de mermas en empresas mineras piloto, un incremento en ventas de productos certificados en joyerías afiliadas, y un crecimiento sostenido en el uso del sistema de trazabilidad por parte de consumidores.
+
+**Assumption 2: Business Outcomes**
+
+Gothelf y Seiden (2021) definen los business outcomes como los cambios de comportamiento medibles en los usuarios del sistema que indicarán que el problema de negocio ha sido resuelto. El equipo declara las siguientes suposiciones sobre los resultados que espera observar:
+
+- Creemos que al menos cinco empresas mineras medianas del Perú suscribirán un plan B2B dentro de los primeros seis meses desde el lanzamiento.
+- Creemos que las empresas mineras piloto reportarán una reducción de mermas de al menos un 15% durante los primeros tres meses de uso de la plataforma.
+- Creemos que las joyerías afiliadas emitirán 500 certificados QR en el primer semestre, evidenciando la adopción del módulo de certificación digital.
+- Creemos que la plataforma alcanzará más de 2,000 escaneos mensuales de códigos QR por parte de consumidores finales en productos afiliados.
+- Creemos que la tasa de retención de usuarios B2B superará el 80% al término del primer año de operación.
+
+**Assumption 3: Users**
+
+Gothelf y Seiden (2021) señalan que Box 3 del canvas sirve para declarar las suposiciones del equipo sobre quiénes son los usuarios y clientes del producto, utilizando proto-personas como punto de partida antes de la validación con investigación real. El equipo asume los siguientes perfiles de usuario:
+
+- Empresas mineras: representadas por supervisores e ingenieros de operaciones de entre 30 y 60 años que trabajan en zonas de extracción del Perú. Necesitan controlar en tiempo real el traslado y las condiciones de los minerales para reducir pérdidas operativas.
+- Joyerías: representadas por dueños y gerentes de tiendas de entre 26 y 60 años ubicados en zonas comerciales del Perú. Necesitan certificar el origen de sus insumos para ofrecer productos auténticos y diferenciarse en el mercado.
+- Consumidores finales: adultos jóvenes de entre 18 y 25 años con interés en el consumo responsable. Necesitan acceder fácilmente a información verificable sobre el origen y autenticidad de los productos que adquieren.
+
+**Assumption 4: User Outcomes & Benefits**
+
+Gupta y Singh (2021) sostienen que los consumidores con orientación hacia la responsabilidad social modifican activamente sus decisiones de compra cuando disponen de información verificable sobre el origen y las condiciones de producción de los bienes que adquieren, siendo la transparencia de la cadena productiva un factor determinante en la construcción de confianza hacia el producto (p. 87). Gothelf y Seiden (2021) explican que Box 4 trata sobre las metas y beneficios de los usuarios: qué quieren lograr, cómo quieren sentirse durante y después del proceso, y qué cambios de comportamiento se podrán observar cuando el producto funcione correctamente. De esta manera el equipo declara las siguientes suposiciones:
+
+- Creemos que los supervisores mineros lograrán detectar y corregir anomalías en el acarreo de minerales en tiempo real, reduciendo su incertidumbre operativa y sintiéndose respaldados por datos confiables en la toma de decisiones.
+- Creemos que los dueños de joyerías podrán emitir y compartir certificados de origen con sus clientes de forma ágil, sintiéndose competitivos frente a otras joyerías que no ofrecen esta garantía y aumentando la confianza de sus compradores.
+- Creemos que los consumidores finales lograrán verificar la trazabilidad del producto que van a adquirir en segundos mediante el escaneo de un código QR, tomando decisiones de compra informadas y sintiéndose seguros de que el producto es auténtico y de origen ético.
+
+**Assumption 5: Solutions**
+
+Gothelf y Seiden (2021) indican que Box 5 es el momento en que el equipo declara sus suposiciones sobre qué funcionalidades o características del producto cree que permitirán alcanzar los outcomes definidos para el negocio y los usuarios. Schwab (2016) señala que cualquier paquete, palet o contenedor puede equiparse con sensores, transmisores o etiquetas RFID que permiten a una empresa rastrear su ubicación y condiciones a lo largo de toda la cadena de suministro, transformando radicalmente la capacidad de monitoreo en tiempo real de operaciones complejas y de alto riesgo (p. 22). El equipo asume que las siguientes soluciones serán efectivas:
+
+- Dashboard de monitoreo IoT en tiempo real con datos de geolocalización, pesaje y condiciones del mineral durante el acarreo, orientado a supervisores mineros.
+- Módulo de registro de ciclos de extracción y transporte con verificación de carga y descarga por parte de operadores autorizados.
+- Generación automática de certificados digitales de origen vinculados a cada lote de mineral procesado y transferido a joyerías.
+- Emisión de códigos QR únicos por producto en joyerías, que ofrezcan al consumidor acceso público a la trazabilidad completa del mineral.
+- Sistema de alertas y notificaciones para eventos críticos en la cadena logística, como anomalías de peso, desvíos de ruta o condiciones fuera de rango.
+- Panel de reportes descargables para auditoría interna y cumplimiento regulatorio, dirigido a gerentes y responsables de operaciones.
+- Módulo de autenticación con roles diferenciados para empresas mineras, joyerías y consumidores finales.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-**Hipótesis 1 (Empresas Mineras):**
+Siguiendo la plantilla definida por Gothelf y Seiden (2021) en la tercera edición de Lean UX, cada hypothesis statement vincula un business outcome (Box 2) con una persona (Box 3), un user outcome o beneficio (Box 4) y una solución concreta (Box 5). Esta estructura garantiza que cada hipótesis sea específica y testeable.
 
-**Creemos que lograremos** reducir las pérdidas económicas por falta de trazabilidad en el sector minero,
-**Si** las empresas mineras medianas que operan rutas de acarreo propias,
-**Obtienen** visibilidad en tiempo real del traslado y procesamiento de sus minerales,
-**Con** una plataforma web que registre automáticamente pesajes, geolocalización y ciclos de acarreo.
+**Hipótesis 1:**
 
-*Métrica de validación:* los reportes de las empresas mineras piloto muestran una reducción de mermas de al menos un 15% durante los primeros 3 meses de uso, y se logra suscribir a 5 empresas mineras al plan B2B.
+Creemos que lograremos una reducción de mermas de al menos un 15% en empresas mineras piloto durante los primeros tres meses de uso y suscribiremos a cinco empresas mineras a nuestro plan B2B,
 
-**Hipótesis 2 (Joyerías):**
+si los supervisores e ingenieros de operaciones de empresas mineras medianas del Perú
 
-**Creemos que lograremos** mejorar la confianza entre joyerías y consumidores respecto al origen del oro,
-**Si** las joyerías artesanales y medianas,
-**Obtienen** la capacidad de certificar digitalmente la autenticidad y el origen ético de sus materiales,
-**Con** un sistema que emita certificados respaldados por códigos QR trazables desde la mina.
+logran acceder a datos de geolocalización, pesaje y condiciones del mineral en tiempo real durante el acarreo,
 
-*Métrica de validación:* las joyerías afiliadas reportan un incremento del 20% en las ventas de joyas certificadas respecto a su inventario regular, y se logra emitir 500 certificados QR en el primer semestre.
+con el módulo de monitoreo IoT y el dashboard de operaciones de GoldMetrics.
 
-**Hipótesis 3 (Consumidores Finales):**
+**Hipótesis 2:**
 
-**Creemos que lograremos** fomentar decisiones de compra responsables entre los consumidores finales,
-**Si** los consumidores jóvenes interesados en el consumo responsable,
-**Obtienen** acceso transparente a la hoja de vida de la joya que están por comprar,
-**Con** el escaneo de un código QR que despliega el recorrido completo del mineral.
+Creemos que lograremos un incremento del 20% en ventas de joyas certificadas en joyerías afiliadas y emitiremos 500 certificados QR en el primer semestre de operación,
 
-*Métrica de validación:* se alcanzan más de 2,000 escaneos de códigos QR por mes en los productos afiliados, y el tiempo promedio de sesión en la vista de trazabilidad supera 1 minuto y 30 segundos.
+si los dueños y gerentes de joyerías ubicadas en zonas comerciales del Perú
+
+logran emitir y compartir con sus clientes certificados digitales que demuestren el origen ético y la trazabilidad completa de los minerales en sus productos,
+
+con el módulo de certificación digital y generación de códigos QR de GoldMetrics.
+
+**Hipótesis 3:**
+
+Creemos que alcanzaremos más de 2,000 escaneos de códigos QR por mes en productos afiliados y un tiempo promedio de sesión superior a un minuto y treinta segundos en la vista de trazabilidad,
+
+si los consumidores finales adultos jóvenes con interés en el consumo responsable
+
+logran verificar de manera transparente y en pocos segundos el origen, recorrido y autenticidad del producto que están por adquirir o que ya adquirieron,
+
+con la funcionalidad de trazabilidad pública accesible mediante escaneo de código QR en el producto o empaque.
 
 #### 1.2.2.4. Lean UX Canvas
 
@@ -185,7 +213,7 @@ Según Canchari (2025), los problemas de trazabilidad y control en el sector min
 #### Necesidad:
 Este segmento necesita herramientas tecnológicas que permita el monitoreo en tiempo real para optimizar la logística en el ámbito minero.
 
-### Segmento 2: Joyerías 
+### Segmento 2: Joyerías
 
 #### Descripción general:
 Se refiere a empresas que venden productos cuyo material principal son los minerales pero que tienen dificultades al momento de garantizar el origen de dichos productos.
