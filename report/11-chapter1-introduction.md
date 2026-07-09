@@ -69,35 +69,42 @@ Esta problemática tiene impactos en varios sectores, especialmente el económic
 ### 1.2.2. Lean UX Process
 
 #### 1.2.2.1. Lean UX Problem Statements
+
 **Problem Statement 1 (Empresas Mineras)**
 
-El estado actual del sector minero peruano depende en gran medida de procesos manuales y reportes empíricos, lo que genera una falta de trazabilidad confiable desde la zona de extracción hasta la comercialización. 
+El estado actual del sector minero peruano se ha enfocado principalmente en procesos manuales y reportes empíricos para el registro y control del traslado de minerales, con bajo nivel de digitalización en la trazabilidad de sus operaciones.
 
-Hemos observado que las empresas mineras sufren ineficiencias operativas y pérdidas económicas equivalentes a millones de soles anuales debido a la dificultad para monitorear en tiempo real el traslado y procesamiento de los minerales en sus rutas logísticas. 
+Lo que las soluciones existentes no logran resolver es el seguimiento confiable y en tiempo real del mineral desde la zona de extracción hasta su comercialización, lo que genera pérdidas económicas equivalentes a millones de soles anuales (Canchari, 2025).
 
-Nuestra solución abordará esta oportunidad desarrollando una plataforma Web que automatice el registro de pesajes y geolocalización. 
+Nuestro producto abordará esta brecha mediante una plataforma web que automatice el registro de pesajes, geolocalización y ciclos de acarreo del mineral.
 
-Las restricciones bajo las cuales operamos incluyen la baja conectividad a internet en zonas de extracción profunda y la alta confidencialidad que exigen las mineras sobre sus datos de producción.
+Nuestro enfoque inicial serán las empresas mineras medianas que operan rutas logísticas propias y que exigen alta confidencialidad sobre sus datos de producción.
 
+Sabremos que tuvimos éxito cuando veamos una reducción medible de mermas y un incremento en el número de empresas mineras que registran sus ciclos de acarreo de forma digital en la plataforma.
 
 **Problem Statement 2 (Joyerías)**
-El estado actual del mercado de joyería en el Perú carece de mecanismos formales, accesibles e inmutables para certificar el origen de los minerales con los que se fabrican sus piezas.
 
-Hemos observado que las tiendas y distribuidores de joyas enfrentan dificultades para garantizar el origen ético y la autenticidad de sus productos, lo que frena sus ventas frente a consumidores cada vez más exigentes e informados.
+El estado actual del mercado de joyería en el Perú se ha enfocado en la venta de piezas sin mecanismos formales, accesibles e inmutables para certificar el origen de los minerales con los que se fabrican.
 
-Nuestra solución abordará esta oportunidad mediante un sistema que permita a las joyerías emitir certificados digitales (vía códigos QR) respaldados por datos trazables desde la mina.
+Lo que las soluciones existentes no logran resolver es que las joyerías puedan garantizar de forma verificable el origen ético y la autenticidad de sus productos frente a consumidores cada vez más exigentes e informados.
 
-Las restricciones bajo las cuales operamos son la resistencia al cambio tecnológico por parte de joyeros tradicionales y la dependencia de la data inicial ingresada correctamente por las mineras.
+Nuestro producto abordará esta brecha mediante un sistema que permita a las joyerías emitir certificados digitales, respaldados por códigos QR, con datos trazables desde la mina de origen.
 
+Nuestro enfoque inicial serán joyerías artesanales y medianas dispuestas a diferenciarse mediante certificación de origen ético.
+
+Sabremos que tuvimos éxito cuando veamos un incremento en la cantidad de certificados digitales emitidos y en las ventas de piezas certificadas respecto al inventario regular.
 
 **Problem Statement 3 (Consumidores Finales)**
-El estado actual del mercado de consumo muestra a compradores cada vez más preocupados por el impacto ambiental y social de los productos que adquieren.
 
-Hemos observado que el consumidor final no tiene una forma confiable ni rápida de verificar si las joyas que compra provienen de fuentes responsables, lo que genera dudas al momento de realizar compras de alto valor.
+El estado actual del mercado de consumo muestra compradores cada vez más preocupados por el impacto ambiental y social de los productos que adquieren, sin mecanismos accesibles para verificarlo.
 
-Nuestra solución abordará esta oportunidad ofreciendo acceso transparente a la "hoja de vida" del producto escaneando un código QR generado por nuestra plataforma.
+Lo que las soluciones existentes no logran resolver es que el consumidor final cuente con una forma confiable y rápida de verificar si la joya que compra proviene de fuentes responsables.
 
-Las restricciones bajo las cuales operamos incluyen la necesidad de que el usuario tenga un smartphone con conexión a internet y la voluntad de interactuar con el código QR antes o después de su compra.
+Nuestro producto abordará esta brecha ofreciendo acceso transparente a la "hoja de vida" del producto mediante el escaneo de un código QR generado por nuestra plataforma.
+
+Nuestro enfoque inicial serán consumidores jóvenes interesados en el consumo responsable y con acceso a un smartphone con conexión a internet.
+
+Sabremos que tuvimos éxito cuando veamos un volumen sostenido de escaneos de códigos QR y un mayor tiempo de permanencia en la vista de trazabilidad del producto.
 
 #### 1.2.2.2. Lean UX Assumptions
 
@@ -130,23 +137,32 @@ Debe ser intuitiva mediante el uso de dashboards, de esta manera brindara una na
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-**Hipótesis 1:**
+**Hipótesis 1 (Empresas Mineras):**
 
-**Creemos** que una plataforma que permita monitorear en tiempo real los minerales ayudará a reducir las pérdidas de las empresas.
-**Sabremos que** hemos tenido éxito 
-**Cuando** los reportes de las empresas mineras piloto muestren una reducción de mermas de al menos un 15% durante los primeros 3 meses de uso, y logremos suscribir a 5 empresas mineras a nuestro plan B2B.
+**Creemos que lograremos** reducir las pérdidas económicas por falta de trazabilidad en el sector minero,
+**Si** las empresas mineras medianas que operan rutas de acarreo propias,
+**Obtienen** visibilidad en tiempo real del traslado y procesamiento de sus minerales,
+**Con** una plataforma web que registre automáticamente pesajes, geolocalización y ciclos de acarreo.
 
-**Hipótesis 2:**
+*Métrica de validación:* los reportes de las empresas mineras piloto muestran una reducción de mermas de al menos un 15% durante los primeros 3 meses de uso, y se logra suscribir a 5 empresas mineras al plan B2B.
 
-**Creemos** que una plataforma que pueda certificar la autenticidad de los minerales ayudará a mejorar la confianza entre tiendas y consumidores.
-**Sabremos que** hemos tenido éxito 
-**Cuando** las joyerías afiliadas reporten un incremento del 20% en las ventas de joyas certificadas respecto a su inventario regular, y logremos emitir 500 certificados QR en el primer semestre.
+**Hipótesis 2 (Joyerías):**
 
-**Hipótesis 3:**
+**Creemos que lograremos** mejorar la confianza entre joyerías y consumidores respecto al origen del oro,
+**Si** las joyerías artesanales y medianas,
+**Obtienen** la capacidad de certificar digitalmente la autenticidad y el origen ético de sus materiales,
+**Con** un sistema que emita certificados respaldados por códigos QR trazables desde la mina.
 
-**Creemos que** una plataforma que permita al usuario observar la hoja de vida de los productos en venta logrará fomentar decisiones de compra responsables.
-**Sabremos que** hemos tenido éxito 
-**Cuando** alcancemos más de 2,000 escaneos de códigos QR por mes en los productos afiliados y el tiempo promedio de sesión en la vista de trazabilidad sea superior a 1 minuto y 30 segundos.
+*Métrica de validación:* las joyerías afiliadas reportan un incremento del 20% en las ventas de joyas certificadas respecto a su inventario regular, y se logra emitir 500 certificados QR en el primer semestre.
+
+**Hipótesis 3 (Consumidores Finales):**
+
+**Creemos que lograremos** fomentar decisiones de compra responsables entre los consumidores finales,
+**Si** los consumidores jóvenes interesados en el consumo responsable,
+**Obtienen** acceso transparente a la hoja de vida de la joya que están por comprar,
+**Con** el escaneo de un código QR que despliega el recorrido completo del mineral.
+
+*Métrica de validación:* se alcanzan más de 2,000 escaneos de códigos QR por mes en los productos afiliados, y el tiempo promedio de sesión en la vista de trazabilidad supera 1 minuto y 30 segundos.
 
 #### 1.2.2.4. Lean UX Canvas
 
