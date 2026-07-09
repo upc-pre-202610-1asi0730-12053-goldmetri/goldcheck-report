@@ -429,8 +429,7 @@ A continuación se presentan las principales vistas implementadas durante este S
 
 
 
-URL del video de navegación (Microsoft Stream):
-https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQCM0Lx_OtVUQJrTSpTY9SswAQF1q1ZwS6fIq6fIxeQgPnw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=SXCbMZ
+**URL del video de navegación (Microsoft Stream):** [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQCM0Lx_OtVUQJrTSpTY9SswAQF1q1ZwS6fIq6fIxeQgPnw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=SXCbMZ)
 
 ---
 
@@ -454,11 +453,11 @@ Durante el Sprint 2 se realizó el despliegue exitoso del Frontend Web Applicati
 7. Se habilitó el autodespliegue para actualizar automáticamente la landing en cada push realizado al repositorio.  
 8. Se verificó el correcto funcionamiento de la landing mediante la URL pública generada por Netlify.
 
-URL de la Mockapi desplegado: https://goldcheck-mockapi-production.up.railway.app
+**URL de la Mockapi desplegado:** [https://goldcheck-mockapi-production.up.railway.app](https://goldcheck-mockapi-production.up.railway.app)
 
-URL del Frontend Web Application desplegado: https://goldcheck-goldmetrics.netlify.app/
+**URL del Frontend Web Application desplegado:** [https://goldcheck-goldmetrics.netlify.app/](https://goldcheck-goldmetrics.netlify.app/)
 
-URL del Landing Page integrado con nuestro Frontend: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
+**URL del Landing Page integrado con nuestro Frontend:** [https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/](https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/)
 
 
 
@@ -561,8 +560,7 @@ Durante el Sprint 3 el equipo se enfocó en el desarrollo del Backend (Web Servi
 
 En el Sprint 3 se logró implementar y desplegar la primera versión de los Web Services de GoldCheck en Azure App Service. La API RESTful cuenta con más de 100 endpoints distribuidos en 11 bounded contexts, todos documentados automáticamente mediante Swagger/OpenAPI. Los bounded contexts implementados son: Identity & Access Management, Fleet Operations, Material Operations, Jewelry Inventory & Certification, Asset & Maintenance, Analytics, Reporting & Notifications, Subscriptions & Billing, Incident Management, Monitoring & Telemetry y Consumer Traceability.
 
-La documentación interactiva de la API está disponible en:
-https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
+La documentación interactiva de la API está disponible en: [https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html](https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html)
 
 A continuación se presentan capturas de la documentación Swagger desplegada:
 
@@ -574,7 +572,7 @@ A continuación se presentan capturas de la documentación Swagger desplegada:
 
 En este Sprint se implementó la primera versión de los Web Services de GoldCheck utilizando ASP.NET Core con C#. La documentación de los endpoints se generó automáticamente mediante Swagger (OpenAPI).
 
-A continuación se presentan los endpoints implementados por cada bounded context, organizados por controlador. La documentación interactiva de Swagger está disponible en: https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
+A continuación se presentan los endpoints implementados por cada bounded context, organizados por controlador. La documentación interactiva de Swagger está disponible en: [https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html](https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html)
 
 **Identity & Access Management (IAM)**
 
@@ -779,13 +777,13 @@ Durante el Sprint 3 se realizó el despliegue exitoso de los Web Services de Gol
 5. Se configuró Swagger/OpenAPI como página de inicio para la documentación interactiva.
 6. Se verificó el correcto funcionamiento de los endpoints accediendo a la URL pública.
 
-**URL del Backend desplegado:** https://goldcheck-platform-wa.azurewebsites.net
+**URL del Backend desplegado:** [https://goldcheck-platform-wa.azurewebsites.net](https://goldcheck-platform-wa.azurewebsites.net)
 
-**URL de la documentación Swagger:** https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
+**URL de la documentación Swagger:** [https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html](https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html)
 
-**URL del Frontend Web Application desplegado:** https://goldcheck-goldmetrics.netlify.app/
+**URL del Frontend Web Application desplegado:** [https://goldcheck-goldmetrics.netlify.app/](https://goldcheck-goldmetrics.netlify.app/)
 
-**URL del Landing Page:** https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
+**URL del Landing Page:** [https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/](https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/)
 
 A continuación se presentan las capturas del proceso de despliegue en Azure:
 
@@ -915,15 +913,15 @@ Durante el Sprint 4 el equipo se enfocó en la integración del Frontend Web App
 ![Screenshot 5](../assets/img/chapter-v/frontend-5.png)
 ![Screenshot 6](../assets/img/chapter-v/frontend-6.png)
 
-URL del Frontend Web Application: https://goldcheck-goldmetrics.netlify.app/
+**URL del Frontend Web Application:** [https://goldcheck-goldmetrics.netlify.app/](https://goldcheck-goldmetrics.netlify.app/)
 
-URL del Landing Page: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
+**URL del Landing Page:** [https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/](https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/)
 
 #### 5.2.4.6. Services Documentation Evidence for Sprint Review
 
 Durante el Sprint 4 se extendió el Backend con nuevos endpoints que completan los bounded contexts de Jewelry Inventory, Consumer Traceability, Analytics y Subscriptions & Billing, y se añadieron endpoints de recuperación de contraseña en IAM y de gestión avanzada de ruta en Fleet Operations. La documentación interactiva actualizada está disponible en:
 
-**URL Swagger:** https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
+**URL Swagger:** [https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html](https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html)
 
 **Identity & Access Management — nuevos endpoints Sprint 4**
 
@@ -992,11 +990,11 @@ Durante el Sprint 4 se extendió el Backend con nuevos endpoints que completan l
 ![Screenshot 7](../assets/img/chapter-v/frontend-7.png)
 ![Screenshot 1](../assets/img/chapter-v/frontend-1.png)
 
-**URL del Backend desplegado:** https://goldcheck-platform-wa.azurewebsites.net
+**URL del Backend desplegado:** [https://goldcheck-platform-wa.azurewebsites.net](https://goldcheck-platform-wa.azurewebsites.net)
 
-**URL del Frontend Web Application desplegado:** https://goldcheck-goldmetrics.netlify.app/
+**URL del Frontend Web Application desplegado:** [https://goldcheck-goldmetrics.netlify.app/](https://goldcheck-goldmetrics.netlify.app/)
 
-**URL del Landing Page:** https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
+**URL del Landing Page:** [https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/](https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/)
 
 #### 5.2.4.8. Team Collaboration Insights during Sprint
 
@@ -1145,7 +1143,7 @@ Las sesiones de validación siguen el protocolo de **User Testing con Think Alou
 | PROFESORES | Todos |
 | AUDITOR | NutriSense Team |
 | CLIENTE(S) | Olenka Del Aguila, Angela Espinoza, Joel Mora, Rose Vergaray, Angel Villarreal |
-| SITE A EVALUAR | Landing Page: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/ / Web Application: https://goldcheck-goldmetrics.netlify.app/ |
+| SITE A EVALUAR | Landing Page: [Ver sitio](https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/) / Web Application: [Ver sitio](https://goldcheck-goldmetrics.netlify.app/) |
 
 ---
 
@@ -1516,15 +1514,15 @@ El equipo adoptó Domain-Driven Design como eje organizativo del proyecto, lo qu
 
 ## Anexos Importantes
 
-URL de la Mockapi desplegado: https://goldcheck-mockapi-production.up.railway.app
+**URL de la Mockapi desplegado:** [https://goldcheck-mockapi-production.up.railway.app](https://goldcheck-mockapi-production.up.railway.app)
 
-URL del Frontend Web Application desplegado: https://goldcheck-goldmetrics.netlify.app/
+**URL del Frontend Web Application desplegado:** [https://goldcheck-goldmetrics.netlify.app/](https://goldcheck-goldmetrics.netlify.app/)
 
-URL del Landing Page integrado con nuestro Frontend: https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/
+**URL del Landing Page integrado con nuestro Frontend:** [https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/](https://upc-pre-202610-1asi0730-12053-goldmetri.github.io/goldcheck-website/)
 
-URL del Backend / Web Services desplegado: https://goldcheck-platform-wa.azurewebsites.net
+**URL del Backend / Web Services desplegado:** [https://goldcheck-platform-wa.azurewebsites.net](https://goldcheck-platform-wa.azurewebsites.net)
 
-URL de documentación Swagger del Backend / Web Services: https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html
+**URL de documentación Swagger del Backend / Web Services:** [https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html](https://goldcheck-platform-wa.azurewebsites.net/swagger/index.html)
 
 **Credenciales de prueba:**
 
@@ -1536,9 +1534,9 @@ URL de documentación Swagger del Backend / Web Services: https://goldcheck-plat
 
 **Videos:**
 
-URL upc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2: https://upcedupe-my.sharepoint.com/personal/u202416107_upc_edu_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu202416107_upc_edu_pe%2FDocuments%2Fupc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&ga=1
+**Expo TB2:** [Ver video](https://upcedupe-my.sharepoint.com/personal/u202416107_upc_edu_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu202416107_upc_edu_pe%2FDocuments%2Fupc-pre-202610-1asi0730-12053-goldmetrics-expo-tb2%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&ga=1)
 
-URL upc-pre-202610-1asi0730-12053-GoldMetrics-needfinding-sprint-1: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDu6FgeSAQyTIWq7Mi2D3PWAYw61dd-gFnSQCx1kfl35Zs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=OlpPYE
+**Needfinding Sprint 1:** [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQDu6FgeSAQyTIWq7Mi2D3PWAYw61dd-gFnSQCx1kfl35Zs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=OlpPYE)
 
 ## Conclusiones
 
@@ -1564,6 +1562,8 @@ URL upc-pre-202610-1asi0730-12053-GoldMetrics-needfinding-sprint-1: https://upce
 
 ## Bibliografía
 
+Brown, S. (2018). *The C4 Model for Visualising Software Architecture*. [https://c4model.com](https://c4model.com)
+
 Canchari, J. (2025). Las pérdidas económicas por minería ilegal equivalen al 2,5% del PBI peruano. Fiscalías Especializadas en Materia Ambiental.
 
 Chopra, S., y Meindl, P. (2013). Supply chain management: Strategy, planning, and operation (5.ª ed.). Pearson Education.
@@ -1572,12 +1572,20 @@ Cruz, R. (2024). Minería ilegal incorpora más de un millón de onzas de oro al
 
 DesdeAdentro. (2025). Trazabilidad del oro: el desafío de separar el mercado informal del formal. Revista DesdeAdentro.
 
-Gothelf, J., y Seiden, J. (2021). Lean UX: Designing great products with agile teams (3.ª ed.). O'Reilly Media.
+Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software*. Addison-Wesley.
 
-Gupta, K., y Singh, N. (2021). Consumption behaviour and social responsibility: A consumer research approach. Springer Nature. https://doi.org/10.1007/978-981-15-3005-0
+Fowler, M. (2010). *Domain-Driven Design*. martinfowler.com. [https://martinfowler.com/bliki/DomainDrivenDesign.html](https://martinfowler.com/bliki/DomainDrivenDesign.html)
 
-Ministerio de Energía y Minas. (2024). Anuario Minero 2024. Gobierno del Perú. https://www.minem.gob.pe
+Gothelf, J., y Seiden, J. (2021). *Lean UX: Designing Great Products with Agile Teams* (3.ª ed.). O'Reilly Media.
+
+Gupta, K., y Singh, N. (2021). *Consumption Behaviour and Social Responsibility: A Consumer Research Approach*. Springer Nature. [https://doi.org/10.1007/978-981-15-3005-0](https://doi.org/10.1007/978-981-15-3005-0)
+
+Ministerio de Energía y Minas. (2024). Anuario Minero 2024. Gobierno del Perú. [https://www.minem.gob.pe](https://www.minem.gob.pe)
+
+Nielsen, J. (1994). *10 Usability Heuristics for User Interface Design*. Nielsen Norman Group. [https://www.nngroup.com/articles/ten-usability-heuristics/](https://www.nngroup.com/articles/ten-usability-heuristics/)
 
 Núñez, R. (2025). Análisis de producción y exportación de oro en el Perú: brecha de 100 mil toneladas. Anuario Minero 2024, Minem.
 
-Schwab, K. (2016). The fourth industrial revolution. Crown Business.
+Schwab, K. (2016). *The Fourth Industrial Revolution*. Crown Business.
+
+Schwaber, K., & Sutherland, J. (2020). *The Scrum Guide*. [https://scrumguides.org](https://scrumguides.org)
