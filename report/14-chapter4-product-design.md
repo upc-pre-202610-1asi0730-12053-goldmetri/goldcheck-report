@@ -1660,7 +1660,12 @@ Contiene el value object QRCodeData, que almacena el código generado, el identi
 El diseño de base de datos de GoldCheck sigue una arquitectura relacional implementada en **MySQL 8** a través de **Entity Framework Core**, organizada en torno a los Bounded Contexts definidos en la arquitectura DDD. Cada Bounded Context posee sus propias tablas, generadas a partir de sus Aggregate Roots mediante el método `ApplyXxxConfiguration()` que cada contexto registra sobre el `AppDbContext` compartido, garantizando separación lógica de responsabilidades y bajo acoplamiento entre contextos.
  
 Las principales características del diseño son las siguientes. Primero, los Value Objects del dominio se persisten como columnas propias dentro de la tabla de su Aggregate Root gracias a `OwnsOne` de EF Core — por ejemplo, `MaterialBatchId`, `MineralType` o `Payload` no generan tablas adicionales, sino columnas embebidas en `material_operations_materials`, evitando joins innecesarios para datos que son parte intrínseca del aggregate. Segundo, el estado de cada aggregate se maneja como una columna `status` de tipo texto que registra la transición de dominio más reciente (por ejemplo `Identified`, `Classified`, `MovementTracked`), en lugar de un catálogo separado, siguiendo el patrón de máquina de estados propio de cada contexto. Tercero, las relaciones entre Bounded Contexts no se resuelven mediante Foreign Keys físicas sino a través de identificadores de referencia (`ReporterId`, `BatchId`, `MaterialIdRef`, `CertificateIdRef`) resueltos en tiempo de ejecución por los Context Facades (ACL), respetando el principio DDD de que los BCs se referencian por identidad y no por objeto. Cuarto, todas las tablas implementan la interfaz `IAuditableEntity`, por lo que cada una incluye de forma uniforme las columnas `created_at` y `updated_at`, gestionadas automáticamente por un interceptor de EF Core en cada operación de guardado. Finalmente, la convención de nombres de columnas es `snake_case`, aplicada de forma global mediante `UseSnakeCaseNamingConvention()` como última instrucción del `OnModelCreating`.
- 
+
+#### Overview
+
+![Database Overview](../assets/img/chapter-iv/database_overview.png)
+
+
 A continuación se presentan los diagramas de base de datos para cada Bounded Context, ordenados según su relevancia dentro de la cadena de valor del negocio, mostrando tablas, columnas y su Aggregate Root de origen.
  
 ---
