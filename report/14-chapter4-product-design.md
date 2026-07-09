@@ -168,7 +168,7 @@ Asimismo, el sistema permite visualizar información relacionada al mantenimient
 
 ![Landing Wireframe 6](../assets/img/landing-wireframe-6.png)
 
-**Link de figma**: https://www.figma.com/design/QbycMaaRmv7o2nCa9J8dPs/Wireframes-y-Mockups-GoldMetrics?node-id=0-1&t=cne9ZmeVzc0o0Y0J-1
+**Link de figma:** [Ver en Figma](https://www.figma.com/design/QbycMaaRmv7o2nCa9J8dPs/Wireframes-y-Mockups-GoldMetrics?node-id=0-1&t=cne9ZmeVzc0o0Y0J-1)
 
 # GoldMetrics — Justificación de Diseño (Wireframes)
  
@@ -257,8 +257,7 @@ Análisis basado en los 6 frames de wireframes de la landing page de GoldMetrics
 
 ![Landing Mockup 6](../assets/img/landing-mockup-6.png)
 
-**Link de figma:**
-https://www.figma.com/design/QbycMaaRmv7o2nCa9J8dPs/Wireframes-y-Mockups-GoldMetrics?node-id=0-1&t=cne9ZmeVzc0o0Y0J-1
+**Link de figma:** [Ver en Figma](https://www.figma.com/design/QbycMaaRmv7o2nCa9J8dPs/Wireframes-y-Mockups-GoldMetrics?node-id=0-1&t=cne9ZmeVzc0o0Y0J-1)
 
 # GoldMetrics — Justificación de Diseño (Mockups)
  
@@ -669,8 +668,7 @@ Análisis basado en las 17 pantallas de alta fidelidad de la aplicación GoldMet
 
 ## 4.5. Web Applications Prototyping
 
-Prototipo de la aplicación web GoldMetric en Figma:
-https://www.figma.com/design/7O7yxNUaLKdHpT7T4GyrSh/WIRFRAME-4?node-id=0-1&t=9KcYAtK3HDnZEl7w-1
+Prototipo de la aplicación web GoldMetric en Figma: [Ver en Figma](https://www.figma.com/design/7O7yxNUaLKdHpT7T4GyrSh/WIRFRAME-4?node-id=0-1&t=9KcYAtK3HDnZEl7w-1)
 
 ## 4.6. Domain-Driven Software Architecture
 
