@@ -1480,6 +1480,7 @@ El video incluye música de fondo instrumental, lower thirds en los testimonios,
 
 **URL Microsoft Stream:** [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202416107_upc_edu_pe/IQC7W39zUETUQpKsEUmqKGmDAUENRXB72OOW9wBzNXXwqbA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=8FjQGw)
 **URL YouTube:** [Ver video](https://youtu.be/AaWmhLNmybM)
+<<<<<<< HEAD
 
 
 ## 5.5. Video About-the-Team
@@ -1589,3 +1590,5 @@ Núñez, R. (2025). Análisis de producción y exportación de oro en el Perú: 
 Schwab, K. (2016). *The Fourth Industrial Revolution*. Crown Business.
 
 Schwaber, K., & Sutherland, J. (2020). *The Scrum Guide*. [https://scrumguides.org](https://scrumguides.org)
+=======
+>>>>>>> fix/update-report
