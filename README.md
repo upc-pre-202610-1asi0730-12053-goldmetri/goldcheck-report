@@ -317,8 +317,8 @@ A continuación se presentan las evidencias de colaboración por repositorio:
   - [5.3.3. Evaluaciones según heurísticas](report/15-chapter5-product-implementation.md#533-evaluaciones-según-heurísticas)
 
 - [5.4. Video About-the-Product](report/15-chapter5-product-implementation.md#54-video-about-the-product)
-- [5.5. Video About-the-Team](report/15-chapter5-product-implementation.md#55-video-about-the-team)
+- [5.5. Video About-the-Team](report/16-conclusions.md#video-about-the-team)
 
-- [Anexos Importantes](report/15-chapter5-product-implementation.md#anexos-importantes)
-- [Conclusiones](report/15-chapter5-product-implementation.md#conclusiones)
-- [Bibliografía](report/15-chapter5-product-implementation.md#bibliografía)
+- [Conclusiones](report/16-conclusions.md#conclusiones)
+- [Bibliografía](report/17-bibliography.md#bibliografía)
+- [Anexos Importantes](report/18-annexes.md#anexos-importantes)
